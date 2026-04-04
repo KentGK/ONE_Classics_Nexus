@@ -1,0 +1,15 @@
+C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Infrastructure\bin\Debug\net8.0\ONE_Classics_Nexus.Infrastructure.deps.json
+C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Infrastructure\bin\Debug\net8.0\ONE_Classics_Nexus.Infrastructure.dll
+C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Infrastructure\bin\Debug\net8.0\ONE_Classics_Nexus.Infrastructure.pdb
+C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Infrastructure\bin\Debug\net8.0\ONE_Classics_Nexus.Application.dll
+C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Infrastructure\bin\Debug\net8.0\ONE_Classics_Nexus.Domain.dll
+C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Infrastructure\bin\Debug\net8.0\ONE_Classics_Nexus.Application.pdb
+C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Infrastructure\bin\Debug\net8.0\ONE_Classics_Nexus.Domain.pdb
+C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Infrastructure\obj\Debug\net8.0\ONE_Classics_Nexus.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Infrastructure\obj\Debug\net8.0\ONE_Classics_Nexus.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Infrastructure\obj\Debug\net8.0\ONE_Classics_Nexus.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Infrastructure\obj\Debug\net8.0\ONE_Clas.28E6130C.Up2Date
+C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Infrastructure\obj\Debug\net8.0\ONE_Classics_Nexus.Infrastructure.dll
+C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Infrastructure\obj\Debug\net8.0\refint\ONE_Classics_Nexus.Infrastructure.dll
+C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Infrastructure\obj\Debug\net8.0\ONE_Classics_Nexus.Infrastructure.pdb
+C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Infrastructure\obj\Debug\net8.0\ref\ONE_Classics_Nexus.Infrastructure.dll

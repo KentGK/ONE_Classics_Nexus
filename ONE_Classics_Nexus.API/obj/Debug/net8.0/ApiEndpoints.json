@@ -1,0 +1,92 @@
+[
+  {
+    "ContainingType": "ONE_Classics_Nexus.API.Controllers.AppraisalsController",
+    "Method": "Create",
+    "RelativePath": "api/appraisals",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ONE_Classics_Nexus.Application.Requests.CreateAppraisalRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ONE_Classics_Nexus.API.Controllers.InspectionsController",
+    "Method": "Create",
+    "RelativePath": "api/inspections",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ONE_Classics_Nexus.Application.Requests.CreateInspectionRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ONE_Classics_Nexus.API.Controllers.InspectionsController",
+    "Method": "SaveScores",
+    "RelativePath": "api/inspections/{inspectionId}/scores",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "inspectionId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "ONE_Classics_Nexus.Application.Requests.SaveInspectionRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ONE_Classics_Nexus.API.Controllers.VehiclesController",
+    "Method": "Create",
+    "RelativePath": "api/vehicles",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ONE_Classics_Nexus.Application.Requests.CreateVehicleRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ONE_Classics_Nexus.API.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ONE_Classics_Nexus.API.WeatherForecast, ONE_Classics_Nexus.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]
