@@ -1,0 +1,78 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37027.9
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0F839814-4974-4B02-853E-F4CD3BC6ADE5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{8386F3D9-BDF5-44E9-B377-4C6264ADB985}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Tech Docs\ONE_Classics_Nexus_Phase_2_Build_Valuation_Math_Engine.md = ..\..\Tech Docs\ONE_Classics_Nexus_Phase_2_Build_Valuation_Math_Engine.md
+		ONE_Classics_Nexus.WinForms — Visual Studio Build Sheet.md = ONE_Classics_Nexus.WinForms — Visual Studio Build Sheet.md
+		..\..\Tech Docs\one_classics_platform_starter_file_tree.md = ..\..\Tech Docs\one_classics_platform_starter_file_tree.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "assets", "assets", "{36B48776-F97D-45B8-8E28-8F7552324C24}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "database", "database", "{E48712F9-B407-401A-981C-A81481E42E5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ONE_Classics_Nexus.Domain", "..\ONE_Classics_Nexus.Domain\ONE_Classics_Nexus.Domain.csproj", "{9181DBFE-F0AC-48F4-9095-BA57BEE4039F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ONE_Classics_Nexus.Application", "..\ONE_Classics_Nexus.Application\ONE_Classics_Nexus.Application.csproj", "{165FD9AA-5463-47EA-9F10-A09EEC3D242B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ONE_Classics_Nexus.Infrastructure", "..\ONE_Classics_Nexus.Infrastructure\ONE_Classics_Nexus.Infrastructure.csproj", "{23DE5FED-61CE-4962-ABE2-BF69CD845E39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ONE_Classics_Nexus.API", "..\ONE_Classics_Nexus.API\ONE_Classics_Nexus.API.csproj", "{22A4AA85-6CB6-4274-8783-8FA78543D5A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ONE_Classics_Nexus.WinForms", "..\ONE_Classics_Nexus.WinForms\ONE_Classics_Nexus.WinForms.csproj", "{DA16583E-1726-4934-91ED-F37957AB67FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ONE_Classics_Nexus.Tests", "..\ONE_Classics_Nexus.Tests\ONE_Classics_Nexus.Tests.csproj", "{388592D7-5085-45DE-AC3B-F7E719F4DAAC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9181DBFE-F0AC-48F4-9095-BA57BEE4039F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9181DBFE-F0AC-48F4-9095-BA57BEE4039F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9181DBFE-F0AC-48F4-9095-BA57BEE4039F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9181DBFE-F0AC-48F4-9095-BA57BEE4039F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{165FD9AA-5463-47EA-9F10-A09EEC3D242B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{165FD9AA-5463-47EA-9F10-A09EEC3D242B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{165FD9AA-5463-47EA-9F10-A09EEC3D242B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{165FD9AA-5463-47EA-9F10-A09EEC3D242B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23DE5FED-61CE-4962-ABE2-BF69CD845E39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23DE5FED-61CE-4962-ABE2-BF69CD845E39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23DE5FED-61CE-4962-ABE2-BF69CD845E39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23DE5FED-61CE-4962-ABE2-BF69CD845E39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22A4AA85-6CB6-4274-8783-8FA78543D5A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22A4AA85-6CB6-4274-8783-8FA78543D5A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22A4AA85-6CB6-4274-8783-8FA78543D5A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22A4AA85-6CB6-4274-8783-8FA78543D5A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA16583E-1726-4934-91ED-F37957AB67FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA16583E-1726-4934-91ED-F37957AB67FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA16583E-1726-4934-91ED-F37957AB67FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA16583E-1726-4934-91ED-F37957AB67FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{388592D7-5085-45DE-AC3B-F7E719F4DAAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{388592D7-5085-45DE-AC3B-F7E719F4DAAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{388592D7-5085-45DE-AC3B-F7E719F4DAAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{388592D7-5085-45DE-AC3B-F7E719F4DAAC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9181DBFE-F0AC-48F4-9095-BA57BEE4039F} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{165FD9AA-5463-47EA-9F10-A09EEC3D242B} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{23DE5FED-61CE-4962-ABE2-BF69CD845E39} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{22A4AA85-6CB6-4274-8783-8FA78543D5A8} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{DA16583E-1726-4934-91ED-F37957AB67FF} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{388592D7-5085-45DE-AC3B-F7E719F4DAAC} = {0F839814-4974-4B02-853E-F4CD3BC6ADE5}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F6A3C419-B12B-473C-8EBB-F4FDFCBA1EE2}
+	EndGlobalSection
+EndGlobal
