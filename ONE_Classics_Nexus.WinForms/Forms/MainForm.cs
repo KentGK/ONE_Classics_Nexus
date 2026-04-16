@@ -1,12 +1,12 @@
-﻿using System;
+﻿using ONE_Classics_Nexus.Application.Requests;
+using ONE_Classics_Nexus.Application.UseCases.Appraisals;
+using ONE_Classics_Nexus.Application.UseCases.Inspections;
+using ONE_Classics_Nexus.WinForms.Services;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ONE_Classics_Nexus.WinForms.Services;
-using ONE_Classics_Nexus.Application.Requests;
-using ONE_Classics_Nexus.Application.UseCases.Vehicles;
-using ONE_Classics_Nexus.Application.UseCases.Appraisals;
-using ONE_Classics_Nexus.Application.UseCases.Inspections;
+using static System.Windows.Forms.DataFormats;
 
 namespace ONE_Classics_Nexus.WinForms.Forms
 {
@@ -14,7 +14,7 @@ namespace ONE_Classics_Nexus.WinForms.Forms
     /// Simple WinForms test harness for exercising API endpoints.
     /// Provides buttons to create a vehicle, appraisal, inspection and to save inspection scores.
     /// </summary>
-    public sealed class MainForm : Form
+    public sealed partial class MainForm : Form
     {
         // API client used to call backend endpoints.
         private readonly ApiClient _apiClient;

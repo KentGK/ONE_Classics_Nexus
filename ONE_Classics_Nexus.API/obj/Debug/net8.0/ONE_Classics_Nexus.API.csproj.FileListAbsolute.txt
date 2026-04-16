@@ -30,6 +30,7 @@ C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.AP
 C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.API\obj\Debug\net8.0\ONE_Classics_Nexus.API.csproj.CoreCompileInputs.cache
 C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.API\obj\Debug\net8.0\ONE_Classics_Nexus.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.API\obj\Debug\net8.0\ONE_Classics_Nexus.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.API\obj\Debug\net8.0\ONE_Classics_Nexus.API.sourcelink.json
 C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.API\obj\Debug\net8.0\rjimswa.dswa.cache.json
 C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.API\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.API\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json

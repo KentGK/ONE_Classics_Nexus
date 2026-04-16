@@ -1,0 +1,34 @@
+6. Data Flow Design
+Primary operational flow
+
+Step 1: Intake
+
+User creates vehicle and appraisal.
+
+Step 2: Inspection
+
+User opens inspection form, enters detailed 12-system findings, assigns scores, notes red flags.
+
+Step 3: Condition normalization
+
+System converts inspection results into normalized condition metrics.
+
+Step 4: Comparable analysis
+
+Comparable sales are attached, normalized, and similarity-ranked.
+
+Step 5: Valuation execution
+
+Valuation engine combines condition, comparables, adjustments, and market rules.
+
+Step 6: Confidence scoring
+
+System determines strength of result based on comp quality, data completeness, and condition certainty.
+
+Step 7: Reporting
+
+Appraisal report is generated from structured records.
+
+Step 8: Delivery / retrieval
+
+Client or staff retrieves final report and valuation details.

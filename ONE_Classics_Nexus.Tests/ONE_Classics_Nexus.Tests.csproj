@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -9,16 +9,23 @@
     <IsTestProject>true</IsTestProject>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="coverlet.collector" Version="6.0.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
-    <PackageReference Include="xunit" Version="2.5.3" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3" />
-  </ItemGroup>
-
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.0" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
+		<PackageReference Include="xunit" Version="2.9.0" />
+		<PackageReference Include="xunit.runner.visualstudio" Version="2.8.2">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="FluentAssertions" Version="6.12.0" />
+		<PackageReference Include="Dapper" Version="2.1.72" />
+		<PackageReference Include="MySqlConnector" Version="2.5.0" />
+	</ItemGroup>
+	
   <ItemGroup>
     <ProjectReference Include="..\ONE_Classics_Nexus.Application\ONE_Classics_Nexus.Application.csproj" />
     <ProjectReference Include="..\ONE_Classics_Nexus.Domain\ONE_Classics_Nexus.Domain.csproj" />
+	<ProjectReference Include="..\ONE_Classics_Nexus.API\ONE_Classics_Nexus.API.csproj" />
   </ItemGroup>
 
   <ItemGroup>

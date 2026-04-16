@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
-    <UseWindowsForms>true</UseWindowsForms>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<UseWindowsForms>true</UseWindowsForms>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.5" />
@@ -14,6 +14,33 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ONE_Classics_Nexus.Application\ONE_Classics_Nexus.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Assets\Branding\" />
+    <Folder Include="Assets\Icons\" />
+    <Folder Include="Assets\Themes\" />
+    <Folder Include="Controls\Dashboard\" />
+    <Folder Include="Controls\Inspections\" />
+    <Folder Include="Controls\Comparables\" />
+    <Folder Include="Controls\Common\" />
+    <Folder Include="Controls\Valuations\" />
+    <Folder Include="Controls\Vehicles\" />
+    <Folder Include="Designers\Notes\" />
+    <Folder Include="DTOs\Appraisal\" />
+    <Folder Include="DTOs\Inspection\" />
+    <Folder Include="DTOs\Comparable\" />
+    <Folder Include="DTOs\Common\" />
+    <Folder Include="DTOs\Valuation\" />
+    <Folder Include="DTOs\Vehicle\" />
+    <Folder Include="Mappers\" />
+    <Folder Include="ViewModels\Dashboard\" />
+    <Folder Include="ViewModels\Appraisals\" />
+    <Folder Include="ViewModels\Inspections\" />
+    <Folder Include="ViewModels\Comparables\" />
+    <Folder Include="ViewModels\Reports\" />
+    <Folder Include="ViewModels\Valuations\" />
+    <Folder Include="ViewModels\Vehicles\" />
   </ItemGroup>
 
 </Project>

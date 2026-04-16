@@ -8,7 +8,7 @@ public static class DomainMappings
 {
     public static VehicleDto ToDto(this Vehicle vehicle) => new(
         vehicle.VehicleId,
-        vehicle.Vin,
+        vehicle.Vin?? string.Empty,
         vehicle.Year,
         vehicle.Make,
         vehicle.Model,

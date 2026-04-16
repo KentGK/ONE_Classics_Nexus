@@ -36,6 +36,112 @@
         }
       }
     },
+    "/api/appraisals/{appraisalId}/comparables": {
+      "post": {
+        "tags": [
+          "Comparables"
+        ],
+        "parameters": [
+          {
+            "name": "appraisalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateComparableRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateComparableRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateComparableRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComparableDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComparableDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComparableDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Comparables"
+        ],
+        "parameters": [
+          {
+            "name": "appraisalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ComparableDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ComparableDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ComparableDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/inspections": {
       "post": {
         "tags": [
@@ -109,6 +215,203 @@
         }
       }
     },
+    "/api/appraisals/{appraisalId}/valuation/run": {
+      "post": {
+        "tags": [
+          "Valuation"
+        ],
+        "parameters": [
+          {
+            "name": "appraisalId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValuationResultDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValuationResultDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValuationResultDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/vehicles/{id}": {
+      "get": {
+        "tags": [
+          "Vehicles"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/VehicleResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VehicleResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VehicleResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Vehicles"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateVehicleRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateVehicleRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateVehicleRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/VehicleResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VehicleResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VehicleResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/vehicles": {
       "post": {
         "tags": [
@@ -134,8 +437,45 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK"
+          "201": {
+            "description": "Created",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/VehicleResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VehicleResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VehicleResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -182,12 +522,186 @@
   },
   "components": {
     "schemas": {
+      "ComparableDto": {
+        "type": "object",
+        "properties": {
+          "comparableId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "appraisalId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "year": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "make": {
+            "type": "string",
+            "nullable": true
+          },
+          "model": {
+            "type": "string",
+            "nullable": true
+          },
+          "trim": {
+            "type": "string",
+            "nullable": true
+          },
+          "source": {
+            "type": "string",
+            "nullable": true
+          },
+          "saleDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "salePrice": {
+            "type": "number",
+            "format": "double"
+          },
+          "bodyStyle": {
+            "type": "string",
+            "nullable": true
+          },
+          "drivetrain": {
+            "type": "string",
+            "nullable": true
+          },
+          "engine": {
+            "type": "string",
+            "nullable": true
+          },
+          "transmission": {
+            "type": "string",
+            "nullable": true
+          },
+          "mileage": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "originalityLevel": {
+            "type": "string",
+            "nullable": true
+          },
+          "restorationLevel": {
+            "type": "string",
+            "nullable": true
+          },
+          "titleStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "overallConditionScore": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "hasRedFlags": {
+            "type": "boolean"
+          },
+          "notes": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
       "CreateAppraisalRequest": {
         "type": "object",
         "properties": {
           "vehicleId": {
             "type": "string",
             "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CreateComparableRequest": {
+        "type": "object",
+        "properties": {
+          "year": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "make": {
+            "type": "string",
+            "nullable": true
+          },
+          "model": {
+            "type": "string",
+            "nullable": true
+          },
+          "trim": {
+            "type": "string",
+            "nullable": true
+          },
+          "source": {
+            "type": "string",
+            "nullable": true
+          },
+          "saleDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "salePrice": {
+            "type": "number",
+            "format": "double"
+          },
+          "bodyStyle": {
+            "type": "string",
+            "nullable": true
+          },
+          "drivetrain": {
+            "type": "string",
+            "nullable": true
+          },
+          "engine": {
+            "type": "string",
+            "nullable": true
+          },
+          "transmission": {
+            "type": "string",
+            "nullable": true
+          },
+          "mileage": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "originalityLevel": {
+            "type": "string",
+            "nullable": true
+          },
+          "restorationLevel": {
+            "type": "string",
+            "nullable": true
+          },
+          "titleStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "overallConditionScore": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "hasRedFlags": {
+            "type": "boolean"
+          },
+          "notes": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -207,50 +721,164 @@
         "additionalProperties": false
       },
       "CreateVehicleRequest": {
+        "required": [
+          "make",
+          "model",
+          "odometerUnit"
+        ],
         "type": "object",
         "properties": {
           "vin": {
+            "maxLength": 50,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "year": {
+            "maximum": 2100,
+            "minimum": 1886,
             "type": "integer",
             "format": "int32"
           },
           "make": {
-            "type": "string",
-            "nullable": true
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
           },
           "model": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "trim": {
+            "maxLength": 100,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
-          "trim": {
+          "seriesName": {
+            "maxLength": 100,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "bodyStyle": {
-            "type": "string",
-            "nullable": true
-          },
-          "engine": {
-            "type": "string",
-            "nullable": true
-          },
-          "transmission": {
+            "maxLength": 100,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "drivetrain": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "engine": {
+            "maxLength": 150,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "transmission": {
+            "maxLength": 150,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "mileage": {
+            "maximum": 10000000,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "odometerUnit": {
+            "maxLength": 20,
+            "minLength": 0,
+            "type": "string"
+          },
+          "exteriorColor": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "interiorColor": {
+            "maxLength": 100,
+            "minLength": 0,
             "type": "string",
             "nullable": true
           },
           "titleStatus": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "authenticityProfile": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "restorationLevel": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "documentationLevel": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "overallConditionScore": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "hasRedFlags": {
+            "type": "boolean"
+          },
+          "ownershipSummary": {
+            "type": "string",
+            "nullable": true
+          },
+          "notes": {
             "type": "string",
             "nullable": true
           }
         },
         "additionalProperties": false
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
       },
       "SaveConditionScoreRequest": {
         "type": "object",
@@ -294,6 +922,375 @@
               "$ref": "#/components/schemas/SaveConditionScoreRequest"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateVehicleRequest": {
+        "required": [
+          "make",
+          "model",
+          "odometerUnit"
+        ],
+        "type": "object",
+        "properties": {
+          "vin": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "maximum": 2100,
+            "minimum": 1886,
+            "type": "integer",
+            "format": "int32"
+          },
+          "make": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "model": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "trim": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "seriesName": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "bodyStyle": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "drivetrain": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "engine": {
+            "maxLength": 150,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "transmission": {
+            "maxLength": 150,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "mileage": {
+            "maximum": 10000000,
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "odometerUnit": {
+            "maxLength": 20,
+            "minLength": 0,
+            "type": "string"
+          },
+          "exteriorColor": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "interiorColor": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "titleStatus": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "authenticityProfile": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "restorationLevel": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "documentationLevel": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "overallConditionScore": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "hasRedFlags": {
+            "type": "boolean"
+          },
+          "ownershipSummary": {
+            "type": "string",
+            "nullable": true
+          },
+          "notes": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ValidationProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          },
+          "errors": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
+      },
+      "ValuationResultDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/ValuationStatus"
+          },
+          "finalValue": {
+            "type": "number",
+            "format": "double"
+          },
+          "lowValue": {
+            "type": "number",
+            "format": "double"
+          },
+          "highValue": {
+            "type": "number",
+            "format": "double"
+          },
+          "confidence0To1": {
+            "type": "number",
+            "format": "double"
+          },
+          "engineVersion": {
+            "type": "string",
+            "nullable": true
+          },
+          "rubricVersion": {
+            "type": "string",
+            "nullable": true
+          },
+          "rulesetVersion": {
+            "type": "string",
+            "nullable": true
+          },
+          "trace": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValuationTraceLineDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ValuationStatus": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "ValuationTraceLineDto": {
+        "type": "object",
+        "properties": {
+          "sortOrder": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "key": {
+            "type": "string",
+            "nullable": true
+          },
+          "amount": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "factor": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "evidenceRef": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "VehicleResponse": {
+        "type": "object",
+        "properties": {
+          "vehicleId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "vin": {
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "make": {
+            "type": "string",
+            "nullable": true
+          },
+          "model": {
+            "type": "string",
+            "nullable": true
+          },
+          "trim": {
+            "type": "string",
+            "nullable": true
+          },
+          "seriesName": {
+            "type": "string",
+            "nullable": true
+          },
+          "bodyStyle": {
+            "type": "string",
+            "nullable": true
+          },
+          "drivetrain": {
+            "type": "string",
+            "nullable": true
+          },
+          "engine": {
+            "type": "string",
+            "nullable": true
+          },
+          "transmission": {
+            "type": "string",
+            "nullable": true
+          },
+          "mileage": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "odometerUnit": {
+            "type": "string",
+            "nullable": true
+          },
+          "exteriorColor": {
+            "type": "string",
+            "nullable": true
+          },
+          "interiorColor": {
+            "type": "string",
+            "nullable": true
+          },
+          "titleStatus": {
+            "type": "string",
+            "nullable": true
+          },
+          "authenticityProfile": {
+            "type": "string",
+            "nullable": true
+          },
+          "restorationLevel": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentationLevel": {
+            "type": "string",
+            "nullable": true
+          },
+          "overallConditionScore": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "hasRedFlags": {
+            "type": "boolean"
+          },
+          "ownershipSummary": {
+            "type": "string",
+            "nullable": true
+          },
+          "notes": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAtUtc": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAtUtc": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "additionalProperties": false

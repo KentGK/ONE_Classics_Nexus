@@ -1,47 +1,26 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using System.Data;
+using Microsoft.Extensions.Configuration;
 using MySqlConnector;
 
-namespace ONE_Classics_Nexus.Infrastructure.Database;
-
-public sealed class MariaDbConnectionFactory
+namespace ONE_Classics_Nexus.Infrastructure.Database
 {
-    private readonly string _connectionString;
-
-    public MariaDbConnectionFactory(IConfiguration configuration)
+    public sealed class MariaDbConnectionFactory : IDbConnectionFactory
     {
-        // Option 1: Read from appsettings.json
-        var configured = configuration.GetConnectionString("MariaDb");
+        private readonly string _connectionString;
 
-        // Option 2: Fallback (hardcoded for Phase 1 dev)
-        _connectionString = !string.IsNullOrWhiteSpace(configured)
-            ? configured
-            : BuildDefaultConnectionString();
-    }
-
-    public MySqlConnection Create()
-    {
-        return new MySqlConnection(_connectionString);
-    }
-
-    private static string BuildDefaultConnectionString()
-    {
-        var builder = new MySqlConnectionStringBuilder
+        public MariaDbConnectionFactory(IConfiguration configuration)
         {
-            Server = "localhost",
-            Port = 3309,
-            Database = "one_classics_nexus",
-            UserID = "root",
-            Password = "KentK1015",
+            _connectionString = configuration.GetConnectionString("DefaultConnection")
+                ?? throw new InvalidOperationException("Connection string 'DefaultConnection' was not found.");
+         
+            Console.WriteLine("TEST DB CONNECTION: " + _connectionString);
+        }
 
-            // Recommended settings
-            AllowUserVariables = true,
-            SslMode = MySqlSslMode.None,
-
-            // Optional performance tuning
-            ConnectionTimeout = 15,
-            DefaultCommandTimeout = 30
-        };
-
-        return builder.ConnectionString;
+        public async Task<IDbConnection> CreateOpenConnectionAsync(CancellationToken cancellationToken = default)
+        {
+            var connection = new MySqlConnection(_connectionString);
+            await connection.OpenAsync(cancellationToken);
+            return connection;
+        }
     }
 }

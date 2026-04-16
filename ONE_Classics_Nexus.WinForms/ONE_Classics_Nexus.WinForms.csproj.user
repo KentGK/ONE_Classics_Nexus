@@ -1,7 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Compile Update="Controls\Navigation\NavHeaderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\Navigation\SideNavControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\Navigation\SideNavItemControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\Shell\HeaderBarControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\Shell\StatusStripControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Forms\Admin\AdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Appraisals\AppraisalWorkspaceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Comparables\ComparablesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Dashboard\DashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Inspections\InspectionWorkspaceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Reports\ReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Shell\MainShellForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Valuations\ValuationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Forms\Vehicles\VehicleDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

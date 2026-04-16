@@ -2,7 +2,6 @@
 using ONE_Classics_Nexus.Application.Abstractions.Repositories;
 using ONE_Classics_Nexus.Application.UseCases.Appraisals;
 using ONE_Classics_Nexus.Application.UseCases.Inspections;
-using ONE_Classics_Nexus.Application.UseCases.Vehicles;
 using ONE_Classics_Nexus.Infrastructure.Database;
 using ONE_Classics_Nexus.Infrastructure.Repositories;
 
@@ -16,14 +15,19 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<MySqlConnectionFactory>();
         services.AddSingleton<MariaDbConnectionFactory>();
 
+        // Primary abstraction used by current repositories
+        services.AddScoped<IDbConnectionFactory, MariaDbConnectionFactory>();
+
         services.AddScoped<IVehicleRepository, VehicleRepository>();
         services.AddScoped<IAppraisalRepository, AppraisalRepository>();
         services.AddScoped<IInspectionRepository, InspectionRepository>();
+        services.AddScoped<IComparableRepository, ComparableRepository>();
 
-        services.AddScoped<CreateVehicleHandler>();
+        // Keep only handlers still actively used by current flows
         services.AddScoped<CreateAppraisalHandler>();
         services.AddScoped<CreateInspectionHandler>();
         services.AddScoped<SaveInspectionHandler>();
+
 
         return services;
     }

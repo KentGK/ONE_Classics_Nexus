@@ -1,6 +1,0 @@
-C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Domain\bin\Debug\ONE_Classics_Nexus.Domain.dll
-C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Domain\bin\Debug\ONE_Classics_Nexus.Domain.pdb
-C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Domain\obj\Debug\ONE_Classics_Nexus.Domain.csproj.AssemblyReference.cache
-C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Domain\obj\Debug\ONE_Classics_Nexus.Domain.csproj.CoreCompileInputs.cache
-C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Domain\obj\Debug\ONE_Classics_Nexus.Domain.dll
-C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Domain\obj\Debug\ONE_Classics_Nexus.Domain.pdb

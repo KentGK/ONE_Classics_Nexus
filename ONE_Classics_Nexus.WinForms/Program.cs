@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using ONE_Classics_Nexus.WinForms.Forms;
+using ONE_Classics_Nexus.WinForms.Forms.Shell;
 using ONE_Classics_Nexus.WinForms.Services;
 
 namespace ONE_Classics_Nexus.WinForms;
@@ -20,11 +21,11 @@ internal static class Program
         });
 
         services.AddSingleton<ApiClient>();
-        services.AddSingleton<MainForm>();
+        services.AddSingleton<MainShellForm>();
 
         using var serviceProvider = services.BuildServiceProvider();
 
-        var mainForm = serviceProvider.GetRequiredService<MainForm>();
-        System.Windows.Forms.Application.Run(mainForm);
+        var mainShellForm = serviceProvider.GetRequiredService<MainShellForm>();
+        System.Windows.Forms.Application.Run(mainShellForm);
     }
 }

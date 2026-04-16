@@ -1,71 +1,70 @@
-﻿// Import custom middleware for centralized error handling
-using ONE_Classics_Nexus.API.Middleware;
-
-// Import Infrastructure DI extension (registers DB, repositories, handlers)
+﻿using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
+using ONE_Classics_Nexus.Application.Abstractions.Repositories;
+using ONE_Classics_Nexus.Application.Abstractions.Services;
+using ONE_Classics_Nexus.Application.Services;
+using ONE_Classics_Nexus.Infrastructure;
+using ONE_Classics_Nexus.Infrastructure.Database;
 using ONE_Classics_Nexus.Infrastructure.DependencyInjection;
+using ONE_Classics_Nexus.Infrastructure.Repositories;
 
-// Create the WebApplication builder (bootstraps configuration, DI container, logging)
 var builder = WebApplication.CreateBuilder(args);
 
-
-// ---------------------------------------------------------
-// SERVICE REGISTRATION (Dependency Injection Container)
-// ---------------------------------------------------------
-
-// Adds MVC controller support (enables [ApiController], routing, model binding)
+// Core framework services
 builder.Services.AddControllers();
-
-// Enables endpoint discovery for Swagger/OpenAPI
 builder.Services.AddEndpointsApiExplorer();
-
-// Registers Swagger generator (creates OpenAPI spec + UI)
 builder.Services.AddSwaggerGen();
+builder.Services.AddProblemDetails();
 
-// Registers ALL Infrastructure dependencies:
-// - MariaDbConnectionFactory
-// - Repositories (Vehicle, Appraisal, Inspection)
-// - Application Handlers (CreateVehicle, etc.)
+// Nexus registrations
 builder.Services.AddNexusInfrastructure();
+builder.Services.AddValuationServices();
 
+// Repository / service registrations
+builder.Services.AddScoped<IDbConnectionFactory, MariaDbConnectionFactory>();
+builder.Services.AddScoped<IVehicleRepository, VehicleRepository>();
+builder.Services.AddScoped<IVehicleService, VehicleService>();
+builder.Services.AddScoped<IAppraisalRepository, AppraisalRepository>();
+builder.Services.AddScoped<IInspectionRepository, InspectionRepository>();
 
-// ---------------------------------------------------------
-// BUILD APPLICATION PIPELINE
-// ---------------------------------------------------------
+// Uncomment when implemented
+// builder.Services.AddScoped<IComparableRepository, ComparableRepository>();
 
-// Build the application (finalizes DI container + middleware pipeline)
 var app = builder.Build();
 
+// Global exception handling
+app.UseExceptionHandler(errorApp =>
+{
+    errorApp.Run(async context =>
+    {
+        var exceptionFeature = context.Features.Get<IExceptionHandlerFeature>();
+        var exception = exceptionFeature?.Error;
 
-// ---------------------------------------------------------
-// MIDDLEWARE PIPELINE (Request Processing Order Matters)
-// ---------------------------------------------------------
+        context.Response.StatusCode = StatusCodes.Status500InternalServerError;
+        context.Response.ContentType = "application/problem+json";
 
-// Enable Swagger JSON endpoint
-app.UseSwagger();
+        var problem = new ProblemDetails
+        {
+            Title = "Server error",
+            Status = StatusCodes.Status500InternalServerError,
+            Detail = exception?.Message,
+            Instance = context.Request.Path
+        };
 
-// Enable Swagger UI (interactive testing interface at /swagger)
-app.UseSwaggerUI();
+        await context.Response.WriteAsJsonAsync(problem);
+    });
+});
 
-// Custom middleware to convert exceptions into ProblemDetails responses
-// Handles:
-//   - ValidationException → 400
-//   - NotFoundException → 404
-//   - ConflictException → 409
-//   - All others → 500
-app.UseMiddleware<ProblemDetailsMiddleware>();
+// HTTP pipeline
+if (app.Environment.IsDevelopment() || app.Environment.IsEnvironment("Testing"))
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
-
-// ---------------------------------------------------------
-// ENDPOINT MAPPING
-// ---------------------------------------------------------
-
-// Maps controller routes (e.g., /api/vehicles, /api/appraisals, /api/inspections)
+app.UseHttpsRedirection();
+app.UseAuthorization();
 app.MapControllers();
 
-
-// ---------------------------------------------------------
-// APPLICATION START
-// ---------------------------------------------------------
-
-// Starts the web server (Kestrel) and begins listening for HTTP requests
 app.Run();
+public partial class Program { }

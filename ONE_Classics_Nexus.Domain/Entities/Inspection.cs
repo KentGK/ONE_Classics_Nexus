@@ -12,7 +12,7 @@ namespace ONE_Classics_Nexus.Domain.Entities
         public DateTime UpdatedAtUtc { get; set; }
         public List<ConditionScore> ConditionScores { get; set; } = new List<ConditionScore>();
 
-        public static Inspection Create(Guid appraisalId, string inspectionType = null)
+        public static Inspection Create(Guid appraisalId, string? inspectionType = null)
         {
             if (appraisalId == Guid.Empty)
                 throw new ArgumentException("AppraisalId is required.", nameof(appraisalId));
@@ -35,7 +35,6 @@ namespace ONE_Classics_Nexus.Domain.Entities
             if (scores is null)
                 throw new ArgumentNullException(nameof(scores));
 
-            // Avoid LINQ dependency by constructing a List directly
             ConditionScores = new List<ConditionScore>(scores);
             UpdatedAtUtc = DateTime.UtcNow;
         }

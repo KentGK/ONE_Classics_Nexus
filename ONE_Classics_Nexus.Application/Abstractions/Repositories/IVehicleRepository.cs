@@ -1,12 +1,11 @@
 ﻿using ONE_Classics_Nexus.Domain.Entities;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 
-namespace ONE_Classics_Nexus.Application.Abstractions.Repositories;
-
-public interface IVehicleRepository
+namespace ONE_Classics_Nexus.Application.Abstractions.Repositories
 {
-    Task<Vehicle> CreateAsync(Vehicle vehicle, CancellationToken ct);
-    Task<Vehicle?> GetByIdAsync(Guid vehicleId, CancellationToken ct);
+    public interface IVehicleRepository
+    {
+        Task<Vehicle> InsertAsync(Vehicle vehicle, CancellationToken cancellationToken = default);
+        Task<Vehicle?> GetByIdAsync(Guid vehicleId, CancellationToken cancellationToken = default);
+        Task<Vehicle?> UpdateAsync(Vehicle vehicle, CancellationToken cancellationToken = default);
+    }
 }
