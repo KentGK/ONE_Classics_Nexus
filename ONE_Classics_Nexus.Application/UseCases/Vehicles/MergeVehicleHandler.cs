@@ -1,6 +1,5 @@
 using ONE_Classics_Nexus.Application.Abstractions.Repositories;
 using ONE_Classics_Nexus.Application.Exceptions;
-using System;
 
 namespace ONE_Classics_Nexus.Application.UseCases.Vehicles;
 

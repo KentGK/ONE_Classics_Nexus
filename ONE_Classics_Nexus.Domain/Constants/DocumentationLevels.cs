@@ -1,5 +1,3 @@
-using System;
-
 namespace ONE_Classics_Nexus.Domain.Constants;
 
 public static class DocumentationLevels

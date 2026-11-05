@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ONE_Classics_Nexus.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+268df044fd2d2f677f14d36bf66456022b64adb9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+00ca12288c425ee94f891ac3f901d954e3a17ebe")]
 [assembly: System.Reflection.AssemblyProductAttribute("ONE_Classics_Nexus.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ONE_Classics_Nexus.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

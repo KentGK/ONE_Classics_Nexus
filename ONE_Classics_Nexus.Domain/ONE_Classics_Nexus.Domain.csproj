@@ -10,4 +10,91 @@
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
   </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppraisalRequests\AppraisalRequest.cs" />
+    <Compile Include="AppraisalRequests\AppraisalRequestDomainException.cs" />
+    <Compile Include="AppraisalRequests\AppraisalRequestQualificationStatus.cs" />
+    <Compile Include="AppraisalRequests\AppraisalRequestStatus.cs" />
+    <Compile Include="Constants\AuthenticityProfiles.cs" />
+    <Compile Include="Constants\DocumentationLevels.cs" />
+    <Compile Include="Constants\InspectionSystems.cs" />
+    <Compile Include="Constants\OdometerStatuses.cs" />
+    <Compile Include="Constants\OdometerUnits.cs" />
+    <Compile Include="Constants\OriginalityProfiles.cs" />
+    <Compile Include="Constants\RestorationLevels.cs" />
+    <Compile Include="Constants\TitleStatuses.cs" />
+    <Compile Include="Constants\VehicleStatuses.cs" />
+    <Compile Include="Entities\Appraisal.cs" />
+    <Compile Include="Entities\AppraisalSubjectSnapshot.cs" />
+    <Compile Include="Entities\ClientContact.cs" />
+    <Compile Include="Entities\Clients.cs" />
+    <Compile Include="Entities\ConditionScore.cs" />
+    <Compile Include="Entities\Inspection.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Entities\Vehicle.cs" />
+    <Compile Include="Valuation\Abstractions\IComparableEngine.cs" />
+    <Compile Include="Valuation\Abstractions\IConditionEngine.cs" />
+    <Compile Include="Valuation\Abstractions\IConfidenceEngine.cs" />
+    <Compile Include="Valuation\Abstractions\IMarketEngine.cs" />
+    <Compile Include="Valuation\Abstractions\ISimilarityEngine.cs" />
+    <Compile Include="Valuation\Abstractions\IValuationEngine.cs" />
+    <Compile Include="Valuation\Engines\DefaultComparableEngine.cs" />
+    <Compile Include="Valuation\Engines\DefaultConditionEngine.cs" />
+    <Compile Include="Valuation\Engines\DefaultConfidenceEngine.cs" />
+    <Compile Include="Valuation\Engines\DefaultMarketEngine.cs" />
+    <Compile Include="Valuation\Engines\DefaultSimilarityEngine.cs" />
+    <Compile Include="Valuation\Engines\DefaultValuationEngine.cs" />
+    <Compile Include="Valuation\Models\AdjustedComparable.cs" />
+    <Compile Include="Valuation\Models\ComparableAdjustment.cs" />
+    <Compile Include="Valuation\Models\ComparableSale.cs" />
+    <Compile Include="Valuation\Models\ConditionScore.cs" />
+    <Compile Include="Valuation\Models\SubjectVehicle.cs" />
+    <Compile Include="Valuation\Models\ValuationInput.cs" />
+    <Compile Include="Valuation\Models\ValuationResult.cs" />
+    <Compile Include="Valuation\Models\ValuationStatus.cs" />
+    <Compile Include="Valuation\Models\ValuationTraceLine.cs" />
+    <Compile Include="Valuation\Rules\ValuationRuleConstants.cs" />
+    <Compile Include="Valuation\Versioning\ValuationVersions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".vs\ONE_Classics_Nexus.Domain.csproj.dtbcache.json" />
+    <None Include=".vs\ONE_Classics_Nexus.Domain\CopilotIndices\17.14.1601.40145\CodeChunks.db" />
+    <None Include=".vs\ONE_Classics_Nexus.Domain\CopilotIndices\17.14.1601.40145\SemanticSymbols.db" />
+    <None Include=".vs\ONE_Classics_Nexus.Domain\DesignTimeBuild\.dtbcache.v2" />
+    <None Include=".vs\ONE_Classics_Nexus.Domain\FileContentIndex\598c5f85-84d9-432f-bc30-c4cf838ae728.vsidx" />
+    <None Include=".vs\ONE_Classics_Nexus.Domain\FileContentIndex\666f8bf4-28c4-4a5f-8d26-4815736dc1b9.vsidx" />
+    <None Include=".vs\ONE_Classics_Nexus.Domain\FileContentIndex\b768cfa2-2b4b-4fb2-bee9-7923c7aa1ae4.vsidx" />
+    <None Include=".vs\ONE_Classics_Nexus.Domain\v17\.futdcache.v2" />
+    <None Include=".vs\ONE_Classics_Nexus.Domain\v17\.suo" />
+    <None Include="bin\Debug\net8.0\ONE_Classics_Nexus.Domain.deps.json" />
+    <None Include="obj\ONE_Classics_Nexus.Domain.csproj.nuget.dgspec-Dell_Laptop.json" />
+    <None Include="obj\ONE_Classics_Nexus.Domain.csproj.nuget.dgspec.json" />
+    <None Include="obj\ONE_Classics_Nexus.Domain.csproj.nuget.g.props" />
+    <None Include="obj\ONE_Classics_Nexus.Domain.csproj.nuget.g.targets" />
+    <None Include="obj\project.assets.json" />
+    <None Include="obj\project.nuget-Dell_Laptop.cache" />
+    <None Include="obj\project.nuget.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include=".vs\ONE_Classics_Nexus.Domain\copilot-chat\19810efe\sessions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\net8.0\ONE_Classics_Nexus.Domain.dll" />
+    <Content Include="bin\Debug\net8.0\ONE_Classics_Nexus.Domain.pdb" />
+    <Content Include="bin\Debug\ONE_Classics_Nexus.Domain.dll" />
+    <Content Include="bin\Debug\ONE_Classics_Nexus.Domain.pdb" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

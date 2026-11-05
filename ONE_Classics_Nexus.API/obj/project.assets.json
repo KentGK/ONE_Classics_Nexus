@@ -110,6 +110,7 @@
         }
       },
       "MySqlConnector/2.6.2": {
+      "MySqlConnector/2.6.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
@@ -220,6 +221,7 @@
           "Dapper": "2.1.72",
           "Microsoft.Extensions.Configuration.Abstractions": "9.0.8",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.8",
+          "MySqlConnector": "2.6.2",
           "MySqlConnector": "2.6.2",
           "ONE_Classics_Nexus.Application": "1.0.0",
           "ONE_Classics_Nexus.Domain": "1.0.0"
@@ -662,7 +664,10 @@
     },
     "MySqlConnector/2.6.2": {
       "sha512": "dlTc/tsBa42szdvpj4nrHvQVUb0gsMwR9HT6J0Zz2OSqfP0CdYlGw+qQPqCpbnO97idfvclSjKYtM6y5QaBQaQ==",
+    "MySqlConnector/2.6.2": {
+      "sha512": "dlTc/tsBa42szdvpj4nrHvQVUb0gsMwR9HT6J0Zz2OSqfP0CdYlGw+qQPqCpbnO97idfvclSjKYtM6y5QaBQaQ==",
       "type": "package",
+      "path": "mysqlconnector/2.6.2",
       "path": "mysqlconnector/2.6.2",
       "files": [
         ".nupkg.metadata",
@@ -687,6 +692,7 @@
         "lib/netstandard2.1/MySqlConnector.dll",
         "lib/netstandard2.1/MySqlConnector.xml",
         "logo.png",
+        "mysqlconnector.2.6.2.nupkg.sha512",
         "mysqlconnector.2.6.2.nupkg.sha512",
         "mysqlconnector.nuspec"
       ]
@@ -812,6 +818,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "MySqlConnector >= 2.6.2",
+      "MySqlConnector >= 2.6.2",
       "ONE_Classics_Nexus.Application >= 1.0.0",
       "ONE_Classics_Nexus.Infrastructure >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.6.2"
@@ -875,6 +882,10 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "MySqlConnector": {
+            "target": "Package",
+            "version": "[2.6.2, )"
+          },
           "MySqlConnector": {
             "target": "Package",
             "version": "[2.6.2, )"
