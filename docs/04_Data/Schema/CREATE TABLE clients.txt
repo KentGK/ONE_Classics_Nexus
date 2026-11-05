@@ -1,0 +1,15 @@
+-- one_classics_nexus_test.clients definition
+
+CREATE TABLE `clients` (
+  `client_id` char(36) NOT NULL,
+  `client_type` varchar(30) NOT NULL,
+  `legal_name` varchar(200) NOT NULL,
+  `preferred_name` varchar(200) DEFAULT NULL,
+  `status` varchar(30) NOT NULL,
+  `notes` text DEFAULT NULL,
+  `created_at_utc` datetime(6) NOT NULL DEFAULT current_timestamp(6),
+  `updated_at_utc` datetime(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6),
+  PRIMARY KEY (`client_id`),
+  KEY `idx_clients_name` (`legal_name`),
+  KEY `idx_clients_status` (`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

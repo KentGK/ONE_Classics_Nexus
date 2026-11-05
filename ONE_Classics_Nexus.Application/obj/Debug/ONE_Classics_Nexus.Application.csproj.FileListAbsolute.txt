@@ -1,9 +1,2 @@
-C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Application\bin\Debug\ONE_Classics_Nexus.Application.dll
-C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Application\bin\Debug\ONE_Classics_Nexus.Application.pdb
-C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Application\bin\Debug\ONE_Classics_Nexus.Domain.dll
-C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Application\bin\Debug\ONE_Classics_Nexus.Domain.pdb
-C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Application\obj\Debug\ONE_Classics_Nexus.Application.csproj.AssemblyReference.cache
-C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Application\obj\Debug\ONE_Classics_Nexus.Application.csproj.CoreCompileInputs.cache
-C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Application\obj\Debug\ONE_Clas.ED9A987F.Up2Date
-C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Application\obj\Debug\ONE_Classics_Nexus.Application.dll
-C:\Users\kentk\OneDrive\ONEClassics\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Application\obj\Debug\ONE_Classics_Nexus.Application.pdb
+C:\Users\kentk\OneDrive\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Application\obj\Debug\ONE_Classics_Nexus.Application.csproj.AssemblyReference.cache
+C:\Users\kentk\OneDrive\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Application\obj\Debug\ONE_Classics_Nexus.Application.csproj.CoreCompileInputs.cache

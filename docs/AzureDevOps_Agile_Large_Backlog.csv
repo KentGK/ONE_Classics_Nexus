@@ -1,0 +1,431 @@
+Work Item Type,Title,Description,Priority,Tags
+Epic,Vehicle Management,Vehicle Management capability for the appraisal platform.,1,Release1;Epic
+Feature,Vehicle Management Feature 1,Feature under Vehicle Management.,2,Release1;Feature
+User Story,Vehicle Management Feature 1 Story 1,"As a user I want Vehicle Management Feature 1 Story 1 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC1.",2,Release2;UserStory
+Task,Vehicle Management Feature 1 Story 1 Task 1,Implementation task 1 for Vehicle Management Feature 1 Story 1.,3,Release2;Task
+Task,Vehicle Management Feature 1 Story 1 Task 2,Implementation task 2 for Vehicle Management Feature 1 Story 1.,3,Release2;Task
+Task,Vehicle Management Feature 1 Story 1 Task 3,Implementation task 3 for Vehicle Management Feature 1 Story 1.,3,Release2;Task
+User Story,Vehicle Management Feature 1 Story 2,"As a user I want Vehicle Management Feature 1 Story 2 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC2.",2,Release3;UserStory
+Task,Vehicle Management Feature 1 Story 2 Task 1,Implementation task 1 for Vehicle Management Feature 1 Story 2.,3,Release3;Task
+Task,Vehicle Management Feature 1 Story 2 Task 2,Implementation task 2 for Vehicle Management Feature 1 Story 2.,3,Release3;Task
+Task,Vehicle Management Feature 1 Story 2 Task 3,Implementation task 3 for Vehicle Management Feature 1 Story 2.,3,Release3;Task
+User Story,Vehicle Management Feature 1 Story 3,"As a user I want Vehicle Management Feature 1 Story 3 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC3.",2,Release1;UserStory
+Task,Vehicle Management Feature 1 Story 3 Task 1,Implementation task 1 for Vehicle Management Feature 1 Story 3.,3,Release1;Task
+Task,Vehicle Management Feature 1 Story 3 Task 2,Implementation task 2 for Vehicle Management Feature 1 Story 3.,3,Release1;Task
+Task,Vehicle Management Feature 1 Story 3 Task 3,Implementation task 3 for Vehicle Management Feature 1 Story 3.,3,Release1;Task
+User Story,Vehicle Management Feature 1 Story 4,"As a user I want Vehicle Management Feature 1 Story 4 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC4.",2,Release2;UserStory
+Task,Vehicle Management Feature 1 Story 4 Task 1,Implementation task 1 for Vehicle Management Feature 1 Story 4.,3,Release2;Task
+Task,Vehicle Management Feature 1 Story 4 Task 2,Implementation task 2 for Vehicle Management Feature 1 Story 4.,3,Release2;Task
+Task,Vehicle Management Feature 1 Story 4 Task 3,Implementation task 3 for Vehicle Management Feature 1 Story 4.,3,Release2;Task
+Feature,Vehicle Management Feature 2,Feature under Vehicle Management.,2,Release2;Feature
+User Story,Vehicle Management Feature 2 Story 1,"As a user I want Vehicle Management Feature 2 Story 1 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC1.",2,Release2;UserStory
+Task,Vehicle Management Feature 2 Story 1 Task 1,Implementation task 1 for Vehicle Management Feature 2 Story 1.,3,Release2;Task
+Task,Vehicle Management Feature 2 Story 1 Task 2,Implementation task 2 for Vehicle Management Feature 2 Story 1.,3,Release2;Task
+Task,Vehicle Management Feature 2 Story 1 Task 3,Implementation task 3 for Vehicle Management Feature 2 Story 1.,3,Release2;Task
+User Story,Vehicle Management Feature 2 Story 2,"As a user I want Vehicle Management Feature 2 Story 2 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC2.",2,Release3;UserStory
+Task,Vehicle Management Feature 2 Story 2 Task 1,Implementation task 1 for Vehicle Management Feature 2 Story 2.,3,Release3;Task
+Task,Vehicle Management Feature 2 Story 2 Task 2,Implementation task 2 for Vehicle Management Feature 2 Story 2.,3,Release3;Task
+Task,Vehicle Management Feature 2 Story 2 Task 3,Implementation task 3 for Vehicle Management Feature 2 Story 2.,3,Release3;Task
+User Story,Vehicle Management Feature 2 Story 3,"As a user I want Vehicle Management Feature 2 Story 3 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC3.",2,Release1;UserStory
+Task,Vehicle Management Feature 2 Story 3 Task 1,Implementation task 1 for Vehicle Management Feature 2 Story 3.,3,Release1;Task
+Task,Vehicle Management Feature 2 Story 3 Task 2,Implementation task 2 for Vehicle Management Feature 2 Story 3.,3,Release1;Task
+Task,Vehicle Management Feature 2 Story 3 Task 3,Implementation task 3 for Vehicle Management Feature 2 Story 3.,3,Release1;Task
+User Story,Vehicle Management Feature 2 Story 4,"As a user I want Vehicle Management Feature 2 Story 4 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC4.",2,Release2;UserStory
+Task,Vehicle Management Feature 2 Story 4 Task 1,Implementation task 1 for Vehicle Management Feature 2 Story 4.,3,Release2;Task
+Task,Vehicle Management Feature 2 Story 4 Task 2,Implementation task 2 for Vehicle Management Feature 2 Story 4.,3,Release2;Task
+Task,Vehicle Management Feature 2 Story 4 Task 3,Implementation task 3 for Vehicle Management Feature 2 Story 4.,3,Release2;Task
+Epic,Inspection Management,Inspection Management capability for the appraisal platform.,1,Release1;Epic
+Feature,Inspection Management Feature 1,Feature under Inspection Management.,2,Release1;Feature
+User Story,Inspection Management Feature 1 Story 1,"As a user I want Inspection Management Feature 1 Story 1 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC1.",2,Release2;UserStory
+Task,Inspection Management Feature 1 Story 1 Task 1,Implementation task 1 for Inspection Management Feature 1 Story 1.,3,Release2;Task
+Task,Inspection Management Feature 1 Story 1 Task 2,Implementation task 2 for Inspection Management Feature 1 Story 1.,3,Release2;Task
+Task,Inspection Management Feature 1 Story 1 Task 3,Implementation task 3 for Inspection Management Feature 1 Story 1.,3,Release2;Task
+User Story,Inspection Management Feature 1 Story 2,"As a user I want Inspection Management Feature 1 Story 2 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC2.",2,Release3;UserStory
+Task,Inspection Management Feature 1 Story 2 Task 1,Implementation task 1 for Inspection Management Feature 1 Story 2.,3,Release3;Task
+Task,Inspection Management Feature 1 Story 2 Task 2,Implementation task 2 for Inspection Management Feature 1 Story 2.,3,Release3;Task
+Task,Inspection Management Feature 1 Story 2 Task 3,Implementation task 3 for Inspection Management Feature 1 Story 2.,3,Release3;Task
+User Story,Inspection Management Feature 1 Story 3,"As a user I want Inspection Management Feature 1 Story 3 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC3.",2,Release1;UserStory
+Task,Inspection Management Feature 1 Story 3 Task 1,Implementation task 1 for Inspection Management Feature 1 Story 3.,3,Release1;Task
+Task,Inspection Management Feature 1 Story 3 Task 2,Implementation task 2 for Inspection Management Feature 1 Story 3.,3,Release1;Task
+Task,Inspection Management Feature 1 Story 3 Task 3,Implementation task 3 for Inspection Management Feature 1 Story 3.,3,Release1;Task
+User Story,Inspection Management Feature 1 Story 4,"As a user I want Inspection Management Feature 1 Story 4 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC4.",2,Release2;UserStory
+Task,Inspection Management Feature 1 Story 4 Task 1,Implementation task 1 for Inspection Management Feature 1 Story 4.,3,Release2;Task
+Task,Inspection Management Feature 1 Story 4 Task 2,Implementation task 2 for Inspection Management Feature 1 Story 4.,3,Release2;Task
+Task,Inspection Management Feature 1 Story 4 Task 3,Implementation task 3 for Inspection Management Feature 1 Story 4.,3,Release2;Task
+Feature,Inspection Management Feature 2,Feature under Inspection Management.,2,Release2;Feature
+User Story,Inspection Management Feature 2 Story 1,"As a user I want Inspection Management Feature 2 Story 1 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC1.",2,Release2;UserStory
+Task,Inspection Management Feature 2 Story 1 Task 1,Implementation task 1 for Inspection Management Feature 2 Story 1.,3,Release2;Task
+Task,Inspection Management Feature 2 Story 1 Task 2,Implementation task 2 for Inspection Management Feature 2 Story 1.,3,Release2;Task
+Task,Inspection Management Feature 2 Story 1 Task 3,Implementation task 3 for Inspection Management Feature 2 Story 1.,3,Release2;Task
+User Story,Inspection Management Feature 2 Story 2,"As a user I want Inspection Management Feature 2 Story 2 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC2.",2,Release3;UserStory
+Task,Inspection Management Feature 2 Story 2 Task 1,Implementation task 1 for Inspection Management Feature 2 Story 2.,3,Release3;Task
+Task,Inspection Management Feature 2 Story 2 Task 2,Implementation task 2 for Inspection Management Feature 2 Story 2.,3,Release3;Task
+Task,Inspection Management Feature 2 Story 2 Task 3,Implementation task 3 for Inspection Management Feature 2 Story 2.,3,Release3;Task
+User Story,Inspection Management Feature 2 Story 3,"As a user I want Inspection Management Feature 2 Story 3 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC3.",2,Release1;UserStory
+Task,Inspection Management Feature 2 Story 3 Task 1,Implementation task 1 for Inspection Management Feature 2 Story 3.,3,Release1;Task
+Task,Inspection Management Feature 2 Story 3 Task 2,Implementation task 2 for Inspection Management Feature 2 Story 3.,3,Release1;Task
+Task,Inspection Management Feature 2 Story 3 Task 3,Implementation task 3 for Inspection Management Feature 2 Story 3.,3,Release1;Task
+User Story,Inspection Management Feature 2 Story 4,"As a user I want Inspection Management Feature 2 Story 4 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC4.",2,Release2;UserStory
+Task,Inspection Management Feature 2 Story 4 Task 1,Implementation task 1 for Inspection Management Feature 2 Story 4.,3,Release2;Task
+Task,Inspection Management Feature 2 Story 4 Task 2,Implementation task 2 for Inspection Management Feature 2 Story 4.,3,Release2;Task
+Task,Inspection Management Feature 2 Story 4 Task 3,Implementation task 3 for Inspection Management Feature 2 Story 4.,3,Release2;Task
+Epic,Photo Management,Photo Management capability for the appraisal platform.,1,Release1;Epic
+Feature,Photo Management Feature 1,Feature under Photo Management.,2,Release1;Feature
+User Story,Photo Management Feature 1 Story 1,"As a user I want Photo Management Feature 1 Story 1 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC1.",2,Release2;UserStory
+Task,Photo Management Feature 1 Story 1 Task 1,Implementation task 1 for Photo Management Feature 1 Story 1.,3,Release2;Task
+Task,Photo Management Feature 1 Story 1 Task 2,Implementation task 2 for Photo Management Feature 1 Story 1.,3,Release2;Task
+Task,Photo Management Feature 1 Story 1 Task 3,Implementation task 3 for Photo Management Feature 1 Story 1.,3,Release2;Task
+User Story,Photo Management Feature 1 Story 2,"As a user I want Photo Management Feature 1 Story 2 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC2.",2,Release3;UserStory
+Task,Photo Management Feature 1 Story 2 Task 1,Implementation task 1 for Photo Management Feature 1 Story 2.,3,Release3;Task
+Task,Photo Management Feature 1 Story 2 Task 2,Implementation task 2 for Photo Management Feature 1 Story 2.,3,Release3;Task
+Task,Photo Management Feature 1 Story 2 Task 3,Implementation task 3 for Photo Management Feature 1 Story 2.,3,Release3;Task
+User Story,Photo Management Feature 1 Story 3,"As a user I want Photo Management Feature 1 Story 3 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC3.",2,Release1;UserStory
+Task,Photo Management Feature 1 Story 3 Task 1,Implementation task 1 for Photo Management Feature 1 Story 3.,3,Release1;Task
+Task,Photo Management Feature 1 Story 3 Task 2,Implementation task 2 for Photo Management Feature 1 Story 3.,3,Release1;Task
+Task,Photo Management Feature 1 Story 3 Task 3,Implementation task 3 for Photo Management Feature 1 Story 3.,3,Release1;Task
+User Story,Photo Management Feature 1 Story 4,"As a user I want Photo Management Feature 1 Story 4 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC4.",2,Release2;UserStory
+Task,Photo Management Feature 1 Story 4 Task 1,Implementation task 1 for Photo Management Feature 1 Story 4.,3,Release2;Task
+Task,Photo Management Feature 1 Story 4 Task 2,Implementation task 2 for Photo Management Feature 1 Story 4.,3,Release2;Task
+Task,Photo Management Feature 1 Story 4 Task 3,Implementation task 3 for Photo Management Feature 1 Story 4.,3,Release2;Task
+Feature,Photo Management Feature 2,Feature under Photo Management.,2,Release2;Feature
+User Story,Photo Management Feature 2 Story 1,"As a user I want Photo Management Feature 2 Story 1 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC1.",2,Release2;UserStory
+Task,Photo Management Feature 2 Story 1 Task 1,Implementation task 1 for Photo Management Feature 2 Story 1.,3,Release2;Task
+Task,Photo Management Feature 2 Story 1 Task 2,Implementation task 2 for Photo Management Feature 2 Story 1.,3,Release2;Task
+Task,Photo Management Feature 2 Story 1 Task 3,Implementation task 3 for Photo Management Feature 2 Story 1.,3,Release2;Task
+User Story,Photo Management Feature 2 Story 2,"As a user I want Photo Management Feature 2 Story 2 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC2.",2,Release3;UserStory
+Task,Photo Management Feature 2 Story 2 Task 1,Implementation task 1 for Photo Management Feature 2 Story 2.,3,Release3;Task
+Task,Photo Management Feature 2 Story 2 Task 2,Implementation task 2 for Photo Management Feature 2 Story 2.,3,Release3;Task
+Task,Photo Management Feature 2 Story 2 Task 3,Implementation task 3 for Photo Management Feature 2 Story 2.,3,Release3;Task
+User Story,Photo Management Feature 2 Story 3,"As a user I want Photo Management Feature 2 Story 3 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC3.",2,Release1;UserStory
+Task,Photo Management Feature 2 Story 3 Task 1,Implementation task 1 for Photo Management Feature 2 Story 3.,3,Release1;Task
+Task,Photo Management Feature 2 Story 3 Task 2,Implementation task 2 for Photo Management Feature 2 Story 3.,3,Release1;Task
+Task,Photo Management Feature 2 Story 3 Task 3,Implementation task 3 for Photo Management Feature 2 Story 3.,3,Release1;Task
+User Story,Photo Management Feature 2 Story 4,"As a user I want Photo Management Feature 2 Story 4 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC4.",2,Release2;UserStory
+Task,Photo Management Feature 2 Story 4 Task 1,Implementation task 1 for Photo Management Feature 2 Story 4.,3,Release2;Task
+Task,Photo Management Feature 2 Story 4 Task 2,Implementation task 2 for Photo Management Feature 2 Story 4.,3,Release2;Task
+Task,Photo Management Feature 2 Story 4 Task 3,Implementation task 3 for Photo Management Feature 2 Story 4.,3,Release2;Task
+Epic,VIN & Data Services,VIN & Data Services capability for the appraisal platform.,1,Release1;Epic
+Feature,VIN & Data Services Feature 1,Feature under VIN & Data Services.,2,Release1;Feature
+User Story,VIN & Data Services Feature 1 Story 1,"As a user I want VIN & Data Services Feature 1 Story 1 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC1.",2,Release2;UserStory
+Task,VIN & Data Services Feature 1 Story 1 Task 1,Implementation task 1 for VIN & Data Services Feature 1 Story 1.,3,Release2;Task
+Task,VIN & Data Services Feature 1 Story 1 Task 2,Implementation task 2 for VIN & Data Services Feature 1 Story 1.,3,Release2;Task
+Task,VIN & Data Services Feature 1 Story 1 Task 3,Implementation task 3 for VIN & Data Services Feature 1 Story 1.,3,Release2;Task
+User Story,VIN & Data Services Feature 1 Story 2,"As a user I want VIN & Data Services Feature 1 Story 2 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC2.",2,Release3;UserStory
+Task,VIN & Data Services Feature 1 Story 2 Task 1,Implementation task 1 for VIN & Data Services Feature 1 Story 2.,3,Release3;Task
+Task,VIN & Data Services Feature 1 Story 2 Task 2,Implementation task 2 for VIN & Data Services Feature 1 Story 2.,3,Release3;Task
+Task,VIN & Data Services Feature 1 Story 2 Task 3,Implementation task 3 for VIN & Data Services Feature 1 Story 2.,3,Release3;Task
+User Story,VIN & Data Services Feature 1 Story 3,"As a user I want VIN & Data Services Feature 1 Story 3 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC3.",2,Release1;UserStory
+Task,VIN & Data Services Feature 1 Story 3 Task 1,Implementation task 1 for VIN & Data Services Feature 1 Story 3.,3,Release1;Task
+Task,VIN & Data Services Feature 1 Story 3 Task 2,Implementation task 2 for VIN & Data Services Feature 1 Story 3.,3,Release1;Task
+Task,VIN & Data Services Feature 1 Story 3 Task 3,Implementation task 3 for VIN & Data Services Feature 1 Story 3.,3,Release1;Task
+User Story,VIN & Data Services Feature 1 Story 4,"As a user I want VIN & Data Services Feature 1 Story 4 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC4.",2,Release2;UserStory
+Task,VIN & Data Services Feature 1 Story 4 Task 1,Implementation task 1 for VIN & Data Services Feature 1 Story 4.,3,Release2;Task
+Task,VIN & Data Services Feature 1 Story 4 Task 2,Implementation task 2 for VIN & Data Services Feature 1 Story 4.,3,Release2;Task
+Task,VIN & Data Services Feature 1 Story 4 Task 3,Implementation task 3 for VIN & Data Services Feature 1 Story 4.,3,Release2;Task
+Feature,VIN & Data Services Feature 2,Feature under VIN & Data Services.,2,Release2;Feature
+User Story,VIN & Data Services Feature 2 Story 1,"As a user I want VIN & Data Services Feature 2 Story 1 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC1.",2,Release2;UserStory
+Task,VIN & Data Services Feature 2 Story 1 Task 1,Implementation task 1 for VIN & Data Services Feature 2 Story 1.,3,Release2;Task
+Task,VIN & Data Services Feature 2 Story 1 Task 2,Implementation task 2 for VIN & Data Services Feature 2 Story 1.,3,Release2;Task
+Task,VIN & Data Services Feature 2 Story 1 Task 3,Implementation task 3 for VIN & Data Services Feature 2 Story 1.,3,Release2;Task
+User Story,VIN & Data Services Feature 2 Story 2,"As a user I want VIN & Data Services Feature 2 Story 2 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC2.",2,Release3;UserStory
+Task,VIN & Data Services Feature 2 Story 2 Task 1,Implementation task 1 for VIN & Data Services Feature 2 Story 2.,3,Release3;Task
+Task,VIN & Data Services Feature 2 Story 2 Task 2,Implementation task 2 for VIN & Data Services Feature 2 Story 2.,3,Release3;Task
+Task,VIN & Data Services Feature 2 Story 2 Task 3,Implementation task 3 for VIN & Data Services Feature 2 Story 2.,3,Release3;Task
+User Story,VIN & Data Services Feature 2 Story 3,"As a user I want VIN & Data Services Feature 2 Story 3 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC3.",2,Release1;UserStory
+Task,VIN & Data Services Feature 2 Story 3 Task 1,Implementation task 1 for VIN & Data Services Feature 2 Story 3.,3,Release1;Task
+Task,VIN & Data Services Feature 2 Story 3 Task 2,Implementation task 2 for VIN & Data Services Feature 2 Story 3.,3,Release1;Task
+Task,VIN & Data Services Feature 2 Story 3 Task 3,Implementation task 3 for VIN & Data Services Feature 2 Story 3.,3,Release1;Task
+User Story,VIN & Data Services Feature 2 Story 4,"As a user I want VIN & Data Services Feature 2 Story 4 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC4.",2,Release2;UserStory
+Task,VIN & Data Services Feature 2 Story 4 Task 1,Implementation task 1 for VIN & Data Services Feature 2 Story 4.,3,Release2;Task
+Task,VIN & Data Services Feature 2 Story 4 Task 2,Implementation task 2 for VIN & Data Services Feature 2 Story 4.,3,Release2;Task
+Task,VIN & Data Services Feature 2 Story 4 Task 3,Implementation task 3 for VIN & Data Services Feature 2 Story 4.,3,Release2;Task
+Epic,Valuation Engine,Valuation Engine capability for the appraisal platform.,1,Release1;Epic
+Feature,Valuation Engine Feature 1,Feature under Valuation Engine.,2,Release1;Feature
+User Story,Valuation Engine Feature 1 Story 1,"As a user I want Valuation Engine Feature 1 Story 1 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC1.",2,Release2;UserStory
+Task,Valuation Engine Feature 1 Story 1 Task 1,Implementation task 1 for Valuation Engine Feature 1 Story 1.,3,Release2;Task
+Task,Valuation Engine Feature 1 Story 1 Task 2,Implementation task 2 for Valuation Engine Feature 1 Story 1.,3,Release2;Task
+Task,Valuation Engine Feature 1 Story 1 Task 3,Implementation task 3 for Valuation Engine Feature 1 Story 1.,3,Release2;Task
+User Story,Valuation Engine Feature 1 Story 2,"As a user I want Valuation Engine Feature 1 Story 2 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC2.",2,Release3;UserStory
+Task,Valuation Engine Feature 1 Story 2 Task 1,Implementation task 1 for Valuation Engine Feature 1 Story 2.,3,Release3;Task
+Task,Valuation Engine Feature 1 Story 2 Task 2,Implementation task 2 for Valuation Engine Feature 1 Story 2.,3,Release3;Task
+Task,Valuation Engine Feature 1 Story 2 Task 3,Implementation task 3 for Valuation Engine Feature 1 Story 2.,3,Release3;Task
+User Story,Valuation Engine Feature 1 Story 3,"As a user I want Valuation Engine Feature 1 Story 3 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC3.",2,Release1;UserStory
+Task,Valuation Engine Feature 1 Story 3 Task 1,Implementation task 1 for Valuation Engine Feature 1 Story 3.,3,Release1;Task
+Task,Valuation Engine Feature 1 Story 3 Task 2,Implementation task 2 for Valuation Engine Feature 1 Story 3.,3,Release1;Task
+Task,Valuation Engine Feature 1 Story 3 Task 3,Implementation task 3 for Valuation Engine Feature 1 Story 3.,3,Release1;Task
+User Story,Valuation Engine Feature 1 Story 4,"As a user I want Valuation Engine Feature 1 Story 4 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC4.",2,Release2;UserStory
+Task,Valuation Engine Feature 1 Story 4 Task 1,Implementation task 1 for Valuation Engine Feature 1 Story 4.,3,Release2;Task
+Task,Valuation Engine Feature 1 Story 4 Task 2,Implementation task 2 for Valuation Engine Feature 1 Story 4.,3,Release2;Task
+Task,Valuation Engine Feature 1 Story 4 Task 3,Implementation task 3 for Valuation Engine Feature 1 Story 4.,3,Release2;Task
+Feature,Valuation Engine Feature 2,Feature under Valuation Engine.,2,Release2;Feature
+User Story,Valuation Engine Feature 2 Story 1,"As a user I want Valuation Engine Feature 2 Story 1 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC1.",2,Release2;UserStory
+Task,Valuation Engine Feature 2 Story 1 Task 1,Implementation task 1 for Valuation Engine Feature 2 Story 1.,3,Release2;Task
+Task,Valuation Engine Feature 2 Story 1 Task 2,Implementation task 2 for Valuation Engine Feature 2 Story 1.,3,Release2;Task
+Task,Valuation Engine Feature 2 Story 1 Task 3,Implementation task 3 for Valuation Engine Feature 2 Story 1.,3,Release2;Task
+User Story,Valuation Engine Feature 2 Story 2,"As a user I want Valuation Engine Feature 2 Story 2 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC2.",2,Release3;UserStory
+Task,Valuation Engine Feature 2 Story 2 Task 1,Implementation task 1 for Valuation Engine Feature 2 Story 2.,3,Release3;Task
+Task,Valuation Engine Feature 2 Story 2 Task 2,Implementation task 2 for Valuation Engine Feature 2 Story 2.,3,Release3;Task
+Task,Valuation Engine Feature 2 Story 2 Task 3,Implementation task 3 for Valuation Engine Feature 2 Story 2.,3,Release3;Task
+User Story,Valuation Engine Feature 2 Story 3,"As a user I want Valuation Engine Feature 2 Story 3 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC3.",2,Release1;UserStory
+Task,Valuation Engine Feature 2 Story 3 Task 1,Implementation task 1 for Valuation Engine Feature 2 Story 3.,3,Release1;Task
+Task,Valuation Engine Feature 2 Story 3 Task 2,Implementation task 2 for Valuation Engine Feature 2 Story 3.,3,Release1;Task
+Task,Valuation Engine Feature 2 Story 3 Task 3,Implementation task 3 for Valuation Engine Feature 2 Story 3.,3,Release1;Task
+User Story,Valuation Engine Feature 2 Story 4,"As a user I want Valuation Engine Feature 2 Story 4 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC4.",2,Release2;UserStory
+Task,Valuation Engine Feature 2 Story 4 Task 1,Implementation task 1 for Valuation Engine Feature 2 Story 4.,3,Release2;Task
+Task,Valuation Engine Feature 2 Story 4 Task 2,Implementation task 2 for Valuation Engine Feature 2 Story 4.,3,Release2;Task
+Task,Valuation Engine Feature 2 Story 4 Task 3,Implementation task 3 for Valuation Engine Feature 2 Story 4.,3,Release2;Task
+Epic,Comparable Sales,Comparable Sales capability for the appraisal platform.,1,Release1;Epic
+Feature,Comparable Sales Feature 1,Feature under Comparable Sales.,2,Release1;Feature
+User Story,Comparable Sales Feature 1 Story 1,"As a user I want Comparable Sales Feature 1 Story 1 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC1.",2,Release2;UserStory
+Task,Comparable Sales Feature 1 Story 1 Task 1,Implementation task 1 for Comparable Sales Feature 1 Story 1.,3,Release2;Task
+Task,Comparable Sales Feature 1 Story 1 Task 2,Implementation task 2 for Comparable Sales Feature 1 Story 1.,3,Release2;Task
+Task,Comparable Sales Feature 1 Story 1 Task 3,Implementation task 3 for Comparable Sales Feature 1 Story 1.,3,Release2;Task
+User Story,Comparable Sales Feature 1 Story 2,"As a user I want Comparable Sales Feature 1 Story 2 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC2.",2,Release3;UserStory
+Task,Comparable Sales Feature 1 Story 2 Task 1,Implementation task 1 for Comparable Sales Feature 1 Story 2.,3,Release3;Task
+Task,Comparable Sales Feature 1 Story 2 Task 2,Implementation task 2 for Comparable Sales Feature 1 Story 2.,3,Release3;Task
+Task,Comparable Sales Feature 1 Story 2 Task 3,Implementation task 3 for Comparable Sales Feature 1 Story 2.,3,Release3;Task
+User Story,Comparable Sales Feature 1 Story 3,"As a user I want Comparable Sales Feature 1 Story 3 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC3.",2,Release1;UserStory
+Task,Comparable Sales Feature 1 Story 3 Task 1,Implementation task 1 for Comparable Sales Feature 1 Story 3.,3,Release1;Task
+Task,Comparable Sales Feature 1 Story 3 Task 2,Implementation task 2 for Comparable Sales Feature 1 Story 3.,3,Release1;Task
+Task,Comparable Sales Feature 1 Story 3 Task 3,Implementation task 3 for Comparable Sales Feature 1 Story 3.,3,Release1;Task
+User Story,Comparable Sales Feature 1 Story 4,"As a user I want Comparable Sales Feature 1 Story 4 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC4.",2,Release2;UserStory
+Task,Comparable Sales Feature 1 Story 4 Task 1,Implementation task 1 for Comparable Sales Feature 1 Story 4.,3,Release2;Task
+Task,Comparable Sales Feature 1 Story 4 Task 2,Implementation task 2 for Comparable Sales Feature 1 Story 4.,3,Release2;Task
+Task,Comparable Sales Feature 1 Story 4 Task 3,Implementation task 3 for Comparable Sales Feature 1 Story 4.,3,Release2;Task
+Feature,Comparable Sales Feature 2,Feature under Comparable Sales.,2,Release2;Feature
+User Story,Comparable Sales Feature 2 Story 1,"As a user I want Comparable Sales Feature 2 Story 1 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC1.",2,Release2;UserStory
+Task,Comparable Sales Feature 2 Story 1 Task 1,Implementation task 1 for Comparable Sales Feature 2 Story 1.,3,Release2;Task
+Task,Comparable Sales Feature 2 Story 1 Task 2,Implementation task 2 for Comparable Sales Feature 2 Story 1.,3,Release2;Task
+Task,Comparable Sales Feature 2 Story 1 Task 3,Implementation task 3 for Comparable Sales Feature 2 Story 1.,3,Release2;Task
+User Story,Comparable Sales Feature 2 Story 2,"As a user I want Comparable Sales Feature 2 Story 2 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC2.",2,Release3;UserStory
+Task,Comparable Sales Feature 2 Story 2 Task 1,Implementation task 1 for Comparable Sales Feature 2 Story 2.,3,Release3;Task
+Task,Comparable Sales Feature 2 Story 2 Task 2,Implementation task 2 for Comparable Sales Feature 2 Story 2.,3,Release3;Task
+Task,Comparable Sales Feature 2 Story 2 Task 3,Implementation task 3 for Comparable Sales Feature 2 Story 2.,3,Release3;Task
+User Story,Comparable Sales Feature 2 Story 3,"As a user I want Comparable Sales Feature 2 Story 3 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC3.",2,Release1;UserStory
+Task,Comparable Sales Feature 2 Story 3 Task 1,Implementation task 1 for Comparable Sales Feature 2 Story 3.,3,Release1;Task
+Task,Comparable Sales Feature 2 Story 3 Task 2,Implementation task 2 for Comparable Sales Feature 2 Story 3.,3,Release1;Task
+Task,Comparable Sales Feature 2 Story 3 Task 3,Implementation task 3 for Comparable Sales Feature 2 Story 3.,3,Release1;Task
+User Story,Comparable Sales Feature 2 Story 4,"As a user I want Comparable Sales Feature 2 Story 4 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC4.",2,Release2;UserStory
+Task,Comparable Sales Feature 2 Story 4 Task 1,Implementation task 1 for Comparable Sales Feature 2 Story 4.,3,Release2;Task
+Task,Comparable Sales Feature 2 Story 4 Task 2,Implementation task 2 for Comparable Sales Feature 2 Story 4.,3,Release2;Task
+Task,Comparable Sales Feature 2 Story 4 Task 3,Implementation task 3 for Comparable Sales Feature 2 Story 4.,3,Release2;Task
+Epic,USPAP Compliance,USPAP Compliance capability for the appraisal platform.,1,Release1;Epic
+Feature,USPAP Compliance Feature 1,Feature under USPAP Compliance.,2,Release1;Feature
+User Story,USPAP Compliance Feature 1 Story 1,"As a user I want USPAP Compliance Feature 1 Story 1 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC1.",2,Release2;UserStory
+Task,USPAP Compliance Feature 1 Story 1 Task 1,Implementation task 1 for USPAP Compliance Feature 1 Story 1.,3,Release2;Task
+Task,USPAP Compliance Feature 1 Story 1 Task 2,Implementation task 2 for USPAP Compliance Feature 1 Story 1.,3,Release2;Task
+Task,USPAP Compliance Feature 1 Story 1 Task 3,Implementation task 3 for USPAP Compliance Feature 1 Story 1.,3,Release2;Task
+User Story,USPAP Compliance Feature 1 Story 2,"As a user I want USPAP Compliance Feature 1 Story 2 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC2.",2,Release3;UserStory
+Task,USPAP Compliance Feature 1 Story 2 Task 1,Implementation task 1 for USPAP Compliance Feature 1 Story 2.,3,Release3;Task
+Task,USPAP Compliance Feature 1 Story 2 Task 2,Implementation task 2 for USPAP Compliance Feature 1 Story 2.,3,Release3;Task
+Task,USPAP Compliance Feature 1 Story 2 Task 3,Implementation task 3 for USPAP Compliance Feature 1 Story 2.,3,Release3;Task
+User Story,USPAP Compliance Feature 1 Story 3,"As a user I want USPAP Compliance Feature 1 Story 3 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC3.",2,Release1;UserStory
+Task,USPAP Compliance Feature 1 Story 3 Task 1,Implementation task 1 for USPAP Compliance Feature 1 Story 3.,3,Release1;Task
+Task,USPAP Compliance Feature 1 Story 3 Task 2,Implementation task 2 for USPAP Compliance Feature 1 Story 3.,3,Release1;Task
+Task,USPAP Compliance Feature 1 Story 3 Task 3,Implementation task 3 for USPAP Compliance Feature 1 Story 3.,3,Release1;Task
+User Story,USPAP Compliance Feature 1 Story 4,"As a user I want USPAP Compliance Feature 1 Story 4 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC4.",2,Release2;UserStory
+Task,USPAP Compliance Feature 1 Story 4 Task 1,Implementation task 1 for USPAP Compliance Feature 1 Story 4.,3,Release2;Task
+Task,USPAP Compliance Feature 1 Story 4 Task 2,Implementation task 2 for USPAP Compliance Feature 1 Story 4.,3,Release2;Task
+Task,USPAP Compliance Feature 1 Story 4 Task 3,Implementation task 3 for USPAP Compliance Feature 1 Story 4.,3,Release2;Task
+Feature,USPAP Compliance Feature 2,Feature under USPAP Compliance.,2,Release2;Feature
+User Story,USPAP Compliance Feature 2 Story 1,"As a user I want USPAP Compliance Feature 2 Story 1 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC1.",2,Release2;UserStory
+Task,USPAP Compliance Feature 2 Story 1 Task 1,Implementation task 1 for USPAP Compliance Feature 2 Story 1.,3,Release2;Task
+Task,USPAP Compliance Feature 2 Story 1 Task 2,Implementation task 2 for USPAP Compliance Feature 2 Story 1.,3,Release2;Task
+Task,USPAP Compliance Feature 2 Story 1 Task 3,Implementation task 3 for USPAP Compliance Feature 2 Story 1.,3,Release2;Task
+User Story,USPAP Compliance Feature 2 Story 2,"As a user I want USPAP Compliance Feature 2 Story 2 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC2.",2,Release3;UserStory
+Task,USPAP Compliance Feature 2 Story 2 Task 1,Implementation task 1 for USPAP Compliance Feature 2 Story 2.,3,Release3;Task
+Task,USPAP Compliance Feature 2 Story 2 Task 2,Implementation task 2 for USPAP Compliance Feature 2 Story 2.,3,Release3;Task
+Task,USPAP Compliance Feature 2 Story 2 Task 3,Implementation task 3 for USPAP Compliance Feature 2 Story 2.,3,Release3;Task
+User Story,USPAP Compliance Feature 2 Story 3,"As a user I want USPAP Compliance Feature 2 Story 3 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC3.",2,Release1;UserStory
+Task,USPAP Compliance Feature 2 Story 3 Task 1,Implementation task 1 for USPAP Compliance Feature 2 Story 3.,3,Release1;Task
+Task,USPAP Compliance Feature 2 Story 3 Task 2,Implementation task 2 for USPAP Compliance Feature 2 Story 3.,3,Release1;Task
+Task,USPAP Compliance Feature 2 Story 3 Task 3,Implementation task 3 for USPAP Compliance Feature 2 Story 3.,3,Release1;Task
+User Story,USPAP Compliance Feature 2 Story 4,"As a user I want USPAP Compliance Feature 2 Story 4 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC4.",2,Release2;UserStory
+Task,USPAP Compliance Feature 2 Story 4 Task 1,Implementation task 1 for USPAP Compliance Feature 2 Story 4.,3,Release2;Task
+Task,USPAP Compliance Feature 2 Story 4 Task 2,Implementation task 2 for USPAP Compliance Feature 2 Story 4.,3,Release2;Task
+Task,USPAP Compliance Feature 2 Story 4 Task 3,Implementation task 3 for USPAP Compliance Feature 2 Story 4.,3,Release2;Task
+Epic,Report Generation,Report Generation capability for the appraisal platform.,1,Release1;Epic
+Feature,Report Generation Feature 1,Feature under Report Generation.,2,Release1;Feature
+User Story,Report Generation Feature 1 Story 1,"As a user I want Report Generation Feature 1 Story 1 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC1.",2,Release2;UserStory
+Task,Report Generation Feature 1 Story 1 Task 1,Implementation task 1 for Report Generation Feature 1 Story 1.,3,Release2;Task
+Task,Report Generation Feature 1 Story 1 Task 2,Implementation task 2 for Report Generation Feature 1 Story 1.,3,Release2;Task
+Task,Report Generation Feature 1 Story 1 Task 3,Implementation task 3 for Report Generation Feature 1 Story 1.,3,Release2;Task
+User Story,Report Generation Feature 1 Story 2,"As a user I want Report Generation Feature 1 Story 2 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC2.",2,Release3;UserStory
+Task,Report Generation Feature 1 Story 2 Task 1,Implementation task 1 for Report Generation Feature 1 Story 2.,3,Release3;Task
+Task,Report Generation Feature 1 Story 2 Task 2,Implementation task 2 for Report Generation Feature 1 Story 2.,3,Release3;Task
+Task,Report Generation Feature 1 Story 2 Task 3,Implementation task 3 for Report Generation Feature 1 Story 2.,3,Release3;Task
+User Story,Report Generation Feature 1 Story 3,"As a user I want Report Generation Feature 1 Story 3 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC3.",2,Release1;UserStory
+Task,Report Generation Feature 1 Story 3 Task 1,Implementation task 1 for Report Generation Feature 1 Story 3.,3,Release1;Task
+Task,Report Generation Feature 1 Story 3 Task 2,Implementation task 2 for Report Generation Feature 1 Story 3.,3,Release1;Task
+Task,Report Generation Feature 1 Story 3 Task 3,Implementation task 3 for Report Generation Feature 1 Story 3.,3,Release1;Task
+User Story,Report Generation Feature 1 Story 4,"As a user I want Report Generation Feature 1 Story 4 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC4.",2,Release2;UserStory
+Task,Report Generation Feature 1 Story 4 Task 1,Implementation task 1 for Report Generation Feature 1 Story 4.,3,Release2;Task
+Task,Report Generation Feature 1 Story 4 Task 2,Implementation task 2 for Report Generation Feature 1 Story 4.,3,Release2;Task
+Task,Report Generation Feature 1 Story 4 Task 3,Implementation task 3 for Report Generation Feature 1 Story 4.,3,Release2;Task
+Feature,Report Generation Feature 2,Feature under Report Generation.,2,Release2;Feature
+User Story,Report Generation Feature 2 Story 1,"As a user I want Report Generation Feature 2 Story 1 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC1.",2,Release2;UserStory
+Task,Report Generation Feature 2 Story 1 Task 1,Implementation task 1 for Report Generation Feature 2 Story 1.,3,Release2;Task
+Task,Report Generation Feature 2 Story 1 Task 2,Implementation task 2 for Report Generation Feature 2 Story 1.,3,Release2;Task
+Task,Report Generation Feature 2 Story 1 Task 3,Implementation task 3 for Report Generation Feature 2 Story 1.,3,Release2;Task
+User Story,Report Generation Feature 2 Story 2,"As a user I want Report Generation Feature 2 Story 2 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC2.",2,Release3;UserStory
+Task,Report Generation Feature 2 Story 2 Task 1,Implementation task 1 for Report Generation Feature 2 Story 2.,3,Release3;Task
+Task,Report Generation Feature 2 Story 2 Task 2,Implementation task 2 for Report Generation Feature 2 Story 2.,3,Release3;Task
+Task,Report Generation Feature 2 Story 2 Task 3,Implementation task 3 for Report Generation Feature 2 Story 2.,3,Release3;Task
+User Story,Report Generation Feature 2 Story 3,"As a user I want Report Generation Feature 2 Story 3 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC3.",2,Release1;UserStory
+Task,Report Generation Feature 2 Story 3 Task 1,Implementation task 1 for Report Generation Feature 2 Story 3.,3,Release1;Task
+Task,Report Generation Feature 2 Story 3 Task 2,Implementation task 2 for Report Generation Feature 2 Story 3.,3,Release1;Task
+Task,Report Generation Feature 2 Story 3 Task 3,Implementation task 3 for Report Generation Feature 2 Story 3.,3,Release1;Task
+User Story,Report Generation Feature 2 Story 4,"As a user I want Report Generation Feature 2 Story 4 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC4.",2,Release2;UserStory
+Task,Report Generation Feature 2 Story 4 Task 1,Implementation task 1 for Report Generation Feature 2 Story 4.,3,Release2;Task
+Task,Report Generation Feature 2 Story 4 Task 2,Implementation task 2 for Report Generation Feature 2 Story 4.,3,Release2;Task
+Task,Report Generation Feature 2 Story 4 Task 3,Implementation task 3 for Report Generation Feature 2 Story 4.,3,Release2;Task
+Epic,Security & User Management,Security & User Management capability for the appraisal platform.,1,Release1;Epic
+Feature,Security & User Management Feature 1,Feature under Security & User Management.,2,Release1;Feature
+User Story,Security & User Management Feature 1 Story 1,"As a user I want Security & User Management Feature 1 Story 1 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC1.",2,Release2;UserStory
+Task,Security & User Management Feature 1 Story 1 Task 1,Implementation task 1 for Security & User Management Feature 1 Story 1.,3,Release2;Task
+Task,Security & User Management Feature 1 Story 1 Task 2,Implementation task 2 for Security & User Management Feature 1 Story 1.,3,Release2;Task
+Task,Security & User Management Feature 1 Story 1 Task 3,Implementation task 3 for Security & User Management Feature 1 Story 1.,3,Release2;Task
+User Story,Security & User Management Feature 1 Story 2,"As a user I want Security & User Management Feature 1 Story 2 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC2.",2,Release3;UserStory
+Task,Security & User Management Feature 1 Story 2 Task 1,Implementation task 1 for Security & User Management Feature 1 Story 2.,3,Release3;Task
+Task,Security & User Management Feature 1 Story 2 Task 2,Implementation task 2 for Security & User Management Feature 1 Story 2.,3,Release3;Task
+Task,Security & User Management Feature 1 Story 2 Task 3,Implementation task 3 for Security & User Management Feature 1 Story 2.,3,Release3;Task
+User Story,Security & User Management Feature 1 Story 3,"As a user I want Security & User Management Feature 1 Story 3 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC3.",2,Release1;UserStory
+Task,Security & User Management Feature 1 Story 3 Task 1,Implementation task 1 for Security & User Management Feature 1 Story 3.,3,Release1;Task
+Task,Security & User Management Feature 1 Story 3 Task 2,Implementation task 2 for Security & User Management Feature 1 Story 3.,3,Release1;Task
+Task,Security & User Management Feature 1 Story 3 Task 3,Implementation task 3 for Security & User Management Feature 1 Story 3.,3,Release1;Task
+User Story,Security & User Management Feature 1 Story 4,"As a user I want Security & User Management Feature 1 Story 4 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC4.",2,Release2;UserStory
+Task,Security & User Management Feature 1 Story 4 Task 1,Implementation task 1 for Security & User Management Feature 1 Story 4.,3,Release2;Task
+Task,Security & User Management Feature 1 Story 4 Task 2,Implementation task 2 for Security & User Management Feature 1 Story 4.,3,Release2;Task
+Task,Security & User Management Feature 1 Story 4 Task 3,Implementation task 3 for Security & User Management Feature 1 Story 4.,3,Release2;Task
+Feature,Security & User Management Feature 2,Feature under Security & User Management.,2,Release2;Feature
+User Story,Security & User Management Feature 2 Story 1,"As a user I want Security & User Management Feature 2 Story 1 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC1.",2,Release2;UserStory
+Task,Security & User Management Feature 2 Story 1 Task 1,Implementation task 1 for Security & User Management Feature 2 Story 1.,3,Release2;Task
+Task,Security & User Management Feature 2 Story 1 Task 2,Implementation task 2 for Security & User Management Feature 2 Story 1.,3,Release2;Task
+Task,Security & User Management Feature 2 Story 1 Task 3,Implementation task 3 for Security & User Management Feature 2 Story 1.,3,Release2;Task
+User Story,Security & User Management Feature 2 Story 2,"As a user I want Security & User Management Feature 2 Story 2 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC2.",2,Release3;UserStory
+Task,Security & User Management Feature 2 Story 2 Task 1,Implementation task 1 for Security & User Management Feature 2 Story 2.,3,Release3;Task
+Task,Security & User Management Feature 2 Story 2 Task 2,Implementation task 2 for Security & User Management Feature 2 Story 2.,3,Release3;Task
+Task,Security & User Management Feature 2 Story 2 Task 3,Implementation task 3 for Security & User Management Feature 2 Story 2.,3,Release3;Task
+User Story,Security & User Management Feature 2 Story 3,"As a user I want Security & User Management Feature 2 Story 3 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC3.",2,Release1;UserStory
+Task,Security & User Management Feature 2 Story 3 Task 1,Implementation task 1 for Security & User Management Feature 2 Story 3.,3,Release1;Task
+Task,Security & User Management Feature 2 Story 3 Task 2,Implementation task 2 for Security & User Management Feature 2 Story 3.,3,Release1;Task
+Task,Security & User Management Feature 2 Story 3 Task 3,Implementation task 3 for Security & User Management Feature 2 Story 3.,3,Release1;Task
+User Story,Security & User Management Feature 2 Story 4,"As a user I want Security & User Management Feature 2 Story 4 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC4.",2,Release2;UserStory
+Task,Security & User Management Feature 2 Story 4 Task 1,Implementation task 1 for Security & User Management Feature 2 Story 4.,3,Release2;Task
+Task,Security & User Management Feature 2 Story 4 Task 2,Implementation task 2 for Security & User Management Feature 2 Story 4.,3,Release2;Task
+Task,Security & User Management Feature 2 Story 4 Task 3,Implementation task 3 for Security & User Management Feature 2 Story 4.,3,Release2;Task
+Epic,Workflow Automation,Workflow Automation capability for the appraisal platform.,1,Release1;Epic
+Feature,Workflow Automation Feature 1,Feature under Workflow Automation.,2,Release1;Feature
+User Story,Workflow Automation Feature 1 Story 1,"As a user I want Workflow Automation Feature 1 Story 1 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC1.",2,Release2;UserStory
+Task,Workflow Automation Feature 1 Story 1 Task 1,Implementation task 1 for Workflow Automation Feature 1 Story 1.,3,Release2;Task
+Task,Workflow Automation Feature 1 Story 1 Task 2,Implementation task 2 for Workflow Automation Feature 1 Story 1.,3,Release2;Task
+Task,Workflow Automation Feature 1 Story 1 Task 3,Implementation task 3 for Workflow Automation Feature 1 Story 1.,3,Release2;Task
+User Story,Workflow Automation Feature 1 Story 2,"As a user I want Workflow Automation Feature 1 Story 2 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC2.",2,Release3;UserStory
+Task,Workflow Automation Feature 1 Story 2 Task 1,Implementation task 1 for Workflow Automation Feature 1 Story 2.,3,Release3;Task
+Task,Workflow Automation Feature 1 Story 2 Task 2,Implementation task 2 for Workflow Automation Feature 1 Story 2.,3,Release3;Task
+Task,Workflow Automation Feature 1 Story 2 Task 3,Implementation task 3 for Workflow Automation Feature 1 Story 2.,3,Release3;Task
+User Story,Workflow Automation Feature 1 Story 3,"As a user I want Workflow Automation Feature 1 Story 3 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC3.",2,Release1;UserStory
+Task,Workflow Automation Feature 1 Story 3 Task 1,Implementation task 1 for Workflow Automation Feature 1 Story 3.,3,Release1;Task
+Task,Workflow Automation Feature 1 Story 3 Task 2,Implementation task 2 for Workflow Automation Feature 1 Story 3.,3,Release1;Task
+Task,Workflow Automation Feature 1 Story 3 Task 3,Implementation task 3 for Workflow Automation Feature 1 Story 3.,3,Release1;Task
+User Story,Workflow Automation Feature 1 Story 4,"As a user I want Workflow Automation Feature 1 Story 4 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC4.",2,Release2;UserStory
+Task,Workflow Automation Feature 1 Story 4 Task 1,Implementation task 1 for Workflow Automation Feature 1 Story 4.,3,Release2;Task
+Task,Workflow Automation Feature 1 Story 4 Task 2,Implementation task 2 for Workflow Automation Feature 1 Story 4.,3,Release2;Task
+Task,Workflow Automation Feature 1 Story 4 Task 3,Implementation task 3 for Workflow Automation Feature 1 Story 4.,3,Release2;Task
+Feature,Workflow Automation Feature 2,Feature under Workflow Automation.,2,Release2;Feature
+User Story,Workflow Automation Feature 2 Story 1,"As a user I want Workflow Automation Feature 2 Story 1 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC1.",2,Release2;UserStory
+Task,Workflow Automation Feature 2 Story 1 Task 1,Implementation task 1 for Workflow Automation Feature 2 Story 1.,3,Release2;Task
+Task,Workflow Automation Feature 2 Story 1 Task 2,Implementation task 2 for Workflow Automation Feature 2 Story 1.,3,Release2;Task
+Task,Workflow Automation Feature 2 Story 1 Task 3,Implementation task 3 for Workflow Automation Feature 2 Story 1.,3,Release2;Task
+User Story,Workflow Automation Feature 2 Story 2,"As a user I want Workflow Automation Feature 2 Story 2 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC2.",2,Release3;UserStory
+Task,Workflow Automation Feature 2 Story 2 Task 1,Implementation task 1 for Workflow Automation Feature 2 Story 2.,3,Release3;Task
+Task,Workflow Automation Feature 2 Story 2 Task 2,Implementation task 2 for Workflow Automation Feature 2 Story 2.,3,Release3;Task
+Task,Workflow Automation Feature 2 Story 2 Task 3,Implementation task 3 for Workflow Automation Feature 2 Story 2.,3,Release3;Task
+User Story,Workflow Automation Feature 2 Story 3,"As a user I want Workflow Automation Feature 2 Story 3 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC3.",2,Release1;UserStory
+Task,Workflow Automation Feature 2 Story 3 Task 1,Implementation task 1 for Workflow Automation Feature 2 Story 3.,3,Release1;Task
+Task,Workflow Automation Feature 2 Story 3 Task 2,Implementation task 2 for Workflow Automation Feature 2 Story 3.,3,Release1;Task
+Task,Workflow Automation Feature 2 Story 3 Task 3,Implementation task 3 for Workflow Automation Feature 2 Story 3.,3,Release1;Task
+User Story,Workflow Automation Feature 2 Story 4,"As a user I want Workflow Automation Feature 2 Story 4 so that business value is delivered. Acceptance Criteria: Given valid input, when action is performed, then expected result occurs. AC4.",2,Release2;UserStory
+Task,Workflow Automation Feature 2 Story 4 Task 1,Implementation task 1 for Workflow Automation Feature 2 Story 4.,3,Release2;Task
+Task,Workflow Automation Feature 2 Story 4 Task 2,Implementation task 2 for Workflow Automation Feature 2 Story 4.,3,Release2;Task
+Task,Workflow Automation Feature 2 Story 4 Task 3,Implementation task 3 for Workflow Automation Feature 2 Story 4.,3,Release2;Task
+Task,Vehicle Management Feature 1 Story 1 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Vehicle Management Feature 1 Story 1 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Vehicle Management Feature 1 Story 2 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Vehicle Management Feature 1 Story 2 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Vehicle Management Feature 1 Story 3 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Vehicle Management Feature 1 Story 3 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Vehicle Management Feature 1 Story 4 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Vehicle Management Feature 1 Story 4 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Vehicle Management Feature 2 Story 1 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Vehicle Management Feature 2 Story 1 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Vehicle Management Feature 2 Story 2 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Vehicle Management Feature 2 Story 2 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Vehicle Management Feature 2 Story 3 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Vehicle Management Feature 2 Story 3 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Vehicle Management Feature 2 Story 4 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Vehicle Management Feature 2 Story 4 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Inspection Management Feature 1 Story 1 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Inspection Management Feature 1 Story 1 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Inspection Management Feature 1 Story 2 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Inspection Management Feature 1 Story 2 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Inspection Management Feature 1 Story 3 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Inspection Management Feature 1 Story 3 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Inspection Management Feature 1 Story 4 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Inspection Management Feature 1 Story 4 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Inspection Management Feature 2 Story 1 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Inspection Management Feature 2 Story 1 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Inspection Management Feature 2 Story 2 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Inspection Management Feature 2 Story 2 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Inspection Management Feature 2 Story 3 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Inspection Management Feature 2 Story 3 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Inspection Management Feature 2 Story 4 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Inspection Management Feature 2 Story 4 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Photo Management Feature 1 Story 1 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Photo Management Feature 1 Story 1 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Photo Management Feature 1 Story 2 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Photo Management Feature 1 Story 2 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Photo Management Feature 1 Story 3 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Photo Management Feature 1 Story 3 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Photo Management Feature 1 Story 4 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Photo Management Feature 1 Story 4 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Photo Management Feature 2 Story 1 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Photo Management Feature 2 Story 1 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Photo Management Feature 2 Story 2 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Photo Management Feature 2 Story 2 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Photo Management Feature 2 Story 3 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Photo Management Feature 2 Story 3 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Photo Management Feature 2 Story 4 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Photo Management Feature 2 Story 4 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,VIN & Data Services Feature 1 Story 1 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,VIN & Data Services Feature 1 Story 1 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,VIN & Data Services Feature 1 Story 2 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,VIN & Data Services Feature 1 Story 2 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,VIN & Data Services Feature 1 Story 3 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,VIN & Data Services Feature 1 Story 3 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,VIN & Data Services Feature 1 Story 4 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,VIN & Data Services Feature 1 Story 4 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,VIN & Data Services Feature 2 Story 1 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,VIN & Data Services Feature 2 Story 1 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,VIN & Data Services Feature 2 Story 2 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,VIN & Data Services Feature 2 Story 2 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,VIN & Data Services Feature 2 Story 3 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,VIN & Data Services Feature 2 Story 3 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,VIN & Data Services Feature 2 Story 4 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,VIN & Data Services Feature 2 Story 4 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Valuation Engine Feature 1 Story 1 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Valuation Engine Feature 1 Story 1 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Valuation Engine Feature 1 Story 2 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Valuation Engine Feature 1 Story 2 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Valuation Engine Feature 1 Story 3 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Valuation Engine Feature 1 Story 3 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Valuation Engine Feature 1 Story 4 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Valuation Engine Feature 1 Story 4 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Valuation Engine Feature 2 Story 1 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Valuation Engine Feature 2 Story 1 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Valuation Engine Feature 2 Story 2 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Valuation Engine Feature 2 Story 2 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Valuation Engine Feature 2 Story 3 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Valuation Engine Feature 2 Story 3 Extra Task B,Additional implementation task.,3,Release3;Task
+Task,Valuation Engine Feature 2 Story 4 Extra Task A,Additional implementation task.,3,Release2;Task
+Task,Valuation Engine Feature 2 Story 4 Extra Task B,Additional implementation task.,3,Release3;Task

@@ -1,0 +1,71 @@
+flowchart TD
+    START([New appraisal inquiry]) --> CREATE[Create Appraisal Request]
+    CREATE --> DRAFT[Status: Draft]
+
+    subgraph INTAKE[Draft intake]
+        DRAFT --> CLIENT[Select or create Client]
+        CLIENT --> CONTACT[Select optional active Client Contact]
+        CONTACT --> USE[Select proposed Intended Use]
+        USE --> USER_DECISION{Is Client a proposed Intended User?}
+        USER_DECISION -->|Yes| ADD_CLIENT[Add Client as proposed Intended User]
+        USER_DECISION -->|No| EXCLUSION[Record exclusion explanation]
+        ADD_CLIENT --> ADD_USERS[Add other proposed Intended Users as needed]
+        EXCLUSION --> ADD_USERS
+        ADD_USERS --> VEHICLE[Search for or identify Vehicle]
+        VEHICLE --> REQUEST_FACTS[Enter requested date, value definition, scope and scheduling facts]
+        REQUEST_FACTS --> SAVE[Save with expected row version]
+    end
+
+    SAVE --> VALIDATE{Submission validation passes?}
+    VALIDATE -->|No| FIX[Show blocking errors and warnings]
+    FIX --> DRAFT
+    VALIDATE -->|Yes| SNAPSHOT[Capture submission snapshots]
+    SNAPSHOT --> SUBMITTED[Status: Submitted]
+    SUBMITTED --> REVIEW[Status: UnderReview]
+
+    subgraph QUALIFY[Qualification and disposition]
+        REVIEW --> CHECK[Review parties, intended use, restrictions, vehicle, timing, competency, conflicts and service fit]
+        CHECK --> DECISION{Review decision}
+        DECISION -->|Correction required| RETURN[Return to Draft with review notes]
+        DECISION -->|Decline| DECLINED[Status: Declined]
+        DECISION -->|Cancel| CANCELLED[Status: Cancelled]
+        DECISION -->|Requester withdraws| WITHDRAWN[Status: Withdrawn]
+        DECISION -->|Accept| ACCEPT_GATE{Acceptance validation passes?}
+        RETURN --> DRAFT
+        ACCEPT_GATE -->|No| REVIEW_ERRORS[Record validation issues]
+        REVIEW_ERRORS --> REVIEW
+        ACCEPT_GATE -->|Yes| FREEZE[Freeze accepted request snapshots]
+        FREEZE --> ACCEPTED[Status: Accepted]
+    end
+
+    ACCEPTED --> CONVERT_GATE{Eligible and not already converted?}
+    CONVERT_GATE -->|No| BLOCK[Block conversion and preserve request]
+    BLOCK --> ACCEPTED
+    CONVERT_GATE -->|Yes| TX[Begin conversion transaction]
+    TX --> APPRAISAL[Create one Appraisal]
+    APPRAISAL --> PAYLOAD[Copy proposed facts into conversion-review payload]
+    PAYLOAD --> LINK[Set converted Appraisal identifier and conversion audit]
+    LINK --> COMMIT[Commit transaction]
+    COMMIT --> CONVERTED[Status: Converted]
+    CONVERTED --> APPRAISAL_REVIEW[Appraisal formally reviews and establishes authoritative facts]
+    APPRAISAL_REVIEW --> DONE([Request remains preserved as converted history])
+
+    ACCEPTED -. authorized amendment .-> AMEND[Record before and after values, reason, actors, time and row versions]
+    CONVERTED -. authorized amendment .-> AMEND
+    AMEND --> LINKED{Already converted?}
+    LINKED -->|No| ACCEPTED
+    LINKED -->|Yes| TASK[Create review task for Appraisal owner]
+    TASK --> CONVERTED
+
+    DECLINED --> END([Closed without Appraisal])
+    CANCELLED --> END
+    WITHDRAWN --> END
+
+    classDef primary fill:#0E2841,color:#FFFFFF,stroke:#0E2841,stroke-width:2px;
+    classDef gate fill:#FFF4CC,color:#1F2937,stroke:#A16207,stroke-width:1.5px;
+    classDef frozen fill:#DCEAF7,color:#0E2841,stroke:#0E2841,stroke-width:1.5px;
+    classDef terminal fill:#F3F4F6,color:#374151,stroke:#6B7280,stroke-width:1.5px;
+    class DRAFT,SUBMITTED,REVIEW,ACCEPTED,CONVERTED primary;
+    class USER_DECISION,VALIDATE,DECISION,ACCEPT_GATE,CONVERT_GATE,LINKED gate;
+    class SNAPSHOT,FREEZE,AMEND,PAYLOAD frozen;
+    class DECLINED,CANCELLED,WITHDRAWN,END,DONE terminal;

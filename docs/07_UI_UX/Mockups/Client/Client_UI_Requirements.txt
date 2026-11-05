@@ -1,0 +1,278 @@
+---
+title: "ONE Classics Nexus — Individual Client Workspace - REQUIREMENTS"
+specification_version: "1.0"
+document_type: "ui_specification"
+brand: "ONE Classics Nexus"
+source_image: "ONE Classics Nexus Client Workspace.png"
+source_conversation_id: "6ad650ae-34d8-83e8-a655-45de1fe2340e"
+language: "en"
+scope: "Visible desktop Clients workspace, Profile tab, selected Individual client"
+---
+
+# ONE Classics Nexus — Individual Client Workspace
+
+## 1. Evidence and interpretation
+
+## 2. Branding and desktop layout
+
+| Region ID | Position and component | Observed content / appearance |
+|---|---|---|
+| `window_title_bar` | Full-width top title bar | `ONE Classics Nexus / Clients`; dark navy background, white title; minimize, maximize, and close glyphs at the far right |
+| `client_browser` | Left pane, approximately 32% of workspace width | Search, two filters, Create Client action, client table, and pagination |
+| `client_detail` | Right pane, approximately 68% of workspace width | Client summary header, tabs, Profile form, and bottom actions |
+| `pane_divider` | Vertical separator | Thin gray line between browser and detail panes |
+| `detail_footer` | Bottom of right pane | Light neutral action bar with Cancel and Save aligned right |
+
+- The reference image is approximately 1487 × 1058 pixels.
+- The title bar is about 52 pixels high; the pane boundary is near x=480.
+- These describe this reference viewport, not required fixed dimensions or responsive breakpoints.
+- Use **ONE Classics Nexus** as the product name.
+- Preserve the navy title bar and primary buttons, white content surfaces, pale gray separators and control borders, dark text, muted secondary text, pale blue selected table row, green status/availability indicators, and red required-field asterisks.
+- Typography is a clean sans serif with bold headings.
+- Exact font family, color tokens, spacing tokens, logo artwork, and responsive behavior are unspecified; no separate logo is visible.
+
+## 3. Client browser
+
+### 3.1 Search, filters, and creation
+
+- The client_search occupies its own row.
+- Set initial client_search field to blank
+- If client_search results are found, then populate the Client List with returned client information
+- If client_search results are not found, then an display a user message
+
+- Client Type and Status filters sit side by side beneath it.
+- Default client_type_filter to "All Types" and displays all clients
+- If client_type_filter "Individual" is selected, then display only individual type clients in the Client table
+- If client_type_filter "Organization" is selected, then display only organization type clients in the Client table
+
+- Default status_filter to "All Statuses" and displays all clients
+- If status_filter "Active" is selected, then display only clients with a status = "Active" in the Client table
+- If status_filter "Inactive" is selected, then display only clients with a status = "Inactive" in the Client table
+
+
+- Create Client spans the available pane width beneath the filters.
+- Clicking create_client`initialize Client Workspace for a new client and sets the cursor focus
+
+
+### 3.2 Client table — screenshot sample data
+
+- Columns appear in this order: `Name / Organization`, `Type`, `Status`.
+- The first column uses a bold name on line one and a muted email on line two.
+- Header separators divide the columns.
+- Rows have horizontal separators.
+
+- On form initialization, the Client table will initialize to all client records; sorted by name ASC
+- Selecting a Client table row will populate the Client detail with selected client information
+- Row selection is by the highlighted row and matching detail pane.
+- Each column will have the ability to sort the column in ascending and descending order
+- The Client table will prevent multi-selection of rows
+- Selection from Client table when Client detail has dirty data will result in a message of unsaved client information, with options to continue.
+- If option selection is to discard unsaved changes, then the selected Client table information will populate the Client detail without saving the existing data.
+- If option selection is to saved the changes, then the selected Client table information will be cancelled and the Client detail will retain the unsaved data.
+
+### 3.3 Pagination
+
+- Below the table, controls will appear left to right as: previous chevron, `1`, `2`, `3`, `4`, `5`, next chevron.
+- The current page number selection will have a navy selected background; other page numbers have white backgrounds and borders.
+- The previous chevron is muted and disabled when displaying the first page.
+- The next chevron is muted and disabled when displaying the last page.
+- The right-aligned range will display `1–10 of 42` based on displayed record count.
+- Pagination will re-initialize after filtering are unspecified; reflecting the filtered records.
+
+## 4. Selected client header and navigation
+
+- The client_heading will display the clients.display_name, bold heading, upper left
+- The client_summary will display a  summary 
+- Beneath the heading the client_summary will display a muted inline concatenation of clients.client_type_code + ' | ' + clients.email + ' | ` + clients.phone 
+- The status badge and timestamp are display only elements; no edit controls for either will be available.
+- The timestamp's timezone will be implied as "Mountain Time"
+ 
+- Tabs below the header will appear left to right: `Profile`, `Contacts`, `History`.
+- Profile tab will be selected as default, bold/navy, with a navy underline; Contacts and History will display as unselected.
+- Contacts tab will display bold/navy, with a navy underline when selected; Profile and History will display as unselected.
+- History tab will display bold/navy, with a navy underline when selected; Profile and Contacts will display as unselected.
+
+- TBD Their contents, routes, and access rules are unspecified.
+
+## 5. Profile form
+
+- The Profile form will be organized vertically into Client Information, Contact Information, Mailing Address, and Communication Preferences, separated by thin gray horizontal rules.
+- Labels will sit to the left of their controls.
+- Input controls will have white backgrounds, light gray borders, and subtly rounded corners.
+- Editability below is an appearance-based inference unless an explicit rule is cited.
+
+### 5.1 Client Information
+
+| ID | Exact field label | Component type | Screenshot sample value | Required marker | Read-only / editability |
+|---|---|---|---|---|---|
+| `client_type` | Client Type | Disabled-looking select with chevron and adjacent lock icon | Individual | None | Locked after creation; explicit rule below |
+| `first_name` | First Name | Single-line text input | Jordan | Red `*` | Editable-looking |
+| `middle_name` | Middle Name | Single-line text input | Empty | None | Editable-looking |
+| `last_name` | Last Name | Single-line text input | Lee | Red `*` | Editable-looking |
+| `suffix` | Suffix | Select / dropdown | Empty | None | Editable-looking; options unspecified |
+| `display_name` | Display Name | Single-line text input | Jordan Lee | None | Editable-looking |
+
+**Explicit rule beneath Client Type:** `Client type cannot be changed after the client is created.`
+
+- Preserve the disabled visual treatment and lock indicator for Client Type in this existing-client view.
+- The screenshot proves the immutability rule, but does not establish whether the implementation uses a disabled select, a read-only presentation, or another mechanism.
+- No other profile field visibly carries a lock or explicit read-only rule.
+
+**Helper text beneath Display Name:** `This is how the client will appear in lists and communications.`
+
+- Layout: Client Type is on its own row.
+- First Name and Middle Name share the next row; Last Name and Suffix share the following row.
+- Display Name spans the remaining form width on the next row.
+- Display-name generation, automatic synchronization with first/last name, maximum lengths, and suffix choices are unspecified.
+
+### 5.2 Contact Information
+
+| ID | Exact field label | Component type | Screenshot sample value | Required marker | Editability |
+|---|---|---|---|---|---|
+| `email_address` | Email Address | Single-line input; email semantics inferred | jordan.lee@example.com | None | Editable-looking |
+| `phone_number` | Phone Number | Single-line input; telephone semantics inferred | (312) 555-0187 | None | Editable-looking |
+
+- Each field occupies a separate row and extends across the available control area.
+- Validation rules, uniqueness, phone normalization, and permitted formats are unspecified.
+
+### 5.3 Mailing Address
+
+| ID | Exact field label | Component type | Screenshot sample value | Required marker | Editability |
+|---|---|---|---|---|---|
+| `address_line_1` | Address Line 1 | Single-line text input | 1234 North Michigan Avenue | None | Editable-looking |
+| `address_line_2` | Address Line 2 | Single-line text input | Empty | None | Editable-looking |
+| `city` | City | Single-line text input | Chicago | None | Editable-looking |
+| `state` | State | Select / dropdown | IL | None | Editable-looking; option set unspecified |
+| `zip_code` | ZIP Code | Single-line input | 60611 | None | Editable-looking |
+
+- Address Line 1 and Address Line 2 each occupy a full control row.
+- The final row contains City, State, and ZIP Code from left to right. 
+- No Country field is visible. 
+- Do not infer country restrictions or ZIP validation rules from this sample. 
+- Treat ZIP Code as a string in machine-readable data to preserve possible leading zeroes.
+
+### 5.4 Communication Preferences
+
+| ID | Exact field label | Component type | Screenshot sample value | Required marker | Editability |
+|---|---|---|---|---|---|
+| `preferred_communication_method` | Preferred Communication Method | Select / dropdown | Email | None | Editable-looking; remaining options unspecified |
+
+- Beneath the select, show a green circular check icon and the green message `Email address is available.` 
+- This is a sample availability state. 
+- The screenshot does not establish address deliverability, verified ownership, uniqueness, consent, or behavior when the email is absent.
+
+- Beneath that message, preserve the muted italic note: `This preference is a routing convenience and does not constitute consent.` 
+- This is an **explicit semantic rule**: communication preference must not be interpreted as consent. 
+- No consent checkbox is visible.
+
+## 6. Footer actions and read-only boundaries
+
+| ID | Component type | Visible label | Appearance | Established / unspecified behavior |
+|---|---|---|---|---|
+| `cancel` | Secondary button | Cancel | White/light fill and gray border | Intended cancellation inferred; rollback, navigation, and confirmation behavior unspecified |
+| `save` | Primary button | Save | Navy fill, white text | Intended save inferred; persistence, validation timing, success feedback, and enabled-state logic unspecified |
+
+- Buttons appear in the order Cancel then Save, at the bottom right of the detail pane. 
+- Their persistent/fixed positioning during scrolling is not established by one screenshot.
+
+Read-only constraints and display boundaries:
+
+- **Explicitly immutable:** Existing Client Type. It is shown as Individual, with muted text and a lock icon.
+- **Display-only in this view:** Product title, summary heading, summary metadata, status badge, update timestamp, table record text, helper text, availability message, and pagination range. No inline editing controls are visible for these elements.
+- **Editable-looking:** All other form fields listed above. Actual permissions, role-based restrictions, and server enforcement are unspecified.
+- **Required:** First Name and Last Name show red asterisks. The screenshot does not establish additional mandatory fields or error messages.
+- **Navigation/actions:** Filters, tabs, pagination, Create Client, Save, and Cancel are controls, not editable client data fields.
+
+## 7. Machine-readable screenshot sample
+
+The following JSON is a sample fixture transcribed from the screen. It is not a set of default values. Empty visible controls are represented by empty strings; unknown behavior elsewhere is described as unspecified rather than represented by invented values.
+
+```json
+{
+  "brand": "ONE Classics Nexus",
+  "workspace": "Clients",
+  "activeTab": "Profile",
+  "filters": {
+    "searchText": "",
+    "clientTypeDisplayed": "All Types",
+    "statusDisplayed": "All Statuses"
+  },
+  "selectedClient": {
+    "clientType": "Individual",
+    "firstName": "Jordan",
+    "middleName": "",
+    "lastName": "Lee",
+    "suffix": "",
+    "displayName": "Jordan Lee",
+    "emailAddress": "jordan.lee@example.com",
+    "phoneNumber": "(312) 555-0187",
+    "mailingAddress": {
+      "addressLine1": "1234 North Michigan Avenue",
+      "addressLine2": "",
+      "city": "Chicago",
+      "state": "IL",
+      "zipCode": "60611"
+    },
+    "preferredCommunicationMethod": "Email",
+    "statusDisplayed": "Active",
+    "lastUpdatedDisplayed": "Last updated Apr 24, 2025 10:36 AM",
+    "availabilityMessageDisplayed": "Email address is available."
+  },
+  "pagination": {
+    "currentPage": 1,
+    "visiblePageButtons": [1, 2, 3, 4, 5],
+    "visibleRangeStart": 1,
+    "visibleRangeEnd": 10,
+    "totalRecords": 42,
+    "rangeText": "1–10 of 42"
+  }
+}
+```
+
+## 8. Machine-readable explicit rules
+
+These rules are separate from the sample fixture and are limited to what the visible interface states or marks.
+
+```json
+{
+  "rules": [
+    {
+      "id": "client_type_immutable_after_creation",
+      "evidence": "explicit_ui_text",
+      "field": "clientType",
+      "constraint": "cannot_change_after_creation",
+      "sourceText": "Client type cannot be changed after the client is created."
+    },
+    {
+      "id": "required_name_fields",
+      "evidence": "visible_required_asterisks",
+      "fields": ["firstName", "lastName"],
+      "constraint": "required"
+    },
+    {
+      "id": "display_name_purpose",
+      "evidence": "explicit_ui_text",
+      "field": "displayName",
+      "purpose": "client_name_in_lists_and_communications",
+      "sourceText": "This is how the client will appear in lists and communications."
+    },
+    {
+      "id": "preference_is_not_consent",
+      "evidence": "explicit_ui_text",
+      "field": "preferredCommunicationMethod",
+      "constraint": "routing_convenience_does_not_constitute_consent",
+      "sourceText": "This preference is a routing convenience and does not constitute consent."
+    }
+  ]
+}
+```
+
+## 9. Fidelity boundaries
+
+- Only the displayed Profile screen is specified. 
+- Do not invent Contacts or History content, additional fields, menu options, client identifiers, status transitions, endpoints, database schemas, permission models, validation messages, or save/cancel workflows. No loading, error, empty-list, confirmation, or success state is shown.
+- Mobile layouts, scrolling behavior, exact dimensions, hover/focus states, and accessibility implementation details remain unspecified.
+
+- The timestamp is preserved as displayed without assuming a timezone. 
+- The Active badge, selected Email preference, ten visible rows, and 42-record total are sample data. 
+- The immutable client-type rule, the two visible required markers, the display-name purpose, and the distinction between routing preference and consent are supported directly by the screenshot.

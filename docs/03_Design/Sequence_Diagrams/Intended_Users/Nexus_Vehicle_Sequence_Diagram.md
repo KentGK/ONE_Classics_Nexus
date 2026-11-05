@@ -1,0 +1,86 @@
+# ONE Classics Nexus — Vehicle Entity Sequence Diagram
+
+```mermaid
+sequenceDiagram
+    autonumber
+
+    actor Client
+    participant UI as WinForms/Web UI
+    participant API as VehiclesController
+    participant App as VehicleService
+    participant Handler as CreateVehicleHandler
+    participant Repo as VehicleRepository
+    participant DB as MariaDB vehicles
+
+    Client->>UI: Enter vehicle data
+    UI->>API: POST /api/vehicles
+    API->>App: CreateVehicle(request)
+    App->>Handler: Handle(CreateVehicleRequest)
+
+    Handler->>Handler: Validate year, make, model required
+    alt Validation fails
+        Handler-->>API: ProblemDetails 400
+        API-->>UI: 400 Bad Request
+        UI-->>Client: Display validation error
+    else Valid request
+        Handler->>Repo: Insert(vehicle)
+        Repo->>DB: INSERT INTO vehicles
+        DB-->>Repo: OK vehicle_id
+        Repo-->>Handler: Vehicle persisted
+        Handler-->>App: VehicleResponse
+        App-->>API: VehicleResponse
+        API-->>UI: 201 Created
+        UI-->>Client: Show created vehicle
+    end
+
+    Client->>UI: View vehicle
+    UI->>API: GET /api/vehicles/{vehicleId}
+    API->>App: GetVehicleById(vehicleId)
+    App->>Repo: GetById(vehicleId)
+    Repo->>DB: SELECT FROM vehicles WHERE vehicle_id = ?
+
+    alt Vehicle found
+        DB-->>Repo: Vehicle row
+        Repo-->>App: Vehicle
+        App-->>API: VehicleResponse
+        API-->>UI: 200 OK
+        UI-->>Client: Display vehicle
+    else Not found
+        DB-->>Repo: null
+        Repo-->>App: null
+        App-->>API: NotFound
+        API-->>UI: 404 Not Found
+        UI-->>Client: Show not found message
+    end
+
+    Client->>UI: Edit vehicle
+    UI->>API: PUT /api/vehicles/{vehicleId}
+    API->>App: UpdateVehicle(request)
+    App->>Repo: Update(vehicle)
+    Repo->>DB: UPDATE vehicles SET ...
+
+    alt Update success
+        DB-->>Repo: rows affected = 1
+        Repo-->>App: success
+        App-->>API: VehicleResponse
+        API-->>UI: 200 OK
+        UI-->>Client: Show updated vehicle
+    else Conflict or not found
+        DB-->>Repo: rows affected = 0
+        Repo-->>App: failure
+        App-->>API: 404 or 409
+        API-->>UI: Error response
+        UI-->>Client: Display error
+    end
+
+    Client->>UI: Delete vehicle
+    UI->>API: DELETE /api/vehicles/{vehicleId}
+    API->>App: DeleteVehicle(vehicleId)
+    App->>Repo: SoftDelete(vehicleId)
+    Repo->>DB: UPDATE vehicles SET is_deleted = TRUE
+    DB-->>Repo: OK
+    Repo-->>App: success
+    App-->>API: NoContent
+    API-->>UI: 204 No Content
+    UI-->>Client: Remove from list
+```

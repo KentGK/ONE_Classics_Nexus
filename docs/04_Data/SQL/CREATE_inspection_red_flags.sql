@@ -1,0 +1,31 @@
+-- one_classics_nexus_test.inspection_red_flags definition
+
+CREATE TABLE `inspection_red_flags` (
+  `inspection_red_flag_id` char(36) NOT NULL,
+  `inspection_id` char(36) NOT NULL,
+  `appraisal_id` char(36) NOT NULL,
+  `inspection_template_section_id` char(36) DEFAULT NULL,
+  `inspection_template_item_id` char(36) DEFAULT NULL,
+  `system_number` int(11) DEFAULT NULL,
+  `red_flag_code` varchar(50) DEFAULT NULL,
+  `title` varchar(150) NOT NULL,
+  `description` text DEFAULT NULL,
+  `severity` varchar(30) NOT NULL,
+  `penalty_factor` decimal(8,4) DEFAULT NULL,
+  `requires_manual_review` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at_utc` datetime(6) NOT NULL DEFAULT current_timestamp(6),
+  `system_key` int(11) DEFAULT NULL,
+  `is_resolved` tinyint(1) NOT NULL DEFAULT 0,
+  `resolved_by_user_id` char(36) DEFAULT NULL,
+  `resolved_at_utc` datetime DEFAULT NULL,
+  PRIMARY KEY (`inspection_red_flag_id`),
+  KEY `idx_red_flags_appraisal` (`appraisal_id`),
+  KEY `idx_red_flags_inspection` (`inspection_id`),
+  KEY `idx_red_flags_section` (`inspection_template_section_id`),
+  KEY `idx_red_flags_item` (`inspection_template_item_id`),
+  KEY `idx_red_flags_severity` (`severity`),
+  CONSTRAINT `fk_red_flags_appraisal` FOREIGN KEY (`appraisal_id`) REFERENCES `appraisals` (`appraisal_id`),
+  CONSTRAINT `fk_red_flags_inspection` FOREIGN KEY (`inspection_id`) REFERENCES `inspections` (`inspection_id`),
+  CONSTRAINT `fk_red_flags_item` FOREIGN KEY (`inspection_template_item_id`) REFERENCES `inspection_template_items` (`inspection_template_item_id`),
+  CONSTRAINT `fk_red_flags_section` FOREIGN KEY (`inspection_template_section_id`) REFERENCES `inspection_template_sections` (`inspection_template_section_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

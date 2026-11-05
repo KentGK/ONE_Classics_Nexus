@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "ONE_Classics_Nexus.API\\ONE_Classics_Nexus.API.csproj",
+        "Action": "StartWithoutDebugging"
+      },
+      {
+        "Path": "ONE_Classics_Nexus.WinForms\\ONE_Classics_Nexus.WinForms.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

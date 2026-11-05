@@ -1,0 +1,87 @@
+
+flowchart TB
+    subgraph Presentation["Presentation Layer"]
+        InspectionTemplateComponent["Inspection Template Component"]
+        VehicleComponent["Vehicle Component"]
+        AppraisalComponent["Appraisal Component"]
+        InspectionComponent["Inspection Component"]
+    end
+
+    subgraph Application["Application Layer"]
+        TemplateUseCases["Inspection Template Use Cases"]
+        VehicleUseCases["Vehicle Use Cases"]
+        AppraisalUseCases["Appraisal Use Cases"]
+        InspectionUseCases["Inspection Use Cases"]
+        
+        TemplateRepositoryPort["IInspectionTemplateRepository"]
+        VehicleRepositoryPort["IVehicleRepository"]
+        AppraisalRepositoryPort["IAppraisalRepository"]
+        InspectionRepositoryPort["IInspectionRepository"]
+    end
+
+    subgraph Domain["Domain Layer"]
+        InspectionTemplate["InspectionTemplate"]
+        TemplateSection["InspectionTemplateSection"]
+        TemplateItem["InspectionTemplateItem"]
+        Vehicle["Vehicle"]
+        Appraisal["Appraisal"]
+        Inspection["Inspection"]
+        ConditionScore["ConditionScore"]
+        InspectionSystems["InspectionSystems"]
+    end
+
+    subgraph Infrastructure["Infrastructure Layer"]
+        TemplateRepository["InspectionTemplateRepository"]
+        VehicleRepository["VehicleRepository"]
+        AppraisalRepository["AppraisalRepository"]
+        InspectionRepository["InspectionRepository"]
+        Database["MySQL Database"]
+    end
+
+    InspectionTemplateComponent --> TemplateUseCases
+    VehicleComponent --> VehicleUseCases
+    AppraisalComponent --> AppraisalUseCases
+    InspectionComponent --> InspectionUseCases
+
+    TemplateUseCases --> InspectionTemplate
+    TemplateUseCases --> TemplateRepositoryPort
+    VehicleUseCases --> Vehicle
+    VehicleUseCases --> VehicleRepositoryPort
+    AppraisalUseCases --> Appraisal
+    AppraisalUseCases --> AppraisalRepositoryPort
+    InspectionUseCases --> Inspection
+    InspectionUseCases --> ConditionScore
+    InspectionUseCases --> InspectionSystems
+    InspectionUseCases --> InspectionRepositoryPort
+    InspectionUseCases --> AppraisalRepositoryPort
+    InspectionUseCases --> TemplateRepositoryPort
+
+    InspectionTemplate --> TemplateSection
+    TemplateSection --> TemplateItem
+    Inspection --> ConditionScore
+    Inspection --> InspectionTemplate
+    Inspection --> Appraisal
+    Appraisal --> Vehicle
+
+    TemplateRepositoryPort -.-> TemplateRepository
+    VehicleRepositoryPort -.-> VehicleRepository
+    AppraisalRepositoryPort -.-> AppraisalRepository
+    InspectionRepositoryPort -.-> InspectionRepository
+
+    TemplateRepository --> Database
+    VehicleRepository --> Database
+    AppraisalRepository --> Database
+    InspectionRepository --> Database
+
+    InspectionTemplate -. "template_id" .-> Inspection
+    Appraisal -. "appraisal_id" .-> Inspection
+    Vehicle -. "vehicle_id" .-> Appraisal
+
+    classDef existing fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef planned fill:#fff3e0,stroke:#ef6c00,color:#e65100
+    classDef infrastructure fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+
+    class Vehicle,Appraisal,Inspection,ConditionScore,InspectionSystems existing
+    class InspectionTemplate,TemplateSection,TemplateItem,InspectionTemplateComponent,TemplateUseCases,TemplateRepositoryPort planned
+    class TemplateRepository,VehicleRepository,AppraisalRepository,InspectionRepository,Database infrastructure
+```

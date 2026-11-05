@@ -1,0 +1,142 @@
+flowchart TD
+    %% ONE Classics Platform Architecture
+    %% Classic Vehicle Inspection • Valuation • Analytics • Brokerage
+
+    PLATFORM["ONE CLASSICS PLATFORM<br/>Classic Vehicle Inspection • Valuation • Analytics • Brokerage"]
+
+    subgraph L1["1. EXPERIENCE LAYER<br/>User-facing applications"]
+        WF["WinForms App<br/>Appraiser UI"]
+        WEB["Web App<br/>Client / Broker UI"]
+        TAB["Tablet Forms<br/>Field Inspection"]
+        ADMIN["Admin Console<br/>Ops / Data Mgmt"]
+    end
+
+    subgraph L2["2. WORKFLOW / APP LAYER<br/>Business process services"]
+        VI["Vehicle Intake<br/>VIN / identity<br/>owner / docs"]
+        IF["Inspection Flow<br/>checklist state<br/>photos / notes"]
+        AF["Appraisal Flow<br/>value creation<br/>review / approve"]
+        BF["Brokerage Flow<br/>leads / listings<br/>sales workflow"]
+    end
+
+    subgraph L3["3. INSPECTION LAYER<br/>Source-of-truth condition"]
+        M12["Standardized 12-System Inspection Model<br/>1 Identification & Documentation<br/>2 Body & Exterior<br/>3 Paint & Finish<br/>4 Glass & Trim<br/>5 Interior & Upholstery<br/>6 Engine & Induction<br/>7 Transmission & Drivetrain<br/>8 Suspension & Steering<br/>9 Brakes & Wheels<br/>10 Electrical Systems<br/>11 Frame & Undercarriage<br/>12 Road Test & Operational Performance"]
+        SS["System Scores<br/>1–5 scale"]
+        SN["Subsystem Notes<br/>guided comments"]
+        RF["Red Flags<br/>salvage / rust / etc."]
+        PE["Photos / Evidence<br/>images / docs / files"]
+    end
+
+    subgraph L4["4. CORE ENGINE LAYER<br/>Deterministic valuation"]
+        CE["Condition Engine<br/>weighted 1–5 scores<br/>normalized 0–100<br/>red-flag penalties"]
+        CSE["Comp Sales Engine<br/>ingest / normalize<br/>auctions / listings<br/>outlier handling"]
+        SE["Similarity Engine<br/>subject vs comps<br/>weighted attributes<br/>rank / filter comps"]
+        ML["Market Layer<br/>momentum<br/>liquidity<br/>seasonality later"]
+        VE["Valuation Engine<br/>weighted price base<br/>condition factor<br/>show-quality factor<br/>market adjustments"]
+        COE["Confidence Engine<br/>comp count<br/>similarity strength<br/>inspection complete<br/>market depth"]
+        TAE["Trace / Audit Engine<br/>explain every step<br/>reproducible output<br/>unit-testable math"]
+    end
+
+    subgraph L5["5. MARKET ANALYTICS<br/>Market intelligence"]
+        AT["Auction Trends<br/>house / segment"]
+        MM["Market Momentum<br/>direction / rate"]
+        LI["Liquidity Index<br/>sales velocity"]
+        PD["Price Distribution<br/>median / spread"]
+        CP["Comparable Pools<br/>by class / series"]
+        SB["Segment Benchmarks<br/>trucks / muscle / etc."]
+        OR["Option / Rarity<br/>future module"]
+        WL["Watchlists<br/>user-defined"]
+    end
+
+    subgraph L6["6. BROKERAGE TOOLS<br/>Transaction support"]
+        VD["Vehicle Dossiers<br/>history / value"]
+        SI["Seller Intake<br/>docs / photos / data"]
+        BM["Buyer Matching<br/>target buyers"]
+        LB["Listing Builder<br/>polished outputs"]
+        OS["Offer Support<br/>negotiation aid"]
+        RG["Reserve Guidance<br/>recommended bands"]
+        CM["Consignment Mgmt<br/>pipeline / status"]
+        CR["Client Reports<br/>broker-facing"]
+    end
+
+    subgraph L7["7. REPORTING LAYER<br/>Human-readable outputs"]
+        AR["Appraisal Report<br/>USPAP-style"]
+        BR["Broker Report<br/>sell-side view"]
+        COR["Comp Report<br/>comparable packet"]
+        IR["Inspection Report<br/>field summary"]
+        PDF["PDF Export<br/>archival output"]
+        BT["Branded Templates<br/>ONE Classics"]
+    end
+
+    subgraph L8["8. DATA PLATFORM<br/>Persistent storage"]
+        VM["Vehicle Master<br/>VIN / year / make / model"]
+        IS["Inspection Store<br/>systems / notes / photos"]
+        AS["Appraisal Store<br/>runs / values / traces"]
+        CSS["Comp Sales Store<br/>normalized sales"]
+        MIS["Market Index Store<br/>trend / liquidity data"]
+        BCRM["Brokerage CRM Store<br/>leads / listings / tasks"]
+        VA["Versioning / Audit<br/>checklist versions • valuation engine versions • ruleset versions • report revisions"]
+    end
+
+    subgraph L9["9. INTEGRATION LAYER<br/>Data in / data out"]
+        AUC["Auction Sources<br/>BJ / Mecum / BaT"]
+        LIS["Listing Sources<br/>dealers / marketplaces"]
+        VIN["VIN / decode APIs<br/>specs / options"]
+        DOCS["Docs / media<br/>image storage"]
+        APIB["API / Service Boundary<br/>REST + internal events"]
+    end
+
+    subgraph L10["10. FUTURE AI MODULES<br/>Assisted intelligence"]
+        IA["Image Analysis<br/>panel gaps / rust"]
+        DD["Damage Detection<br/>corrosion / issues"]
+        OCR["OCR / Doc Parsing<br/>titles / receipts"]
+        NW["Narrative Writer<br/>report drafts"]
+        ORAI["Option / Rarity AI<br/>decode desirability"]
+        MF["Market Forecast<br/>future trend estimate"]
+        BMAI["Buyer Match AI<br/>vehicle-to-client"]
+        FA["Fraud / Anomaly<br/>suspicious comps"]
+    end
+
+    PLATFORM --> L1
+    WF --> L2
+    WEB --> L2
+    TAB --> L2
+    ADMIN --> L2
+
+    VI --> L3
+    IF --> L3
+    AF --> L3
+    BF --> L6
+
+    M12 --> SS
+    M12 --> SN
+    M12 --> RF
+    M12 --> PE
+    SS --> CE
+    SN --> CE
+    RF --> CE
+    PE --> CE
+
+    CE --> CSE --> SE --> ML --> VE --> COE --> TAE
+
+    TAE --> L7
+    CSE --> L5
+    ML --> L5
+    L5 --> VE
+
+    L6 --> L7
+    L7 --> L8
+    L4 --> L8
+    L9 --> L8
+    L8 --> L4
+
+    AUC --> APIB
+    LIS --> APIB
+    VIN --> APIB
+    DOCS --> APIB
+    APIB --> L2
+    APIB --> L8
+
+    L10 -. future enrichment .-> L3
+    L10 -. future enrichment .-> L4
+    L10 -. future enrichment .-> L6
+    L10 -. future enrichment .-> L7

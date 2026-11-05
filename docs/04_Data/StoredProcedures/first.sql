@@ -1,0 +1,1 @@
+{ CALL one_classics_nexus.sp_schema_report() }

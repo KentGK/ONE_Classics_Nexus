@@ -1,0 +1,44 @@
+flowchart TD
+    START([POST /convert with row version]) --> LOAD[Load Appraisal Request by id]
+    LOAD --> FOUND{Request exists?}
+    FOUND -->|No| E404[APPRAISAL_REQUEST_NOT_FOUND 404]
+    FOUND -->|Yes| VERSION{Row version matches?}
+    VERSION -->|No| E409[APPRAISAL_REQUEST_CONCURRENCY_CONFLICT 409]
+
+    VERSION -->|Yes| ELIGIBLE{CanConvert?}
+    ELIGIBLE -->|Not Qualified or Accepted| E422[APPRAISAL_REQUEST_NOT_QUALIFIED 422]
+    ELIGIBLE -->|Already converted| E422
+    ELIGIBLE -->|Yes| SEED[Build AppraisalSeed from request and command overrides]
+
+    subgraph GATEWAY[Conversion gateway]
+        SEED --> SUBJECT{Subject vehicle identified?}
+        SUBJECT -->|No| E422S[APPRAISAL_REQUEST_SUBJECT_REQUIRED 422]
+        SUBJECT -->|Yes| MAP[Map seed to CreateAppraisalRequest as provisional]
+        MAP --> CREATE[CreateAppraisalHandler creates Appraisal]
+        CREATE --> NUMBER[Allocate appraisal number]
+        NUMBER --> SNAP[Create Appraisal Subject Snapshot from Vehicle]
+    end
+
+    SNAP --> PROVISIONAL[/Provisional Appraisal exists, not yet linked/]
+    PROVISIONAL --> CONVERT[Request.Convert sets converted id and Converted status]
+    CONVERT --> SAVE{Save request with expected row version?}
+
+    SAVE -->|No| COMPENSATE[Delete snapshot then delete Appraisal]
+    COMPENSATE --> CLEAN{Cleanup succeeded?}
+    CLEAN -->|Yes| ERETHROW[Rethrow original failure, no orphan]
+    CLEAN -->|No| ECLEAN[APPRAISAL_REQUEST_CONVERSION_CLEANUP_FAILED 500 with orphan id]
+
+    SAVE -->|Yes| LINKED[/Request durably references Appraisal/]
+    LINKED --> AUDIT[Write AppraisalRequestConverted audit event]
+    AUDIT --> RESULT([201 Created with ConvertAppraisalRequestResult])
+
+    classDef primary fill:#0E2841,color:#FFFFFF,stroke:#0E2841,stroke-width:2px;
+    classDef gate fill:#FFF4CC,color:#1F2937,stroke:#A16207,stroke-width:1.5px;
+    classDef frozen fill:#DCEAF7,color:#0E2841,stroke:#0E2841,stroke-width:1.5px;
+    classDef terminal fill:#F3F4F6,color:#374151,stroke:#6B7280,stroke-width:1.5px;
+    classDef fault fill:#FDE2E1,color:#7F1D1D,stroke:#B91C1C,stroke-width:1.5px;
+    class CREATE,CONVERT,LINKED,AUDIT primary;
+    class FOUND,VERSION,ELIGIBLE,SUBJECT,SAVE,CLEAN gate;
+    class SEED,MAP,SNAP,PROVISIONAL frozen;
+    class E404,E409,E422,E422S,ECLEAN,ERETHROW,COMPENSATE fault;
+    class START,RESULT terminal;

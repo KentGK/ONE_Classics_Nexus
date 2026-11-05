@@ -1,0 +1,7 @@
+User Story ID,Title,Parent Feature
+US-001,Create Vehicle Record,F-001
+US-002,Edit Vehicle Information,F-001
+US-010,Create Inspection,F-002
+US-020,Upload Photos,F-003
+US-040,Calculate Base Market Value,F-004
+US-060,Generate USPAP Narrative,F-005

@@ -1,0 +1,30 @@
+```mermaid
+graph LR
+    User["User"]
+    API["Appraisal API (Controller)"]
+    Service["Appraisal Service (Domain)"]
+    Aggregate["Appraisal Aggregate"]
+    Repo["Appraisal Repository"]
+    Db["Appraisals DB"]
+    Cache["Cache (Redis)"]
+    Audit["Audit Log (Data Store)"]
+    Valuation["Valuation Service (External)"]
+    Notification["Notification Service (External)"]
+
+    User -- "HTTP: Create/Read/Update/Delete" --> API
+    API -- "Validate / Map DTO" --> Service
+    Service -- "Enforce business rules / Orchestrate" --> Aggregate
+    Aggregate -- "Return domain result / apply state" --> Service
+
+    Service -- "Load / Persist" --> Repo
+    Repo -- "SELECT / INSERT / UPDATE / DELETE" --> Db
+    Db -- "Record(s)" --> Repo
+
+    Service -- "Write audit event" --> Audit
+    Service -- "Invalidate / Update cache" --> Cache
+    Service -- "Request valuation / market data" --> Valuation
+    Service -- "Send notifications (creation/update)" --> Notification
+
+    Cache -- "Cached appraisal" --> Service
+    Audit -- "Audit entries" --> Repo
+```

@@ -1,0 +1,169 @@
+flowchart TD
+    Start([Appraisal or Inspection action requested])
+    Entity{"Which aggregate?"}
+
+    subgraph AppraisalCreate["Appraisal Create"]
+        AC1{"Creation source?"}
+        AC2[Convert one accepted Appraisal Request]
+        AC3[Authorized direct creation exception<br/>with reason and equivalent validation]
+        AC4[Validate Client, Vehicle, appraisal type,<br/>effective date, intended use and users, scope,<br/>responsible Appraiser, permissions, and uniqueness]
+        AC5{"Create rules pass?"}
+        AC6[Create Appraisal with UUID, linked records,<br/>Draft status, sub-statuses, audit fields, and row version 1]
+        AC7[Persist conversion-review tasks<br/>or direct-create exception audit]
+        AC8[Return validation errors<br/>without partial persistence]
+    end
+
+    subgraph AppraisalMaintain["Appraisal Update and Delete"]
+        AH{"Appraisal action?"}
+        AU1[Load Appraisal and expected row version]
+        AU2{"Editable status and authorized fields?"}
+        AU3[Apply permitted field and status changes]
+        AU4{"Change affects completed inspection,<br/>valuation, or report assumptions?"}
+        AU5[Mark dependent outputs stale,<br/>create review tasks, and require rerun or amendment]
+        AU6[Increment row version and write audit event]
+        AU7[Reject with 403, 409, or 422]
+        AD1[Request Appraisal deletion or closure]
+        AD2{"Has Inspections, Comparables,<br/>Valuation Runs, Reports, legal hold,<br/>or retained workfile evidence?"}
+        AD3[Block physical delete and set<br/>Cancelled, Closed, or Archived as permitted]
+        AD4[Authorized soft delete with reason,<br/>actor, UTC timestamp, and audit event]
+        AD5{"Administrative purge explicitly allowed<br/>and retention period satisfied?"}
+        AD6[Hard-delete unreferenced Draft only<br/>inside one controlled transaction]
+        AD7[Retain record and report deletion blocker]
+    end
+
+    subgraph InspectionCreate["Inspection Create"]
+        IC1[Request new Inspection for Appraisal]
+        IC2[Validate active Appraisal, permission,<br/>vehicle type, inspection type, and published template]
+        IC3{"Compatible active Inspection already exists<br/>or Appraisal is closed or archived?"}
+        IC4[Create Inspection in Draft<br/>with immutable type and template version]
+        IC5[Initialize the canonical 12 systems<br/>in fixed order with vehicle-type weights]
+        IC6[Validate system numbers 1 through 12,<br/>canonical keys, and total weight of 1.00]
+        IC7[Set Appraisal inspection status<br/>to InInspection and write audit event]
+        IC8[Reject duplicate, inactive-template,<br/>or lifecycle violation]
+    end
+
+    subgraph InspectionMaintain["Inspection Update and Completion"]
+        IH{"Inspection action?"}
+        IU1[Load Inspection and expected row version]
+        IU2{"Status is Draft or InProgress<br/>and actor may edit?"}
+        IU3[Update permitted items, notes, media,<br/>scores, red flags, location, and summary]
+        IU4[Validate each system score from 0 to 5<br/>and preserve canonical number and key]
+        IU5[Recalculate completeness, weighted score,<br/>Condition Index, red-flag summary, and overall score]
+        IU6[Increment row version and write audit event]
+        IU7[Reject immutable-field, lifecycle,<br/>permission, or concurrency violation]
+        CO1[Request Complete Inspection]
+        CO2[Validate all required systems and items,<br/>weights, scores, red flags, notes, and completeness]
+        CO3{"Completion gate passes?"}
+        CO4[Set Complete, persist denormalized summary,<br/>lock ordinary edits, and record completion audit]
+        CO5[Set Appraisal inspection status<br/>to Complete or ReadyForValuation]
+        CO6[Return rule-specific completion blockers]
+        CO7[Authorized reopen or amendment]
+        CO8[Record reason and invalidate affected<br/>valuation or report outputs]
+    end
+
+    subgraph InspectionDelete["Inspection Delete"]
+        ID1[Request Inspection deletion]
+        ID2{"Inspection status and dependencies?"}
+        ID3[Soft-delete Draft or InProgress Inspection<br/>with reason, actor, timestamp, and row version]
+        ID4[Require elevated permission<br/>for completed Inspection]
+        ID5{"Linked to finalized Valuation Run,<br/>Report, legal hold, or retained workfile?"}
+        ID6[Block deletion and preserve Inspection]
+        ID7[Soft-delete completed Inspection,<br/>retain child scores, flags, notes, and media,<br/>then create Appraisal review task]
+        ID8[Administrative hard delete only for<br/>unreferenced cleanup explicitly allowed by policy]
+    end
+
+    End([Action completed with current state and row version])
+
+    Start --> Entity
+    Entity -- Appraisal --> AC1
+    Entity -- Inspection --> IH
+
+    AC1 -- Accepted request --> AC2
+    AC1 -- Authorized exception --> AC3
+    AC2 --> AC4
+    AC3 --> AC4
+    AC4 --> AC5
+    AC5 -- No --> AC8
+    AC5 -- Yes --> AC6
+    AC6 --> AC7
+    AC7 --> AH
+    AC8 --> End
+
+    AH -- Update --> AU1
+    AH -- Create Inspection --> IC1
+    AH -- Delete or close --> AD1
+    AU1 --> AU2
+    AU2 -- No --> AU7
+    AU2 -- Yes --> AU3
+    AU3 --> AU4
+    AU4 -- Yes --> AU5
+    AU4 -- No --> AU6
+    AU5 --> AU6
+    AU6 --> End
+    AU7 --> End
+
+    AD1 --> AD2
+    AD2 -- Yes --> AD3
+    AD2 -- No --> AD4
+    AD3 --> End
+    AD4 --> AD5
+    AD5 -- No --> AD7
+    AD5 -- Yes --> AD6
+    AD6 --> End
+    AD7 --> End
+
+    IC1 --> IC2
+    IC2 --> IC3
+    IC3 -- Yes --> IC8
+    IC3 -- No --> IC4
+    IC4 --> IC5
+    IC5 --> IC6
+    IC6 --> IC7
+    IC7 --> IH
+    IC8 --> End
+
+    IH -- Create --> IC1
+    IH -- Update --> IU1
+    IH -- Complete --> CO1
+    IH -- Delete --> ID1
+    IH -- Reopen or amend --> CO7
+    IU1 --> IU2
+    IU2 -- No --> IU7
+    IU2 -- Yes --> IU3
+    IU3 --> IU4
+    IU4 --> IU5
+    IU5 --> IU6
+    IU6 --> End
+    IU7 --> End
+
+    CO1 --> CO2
+    CO2 --> CO3
+    CO3 -- No --> CO6
+    CO3 -- Yes --> CO4
+    CO4 --> CO5
+    CO5 --> End
+    CO6 --> End
+    CO7 --> CO8
+    CO8 --> IU1
+
+    ID1 --> ID2
+    ID2 -- Draft or InProgress,<br/>no finalized dependency --> ID3
+    ID2 -- Complete --> ID4
+    ID2 -- Cleanup-only candidate --> ID8
+    ID3 --> End
+    ID4 --> ID5
+    ID5 -- Yes --> ID6
+    ID5 -- No --> ID7
+    ID6 --> End
+    ID7 --> End
+    ID8 --> End
+
+    classDef terminal fill:#0E2841,color:#ffffff,stroke:#0E2841,stroke-width:2px
+    classDef gate fill:#f4efe2,color:#1f2933,stroke:#9a7b35,stroke-width:1px
+    classDef mutation fill:#e8f0f6,color:#0E2841,stroke:#0E2841,stroke-width:1px
+    classDef destructive fill:#f8e8e8,color:#7f1d1d,stroke:#b91c1c,stroke-width:1px
+
+    class Start,End terminal
+    class Entity,AC1,AC5,AH,AU2,AU4,AD2,AD5,IC3,IH,IU2,CO3,ID2,ID5 gate
+    class AC6,AC7,AU3,AU5,AU6,IC4,IC5,IC6,IC7,IU3,IU4,IU5,IU6,CO4,CO5,CO7,CO8 mutation
+    class AC8,AU7,AD3,AD4,AD6,AD7,IC8,IU7,CO6,ID3,ID4,ID6,ID7,ID8 destructive

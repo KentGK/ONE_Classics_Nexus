@@ -1,0 +1,276 @@
+erDiagram
+    vehicles ||--o{ appraisals : has
+    appraisals ||--o{ appraisal_status_history : tracks
+    appraisals ||--o{ inspections : has
+    appraisals ||--o{ comparable_sales : has
+    appraisals ||--o{ valuation_runs : has
+    appraisals ||--o{ appraisal_reports : produces
+
+    system_config_versions ||--o{ system_weights : versions
+    system_config_versions ||--o{ inspection_templates : versions
+    system_config_versions ||--o{ red_flag_rules : versions
+
+    inspection_templates ||--o{ inspection_template_items : contains
+    inspection_templates ||--o{ inspections : used_by
+
+    inspections ||--o{ condition_scores : owns
+    inspections ||--o{ inspection_red_flags : flags
+
+    condition_scores ||--o{ inspection_red_flags : may_reference
+    red_flag_rules ||--o{ inspection_red_flags : instantiates
+
+    inspections ||--o{ valuation_runs : input_to
+    valuation_runs ||--o{ valuation_comparable_links : uses
+    comparable_sales ||--o{ valuation_comparable_links : linked
+    valuation_runs ||--o{ valuation_trace_lines : explains
+    valuation_runs ||--o{ appraisal_reports : supports
+
+    vehicles {
+        char vehicle_id PK
+        varchar vin UK
+        int year
+        varchar make
+        varchar model
+        varchar trim
+        varchar body_style
+        varchar engine
+        varchar transmission
+        varchar drivetrain
+        int mileage
+        varchar exterior_color
+        varchar interior_color
+        varchar title_status
+        boolean is_deleted
+        datetime created_at_utc
+        datetime updated_at_utc
+    }
+
+    appraisals {
+        char appraisal_id PK
+        char vehicle_id FK
+        varchar status
+        varchar requested_by
+        varchar assigned_to
+        text notes
+        int row_version
+        datetime created_at_utc
+        datetime updated_at_utc
+    }
+
+    appraisal_status_history {
+        char history_id PK
+        char appraisal_id FK
+        varchar from_status
+        varchar to_status
+        varchar changed_by
+        datetime changed_at_utc
+        text notes
+    }
+
+    inspections {
+        char inspection_id PK
+        char appraisal_id FK
+        char template_id FK
+        varchar vehicle_type
+        varchar status
+        text notes
+        boolean is_deleted
+        datetime created_at_utc
+        datetime updated_at_utc
+    }
+
+    condition_scores {
+        char condition_score_id PK
+        char inspection_id FK
+        char appraisal_id FK
+        int system_number
+        varchar system_code
+        varchar system_key
+        decimal score_0_to_5
+        decimal weight
+        decimal weighted_value
+        boolean is_red_flag
+        text notes
+        datetime created_at_utc
+        datetime updated_at_utc
+    }
+
+    inspection_red_flags {
+        char inspection_red_flag_id PK
+        char inspection_id FK
+        char condition_score_id FK
+        char rule_id FK
+        int system_number
+        varchar system_code
+        varchar system_key
+        varchar severity
+        text description
+        decimal modifier
+        text notes
+        datetime created_at_utc
+    }
+
+    comparable_sales {
+        char comparable_id PK
+        char appraisal_id FK
+        int year
+        varchar make
+        varchar model
+        varchar trim
+        varchar body_style
+        varchar series
+        varchar drivetrain
+        varchar engine
+        varchar transmission
+        int mileage
+        decimal sale_price
+        decimal asking_price
+        date sale_date
+        varchar source
+        text source_listing_url
+        varchar venue_type
+        decimal overall_condition_score
+        text notes
+        boolean is_deleted
+        datetime created_at_utc
+        datetime updated_at_utc
+    }
+
+    valuation_runs {
+        char valuation_run_id PK
+        char appraisal_id FK
+        char inspection_id FK
+        varchar engine_version
+        varchar rubric_version
+        varchar ruleset_version
+        decimal condition_score
+        varchar condition_tier
+        decimal tier_multiplier
+        decimal median_comparable_value
+        decimal red_flag_modifier
+        decimal confidence_score
+        decimal confidence_modifier
+        decimal final_value
+        decimal value_low
+        decimal value_high
+        varchar status
+        datetime created_at_utc
+    }
+
+    valuation_comparable_links {
+        char valuation_comparable_link_id PK
+        char valuation_run_id FK
+        char comparable_id FK
+        decimal similarity_score
+        decimal adjusted_value
+        text adjustment_notes
+        datetime created_at_utc
+    }
+
+    valuation_trace_lines {
+        char trace_id PK
+        char valuation_run_id FK
+        int sort_order
+        varchar type
+        varchar trace_key
+        decimal amount
+        decimal factor
+        text message
+        varchar evidence_ref
+        datetime created_at_utc
+    }
+
+    appraisal_reports {
+        char report_id PK
+        char appraisal_id FK
+        char valuation_run_id FK
+        varchar template_key
+        varchar report_format
+        varchar report_status
+        text storage_uri
+        text download_url
+        datetime created_at_utc
+        datetime finalized_at_utc
+        datetime locked_at_utc
+    }
+
+    system_config_versions {
+        char config_version_id PK
+        varchar version_label UK
+        varchar engine_version
+        varchar rubric_version
+        varchar ruleset_version
+        varchar status
+        datetime effective_from_utc
+        datetime effective_to_utc
+        text notes
+        datetime created_at_utc
+        datetime updated_at_utc
+    }
+
+    system_weights {
+        char weight_id PK
+        char config_version_id FK
+        varchar vehicle_type
+        int system_number
+        varchar system_code
+        varchar system_key
+        decimal weight
+        int version
+        boolean is_active
+        datetime created_at_utc
+    }
+
+    inspection_templates {
+        char template_id PK
+        char config_version_id FK
+        varchar vehicle_type
+        int version
+        varchar template_name
+        varchar status
+        boolean is_active
+        datetime created_at_utc
+        datetime updated_at_utc
+    }
+
+    inspection_template_items {
+        char item_id PK
+        char template_id FK
+        int system_number
+        varchar system_code
+        varchar system_key
+        varchar item_key
+        varchar item_name
+        text description
+        int display_order
+        boolean is_required
+        datetime created_at_utc
+    }
+
+    red_flag_rules {
+        char rule_id PK
+        char config_version_id FK
+        varchar vehicle_type
+        int system_number
+        varchar system_code
+        varchar system_key
+        varchar rule_key
+        varchar severity
+        text description
+        decimal modifier
+        int version
+        boolean is_active
+        datetime created_at_utc
+    }
+
+    audit_log {
+        char audit_id PK
+        varchar entity_name
+        char entity_id
+        varchar action
+        varchar changed_by
+        datetime changed_at_utc
+        json before_json
+        json after_json
+        text notes
+    }

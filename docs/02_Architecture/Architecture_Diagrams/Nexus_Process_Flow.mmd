@@ -1,0 +1,240 @@
+flowchart TB
+
+%% ONE CLASSICS PLATFORM
+PLATFORM["ONE CLASSICS PLATFORM<br/>Classic Vehicle Inspection • Valuation • Analytics • Brokerage"]
+
+%% 1. EXPERIENCE LAYER
+subgraph L1["1. EXPERIENCE LAYER<br/>User-facing applications"]
+    direction LR
+    WF["WinForms App<br/>Appraiser UI"]
+    WEB["Web App<br/>Client/Broker UI"]
+    TAB["Tablet Forms<br/>Field Inspection"]
+    ADMIN["Admin Console<br/>Ops / Data Mgmt"]
+end
+
+%% 2. WORKFLOW / APP LAYER
+subgraph L2["2. WORKFLOW / APP LAYER<br/>Business process services"]
+    direction LR
+    VI["Vehicle Intake<br/>VIN / identity<br/>owner / docs"]
+    IF["Inspection Flow<br/>checklist state<br/>photos / notes"]
+    AF["Appraisal Flow<br/>value creation<br/>review / approve"]
+    BF["Brokerage Flow<br/>leads / listings<br/>sales workflow"]
+end
+
+%% 3. INSPECTION LAYER
+subgraph L3["3. INSPECTION LAYER<br/>Source-of-truth condition"]
+    direction TB
+    INSPECT["Standardized 12-System Inspection Model<br/><br/>1 Identification & Documentation<br/>2 Body & Exterior<br/>3 Paint & Finish<br/>4 Glass & Trim<br/>5 Interior & Upholstery<br/>6 Engine & Induction<br/>7 Transmission & Drivetrain<br/>8 Suspension & Steering<br/>9 Brakes & Wheels<br/>10 Electrical Systems<br/>11 Frame & Undercarriage<br/>12 Road Test & Operational Performance"]
+
+    subgraph L3A[" "]
+        direction LR
+        SS["System Scores<br/>1–5 scale"]
+        SN["Subsystem Notes<br/>guided comments"]
+        RF["Red Flags<br/>salvage/rust/etc"]
+        PE["Photos / Evidence<br/>images/docs/files"]
+    end
+end
+
+%% 4. CORE ENGINE LAYER
+subgraph L4["4. CORE ENGINE LAYER<br/>Deterministic valuation"]
+    direction TB
+    CE["Condition Engine<br/>weighted 1–5 scores<br/>normalized 0–100<br/>red-flag penalties"]
+    CSE["Comp Sales Engine<br/>ingest / normalize<br/>auctions / listings<br/>outlier handling"]
+    SE["Similarity Engine<br/>subject vs comps<br/>weighted attributes<br/>rank / filter comps"]
+    ML["Market Layer<br/>momentum<br/>liquidity<br/>seasonality later"]
+    VE["Valuation Engine<br/>weighted price base<br/>condition factor<br/>show-quality factor<br/>market adjustments"]
+    COE["Confidence Engine<br/>comp count<br/>similarity strength<br/>inspection complete<br/>market depth"]
+    TAE["Trace / Audit Engine<br/>explain every step<br/>reproducible output<br/>unit-testable math"]
+end
+
+%% 5. MARKET ANALYTICS
+subgraph L5["5. MARKET ANALYTICS<br/>Market intelligence"]
+    direction TB
+    subgraph L5A[" "]
+        direction LR
+        AT["Auction Trends<br/>house / segment"]
+        MM["Market Momentum<br/>direction / rate"]
+        LI["Liquidity Index<br/>sales velocity"]
+        PD["Price Distribution<br/>median / spread"]
+    end
+    subgraph L5B[" "]
+        direction LR
+        CP["Comparable Pools<br/>by class/series"]
+        SB["Segment Benchmarks<br/>trucks/muscle/etc"]
+        OR["Option/Rarity<br/>future module"]
+        WL["Watchlists<br/>user-defined"]
+    end
+end
+
+%% 6. BROKERAGE TOOLS
+subgraph L6["6. BROKERAGE TOOLS<br/>Transaction support"]
+    direction TB
+    subgraph L6A[" "]
+        direction LR
+        VD["Vehicle Dossiers<br/>history/value"]
+        SI["Seller Intake<br/>docs/photos/data"]
+        BM["Buyer Matching<br/>target buyers"]
+        LB["Listing Builder<br/>polished outputs"]
+    end
+    subgraph L6B[" "]
+        direction LR
+        OS["Offer Support<br/>negotiation aid"]
+        RG["Reserve Guidance<br/>recommended bands"]
+        CM["Consignment Mgmt<br/>pipeline/status"]
+        CR["Client Reports<br/>broker-facing"]
+    end
+end
+
+%% 7. REPORTING LAYER
+subgraph L7["7. REPORTING LAYER<br/>Human-readable outputs"]
+    direction TB
+    subgraph L7A[" "]
+        direction LR
+        AR["Appraisal Report<br/>USPAP-style"]
+        BR["Broker Report<br/>sell-side view"]
+        CPR["Comp Report<br/>comparable packet"]
+        IR["Inspection Report<br/>field summary"]
+    end
+    subgraph L7B[" "]
+        direction LR
+        PDF["PDF Export<br/>archival output"]
+        BT["Branded Templates<br/>ONE Classics"]
+    end
+end
+
+%% 8. DATA PLATFORM
+subgraph L8["8. DATA PLATFORM<br/>Persistent storage"]
+    direction TB
+    subgraph L8A[" "]
+        direction LR
+        VM["Vehicle Master<br/>VIN/year/make/model"]
+        IS["Inspection Store<br/>systems/notes/photos"]
+        AS["Appraisal Store<br/>runs/values/traces"]
+    end
+    subgraph L8B[" "]
+        direction LR
+        CSS["Comp Sales Store<br/>normalized sales"]
+        MIS["Market Index Store<br/>trend/liquidity data"]
+        BCRM["Brokerage CRM Store<br/>leads/listings/tasks"]
+    end
+    VA["Versioning / Audit<br/>checklist versions • valuation engine versions • ruleset versions • report revs"]
+end
+
+%% 9. INTEGRATION LAYER
+subgraph L9["9. INTEGRATION LAYER<br/>Data in / data out"]
+    direction TB
+    subgraph L9A[" "]
+        direction LR
+        AUS["Auction Sources<br/>BJ / Mecum / BaT"]
+        LIS["Listing Sources<br/>dealers/marketpl"]
+        VIN["VIN / decode APIs<br/>specs/options"]
+        DM["Docs / media<br/>image storage"]
+    end
+    API["API / Service Boundary<br/>REST + internal events"]
+end
+
+%% 10. FUTURE AI MODULES
+subgraph L10["10. FUTURE AI MODULES<br/>Assisted intelligence"]
+    direction TB
+    subgraph L10A[" "]
+        direction LR
+        IA["Image Analysis<br/>panel gaps/rust"]
+        DD["Damage Detection<br/>corrosion/issues"]
+        OCR["OCR / Doc Parsing<br/>titles/receipts"]
+        NW["Narrative Writer<br/>report drafts"]
+    end
+    subgraph L10B[" "]
+        direction LR
+        ORAI["Option/Rarity AI<br/>decode desirability"]
+        MF["Market Forecast<br/>future trend est"]
+        BMAI["Buyer Match AI<br/>vehicle-to-client"]
+        FA["Fraud / anomaly<br/>suspicious comps"]
+    end
+end
+
+%% Layer-to-layer flow
+PLATFORM --> WF
+PLATFORM --> WEB
+PLATFORM --> TAB
+PLATFORM --> ADMIN
+
+WF --> VI
+WEB --> IF
+TAB --> AF
+ADMIN --> BF
+
+VI --> INSPECT
+IF --> INSPECT
+AF --> INSPECT
+BF --> INSPECT
+
+INSPECT --> SS
+INSPECT --> SN
+INSPECT --> RF
+INSPECT --> PE
+
+SS --> CE
+SN --> CE
+RF --> CE
+PE --> CE
+
+CE --> CSE --> SE --> ML --> VE --> COE --> TAE
+
+TAE --> AT
+TAE --> MM
+TAE --> LI
+TAE --> PD
+
+AT --> CP
+MM --> SB
+LI --> OR
+PD --> WL
+
+CP --> VD
+SB --> SI
+OR --> BM
+WL --> LB
+
+VD --> OS
+SI --> RG
+BM --> CM
+LB --> CR
+
+OS --> AR
+RG --> BR
+CM --> CPR
+CR --> IR
+
+AR --> PDF
+BR --> PDF
+CPR --> PDF
+IR --> PDF
+PDF --> BT
+
+BT --> VM
+BT --> IS
+BT --> AS
+VM --> CSS
+IS --> MIS
+AS --> BCRM
+CSS --> VA
+MIS --> VA
+BCRM --> VA
+
+VA --> AUS
+VA --> LIS
+VA --> VIN
+VA --> DM
+AUS --> API
+LIS --> API
+VIN --> API
+DM --> API
+
+API --> IA
+API --> DD
+API --> OCR
+API --> NW
+IA --> ORAI
+DD --> MF
+OCR --> BMAI
+NW --> FA

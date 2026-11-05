@@ -1,0 +1,17 @@
+-- one_classics_nexus_test.client_contacts definition
+
+CREATE TABLE `client_contacts` (
+  `client_contact_id` char(36) NOT NULL,
+  `client_id` char(36) NOT NULL,
+  `contact_name` varchar(200) NOT NULL,
+  `contact_role` varchar(50) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `phone` varchar(50) DEFAULT NULL,
+  `is_primary` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at_utc` datetime(6) NOT NULL DEFAULT current_timestamp(6),
+  `updated_at_utc` datetime(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6),
+  PRIMARY KEY (`client_contact_id`),
+  KEY `idx_client_contacts_client` (`client_id`),
+  KEY `idx_client_contacts_primary` (`client_id`,`is_primary`),
+  CONSTRAINT `fk_client_contacts_client` FOREIGN KEY (`client_id`) REFERENCES `clients` (`client_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

@@ -1,0 +1,67 @@
+```mermaid
+sequenceDiagram
+    participant Client as "Client (Web UI / API Consumer)"
+    participant Controller as "API: VehiclesController"
+    participant Binding as "Model Binding & Validation"
+    participant DTOs as "API Contracts (DTOs)"
+    participant App as "Application Layer (Commands / Queries / Handlers)"
+    participant Domain as "Domain Model / Vehicle Entity"
+    participant Repo as "Repositories / VehicleRepository"
+    participant DbContext as "ONE_Classics_DbContext (EF Core)"
+    participant MySQL as "MySQL Production Database"
+    participant External as "External Services (Auth, Storage, Search)"
+
+    %% Create (POST) flow
+    Client->>Controller: POST /api/vehicles (CreateVehicleRequest)
+    Controller->>Binding: Bind & validate DTO
+    Binding-->>Controller: Validated DTO
+    Controller->>App: CreateVehicleCommand
+    App->>Domain: Construct Vehicle entity / validate domain rules
+    App->>Repo: AddAsync(vehicle)
+    Repo->>DbContext: DbContext.Vehicles.Add(entity) / SaveChangesAsync()
+    DbContext->>MySQL: INSERT INTO vehicles (...)
+    MySQL-->>DbContext: Persisted row (vehicle_id)
+    DbContext-->>Repo: Entity with vehicle_id
+    Repo-->>App: Persisted Vehicle
+    App-->>Controller: VehicleResponse DTO
+    Controller-->>Client: 201 Created + VehicleResponse
+
+    %% Read (GET) flow
+    Client->>Controller: GET /api/vehicles/{id}
+    Controller->>App: GetVehicleByIdQuery
+    App->>Repo: GetByIdAsync(id)
+    Repo->>DbContext: FindAsync(id)
+    DbContext->>MySQL: SELECT FROM vehicles WHERE vehicle_id = ...
+    MySQL-->>DbContext: Row
+    DbContext-->>Repo: Entity
+    Repo-->>App: Vehicle entity
+    App-->>Controller: VehicleResponse DTO
+    Controller-->>Client: 200 OK + VehicleResponse
+
+    %% Update (PUT) flow
+    Client->>Controller: PUT /api/vehicles/{id} (UpdateVehicleRequest)
+    Controller->>Binding: Bind & validate DTO
+    Binding-->>Controller: Validated DTO
+    Controller->>App: UpdateVehicleCommand
+    App->>Repo: GetByIdAsync(id)
+    Repo->>DbContext: FindAsync(id)
+    DbContext->>MySQL: SELECT ...
+    MySQL-->>DbContext: Row
+    DbContext-->>Repo: Entity
+    App->>Domain: Apply updates to entity / enforce invariants
+    App->>Repo: Update(entity) / SaveChangesAsync()
+    DbContext->>MySQL: UPDATE vehicles SET ...
+    MySQL-->>DbContext: Updated row
+    DbContext-->>Repo: Updated entity
+    Repo-->>App: Updated Vehicle
+    App-->>Controller: VehicleResponse / NoContent
+    Controller-->>Client: 200 OK / 204 No Content
+
+    %% Error / Validation flow
+    Binding-->>Controller: Validation errors
+    Controller-->>Client: 400 Bad Request (ProblemDetails)
+
+    %% External interactions
+    App->>External: Call external services (Auth, Storage, Search) as needed
+    External-->>App: Responses / tokens
+```

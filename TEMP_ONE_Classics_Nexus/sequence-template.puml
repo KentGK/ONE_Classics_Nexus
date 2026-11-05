@@ -1,0 +1,57 @@
+@startuml
+' ============================================================
+'  SEQUENCE DIAGRAM TEMPLATE
+'  Project: ONE Classics AVM Platform
+'  File: sequence-template.puml
+'  Purpose: Standardized template for subsystem workflow traces
+' ============================================================
+
+' ---------- Includes ----------
+!include ../styles/theme.puml
+!include ../includes/header.puml
+!include ../includes/footer.puml
+!include ../includes/legend.puml
+
+' ---------- Title Block ----------
+title <b>SEQUENCE DIAGRAM — [Replace With Scenario Name]</b>
+caption <i>[Optional: short description of the workflow]</i>
+
+' ---------- Participants ----------
+actor User as usr
+participant "API Gateway" as api
+participant "Workflow Orchestrator" as orch
+participant "Subsystem Engine" as eng
+participant "Data Store" as db
+
+' ---------- Lifeline Styling (optional) ----------
+' You can override theme defaults here if needed
+' skinparam sequenceMessageAlign center
+
+' ---------- Sequence Flow ----------
+== Request Begins ==
+usr -> api : SubmitRequest(payload)
+api -> orch : ValidateAndRoute(request)
+
+== Engine Processing ==
+orch -> eng : Execute(requestEnvelope)
+eng --> orch : EngineResult(resultEnvelope)
+
+== Persistence ==
+orch -> db : Save(resultEnvelope)
+db --> orch : Ack
+
+== Response ==
+orch --> api : FinalResponse(result)
+api --> usr : ReturnResult(result)
+
+' ---------- Footer ----------
+legend right
+  <b>Legend</b>
+  usr = End user or client application
+  api = API Gateway / Controller
+  orch = Workflow Orchestrator
+  eng = Subsystem Engine (Inspection, Comps, Similarity, etc.)
+  db = MySQL / Persistence Layer
+endlegend
+
+@enduml

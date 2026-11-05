@@ -1,0 +1,75 @@
+flowchart LR
+    subgraph API["API Layer"]
+        Client["API Client"]
+        AppraisalsController["AppraisalsController<br/>POST /api/appraisals<br/>GET /api/appraisals/{appraisalId}"]
+        CreateRequest["CreateAppraisalRequest<br/>VehicleId"]
+        Client --> AppraisalsController
+        CreateRequest --> AppraisalsController
+    end
+
+    subgraph Application["Application Layer"]
+        CreateHandler["CreateAppraisalHandler"]
+        GetHandler["GetAppraisalHandler"]
+        IAppraisalRepository["IAppraisalRepository"]
+        IVehicleRepository["IVehicleRepository"]
+        DomainMappings["DomainMappings<br/>Appraisal → DTO"]
+        AppraisalDto["AppraisalDto / AppraisalDetailDto"]
+
+        AppraisalsController --> CreateHandler
+        AppraisalsController --> GetHandler
+        CreateHandler --> IAppraisalRepository
+        CreateHandler --> IVehicleRepository
+        GetHandler --> IAppraisalRepository
+        GetHandler --> IVehicleRepository
+        CreateHandler --> DomainMappings
+        GetHandler --> DomainMappings
+        DomainMappings --> AppraisalDto
+    end
+
+    subgraph Domain["Domain Layer"]
+        Appraisal["Appraisal Entity<br/><br/>AppraisalId: Guid<br/>VehicleId: Guid<br/>AppraisalNumber: string?<br/>AppraisalRequestId: Guid?<br/>ClientId: Guid?<br/>AssignedAppraiserId: Guid?<br/>AssignedReviewerId: Guid?<br/>AppraisalType: string<br/>Status: string<br/>IntakeStatus: string?<br/>InspectionStatus: string?<br/>ValuationStatus: string?<br/>ReportStatus: string?<br/>EffectiveDateUtc: DateTime?<br/>RowVersion: long<br/>CreatedAtUtc: DateTime<br/>UpdatedAtUtc: DateTime"]
+        AppraisalBehavior["Appraisal Behavior<br/><br/>Create()<br/>SetStatus()<br/>AssignAppraiser()<br/>AssignReviewer()<br/>SetEffectiveDate()<br/>Touch()"]
+        Vehicle["Vehicle Entity"]
+        Inspection["Inspection Entity<br/>AppraisalId"]
+        AppraisalRequest["Appraisal Request<br/>Optional reference"]
+        Client["Client<br/>Optional reference"]
+        Appraiser["Assigned Appraiser<br/>Optional reference"]
+        Reviewer["Assigned Reviewer<br/>Optional reference"]
+
+        Appraisal --> AppraisalBehavior
+        Appraisal -->|"VehicleId"| Vehicle
+        Appraisal -->|"AppraisalRequestId"| AppraisalRequest
+        Appraisal -->|"ClientId"| Client
+        Appraisal -->|"AssignedAppraiserId"| Appraiser
+        Appraisal -->|"AssignedReviewerId"| Reviewer
+        Inspection -->|"AppraisalId"| Appraisal
+    end
+
+    subgraph Infrastructure["Infrastructure Layer"]
+        AppraisalRepository["AppraisalRepository<br/>Dapper SQL"]
+        VehicleRepository["VehicleRepository"]
+        MySqlFactory["MySqlConnectionFactory"]
+        AppraisalsTable[("appraisals table")]
+
+        IAppraisalRepository -.->|"implemented by"| AppraisalRepository
+        IVehicleRepository -.->|"implemented by"| VehicleRepository
+        AppraisalRepository --> MySqlFactory
+        VehicleRepository --> MySqlFactory
+        AppraisalRepository -->|"INSERT / SELECT / UPDATE"| AppraisalsTable
+    end
+
+    CreateHandler -->|"Appraisal.Create(vehicleId)"| Appraisal
+    AppraisalRepository -->|"persists and retrieves"| Appraisal
+    VehicleRepository --> Vehicle
+
+    classDef api fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef application fill:#f3e5f5,stroke:#6a1b9a,color:#4a148c
+    classDef domain fill:#fff3e0,stroke:#ef6c00,color:#e65100
+    classDef infrastructure fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef database fill:#fce4ec,stroke:#ad1457,color:#880e4f
+
+    class Client,AppraisalsController,CreateRequest api
+    class CreateHandler,GetHandler,IAppraisalRepository,IVehicleRepository,DomainMappings,AppraisalDto application
+    class Appraisal,AppraisalBehavior,Vehicle,Inspection,AppraisalRequest,Client,Appraiser,Reviewer domain
+    class AppraisalRepository,VehicleRepository,MySqlFactory infrastructure
+    class AppraisalsTable database

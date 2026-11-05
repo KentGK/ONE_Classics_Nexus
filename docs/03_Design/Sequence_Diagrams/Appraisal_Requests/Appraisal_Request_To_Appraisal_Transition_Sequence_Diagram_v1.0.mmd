@@ -1,0 +1,71 @@
+sequenceDiagram
+    autonumber
+    participant C as AppraisalRequestsController
+    participant S as AppraisalRequestService
+    participant G as ConversionGateway
+    participant R as AppraisalRequestRepository
+    participant A as AppraisalWriteModel
+    participant AU as AuditWriter
+
+    rect rgb(234, 242, 249)
+        Note over C,A: Guard and seed
+        C->>S: ConvertAsync(id, command)
+        activate S
+        S->>R: GetByIdAsync(id)
+        R-->>S: AppraisalRequest
+        alt Request not found
+            S-->>C: APPRAISAL_REQUEST_NOT_FOUND 404
+        else Row version stale
+            S-->>C: APPRAISAL_REQUEST_CONCURRENCY_CONFLICT 409
+        else Not Qualified or Accepted, or already converted
+            S-->>C: APPRAISAL_REQUEST_NOT_QUALIFIED 422
+        else Eligible
+            S->>S: Build AppraisalSeed from request and overrides
+        end
+    end
+
+    rect rgb(240, 247, 237)
+        Note over G,A: Create provisional Appraisal
+        S->>G: CreateAppraisalFromRequestAsync(seed)
+        activate G
+        alt No subject vehicle identified
+            G-->>S: APPRAISAL_REQUEST_SUBJECT_REQUIRED 422
+        else Subject identified
+            G->>A: Insert Appraisal as Draft with provisional facts
+            activate A
+            A->>A: Allocate appraisal number
+            A->>A: Create Appraisal Subject Snapshot from Vehicle
+            A-->>G: AppraisalId, AppraisalNumber
+            deactivate A
+            G-->>S: CreatedAppraisal
+        end
+        deactivate G
+    end
+
+    rect rgb(253, 246, 227)
+        Note over S,R: Link request, compensate on failure
+        S->>S: Request.Convert(appraisalId) sets Converted status
+        S->>R: UpdateAsync(request, expectedRowVersion)
+        alt Save succeeds
+            R-->>S: true
+            Note over S,AU: Past this point the link is durable
+            S->>AU: Write AppraisalRequestConverted event
+            AU-->>S: Acknowledged
+            S-->>C: ConvertAppraisalRequestResult
+        else Save fails or throws
+            R-->>S: false
+            S->>G: DeleteProvisionalAppraisalAsync(appraisalId)
+            activate G
+            G->>A: Delete Subject Snapshot
+            G->>A: Delete Appraisal
+            alt Cleanup succeeds
+                G-->>S: Rolled back
+                S-->>C: Original failure rethrown, no orphan
+            else Cleanup fails
+                G-->>S: Cleanup exception
+                S-->>C: APPRAISAL_REQUEST_CONVERSION_CLEANUP_FAILED 500 with orphan id
+            end
+            deactivate G
+        end
+        deactivate S
+    end

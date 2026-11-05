@@ -1,0 +1,174 @@
+flowchart TB
+    subgraph EXP[1. Experience Layer]
+        WF[WinForms App\nAppraiser UI]
+        WEB[Future Web App\nClient / Broker UI]
+        TAB[Future Tablet Forms\nField Inspection]
+        ADMIN[Admin Console\nOps / Data Management]
+    end
+
+    subgraph API[2. API / Service Boundary]
+        REST[ASP.NET Core REST API]
+        SWAG[Swagger / OpenAPI]
+        PROB[ProblemDetails Error Model]
+        DTO[DTO Contracts]
+    end
+
+    subgraph APP[3. Workflow / Application Layer]
+        VEH[Vehicle Intake Service]
+        APPRAISAL[Appraisal Workflow Service]
+        INSPECT[Inspection Workflow Service]
+        COMP[Comparable Workflow Service]
+        VALRUN[Valuation Run Service]
+        REPORTFLOW[Report Workflow Service]
+        ADMINFLOW[Admin Configuration Service]
+    end
+
+    subgraph DOMAIN[4. Domain Layer]
+        VEHICLE[Vehicle]
+        APPENTITY[Appraisal]
+        INSPECTION[Inspection]
+        SCORE[ConditionScore]
+        COMPSALE[ComparableSale]
+        RUN[ValuationRun]
+        TRACE[ValuationTraceLine]
+    end
+
+    subgraph INSPECTION_LAYER[5. Inspection Layer]
+        MODEL12[Canonical 12-System Model]
+        WEIGHTS[Vehicle-Type Weights]
+        SCORES[Scores 0-5]
+        FLAGS[Red Flags]
+        EVIDENCE[Notes / Photos / Evidence]
+    end
+
+    subgraph ENGINE[6. Core Engine Layer]
+        COND[Condition Engine\nCondition Index 0-100]
+        SIM[Similarity Engine\nSubject vs Comps]
+        COMPENG[Comparable Engine\nMedian / Adjusted Comps]
+        MARKET[Market Layer\nMomentum / Liquidity]
+        VAL[Valuation Engine\nLow / Final / High]
+        CONF[Confidence Engine\nScore + Band]
+        TRACEENG[Trace Engine\nExplainable Output]
+    end
+
+    subgraph REPORTING[7. Reporting Layer]
+        APPREPORT[Appraisal Report]
+        INSPREPORT[Inspection Report]
+        COMPREPORT[Comparable Report]
+        PDF[PDF / Word Export]
+        TEMPLATES[Versioned Templates]
+    end
+
+    subgraph DATA[8. Data Platform]
+        MARIA[(MariaDB)]
+        VEHDB[(vehicles)]
+        APPDB[(appraisals)]
+        INSDB[(inspections)]
+        SCOREDB[(condition_scores)]
+        COMPDB[(comparable_sales)]
+        RUNDB[(valuation_runs)]
+        TRACEDB[(valuation_trace_lines)]
+        WEIGHTDB[(vehicle_type_weights)]
+    end
+
+    subgraph INTEGRATION[9. Integration Layer]
+        AUCTION[Auction Sources]
+        LISTING[Listing Sources]
+        VINAPI[VIN / Decode APIs]
+        MEDIA[Document / Media Storage]
+    end
+
+    subgraph GOV[10. Governance / Security / Ops]
+        AUTH[Future JWT / RBAC]
+        AUDIT[Audit Logging]
+        VERSION[Engine / Rules / Template Versioning]
+        TESTS[Unit / Integration / Golden Tests]
+    end
+
+    subgraph FUTURE[11. Future AI / Analytics]
+        IMG[Image Analysis]
+        OCR[OCR / Doc Parsing]
+        NARR[Narrative Writer]
+        FORECAST[Market Forecasting]
+        BUYER[Buyer Match AI]
+    end
+
+    WF --> REST
+    WEB -.future.-> REST
+    TAB -.future.-> REST
+    ADMIN --> REST
+
+    REST --> DTO
+    REST --> PROB
+    REST --> SWAG
+    REST --> VEH
+    REST --> APPRAISAL
+    REST --> INSPECT
+    REST --> COMP
+    REST --> VALRUN
+    REST --> REPORTFLOW
+    REST --> ADMINFLOW
+
+    VEH --> VEHICLE
+    APPRAISAL --> APPENTITY
+    INSPECT --> INSPECTION
+    INSPECT --> MODEL12
+    MODEL12 --> SCORES
+    MODEL12 --> WEIGHTS
+    MODEL12 --> FLAGS
+    MODEL12 --> EVIDENCE
+    SCORES --> SCORE
+
+    COMP --> COMPSALE
+    VALRUN --> COND
+    SCORE --> COND
+    WEIGHTS --> COND
+    FLAGS --> COND
+    COND --> SIM
+    COMPSALE --> SIM
+    SIM --> COMPENG
+    COMPENG --> MARKET
+    MARKET --> VAL
+    VAL --> CONF
+    CONF --> TRACEENG
+    TRACEENG --> RUN
+    TRACEENG --> TRACE
+
+    REPORTFLOW --> APPREPORT
+    REPORTFLOW --> INSPREPORT
+    REPORTFLOW --> COMPREPORT
+    APPREPORT --> PDF
+    PDF --> TEMPLATES
+
+    VEHICLE --> VEHDB
+    APPENTITY --> APPDB
+    INSPECTION --> INSDB
+    SCORE --> SCOREDB
+    COMPSALE --> COMPDB
+    RUN --> RUNDB
+    TRACE --> TRACEDB
+    WEIGHTS --> WEIGHTDB
+    VEHDB --> MARIA
+    APPDB --> MARIA
+    INSDB --> MARIA
+    SCOREDB --> MARIA
+    COMPDB --> MARIA
+    RUNDB --> MARIA
+    TRACEDB --> MARIA
+    WEIGHTDB --> MARIA
+
+    AUCTION --> COMP
+    LISTING --> COMP
+    VINAPI --> VEH
+    MEDIA --> EVIDENCE
+
+    AUTH --> REST
+    AUDIT --> REST
+    VERSION --> VALRUN
+    TESTS --> ENGINE
+
+    IMG -.future.-> EVIDENCE
+    OCR -.future.-> EVIDENCE
+    NARR -.future.-> REPORTFLOW
+    FORECAST -.future.-> MARKET
+    BUYER -.future.-> WEB

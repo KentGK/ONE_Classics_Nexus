@@ -1,0 +1,5 @@
+<!-- Merge only the package references not already standardized in ONE_Classics_Nexus.WinForms.csproj. -->
+<ItemGroup>
+  <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
+  <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.1" />
+</ItemGroup>

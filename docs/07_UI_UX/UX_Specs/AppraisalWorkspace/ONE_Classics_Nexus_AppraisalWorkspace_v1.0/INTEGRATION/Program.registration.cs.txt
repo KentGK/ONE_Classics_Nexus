@@ -1,0 +1,7 @@
+using ONE_Classics_Nexus.WinForms.DependencyInjection;
+
+// Use the solution's configuration source when available.
+var apiBaseUrl = configuration["NexusApi:BaseUrl"]
+    ?? throw new InvalidOperationException("NexusApi:BaseUrl is required.");
+
+services.AddAppraisalWorkspace(new Uri(apiBaseUrl, UriKind.Absolute));

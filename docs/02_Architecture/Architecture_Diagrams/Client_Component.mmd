@@ -1,0 +1,279 @@
+
+flowchart LR
+    subgraph CLIENT["Client Component - .NET 8 WinForms"]
+        Program["Program<br/>Dependency Injection Bootstrapper"]
+        MainShell["MainShellForm<br/>Primary Application Shell"]
+        FormFactory["FormFactory<br/>Child Form Creation"]
+        AppraisalWorkspace["AppraisalWorkspaceViewModel"]
+        ApiClient["ApiClient"]
+        Polly["Polly Policies<br/>Retry / Circuit Breaker"]
+        HttpClient["HttpClient<br/>HTTPS API Transport"]
+    end
+
+    subgraph CLIENT_SERVICES["Client API Services"]
+        VehicleService["VehicleApiService<br/>IVehicleApiService"]
+        InspectionService["InspectionApiService<br/>IInspectionApiService"]
+        AppraisalWorkspaceService["AppraisalWorkspaceService<br/>IAppraisalWorkspaceService"]
+        AppraisalService["AppraisalApiService<br/>IAppraisalApiService"]
+    end
+
+    subgraph CLIENT_CONTRACTS["Client Contracts and View Models"]
+        VehicleContracts["Vehicle Contracts<br/>CreateVehicleRequest<br/>VehicleResponse"]
+        InspectionContracts["Inspection Contracts<br/>CreateInspectionRequest<br/>InspectionResponse"]
+        AppraisalContracts["Appraisal Contracts<br/>CreateAppraisalRequest<br/>AppraisalResponse"]
+        ValuationContracts["Valuation and Report Contracts"]
+    end
+
+    subgraph API["ASP.NET Core API"]
+        ApiPipeline["HTTPS Middleware<br/>Authorization<br/>ProblemDetails"]
+        Swagger["Swagger / OpenAPI"]
+        VehiclesController["VehiclesController<br/>/api/vehicles"]
+        AppraisalsController["AppraisalsController<br/>/api/appraisals"]
+        InspectionsController["InspectionsController<br/>/api/inspections"]
+        ConditionScoresController["ConditionScoresController"]
+        ComparablesController["ComparablesController"]
+        ValuationsController["ValuationsController"]
+        ReportsController["ReportsController"]
+    end
+
+    subgraph APPLICATION["Application Layer"]
+        VehicleHandlers["Vehicle Use Cases<br/>Create / Get / List / Update"]
+        AppraisalHandlers["Appraisal Use Cases<br/>Create / Get / Update"]
+        InspectionHandlers["Inspection Use Cases<br/>Create / Get / Update"]
+        ConditionScoreHandlers["Condition Score Use Cases"]
+        ComparableHandlers["Comparable Sale Use Cases"]
+        ValuationServices["Valuation Services"]
+        ReportServices["Report Services"]
+        DomainMappings["DomainMappings<br/>Entity ↔ DTO Conversion"]
+        RepositoryPorts["Repository Ports"]
+    end
+
+    subgraph DOMAIN["Domain Entities"]
+        Vehicle["Vehicle"]
+        Appraisal["Appraisal"]
+        Inspection["Inspection"]
+        ConditionScore["ConditionScore"]
+        ComparableSale["ComparableSale"]
+        ValuationRun["ValuationRun"]
+        ValuationComparableLink["ValuationComparableLink"]
+        ValuationTraceLine["ValuationTraceLine"]
+        AppraisalStatusHistory["AppraisalStatusHistory"]
+        AppraisalReport["AppraisalReport"]
+    end
+
+    subgraph INSPECTION_DOMAIN["Inspection Configuration Entities"]
+        SystemConfigVersion["SystemConfigVersion"]
+        SystemWeight["SystemWeight"]
+        InspectionTemplate["InspectionTemplate"]
+        InspectionTemplateItem["InspectionTemplateItem"]
+        RedFlagRule["RedFlagRule"]
+        InspectionRedFlag["InspectionRedFlag"]
+    end
+
+    subgraph INFRASTRUCTURE["Infrastructure Layer"]
+        ConnectionFactory["MariaDbConnectionFactory<br/>IDbConnectionFactory"]
+        Dapper["Dapper"]
+        VehicleRepository["VehicleRepository"]
+        AppraisalRepository["AppraisalRepository"]
+        InspectionRepository["InspectionRepository"]
+        ConditionScoreRepository["ConditionScoreRepository"]
+        ComparableRepository["ComparableRepository"]
+        ValuationRepository["ValuationRepository"]
+        ReportRepository["ReportRepository"]
+    end
+
+    subgraph DATABASE["MariaDB Database"]
+        VehiclesTable[("vehicles")]
+        AppraisalsTable[("appraisals")]
+        InspectionsTable[("inspections")]
+        ConditionScoresTable[("condition_scores")]
+        ComparableSalesTable[("comparable_sales")]
+        ValuationRunsTable[("valuation_runs")]
+        ValuationLinksTable[("valuation_comparable_links")]
+        TraceLinesTable[("valuation_trace_lines")]
+        ReportsTable[("appraisal_reports")]
+        StatusHistoryTable[("appraisal_status_history")]
+        TemplatesTable[("inspection_templates")]
+        TemplateItemsTable[("inspection_template_items")]
+        ConfigVersionsTable[("system_config_versions")]
+        WeightsTable[("system_weights")]
+        RulesTable[("red_flag_rules")]
+        RedFlagsTable[("inspection_red_flags")]
+    end
+
+    Program --> MainShell
+    Program --> FormFactory
+    Program --> VehicleService
+    Program --> InspectionService
+    Program --> AppraisalWorkspaceService
+    Program --> AppraisalService
+    Program --> ApiClient
+
+    MainShell --> FormFactory
+    MainShell --> AppraisalWorkspace
+    MainShell --> AppraisalService
+    AppraisalWorkspace --> AppraisalWorkspaceService
+    AppraisalWorkspace --> VehicleService
+    AppraisalWorkspace --> InspectionService
+    AppraisalWorkspace --> ApiClient
+
+    VehicleService --> VehicleContracts
+    InspectionService --> InspectionContracts
+    AppraisalWorkspaceService --> AppraisalContracts
+    AppraisalService --> AppraisalContracts
+    ApiClient --> ValuationContracts
+
+    VehicleService --> HttpClient
+    InspectionService --> HttpClient
+    AppraisalWorkspaceService --> HttpClient
+    AppraisalService --> HttpClient
+    ApiClient --> HttpClient
+    HttpClient --> Polly
+    Polly --> ApiPipeline
+
+    HttpClient --> VehiclesController
+    HttpClient --> AppraisalsController
+    HttpClient --> InspectionsController
+    HttpClient --> ConditionScoresController
+    HttpClient --> ComparablesController
+    HttpClient --> ValuationsController
+    HttpClient --> ReportsController
+
+    ApiPipeline --> VehiclesController
+    ApiPipeline --> AppraisalsController
+    ApiPipeline --> InspectionsController
+    ApiPipeline --> ConditionScoresController
+    ApiPipeline --> ComparablesController
+    ApiPipeline --> ValuationsController
+    ApiPipeline --> ReportsController
+    ApiPipeline --> Swagger
+
+    VehiclesController --> VehicleHandlers
+    AppraisalsController --> AppraisalHandlers
+    InspectionsController --> InspectionHandlers
+    ConditionScoresController --> ConditionScoreHandlers
+    ComparablesController --> ComparableHandlers
+    ValuationsController --> ValuationServices
+    ReportsController --> ReportServices
+
+    VehicleHandlers --> Vehicle
+    AppraisalHandlers --> Appraisal
+    AppraisalHandlers --> Vehicle
+    InspectionHandlers --> Inspection
+    InspectionHandlers --> Appraisal
+    ConditionScoreHandlers --> ConditionScore
+    ComparableHandlers --> ComparableSale
+    ValuationServices --> ValuationRun
+    ValuationServices --> ConditionScore
+    ValuationServices --> ComparableSale
+    ValuationServices --> ValuationComparableLink
+    ValuationServices --> ValuationTraceLine
+    ReportServices --> AppraisalReport
+    ReportServices --> ValuationRun
+
+    Inspection --> ConditionScore
+    Inspection --> InspectionRedFlag
+    Inspection --> InspectionTemplate
+    ConditionScore --> InspectionRedFlag
+    InspectionRedFlag --> RedFlagRule
+    InspectionTemplate --> InspectionTemplateItem
+    InspectionTemplate --> SystemConfigVersion
+    SystemWeight --> SystemConfigVersion
+    RedFlagRule --> SystemConfigVersion
+
+    Appraisal --> Vehicle
+    Appraisal --> Inspection
+    Appraisal --> ComparableSale
+    Appraisal --> ValuationRun
+    Appraisal --> AppraisalReport
+    Appraisal --> AppraisalStatusHistory
+    ValuationRun --> Inspection
+    ValuationRun --> ValuationComparableLink
+    ValuationRun --> ValuationTraceLine
+    ValuationComparableLink --> ComparableSale
+    AppraisalReport --> ValuationRun
+
+    VehicleHandlers --> DomainMappings
+    AppraisalHandlers --> DomainMappings
+    InspectionHandlers --> DomainMappings
+    ConditionScoreHandlers --> DomainMappings
+    ComparableHandlers --> DomainMappings
+    ValuationServices --> DomainMappings
+    ReportServices --> DomainMappings
+
+    VehicleHandlers --> RepositoryPorts
+    AppraisalHandlers --> RepositoryPorts
+    InspectionHandlers --> RepositoryPorts
+    ConditionScoreHandlers --> RepositoryPorts
+    ComparableHandlers --> RepositoryPorts
+    ValuationServices --> RepositoryPorts
+    ReportServices --> RepositoryPorts
+
+    RepositoryPorts -.-> VehicleRepository
+    RepositoryPorts -.-> AppraisalRepository
+    RepositoryPorts -.-> InspectionRepository
+    RepositoryPorts -.-> ConditionScoreRepository
+    RepositoryPorts -.-> ComparableRepository
+    RepositoryPorts -.-> ValuationRepository
+    RepositoryPorts -.-> ReportRepository
+
+    VehicleRepository --> ConnectionFactory
+    AppraisalRepository --> ConnectionFactory
+    InspectionRepository --> ConnectionFactory
+    ConditionScoreRepository --> ConnectionFactory
+    ComparableRepository --> ConnectionFactory
+    ValuationRepository --> ConnectionFactory
+    ReportRepository --> ConnectionFactory
+    ConnectionFactory --> Dapper
+
+    VehicleRepository --> VehiclesTable
+    AppraisalRepository --> AppraisalsTable
+    InspectionRepository --> InspectionsTable
+    ConditionScoreRepository --> ConditionScoresTable
+    ComparableRepository --> ComparableSalesTable
+    ValuationRepository --> ValuationRunsTable
+    ValuationRepository --> ValuationLinksTable
+    ValuationRepository --> TraceLinesTable
+    ReportRepository --> ReportsTable
+    AppraisalRepository --> StatusHistoryTable
+    InspectionRepository --> TemplatesTable
+    InspectionRepository --> TemplateItemsTable
+    InspectionRepository --> ConfigVersionsTable
+    InspectionRepository --> WeightsTable
+    InspectionRepository --> RulesTable
+    InspectionRepository --> RedFlagsTable
+
+    VehiclesTable --> AppraisalsTable
+    AppraisalsTable --> InspectionsTable
+    AppraisalsTable --> ComparableSalesTable
+    AppraisalsTable --> ValuationRunsTable
+    AppraisalsTable --> ReportsTable
+    InspectionsTable --> ConditionScoresTable
+    InspectionsTable --> RedFlagsTable
+    ValuationRunsTable --> ValuationLinksTable
+    ValuationRunsTable --> TraceLinesTable
+    ComparableSalesTable --> ValuationLinksTable
+    ConfigVersionsTable --> TemplatesTable
+    ConfigVersionsTable --> WeightsTable
+    ConfigVersionsTable --> RulesTable
+    TemplatesTable --> TemplateItemsTable
+    RulesTable --> RedFlagsTable
+    ConditionScoresTable --> RedFlagsTable
+
+    classDef client fill:#f3f4f6,stroke:#6b7280,color:#111827
+    classDef contract fill:#e0f2fe,stroke:#0284c7,color:#0c4a6e
+    classDef api fill:#dbeafe,stroke:#2563eb,color:#111827
+    classDef application fill:#dcfce7,stroke:#16a34a,color:#14532d
+    classDef domain fill:#fef3c7,stroke:#d97706,color:#78350f
+    classDef infrastructure fill:#f3e8ff,stroke:#9333ea,color:#581c87
+    classDef database fill:#fee2e2,stroke:#dc2626,color:#7f1d1d
+
+    class Program,MainShell,FormFactory,AppraisalWorkspace,ApiClient,Polly,HttpClient client
+    class VehicleService,InspectionService,AppraisalWorkspaceService,AppraisalService contract
+    class VehicleContracts,InspectionContracts,AppraisalContracts,ValuationContracts contract
+    class ApiPipeline,Swagger,VehiclesController,AppraisalsController,InspectionsController,ConditionScoresController,ComparablesController,ValuationsController,ReportsController api
+    class VehicleHandlers,AppraisalHandlers,InspectionHandlers,ConditionScoreHandlers,ComparableHandlers,ValuationServices,ReportServices,DomainMappings,RepositoryPorts application
+    class Vehicle,Appraisal,Inspection,ConditionScore,ComparableSale,ValuationRun,ValuationComparableLink,ValuationTraceLine,AppraisalStatusHistory,AppraisalReport,SystemConfigVersion,SystemWeight,InspectionTemplate,InspectionTemplateItem,RedFlagRule,InspectionRedFlag domain
+    class ConnectionFactory,Dapper,VehicleRepository,AppraisalRepository,InspectionRepository,ConditionScoreRepository,ComparableRepository,ValuationRepository,ReportRepository infrastructure
+    class VehiclesTable,AppraisalsTable,InspectionsTable,ConditionScoresTable,ComparableSalesTable,ValuationRunsTable,ValuationLinksTable,TraceLinesTable,ReportsTable,StatusHistoryTable,TemplatesTable,TemplateItemsTable,ConfigVersionsTable,WeightsTable,RulesTable,RedFlagsTable database
+```

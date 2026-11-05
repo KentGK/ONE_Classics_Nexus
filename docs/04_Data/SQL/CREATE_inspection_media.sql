@@ -1,0 +1,33 @@
+-- one_classics_nexus_test.inspection_media definition
+
+CREATE TABLE `inspection_media` (
+  `inspection_media_id` char(36) NOT NULL,
+  `inspection_id` char(36) NOT NULL,
+  `appraisal_id` char(36) NOT NULL,
+  `inspection_template_section_id` char(36) DEFAULT NULL,
+  `inspection_template_item_id` char(36) DEFAULT NULL,
+  `media_type` varchar(20) NOT NULL,
+  `storage_provider` varchar(50) NOT NULL,
+  `storage_path` varchar(500) DEFAULT NULL,
+  `file_name` varchar(255) NOT NULL,
+  `file_extension` varchar(20) DEFAULT NULL,
+  `mime_type` varchar(100) DEFAULT NULL,
+  `caption` varchar(255) DEFAULT NULL,
+  `content_hash` varchar(128) DEFAULT NULL,
+  `sort_order` int(11) NOT NULL DEFAULT 0,
+  `created_at_utc` datetime(6) NOT NULL DEFAULT current_timestamp(6),
+  `system_number` int(11) DEFAULT NULL,
+  `system_key` varchar(50) DEFAULT NULL,
+  `content_type` varchar(100) DEFAULT NULL,
+  `captured_at_utc` datetime DEFAULT NULL,
+  `updated_at_utc` datetime DEFAULT NULL,
+  PRIMARY KEY (`inspection_media_id`),
+  KEY `idx_inspection_media_appraisal` (`appraisal_id`),
+  KEY `idx_inspection_media_inspection` (`inspection_id`),
+  KEY `idx_inspection_media_section` (`inspection_template_section_id`),
+  KEY `idx_inspection_media_item` (`inspection_template_item_id`),
+  CONSTRAINT `fk_inspection_media_appraisal` FOREIGN KEY (`appraisal_id`) REFERENCES `appraisals` (`appraisal_id`),
+  CONSTRAINT `fk_inspection_media_inspection` FOREIGN KEY (`inspection_id`) REFERENCES `inspections` (`inspection_id`),
+  CONSTRAINT `fk_inspection_media_item` FOREIGN KEY (`inspection_template_item_id`) REFERENCES `inspection_template_items` (`inspection_template_item_id`),
+  CONSTRAINT `fk_inspection_media_section` FOREIGN KEY (`inspection_template_section_id`) REFERENCES `inspection_template_sections` (`inspection_template_section_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

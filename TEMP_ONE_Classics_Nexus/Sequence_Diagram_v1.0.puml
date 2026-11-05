@@ -1,0 +1,238 @@
+@startuml
+title ONE Classics Nexus - End-to-End Appraisal and Valuation Sequence
+autonumber
+
+skinparam responseMessageBelowArrow true
+skinparam maxMessageSize 140
+skinparam sequenceMessageAlign center
+skinparam BoxPadding 10
+skinparam ParticipantPadding 20
+skinparam NotePadding 10
+
+actor Appraiser as User
+participant "WinForms UI\n(MainShell / Workspace)" as UI
+participant "Nexus API\n(Controllers + Middleware)" as API
+participant "Application Layer\n(Use Cases / DTO Mapping)" as APP
+participant "Domain / Core Engine\n(Condition, Comparable,\nSimilarity, Market,\nValuation, Confidence, Trace)" as ENG
+participant "Infrastructure\n(Repositories / Dapper / File Storage)" as INF
+database "MariaDB\nNexus Source of Truth" as DB
+participant "Report Generator" as RPT
+
+== Intake ==
+User -> UI : Create vehicle and appraisal request
+note right of UI
+Message intent:
+Start the inspection-driven workflow from the operational shell.
+UI is the primary admin/field entry point.
+end note
+
+UI -> API : POST /api/vehicles
+note over UI,API
+Annotation:
+Vehicle intake enters through REST and should return DTOs only.
+ProblemDetails is used for invalid requests.
+end note
+
+API -> APP : CreateVehicle(command)
+APP -> INF : Insert vehicle
+INF -> DB : INSERT vehicles
+DB --> INF : vehicle_id
+INF --> APP : Vehicle persisted
+APP --> API : VehicleResponse
+API --> UI : 201 Created + vehicle payload
+
+UI -> API : POST /api/appraisals
+note over UI,API
+Annotation:
+Appraisal creation establishes the working record
+that all downstream inspection, comparables, valuation,
+and reporting actions attach to.
+end note
+
+API -> APP : CreateAppraisal(command)
+APP -> INF : Insert appraisal
+INF -> DB : INSERT appraisals
+DB --> INF : appraisal_id, row_version
+INF --> APP : Appraisal persisted
+APP --> API : AppraisalResponse
+API --> UI : 201 Created + appraisal payload
+
+== Inspection Setup ==
+User -> UI : Start inspection
+UI -> API : POST /api/inspections
+
+note over UI,API
+Annotation:
+Inspection record is created before detailed scoring.
+Inspection types support Standard, Custom, or Vintage.
+end note
+
+API -> APP : CreateInspection(command)
+APP -> INF : Insert inspection
+INF -> DB : INSERT inspections
+DB --> INF : inspection_id
+INF --> APP : Inspection persisted
+APP --> API : InspectionResponse
+API --> UI : 201 Created + inspection payload
+
+== 12-System Score Capture ==
+loop For each system 1..12
+  User -> UI : Enter findings, notes, red flags, 0-5 score
+  note right of UI
+  Message intent:
+  Capture structured inspection data as the source of truth,
+  including system_number, system_key, score_0_to_5, weight,
+  notes, and is_red_flag.
+  end note
+
+  UI -> API : PUT /api/inspections/{inspectionId}/scores
+  API -> APP : SaveInspectionScores(command)
+  APP -> INF : Upsert score rows
+  INF -> DB : INSERT/UPDATE condition_scores
+  DB --> INF : persisted score rows
+  INF --> APP : Score set saved
+  APP --> API : InspectionScoresResponse
+  API --> UI : 200 OK + saved scores
+end
+
+== Comparable Sales Capture ==
+User -> UI : Add comparable sales
+UI -> API : POST /api/appraisals/{appraisalId}/comparables
+note over UI,API
+Annotation:
+Comparables must be normalized enough for similarity
+and valuation math, not just stored as free-form notes.
+end note
+
+API -> APP : CreateComparable(command)
+APP -> INF : Insert comparable sale
+INF -> DB : INSERT comparable_sales
+DB --> INF : comparable_id
+INF --> APP : Comparable persisted
+APP --> API : ComparableResponse
+API --> UI : 201 Created + comparable payload
+
+UI -> API : GET /api/appraisals/{appraisalId}/comparables
+API -> APP : ListComparables(query)
+APP -> INF : Load comp set
+INF -> DB : SELECT comparable_sales WHERE appraisal_id = ?
+DB --> INF : comp rows
+INF --> APP : comparable DTOs
+APP --> API : comp list
+API --> UI : 200 OK + comparables
+
+== Valuation Run ==
+User -> UI : Run valuation
+UI -> API : POST /api/appraisals/{appraisalId}/valuation/run
+note over UI,API
+Annotation:
+This is the orchestration boundary where API/Application
+assemble the deterministic valuation input set.
+end note
+
+API -> APP : RunValuation(command)
+
+group Load valuation inputs
+  APP -> INF : Load appraisal aggregate
+  INF -> DB : SELECT appraisals, vehicles, inspections, condition_scores, comparable_sales
+  DB --> INF : source rows
+  INF --> APP : hydrated DTOs / models
+end
+
+APP -> ENG : Execute valuation input pipeline
+note over APP,ENG
+Annotation:
+The design calls for Condition, Comparable, Similarity,
+Market, Valuation, Confidence, and Trace engines.
+The engine output must be reproducible and auditable.
+end note
+
+group Engine pipeline
+  ENG -> ENG : Condition Engine\nnormalize 12-system scores to condition index
+  note right of ENG
+  Output:
+  normalized condition index (0-100)
+  plus red-flag-aware system rollups
+  end note
+
+  ENG -> ENG : Similarity Engine\nscore each comp against subject
+  note right of ENG
+  Factors:
+  year, drivetrain, engine/trans, condition,
+  restoration/originality style, and related fit.
+  end note
+
+  ENG -> ENG : Comparable Engine\nadjust comp prices
+  note right of ENG
+  Output:
+  adjusted comparable values for reconciliation.
+  end note
+
+  ENG -> ENG : Market Engine\napply timing / market effects
+  ENG -> ENG : Valuation Engine\nreconcile final value range
+  ENG -> ENG : Confidence Engine\ncalculate reliability score
+  ENG -> ENG : Trace Engine\nassemble trace lines
+  note right of ENG
+  Must capture:
+  adjustments, factors, comp contributions,
+  and reasoning messages.
+  end note
+end
+
+ENG --> APP : ValuationResult\n(final value, range, confidence, trace)
+
+group Persist valuation artifacts
+  APP -> INF : Save valuation run
+  INF -> DB : INSERT valuation_runs
+  DB --> INF : valuation_run_id
+
+  APP -> INF : Save trace lines
+  INF -> DB : INSERT valuation_trace_lines
+  DB --> INF : trace persisted
+end
+
+INF --> APP : persistence complete
+APP --> API : ValuationRunResponse
+API --> UI : 200 OK + final value, range, confidence, trace
+
+== Report Generation ==
+User -> UI : Generate appraisal report
+UI -> API : POST /api/appraisals/{appraisalId}/report
+note over UI,API
+Annotation:
+Reports are generated from structured data,
+not manually re-authored each time.
+end note
+
+API -> APP : GenerateReport(command)
+
+group Load report dataset
+  APP -> INF : Load appraisal, subject, inspection,\ncomparables, valuation run, trace
+  INF -> DB : SELECT source-of-truth records
+  DB --> INF : report dataset
+  INF --> APP : report data
+end
+
+APP -> RPT : Build branded appraisal report
+RPT -> RPT : Merge template + structured data + valuation narrative
+RPT --> APP : report artifact metadata
+
+APP -> INF : Persist report metadata / file reference
+INF -> DB : INSERT report record
+DB --> INF : report_id
+INF --> APP : Report saved
+
+APP --> API : ReportResponse
+API --> UI : 201 Created + report metadata
+UI --> User : Preview / export / retrieve report
+
+== Error Path ==
+API -> API : Middleware catches exceptions
+API --> UI : application/problem+json
+note over API,UI
+Annotation:
+Central middleware returns ProblemDetails
+for validation, not-found, conflict, and server errors.
+end note
+
+@enduml

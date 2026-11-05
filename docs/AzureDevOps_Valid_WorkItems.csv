@@ -1,0 +1,9 @@
+Work Item Type,Title,Description,Priority,Area Path,Iteration Path,Tags
+Epic,Vehicle Management,Manage vehicle records and data,1,ClassicCarAppraisal,Release 1.0,Vehicle;Epic
+Epic,Photo Management,Manage appraisal photos,1,ClassicCarAppraisal,Release 1.0,Photos;Epic
+Feature,Vehicle Record Management,Create and maintain vehicle records,2,ClassicCarAppraisal,Release 1.0,Vehicle;Feature
+Feature,Vehicle Photos,Upload and manage vehicle photos,2,ClassicCarAppraisal,Release 1.0,Photos;Feature
+User Story,Create Vehicle Record,"As an appraiser, I want to create a vehicle record so that I can begin an appraisal.",2,ClassicCarAppraisal,Release 1.0,Vehicle;UserStory
+User Story,Upload Photos,"As an inspector, I want to upload photos so that appraisal evidence is preserved.",1,ClassicCarAppraisal,Release 1.0,Photos;UserStory
+Test Case,Create valid vehicle record,Verify vehicle record creation succeeds with valid data.,2,ClassicCarAppraisal,Release 1.0,TestCase
+Test Case,Upload JPG photo,Verify JPG upload succeeds.,2,ClassicCarAppraisal,Release 1.0,TestCase

@@ -1,0 +1,4 @@
+User Story Title,Acceptance Criteria
+US-001 Create Vehicle Record,Given a valid VIN When user saves Then vehicle record is created
+US-001 Create Vehicle Record,Given duplicate VIN When save Then warning displayed
+US-020 Upload Photos,Given JPG file When upload Then image saved

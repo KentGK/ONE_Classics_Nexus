@@ -1,0 +1,36 @@
+using ONE_Classics_Nexus.WinForms.Features.Appraisals;
+
+// Shell-neutral example. Replace contentPanel with the current MainShellForm content host.
+private async Task OpenAppraisalWorkspaceAsync(Guid appraisalId)
+{
+    var workspace = await contentPanel.OpenInAsync(
+        _services,
+        appraisalId,
+        CancellationToken.None);
+
+    workspace.NavigationRequested += Workspace_NavigationRequested;
+}
+
+private void Workspace_NavigationRequested(
+    object? sender,
+    AppraisalWorkspaceNavigationEventArgs e)
+{
+    switch (e.Target)
+    {
+        case AppraisalWorkspaceSection.Vehicle:
+            // Navigate to Vehicle Detail using e.RelatedEntityId.
+            break;
+        case AppraisalWorkspaceSection.Inspection:
+            // e.Action is "open" or "create". Retain e.AppraisalId.
+            break;
+        case AppraisalWorkspaceSection.Comparables:
+            // Navigate to Comparables filtered by e.AppraisalId.
+            break;
+        case AppraisalWorkspaceSection.Valuation:
+            // e.Action is "open" or "run".
+            break;
+        case AppraisalWorkspaceSection.Report:
+            // e.Action is "open" or "generate".
+            break;
+    }
+}

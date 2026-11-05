@@ -1,0 +1,7 @@
+Test Case ID,Related Story,Title
+TC-001,US-001,Create valid vehicle record
+TC-002,US-001,Duplicate VIN warning
+TC-020,US-020,Upload JPG
+TC-021,US-020,Upload PNG
+TC-040,US-040,Calculate market value
+TC-060,US-060,Generate USPAP narrative

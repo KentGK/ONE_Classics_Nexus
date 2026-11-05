@@ -1,0 +1,7 @@
+User Story ID,Acceptance Criterion
+US-001,User can create a vehicle record
+US-001,VIN is validated
+US-020,JPG supported
+US-020,PNG supported
+US-040,Calculation trace available
+US-060,Certification included

@@ -1,0 +1,153 @@
+sequenceDiagram
+    autonumber
+    actor Staff as Intake Staff
+    participant UI as WinForms UI
+    participant API as ASP.NET Core API
+    participant APP as Application and Domain
+    participant DB as Repository and MariaDB
+
+    rect rgb(234, 242, 249)
+        Note over Staff,DB: Create Appraisal Request
+        Staff->>UI: Select New Appraisal Request
+        UI->>API: POST /api/appraisal-requests
+        activate API
+        API->>APP: CreateAppraisalRequest command
+        activate APP
+        APP->>APP: Authorize actor and normalize input
+        APP->>APP: Validate initial Client, Contact and Vehicle references
+        alt Request is invalid
+            APP-->>API: Validation errors with stable codes
+            API-->>UI: 422 Unprocessable Entity
+            UI-->>Staff: Display field and workflow errors
+        else Request is valid
+            APP->>APP: Assign UUID, request number, Draft status and row version 1
+            APP->>DB: Begin transaction
+            activate DB
+            DB->>DB: Insert appraisal_requests row
+            DB->>DB: Insert creation audit event
+            DB-->>APP: Commit successful
+            deactivate DB
+            APP-->>API: Created request summary
+            API-->>UI: 201 Created with location and rowVersion
+            UI-->>Staff: Open Draft workspace
+        end
+        deactivate APP
+        deactivate API
+    end
+
+    rect rgb(240, 247, 242)
+        Note over Staff,DB: Update Appraisal Request
+        Staff->>UI: Edit request and select Save
+        UI->>API: PUT /api/appraisal-requests/{id} with expectedRowVersion
+        activate API
+        API->>APP: UpdateAppraisalRequest command
+        activate APP
+        APP->>DB: Load request and related state
+        activate DB
+        DB-->>APP: Request, status and current rowVersion
+        deactivate DB
+        alt Request does not exist
+            APP-->>API: Not found
+            API-->>UI: 404 Not Found
+            UI-->>Staff: Request no longer exists
+        else Status is Accepted or Converted
+            APP-->>API: Ordinary update prohibited
+            API-->>UI: 409 Conflict with amendment-required code
+            UI-->>Staff: Offer authorized amendment workflow
+        else Status permits editing
+            APP->>APP: Validate lifecycle, Client, Contact, Intended Use, Intended Users and Vehicle rules
+            alt Validation fails
+                APP-->>API: Validation errors and warnings
+                API-->>UI: 422 Unprocessable Entity
+                UI-->>Staff: Display corrections required
+            else Validation passes
+                APP->>DB: Begin transaction
+                activate DB
+                DB->>DB: UPDATE where request ID and row_version match
+                alt No row updated
+                    DB-->>APP: Concurrency conflict
+                    APP-->>API: CONCURRENCY-001 with current version
+                    API-->>UI: 409 Conflict
+                    UI-->>Staff: Refresh or reconcile changes
+                else Update succeeds
+                    DB->>DB: Increment row_version and write audit event
+                    DB-->>APP: Commit updated request
+                    APP-->>API: Updated request summary
+                    API-->>UI: 200 OK with new rowVersion
+                    UI-->>Staff: Show saved state
+                end
+                deactivate DB
+            end
+        end
+        deactivate APP
+        deactivate API
+    end
+
+    rect rgb(252, 244, 238)
+        Note over Staff,DB: Delete or Lifecycle Disposition
+        Staff->>UI: Select Delete, Cancel or Withdraw
+        UI->>API: DELETE /api/appraisal-requests/{id} with reason and expectedRowVersion
+        activate API
+        API->>APP: DeleteOrDisposeAppraisalRequest command
+        activate APP
+        APP->>DB: Load request, references and retention state
+        activate DB
+        DB-->>APP: Status, rowVersion and dependency summary
+        deactivate DB
+        alt Request does not exist
+            APP-->>API: Not found
+            API-->>UI: 404 Not Found
+            UI-->>Staff: Request no longer exists
+        else Request is Accepted, Converted or retention protected
+            APP-->>API: Deletion prohibited
+            API-->>UI: 409 Conflict with preservation rule
+            UI-->>Staff: Preserve request and use an authorized disposition or amendment
+        else Request is Submitted or UnderReview
+            APP-->>API: Hard deletion prohibited and disposition required
+            API-->>UI: 409 Conflict with allowed Cancel or Withdraw actions
+            UI->>API: POST cancel or withdraw with reason and expectedRowVersion
+            API->>APP: Apply lifecycle disposition
+            APP->>DB: Update status and write disposition audit event
+            DB-->>APP: Commit with incremented rowVersion
+            APP-->>API: Disposition completed
+            API-->>UI: 200 OK
+            UI-->>Staff: Show Cancelled or Withdrawn status
+        else Request is unreferenced Draft and purge policy permits
+            APP->>DB: Begin transaction
+            activate DB
+            DB->>DB: Delete request-owned Draft children
+            DB->>DB: Delete Draft request and write deletion audit record
+            DB-->>APP: Commit successful
+            deactivate DB
+            APP-->>API: Deletion completed
+            API-->>UI: 204 No Content
+            UI-->>Staff: Remove request from workspace
+        else Draft purge is not permitted
+            APP-->>API: Non-destructive disposition required
+            API-->>UI: 409 Conflict with Cancel or Withdraw action
+            UI-->>Staff: Choose an allowed disposition
+        end
+        deactivate APP
+        deactivate API
+    end
+
+    rect rgb(245, 243, 250)
+        Note over Staff,DB: List Appraisal Requests
+        Staff->>UI: Open Appraisal Request list and apply filters
+        UI->>API: GET /api/appraisal-requests with query, status, clientId and page
+        activate API
+        API->>APP: ListAppraisalRequests query
+        activate APP
+        APP->>APP: Authorize scope and validate paging and filters
+        APP->>DB: Execute indexed count and page query
+        activate DB
+        DB-->>APP: Total count and request summaries
+        deactivate DB
+        APP-->>API: Paged result with rowVersion values
+        API-->>UI: 200 OK with items and paging metadata
+        UI-->>Staff: Display sortable filtered list
+        deactivate APP
+        deactivate API
+    end
+
+    Note over UI,DB: All mutations use UTC audit timestamps, actor identity, stable UUIDs and optimistic concurrency.

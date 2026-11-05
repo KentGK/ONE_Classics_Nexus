@@ -1,0 +1,65 @@
+@baseUrl = https://localhost:5001
+@appraisalId = PASTE-VALID-APPRAISAL-ID
+@inspectionTemplateId = PASTE-VALID-TEMPLATE-ID
+@inspectionId = REPLACE_AFTER_POST
+
+### 1. POST Inspection - Create
+POST {{baseUrl}}/api/inspections
+Content-Type: application/json
+
+{
+  "appraisalId": "{{appraisalId}}",
+  "inspectionTemplateId": "{{inspectionTemplateId}}",
+  "inspectedByUserId": null,
+  "inspectionType": "VintageClassic",
+  "status": "Draft",
+  "inspectionLocation": "Meridian, ID",
+  "summaryNotes": "Initial vintage/classic inspection draft."
+}
+
+### 2. GET Inspection
+GET {{baseUrl}}/api/inspections/{{inspectionId}}
+Accept: application/json
+
+### 3. PUT Inspection - Update
+PUT {{baseUrl}}/api/inspections/{{inspectionId}}
+Content-Type: application/json
+
+{
+  "inspectionTemplateId": "{{inspectionTemplateId}}",
+  "inspectedByUserId": null,
+  "inspectionType": "VintageClassic",
+  "status": "InProgress",
+  "inspectionLocation": "Meridian, ID",
+  "inspectedOnUtc": "2026-06-25T15:30:00Z",
+  "summaryNotes": "Inspection in progress.",
+  "rowVersion": 1
+}
+
+### 4. PUT Scores - Full 12 System VintageClassic
+PUT {{baseUrl}}/api/inspections/{{inspectionId}}/scores
+Content-Type: application/json
+
+{
+  "scores": [
+    { "systemNumber": 1, "systemKey": "body_exterior", "score0To5": 4.25, "weight": 0.12, "isRedFlag": false, "notes": "Strong body and exterior presentation." },
+    { "systemNumber": 2, "systemKey": "frame_structure", "score0To5": 4.00, "weight": 0.09, "isRedFlag": false, "notes": "Frame appears structurally sound." },
+    { "systemNumber": 3, "systemKey": "powertrain", "score0To5": 4.50, "weight": 0.13, "isRedFlag": false, "notes": "Powertrain performs well." },
+    { "systemNumber": 4, "systemKey": "transmission_driveline", "score0To5": 4.00, "weight": 0.08, "isRedFlag": false, "notes": "Transmission and driveline operate properly." },
+    { "systemNumber": 5, "systemKey": "suspension_steering", "score0To5": 3.75, "weight": 0.06, "isRedFlag": false, "notes": "Minor wear consistent with age." },
+    { "systemNumber": 6, "systemKey": "braking_system", "score0To5": 3.50, "weight": 0.05, "isRedFlag": false, "notes": "Brakes functional; service recommended." },
+    { "systemNumber": 7, "systemKey": "electrical_system", "score0To5": 3.75, "weight": 0.05, "isRedFlag": false, "notes": "Electrical systems mostly operational." },
+    { "systemNumber": 8, "systemKey": "interior", "score0To5": 4.25, "weight": 0.09, "isRedFlag": false, "notes": "Interior presents very well." },
+    { "systemNumber": 9, "systemKey": "wheels_tires", "score0To5": 4.00, "weight": 0.04, "isRedFlag": false, "notes": "Wheels and tires are good." },
+    { "systemNumber": 10, "systemKey": "trim_glass_details", "score0To5": 4.00, "weight": 0.08, "isRedFlag": false, "notes": "Trim and glass are clean." },
+    { "systemNumber": 11, "systemKey": "documentation_provenance", "score0To5": 3.50, "weight": 0.12, "isRedFlag": false, "notes": "Documentation is adequate but not complete." },
+    { "systemNumber": 12, "systemKey": "road_test_functional", "score0To5": 4.00, "weight": 0.09, "isRedFlag": false, "notes": "Road test completed successfully." }
+  ]
+}
+
+### 5. GET Inspections by Appraisal
+GET {{baseUrl}}/api/appraisals/{{appraisalId}}/inspections
+Accept: application/json
+
+### 6. DELETE Inspection
+DELETE {{baseUrl}}/api/inspections/{{inspectionId}}

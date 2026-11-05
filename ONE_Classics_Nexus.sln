@@ -1,0 +1,486 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37027.9
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0F839814-4974-4B02-853E-F4CD3BC6ADE5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{8386F3D9-BDF5-44E9-B377-4C6264ADB985}"
+	ProjectSection(SolutionItems) = preProject
+		ONE_Classics_Nexus.WinForms — Visual Studio Build Sheet.md = ONE_Classics_Nexus.WinForms — Visual Studio Build Sheet.md
+		..\..\Tech Docs\ONE_Classics_Nexus_Phase_2_Build_Valuation_Math_Engine.md = ..\..\Tech Docs\ONE_Classics_Nexus_Phase_2_Build_Valuation_Math_Engine.md
+		..\..\Tech Docs\one_classics_platform_starter_file_tree.md = ..\..\Tech Docs\one_classics_platform_starter_file_tree.md
+		docs\ReadMe.md = docs\ReadMe.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "assets", "assets", "{36B48776-F97D-45B8-8E28-8F7552324C24}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "database", "database", "{E48712F9-B407-401A-981C-A81481E42E5B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03_Design", "03_Design", "{A97ACF9E-CC53-4890-BFE0-A10724B9CEA9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00_Project_Governance", "00_Project_Governance", "{0C35D7D1-06D1-4909-946E-EF00985B754E}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\DocBurialGround\ONE_Classics_Nexus_SDLC_Playbook.docx = ..\..\DocBurialGround\ONE_Classics_Nexus_SDLC_Playbook.docx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01_Requirements", "01_Requirements", "{F50AEDDD-D75B-442B-B1D7-6A84A99172EA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SRS", "SRS", "{DB034B02-9A31-46E0-99A9-DBF3D75EA759}"
+	ProjectSection(SolutionItems) = preProject
+		docs\01_Requirements\SRS\Nexus_SRS_v2.0.md = docs\01_Requirements\SRS\Nexus_SRS_v2.0.md
+		docs\01_Requirements\SRS\USPAP Standards 7 & 8 Requirements_v3.0.md = docs\01_Requirements\SRS\USPAP Standards 7 & 8 Requirements_v3.0.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Traceability", "Traceability", "{2698C2E2-5ED4-4FA2-884F-A654344CA901}"
+	ProjectSection(SolutionItems) = preProject
+		docs\01_Requirements\Traceability\API_Matrix_v1.0.md = docs\01_Requirements\Traceability\API_Matrix_v1.0.md
+		docs\01_Requirements\Traceability\DB_Matrix_v1.0.md = docs\01_Requirements\Traceability\DB_Matrix_v1.0.md
+		docs\01_Requirements\Traceability\Nexus_Mapping_Matrix_v1.0.md = docs\01_Requirements\Traceability\Nexus_Mapping_Matrix_v1.0.md
+		docs\01_Requirements\Traceability\Requirements_Matrix_v1.0.md = docs\01_Requirements\Traceability\Requirements_Matrix_v1.0.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Use_Cases", "Use_Cases", "{3D0A5FA3-1494-47D9-B68D-7D597EE390C0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "User_Stories", "User_Stories", "{1AD739F5-33A3-4371-8DA0-99AC82D57BA4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Glossary", "Glossary", "{DB00DA18-79ED-4169-81AF-594E8B51E20D}"
+	ProjectSection(SolutionItems) = preProject
+		docs\01_Requirements\Glossary\Nexus_Glossary_v1.1.md = docs\01_Requirements\Glossary\Nexus_Glossary_v1.1.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02_Architecture", "02_Architecture", "{045599A7-0FD6-4CB2-A4A4-7FF98BA0CEB6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Architecture_Diagrams", "Architecture_Diagrams", "{206B64A4-C8E8-4D96-A6A4-1893A868E2D3}"
+	ProjectSection(SolutionItems) = preProject
+		docs\02_Architecture\Architecture_Diagrams\Appraisal_Component.mmd = docs\02_Architecture\Architecture_Diagrams\Appraisal_Component.mmd
+		docs\02_Architecture\Architecture_Diagrams\Client_Component.mmd = docs\02_Architecture\Architecture_Diagrams\Client_Component.mmd
+		docs\02_Architecture\Architecture_Diagrams\Inspection-Score_Component.mmd = docs\02_Architecture\Architecture_Diagrams\Inspection-Score_Component.mmd
+		docs\02_Architecture\Architecture_Diagrams\Inspection_Template_Component.mmd = docs\02_Architecture\Architecture_Diagrams\Inspection_Template_Component.mmd
+		docs\02_Architecture\Architecture_Diagrams\Nexus_Platform_Architecture_v1.0.mmd = docs\02_Architecture\Architecture_Diagrams\Nexus_Platform_Architecture_v1.0.mmd
+		docs\02_Architecture\Architecture_Diagrams\Vehicle_Component.mmd = docs\02_Architecture\Architecture_Diagrams\Vehicle_Component.mmd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution_Structure", "Solution_Structure", "{8D527572-C17F-46D1-8A1B-8F5F92877EF8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NFRs", "NFRs", "{4781A142-E80A-4383-915A-1E03C0E0ACC2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DDS", "DDS", "{4DCE1B43-42B1-451C-BC4E-41C35BC6176C}"
+	ProjectSection(SolutionItems) = preProject
+		docs\03_Design\DDS\Appraisal_Centric_USPAP_DDS_v3.0.md = docs\03_Design\DDS\Appraisal_Centric_USPAP_DDS_v3.0.md
+		docs\03_Design\DDS\Appraisal_Request_DDS_v1.0.md = docs\03_Design\DDS\Appraisal_Request_DDS_v1.0.md
+		docs\03_Design\DDS\Client_Intended_User_DDS_v1.1.md = docs\03_Design\DDS\Client_Intended_User_DDS_v1.1.md
+		docs\03_Design\DDS\Inspection_DDS_v3.0.md = docs\03_Design\DDS\Inspection_DDS_v3.0.md
+		docs\03_Design\DDS\Solution_DDS.md = docs\03_Design\DDS\Solution_DDS.md
+		docs\03_Design\DDS\Vehicle_Entity_DDS_v1.0.md = docs\03_Design\DDS\Vehicle_Entity_DDS_v1.0.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sequence_Diagrams", "Sequence_Diagrams", "{8764DEE1-5109-4EE3-B2D5-9355963C1A2F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Component_Design", "Component_Design", "{13010F6A-5E2D-4FBA-BCFE-07317D20FE22}"
+	ProjectSection(SolutionItems) = preProject
+		docs\03_Design\Component_Design\Appraisal_Component.md = docs\03_Design\Component_Design\Appraisal_Component.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Patterns", "Patterns", "{556A55B0-B721-44F0-8923-12C208F5AE4C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04_Data", "04_Data", "{FB82B12F-D800-4310-8763-C2DE41F55BC5}"
+	ProjectSection(SolutionItems) = preProject
+		docs\04_Data\Inspections_Data_Model_v1.3.md = docs\04_Data\Inspections_Data_Model_v1.3.md
+		docs\04_Data\Nexus_04_Data_Inspections_v1.0.md = docs\04_Data\Nexus_04_Data_Inspections_v1.0.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ERD", "ERD", "{6D31A519-F329-458E-8314-812A47994860}"
+	ProjectSection(SolutionItems) = preProject
+		docs\04_Data\ERD\appraisal_requests_ERD.png = docs\04_Data\ERD\appraisal_requests_ERD.png
+		docs\04_Data\ERD\Condition_Scores.sql = docs\04_Data\ERD\Condition_Scores.sql
+		plantuml_docs\04_Data\Diagrams\individual_erds.puml = plantuml_docs\04_Data\Diagrams\individual_erds.puml
+		docs\04_Data\ERD\Inspections.sql = docs\04_Data\ERD\Inspections.sql
+		docs\04_Data\ERD\Inspections_ERD.png = docs\04_Data\ERD\Inspections_ERD.png
+		docs\04_Data\ERD\Inspection_Item_Scores.sql = docs\04_Data\ERD\Inspection_Item_Scores.sql
+		docs\04_Data\ERD\Inspection_Media.sql = docs\04_Data\ERD\Inspection_Media.sql
+		docs\04_Data\ERD\Inspection_Red_Flags.sql = docs\04_Data\ERD\Inspection_Red_Flags.sql
+		docs\04_Data\ERD\Inspection_Section_Scores.sql = docs\04_Data\ERD\Inspection_Section_Scores.sql
+		docs\04_Data\ERD\Inspection_Templates.sql = docs\04_Data\ERD\Inspection_Templates.sql
+		docs\04_Data\ERD\Inspection_Template_Items.sql = docs\04_Data\ERD\Inspection_Template_Items.sql
+		docs\04_Data\ERD\Inspection_Template_Sections.sql = docs\04_Data\ERD\Inspection_Template_Sections.sql
+		docs\04_Data\ERD\ONE_Classics_Nexus_ERD_v1.0.mmd = docs\04_Data\ERD\ONE_Classics_Nexus_ERD_v1.0.mmd
+		docs\04_Data\ERD\Vehicles.sql = docs\04_Data\ERD\Vehicles.sql
+		docs\04_Data\ERD\Vehicle_Types.sql = docs\04_Data\ERD\Vehicle_Types.sql
+		docs\04_Data\ERD\Vehicle_Type_System_Weights.sql = docs\04_Data\ERD\Vehicle_Type_System_Weights.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Schema", "Schema", "{84D6C3B1-C311-4449-A122-12C4072A53D9}"
+	ProjectSection(SolutionItems) = preProject
+		docs\04_Data\Schema\CREATE TABLE clients.txt = docs\04_Data\Schema\CREATE TABLE clients.txt
+		docs\04_Data\Schema\CREATE TABLE Client_Contacts..txt = docs\04_Data\Schema\CREATE TABLE Client_Contacts..txt
+		docs\04_Data\Inspections_Data_Model_v1.3.md = docs\04_Data\Inspections_Data_Model_v1.3.md
+		docs\04_Data\04_Data_Inspections\seed\inspection_templates_test_data_v1.3.sql = docs\04_Data\04_Data_Inspections\seed\inspection_templates_test_data_v1.3.sql
+		docs\04_Data\Schema\Nexus_Full_Lock_Schema_v1.0.sql = docs\04_Data\Schema\Nexus_Full_Lock_Schema_v1.0.sql
+		docs\04_Data\Schema\Prepopulate_Appraisal_Requests_Test_Data_v1.0.sql = docs\04_Data\Schema\Prepopulate_Appraisal_Requests_Test_Data_v1.0.sql
+		docs\04_Data\Schema\Prepopulate_Clients_Test_Data_v1.0.sql = docs\04_Data\Schema\Prepopulate_Clients_Test_Data_v1.0.sql
+		docs\04_Data\Schema\Prepopulate_Client_Contacts_Test_Data_v1.0.sql = docs\04_Data\Schema\Prepopulate_Client_Contacts_Test_Data_v1.0.sql
+		docs\04_Data\Schema\Prepopulate_Roles_Test_Data_v1.0.sql = docs\04_Data\Schema\Prepopulate_Roles_Test_Data_v1.0.sql
+		docs\04_Data\Schema\Prepopulate_Users_Test_Data_v1.0.sql = docs\04_Data\Schema\Prepopulate_Users_Test_Data_v1.0.sql
+		docs\04_Data\Schema\Prepopulate_User_Roles_Test_Data_v1.1.sql = docs\04_Data\Schema\Prepopulate_User_Roles_Test_Data_v1.1.sql
+		docs\04_Data\Schema\Prepopulate_User_Roles_Test_Data_v1.2.sql = docs\04_Data\Schema\Prepopulate_User_Roles_Test_Data_v1.2.sql
+		docs\04_Data\Schema\Prepopulate_Vehicle_Type_System_Weights_Test_Data_v1.0.sql = docs\04_Data\Schema\Prepopulate_Vehicle_Type_System_Weights_Test_Data_v1.0.sql
+		docs\04_Data\Schema\Update_Users_Add_Username_Column_v1.0.sql = docs\04_Data\Schema\Update_Users_Add_Username_Column_v1.0.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tables", "Tables", "{D8FD5A66-BD16-4B36-9E4D-F69AEC7C0D4F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Views", "Views", "{BDB91B2B-8440-49A1-8AD6-F66AA55A82BA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05_API", "05_API", "{D69AD743-11D0-46D7-ADAF-79A320A00916}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpenAPI", "OpenAPI", "{E041981E-5070-4CB5-B39E-E559CD1D50B0}"
+	ProjectSection(SolutionItems) = preProject
+		docs\05_API\OpenAPI\Nexus_API_Specification_OpenAPI_v1.0.yaml = docs\05_API\OpenAPI\Nexus_API_Specification_OpenAPI_v1.0.yaml
+		docs\05_API\OpenAPI\Nexus_Repository_Mapping_Spec_v1.0.md = docs\05_API\OpenAPI\Nexus_Repository_Mapping_Spec_v1.0.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Endpoints", "Endpoints", "{220BB472-CD2F-4C7A-AEFD-7298DAC3E76C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API_Governance", "API_Governance", "{F5EB2881-87DF-4F12-8DC5-05AB4BF3DFB6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06_Engine (AVM Core)", "06_Engine (AVM Core)", "{EC2C8454-1DB8-48FB-B420-4CFDD7806672}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AVM_Math", "AVM_Math", "{AF9E3BEE-6336-450D-B30C-DAC0CD9FF6BA}"
+	ProjectSection(SolutionItems) = preProject
+		docs\06_Engine\AVM_Math\AVM_Math_Specification_v3.0_Reconciled.md = docs\06_Engine\AVM_Math\AVM_Math_Specification_v3.0_Reconciled.md
+		docs\06_Engine\AVM_Math\Nexus_AVM_Math_Spec_v1.0.md = docs\06_Engine\AVM_Math\Nexus_AVM_Math_Spec_v1.0.md
+		docs\06_Engine\AVM_Math\Nexus_AVM_Math_Spec_v2.0.md = docs\06_Engine\AVM_Math\Nexus_AVM_Math_Spec_v2.0.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Engine_Modules", "Engine_Modules", "{AB6C956A-AF82-4009-9735-BE1AB9B60C8E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Traceability", "Traceability", "{E547C616-DB44-4060-BB42-054DD09CB1EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test_Scenarios", "Test_Scenarios", "{8CAFF000-BD91-403F-98CC-F2B44DA92601}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "08_Testing_Quality", "08_Testing_Quality", "{746B0FAB-5EF5-43FF-B7C1-D55CC19EDC35}"
+	ProjectSection(SolutionItems) = preProject
+		docs\08_Testing_Quality\Nexus_Testing_Quality_Structure_v1.0.md = docs\08_Testing_Quality\Nexus_Testing_Quality_Structure_v1.0.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01_Test_Strategy", "01_Test_Strategy", "{C46C6589-1AF2-44AF-885B-3A1EBC103571}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02_Test_Plans", "02_Test_Plans", "{74201E13-CAC0-4797-8454-A4014AFC27D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03_Test_Cases", "03_Test_Cases", "{098558FD-EA97-4D12-A503-2514FE574583}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04_Automated_Testing", "04_Automated_Testing", "{C837FF0C-6B06-4D04-9DB6-234D39C4BBF9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05_Test_Data", "05_Test_Data", "{3DC00221-349C-4451-8754-E29F6871A0E0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "06_Quality_Gates", "06_Quality_Gates", "{4972164B-512F-4064-966B-D74BE3C21B40}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "07_Defects_Risks", "07_Defects_Risks", "{4E9A595E-97FB-4F12-9F6A-B73D1B9B829E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "08_Test_Reports", "08_Test_Reports", "{42411838-118E-4465-95A9-9E8E797F564D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Swagger", "Swagger", "{82A77218-476A-4872-9454-DB70770B3FC2}"
+	ProjectSection(SolutionItems) = preProject
+		docs\08_Testing_Quality\Test_Data\Swagger\Nexus_Swagger_Appraisal_Test_Script_v1.0.md = docs\08_Testing_Quality\Test_Data\Swagger\Nexus_Swagger_Appraisal_Test_Script_v1.0.md
+		docs\08_Testing_Quality\Test_Data\Swagger\Nexus_Swagger_Vehicle_Test_Data_v1.2.md = docs\08_Testing_Quality\Test_Data\Swagger\Nexus_Swagger_Vehicle_Test_Data_v1.2.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ONE_Classics_Nexus.API", "ONE_Classics_Nexus.API\ONE_Classics_Nexus.API.csproj", "{74F5F15D-E7D4-F4F8-F539-A249D11BFEE1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9181DBFE-F0AC-48F4-9095-BA57BEE4039F} = {9181DBFE-F0AC-48F4-9095-BA57BEE4039F}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ONE_Classics_Nexus.Application", "ONE_Classics_Nexus.Application\ONE_Classics_Nexus.Application.csproj", "{165FD9AA-5463-47EA-9F10-A09EEC3D242B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ONE_Classics_Nexus.Infrastructure", "ONE_Classics_Nexus.Infrastructure\ONE_Classics_Nexus.Infrastructure.csproj", "{C8A54D2F-019F-6C35-E3A2-24B93884F692}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ONE_Classics_Nexus.WinForms", "ONE_Classics_Nexus.WinForms\ONE_Classics_Nexus.WinForms.csproj", "{B6F969AE-9F31-1543-B430-376CB9580506}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A0C76963-EAA6-27C1-D207-A595EE5364DF} = {A0C76963-EAA6-27C1-D207-A595EE5364DF}
+		{C8A54D2F-019F-6C35-E3A2-24B93884F692} = {C8A54D2F-019F-6C35-E3A2-24B93884F692}
+		{9181DBFE-F0AC-48F4-9095-BA57BEE4039F} = {9181DBFE-F0AC-48F4-9095-BA57BEE4039F}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ONE_Classics_Nexus.Domain", "ONE_Classics_Nexus.Domain\ONE_Classics_Nexus.Domain.csproj", "{9181DBFE-F0AC-48F4-9095-BA57BEE4039F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Code", "Code", "{9816F886-05D2-4436-9BE1-573B8512B738}"
+	ProjectSection(SolutionItems) = preProject
+		docs\05_API\Nexus_Inspection_Code_Set_v1.0\Nexus_Inspection_Code_Set_v1.0\API\ApplicationPorts\IInspectionApiService.cs = docs\05_API\Nexus_Inspection_Code_Set_v1.0\Nexus_Inspection_Code_Set_v1.0\API\ApplicationPorts\IInspectionApiService.cs
+		docs\05_API\Nexus_05_Inspection_API_Code_v1.0.md = docs\05_API\Nexus_05_Inspection_API_Code_v1.0.md
+		docs\05_API\Nexus_Inspection_Code_Set_v1.0.zip = docs\05_API\Nexus_Inspection_Code_Set_v1.0.zip
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Diagrams", "Diagrams", "{98B4FA60-0CE4-4087-B1F1-F3FB5F44EA8B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Inspection_Templates", "Inspection_Templates", "{ADD651F1-3C27-4934-A610-8FF98FB5047B}"
+	ProjectSection(SolutionItems) = preProject
+		docs\04_Data\Inspection_Templates\VIEW_inspection_template_hierarchy.sql = docs\04_Data\Inspection_Templates\VIEW_inspection_template_hierarchy.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{231BE77B-CF1B-4310-ADC5-21BB2DF10D74}"
+	ProjectSection(SolutionItems) = preProject
+		docs\04_Data\SQL\CREATE_appraisals.sql = docs\04_Data\SQL\CREATE_appraisals.sql
+		docs\04_Data\SQL\CREATE_condition_scores.sql = docs\04_Data\SQL\CREATE_condition_scores.sql
+		docs\04_Data\SQL\CREATE_inspections.sql = docs\04_Data\SQL\CREATE_inspections.sql
+		docs\04_Data\SQL\CREATE_inspection_item_scores.sql = docs\04_Data\SQL\CREATE_inspection_item_scores.sql
+		docs\04_Data\SQL\CREATE_inspection_media.sql = docs\04_Data\SQL\CREATE_inspection_media.sql
+		docs\04_Data\SQL\CREATE_inspection_red_flag.sql = docs\04_Data\SQL\CREATE_inspection_red_flag.sql
+		docs\04_Data\SQL\CREATE_inspection_red_flags.sql = docs\04_Data\SQL\CREATE_inspection_red_flags.sql
+		docs\04_Data\SQL\CREATE_inspection_sections.sql = docs\04_Data\SQL\CREATE_inspection_sections.sql
+		docs\04_Data\SQL\CREATE_inspection_section_scores.sql = docs\04_Data\SQL\CREATE_inspection_section_scores.sql
+		docs\04_Data\SQL\CREATE_inspection_template.sql = docs\04_Data\SQL\CREATE_inspection_template.sql
+		docs\04_Data\SQL\CREATE_inspection_template_items.sql = docs\04_Data\SQL\CREATE_inspection_template_items.sql
+		docs\04_Data\SQL\CREATE_inspection_template_sections.sql = docs\04_Data\SQL\CREATE_inspection_template_sections.sql
+		docs\04_Data\SQL\CREATE_Users.sql = docs\04_Data\SQL\CREATE_Users.sql
+		docs\04_Data\SQL\CREATE_Vehicles.sql = docs\04_Data\SQL\CREATE_Vehicles.sql
+		docs\04_Data\SQL\CREATE_Vehicle_Types.sql = docs\04_Data\SQL\CREATE_Vehicle_Types.sql
+		docs\04_Data\SQL\CREATE_Vehicle_Type_System_Weights.sql = docs\04_Data\SQL\CREATE_Vehicle_Type_System_Weights.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Stored_Procedures", "Stored_Procedures", "{63CABCDD-852C-41F4-9587-BFB8A3DF18BC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test_Data", "Test_Data", "{388A1E33-2D08-42AA-BABA-8213847A0163}"
+	ProjectSection(SolutionItems) = preProject
+		docs\04_Data\Test Data\inspection_templates_test_data_v1.3.sql = docs\04_Data\Test Data\inspection_templates_test_data_v1.3.sql
+		docs\04_Data\Test Data\inspection_template_items_test_data_v1.3.sql = docs\04_Data\Test Data\inspection_template_items_test_data_v1.3.sql
+		docs\04_Data\Test Data\inspection_template_sections_test_data_v1.3.sql = docs\04_Data\Test Data\inspection_template_sections_test_data_v1.3.sql
+		docs\04_Data\Test Data\Nexus_Inspection_Template_Data.xlsx = docs\04_Data\Test Data\Nexus_Inspection_Template_Data.xlsx
+		docs\04_Data\Test Data\Nexus_Prepopulate_Clients_Test_Data_v1.1.sql = docs\04_Data\Test Data\Nexus_Prepopulate_Clients_Test_Data_v1.1.sql
+		docs\04_Data\Test Data\Nexus_Prepopulate_Users_Test_Data_v1.0.sql = docs\04_Data\Test Data\Nexus_Prepopulate_Users_Test_Data_v1.0.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "07_UI_UX", "07_UI_UX", "{C1ED2F28-244A-408B-9410-DB107656E37B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Inspection", "Inspection", "{7BB51D5B-156D-403E-BB6D-790EDED979BA}"
+	ProjectSection(SolutionItems) = preProject
+		docs\07_UI_UX\Mockups\Inspections\Inspection_Overview.png = docs\07_UI_UX\Mockups\Inspections\Inspection_Overview.png
+		docs\07_UI_UX\Mockups\Inspections\Inspection_Overview_Dropdown.png = docs\07_UI_UX\Mockups\Inspections\Inspection_Overview_Dropdown.png
+		docs\07_UI_UX\Mockups\Inspections\Inspection_Workspace_12-Systems_Scores.png = docs\07_UI_UX\Mockups\Inspections\Inspection_Workspace_12-Systems_Scores.png
+		docs\07_UI_UX\Mockups\Inspections\Inspection_Workspace_Overview.png = docs\07_UI_UX\Mockups\Inspections\Inspection_Workspace_Overview.png
+		docs\07_UI_UX\Mockups\Inspections\Inspection_Workspace_Sections-Items.png = docs\07_UI_UX\Mockups\Inspections\Inspection_Workspace_Sections-Items.png
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ONE_Classics_Nexus.Tests", "ONE_Classics_Nexus.Tests\ONE_Classics_Nexus.Tests.csproj", "{A0C76963-EAA6-27C1-D207-A595EE5364DF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C8A54D2F-019F-6C35-E3A2-24B93884F692} = {C8A54D2F-019F-6C35-E3A2-24B93884F692}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Vehicle", "Vehicle", "{45D85B0D-F8F0-4D11-9508-CED71251DD79}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Appraisal", "Appraisal", "{B7B472ED-AB31-4989-AE12-1D646B4C914F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{D3A1473E-69A3-4F57-A5B3-8C838DA49290}"
+	ProjectSection(SolutionItems) = preProject
+		docs\07_UI_UX\Mockups\Client\Client history audit trail.png = docs\07_UI_UX\Mockups\Client\Client history audit trail.png
+		docs\07_UI_UX\Mockups\Client\Client_List.png = docs\07_UI_UX\Mockups\Client\Client_List.png
+		docs\07_UI_UX\Mockups\Client\Individual_Client_Workspace.md = docs\07_UI_UX\Mockups\Client\Individual_Client_Workspace.md
+		docs\07_UI_UX\Mockups\Client\Organization Client Workspace.png = docs\07_UI_UX\Mockups\Client\Organization Client Workspace.png
+		docs\07_UI_UX\Mockups\Client\Organization Contacts wireframe.png = docs\07_UI_UX\Mockups\Client\Organization Contacts wireframe.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DDL", "DDL", "{804C6FF7-3274-43AF-8FD9-D41102AE7F59}"
+	ProjectSection(SolutionItems) = preProject
+		docs\04_Data\Schema\Appraisal_Request_DDL.txt = docs\04_Data\Schema\Appraisal_Request_DDL.txt
+		docs\04_Data\Schema\Vehicles_DDL.txt = docs\04_Data\Schema\Vehicles_DDL.txt
+		docs\04_Data\Schema\vehicle_types_DDL.txt = docs\04_Data\Schema\vehicle_types_DDL.txt
+		docs\04_Data\Schema\vehicle_type_system_weights_DDL.txt = docs\04_Data\Schema\vehicle_type_system_weights_DDL.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Vehicle", "Vehicle", "{4931BFD7-410B-46AE-B77C-84BE3D9C069B}"
+	ProjectSection(SolutionItems) = preProject
+		docs\04_Data\ERD\ONE_Classics_Nexus_ERD_v1.0.mmd = docs\04_Data\ERD\ONE_Classics_Nexus_ERD_v1.0.mmd
+		docs\04_Data\ERD\Vehicle\Vehicles_ERD.png = docs\04_Data\ERD\Vehicle\Vehicles_ERD.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client_Intended_User", "Client_Intended_User", "{7DC827C1-08AE-4930-AB7E-CE755C4588E5}"
+	ProjectSection(SolutionItems) = preProject
+		docs\07_UI_UX\Wireframes\WinForms\Client_Intended_User_Workspace_Wireframe_v1.0.svg = docs\07_UI_UX\Wireframes\WinForms\Client_Intended_User_Workspace_Wireframe_v1.0.svg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Process_Workflows", "Process_Workflows", "{AE6F63F7-2183-4C53-8269-ECF591AFE400}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Appraisal_Inspections", "Appraisal_Inspections", "{CE7F1AE3-4F7B-40F0-9F31-2A1D41C8633E}"
+	ProjectSection(SolutionItems) = preProject
+		docs\02_Architecture\Process_Flows\Appraisal_Inspection_Workflow_v1.0.md = docs\02_Architecture\Process_Flows\Appraisal_Inspection_Workflow_v1.0.md
+		docs\02_Architecture\Process_Flows\Appraisal_Inspection_Workflow_v1.0.mmd = docs\02_Architecture\Process_Flows\Appraisal_Inspection_Workflow_v1.0.mmd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Appraisal_Requests", "Appraisal_Requests", "{1FE188FF-CEC9-4CC3-83ED-FA7923E01B22}"
+	ProjectSection(SolutionItems) = preProject
+		docs\02_Architecture\Process_Flows\Appraisal_Request_To_Appraisal_Transition_v1.0.md = docs\02_Architecture\Process_Flows\Appraisal_Request_To_Appraisal_Transition_v1.0.md
+		docs\02_Architecture\Process_Flows\Appraisal_Request_To_Appraisal_Transition_v1.0.mmd = docs\02_Architecture\Process_Flows\Appraisal_Request_To_Appraisal_Transition_v1.0.mmd
+		docs\02_Architecture\Process_Flows\Appraisal_Request_Workflow_v1.0.md = docs\02_Architecture\Process_Flows\Appraisal_Request_Workflow_v1.0.md
+		docs\02_Architecture\Process_Flows\Appraisal_Request_Workflow_v1.0.mmd = docs\02_Architecture\Process_Flows\Appraisal_Request_Workflow_v1.0.mmd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Appraisals", "Appraisals", "{1FA19A8C-E64E-4DD1-ABA0-21B03B7A4D11}"
+	ProjectSection(SolutionItems) = preProject
+		docs\02_Architecture\Process_Flows\Appraisal_Workflow_v1.0.md = docs\02_Architecture\Process_Flows\Appraisal_Workflow_v1.0.md
+		docs\02_Architecture\Process_Flows\Appraisal_Workflow_v1.0.mmd = docs\02_Architecture\Process_Flows\Appraisal_Workflow_v1.0.mmd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client_Intended_User", "Client_Intended_User", "{1D509866-4FF6-45D3-BAE3-962DC45810E1}"
+	ProjectSection(SolutionItems) = preProject
+		docs\03_Design\Sequence_Diagrams\Client_Intended_User_Sequence_Diagram_v1.1.mmd = docs\03_Design\Sequence_Diagrams\Client_Intended_User_Sequence_Diagram_v1.1.mmd
+		docs\03_Design\Sequence_Diagrams\Nexus_Client_Intended_User_Sequence_Diagram_v1.0.md = docs\03_Design\Sequence_Diagrams\Nexus_Client_Intended_User_Sequence_Diagram_v1.0.md
+		docs\03_Design\Sequence_Diagrams\Nexus_Client_Intended_User_Sequence_Diagram_v1.0.mmd = docs\03_Design\Sequence_Diagrams\Nexus_Client_Intended_User_Sequence_Diagram_v1.0.mmd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Vehicle", "Vehicle", "{8925AF8E-4E45-4F0E-94F2-2DE1F215C27C}"
+	ProjectSection(SolutionItems) = preProject
+		docs\03_Design\Sequence_Diagrams\Nexus_Vehicle_Sequence_Diagram.mmd = docs\03_Design\Sequence_Diagrams\Nexus_Vehicle_Sequence_Diagram.mmd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Appraisal", "Appraisal", "{998C6463-FEF6-4B22-915B-63480A851B58}"
+	ProjectSection(SolutionItems) = preProject
+		docs\03_Design\Sequence_Diagrams\Nexus_Appraisal_Sequence_Diagram.md = docs\03_Design\Sequence_Diagrams\Nexus_Appraisal_Sequence_Diagram.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Inspection", "Inspection", "{BFABF8E2-75E7-4F1F-9E97-CAE192C9CCDE}"
+	ProjectSection(SolutionItems) = preProject
+		docs\03_Design\Sequence_Diagrams\Nexus_Inspection_Sequence_Diagram.md = docs\03_Design\Sequence_Diagrams\Nexus_Inspection_Sequence_Diagram.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Valuation", "Valuation", "{C2799DD3-2EAF-4DEB-8007-0ADCC4895CEF}"
+	ProjectSection(SolutionItems) = preProject
+		docs\03_Design\Sequence_Diagrams\Nexus_Valuation_Sequence_Diagram.md = docs\03_Design\Sequence_Diagrams\Nexus_Valuation_Sequence_Diagram.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Appraisal_Request", "Appraisal_Request", "{89BD969D-055B-4B98-9402-B348B0C7461D}"
+	ProjectSection(SolutionItems) = preProject
+		docs\03_Design\Sequence_Diagrams\Appraisal_Request_Sequence_Diagram_v1.0.mmd = docs\03_Design\Sequence_Diagrams\Appraisal_Request_Sequence_Diagram_v1.0.mmd
+		docs\03_Design\Sequence_Diagrams\Appraisal_Request_To_Appraisal_Transition_Sequence_Diagram_v1.0.mmd = docs\03_Design\Sequence_Diagrams\Appraisal_Request_To_Appraisal_Transition_Sequence_Diagram_v1.0.mmd
+		docs\03_Design\Sequence_Diagrams\Appraisal_Request_To_Appraisal_Transition_Sequence_Diagram_v1.0.svg = docs\03_Design\Sequence_Diagrams\Appraisal_Request_To_Appraisal_Transition_Sequence_Diagram_v1.0.svg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Appraisal_Request", "Appraisal_Request", "{3597314F-514D-4178-8CCE-E8E29C26B4E8}"
+	ProjectSection(SolutionItems) = preProject
+		docs\07_UI_UX\Mockups\Appraisal Request\Appraisal_Request_Wireframe_v1.0\Appraisal_Request_Wireframe_Option1_v1.0.jpg = docs\07_UI_UX\Mockups\Appraisal Request\Appraisal_Request_Wireframe_v1.0\Appraisal_Request_Wireframe_Option1_v1.0.jpg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{AD71F7A2-4FDA-4B85-B9C4-854A8177D45F}"
+	ProjectSection(SolutionItems) = preProject
+		docs\01_Requirements\SRS\Client\Client_RD_v1.2.md = docs\01_Requirements\SRS\Client\Client_RD_v1.2.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{7C8FFA64-5EB2-4F92-A0BC-76013508BD1B}"
+	ProjectSection(SolutionItems) = preProject
+		docs\04_Data\SQL\Clients\Clients.sql = docs\04_Data\SQL\Clients\Clients.sql
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74F5F15D-E7D4-F4F8-F539-A249D11BFEE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74F5F15D-E7D4-F4F8-F539-A249D11BFEE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74F5F15D-E7D4-F4F8-F539-A249D11BFEE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74F5F15D-E7D4-F4F8-F539-A249D11BFEE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{165FD9AA-5463-47EA-9F10-A09EEC3D242B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{165FD9AA-5463-47EA-9F10-A09EEC3D242B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{165FD9AA-5463-47EA-9F10-A09EEC3D242B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{165FD9AA-5463-47EA-9F10-A09EEC3D242B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8A54D2F-019F-6C35-E3A2-24B93884F692}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8A54D2F-019F-6C35-E3A2-24B93884F692}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8A54D2F-019F-6C35-E3A2-24B93884F692}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8A54D2F-019F-6C35-E3A2-24B93884F692}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6F969AE-9F31-1543-B430-376CB9580506}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6F969AE-9F31-1543-B430-376CB9580506}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6F969AE-9F31-1543-B430-376CB9580506}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6F969AE-9F31-1543-B430-376CB9580506}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9181DBFE-F0AC-48F4-9095-BA57BEE4039F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9181DBFE-F0AC-48F4-9095-BA57BEE4039F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9181DBFE-F0AC-48F4-9095-BA57BEE4039F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9181DBFE-F0AC-48F4-9095-BA57BEE4039F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0C76963-EAA6-27C1-D207-A595EE5364DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0C76963-EAA6-27C1-D207-A595EE5364DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0C76963-EAA6-27C1-D207-A595EE5364DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0C76963-EAA6-27C1-D207-A595EE5364DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A97ACF9E-CC53-4890-BFE0-A10724B9CEA9} = {8386F3D9-BDF5-44E9-B377-4C6264ADB985}
+		{0C35D7D1-06D1-4909-946E-EF00985B754E} = {8386F3D9-BDF5-44E9-B377-4C6264ADB985}
+		{F50AEDDD-D75B-442B-B1D7-6A84A99172EA} = {8386F3D9-BDF5-44E9-B377-4C6264ADB985}
+		{DB034B02-9A31-46E0-99A9-DBF3D75EA759} = {F50AEDDD-D75B-442B-B1D7-6A84A99172EA}
+		{2698C2E2-5ED4-4FA2-884F-A654344CA901} = {F50AEDDD-D75B-442B-B1D7-6A84A99172EA}
+		{3D0A5FA3-1494-47D9-B68D-7D597EE390C0} = {F50AEDDD-D75B-442B-B1D7-6A84A99172EA}
+		{1AD739F5-33A3-4371-8DA0-99AC82D57BA4} = {F50AEDDD-D75B-442B-B1D7-6A84A99172EA}
+		{DB00DA18-79ED-4169-81AF-594E8B51E20D} = {F50AEDDD-D75B-442B-B1D7-6A84A99172EA}
+		{045599A7-0FD6-4CB2-A4A4-7FF98BA0CEB6} = {8386F3D9-BDF5-44E9-B377-4C6264ADB985}
+		{206B64A4-C8E8-4D96-A6A4-1893A868E2D3} = {045599A7-0FD6-4CB2-A4A4-7FF98BA0CEB6}
+		{8D527572-C17F-46D1-8A1B-8F5F92877EF8} = {045599A7-0FD6-4CB2-A4A4-7FF98BA0CEB6}
+		{4781A142-E80A-4383-915A-1E03C0E0ACC2} = {045599A7-0FD6-4CB2-A4A4-7FF98BA0CEB6}
+		{4DCE1B43-42B1-451C-BC4E-41C35BC6176C} = {A97ACF9E-CC53-4890-BFE0-A10724B9CEA9}
+		{8764DEE1-5109-4EE3-B2D5-9355963C1A2F} = {A97ACF9E-CC53-4890-BFE0-A10724B9CEA9}
+		{13010F6A-5E2D-4FBA-BCFE-07317D20FE22} = {A97ACF9E-CC53-4890-BFE0-A10724B9CEA9}
+		{556A55B0-B721-44F0-8923-12C208F5AE4C} = {A97ACF9E-CC53-4890-BFE0-A10724B9CEA9}
+		{FB82B12F-D800-4310-8763-C2DE41F55BC5} = {8386F3D9-BDF5-44E9-B377-4C6264ADB985}
+		{6D31A519-F329-458E-8314-812A47994860} = {FB82B12F-D800-4310-8763-C2DE41F55BC5}
+		{84D6C3B1-C311-4449-A122-12C4072A53D9} = {FB82B12F-D800-4310-8763-C2DE41F55BC5}
+		{D8FD5A66-BD16-4B36-9E4D-F69AEC7C0D4F} = {FB82B12F-D800-4310-8763-C2DE41F55BC5}
+		{BDB91B2B-8440-49A1-8AD6-F66AA55A82BA} = {FB82B12F-D800-4310-8763-C2DE41F55BC5}
+		{D69AD743-11D0-46D7-ADAF-79A320A00916} = {8386F3D9-BDF5-44E9-B377-4C6264ADB985}
+		{E041981E-5070-4CB5-B39E-E559CD1D50B0} = {D69AD743-11D0-46D7-ADAF-79A320A00916}
+		{220BB472-CD2F-4C7A-AEFD-7298DAC3E76C} = {D69AD743-11D0-46D7-ADAF-79A320A00916}
+		{F5EB2881-87DF-4F12-8DC5-05AB4BF3DFB6} = {D69AD743-11D0-46D7-ADAF-79A320A00916}
+		{EC2C8454-1DB8-48FB-B420-4CFDD7806672} = {8386F3D9-BDF5-44E9-B377-4C6264ADB985}
+		{AF9E3BEE-6336-450D-B30C-DAC0CD9FF6BA} = {EC2C8454-1DB8-48FB-B420-4CFDD7806672}
+		{AB6C956A-AF82-4009-9735-BE1AB9B60C8E} = {EC2C8454-1DB8-48FB-B420-4CFDD7806672}
+		{E547C616-DB44-4060-BB42-054DD09CB1EB} = {EC2C8454-1DB8-48FB-B420-4CFDD7806672}
+		{8CAFF000-BD91-403F-98CC-F2B44DA92601} = {EC2C8454-1DB8-48FB-B420-4CFDD7806672}
+		{746B0FAB-5EF5-43FF-B7C1-D55CC19EDC35} = {8386F3D9-BDF5-44E9-B377-4C6264ADB985}
+		{C46C6589-1AF2-44AF-885B-3A1EBC103571} = {746B0FAB-5EF5-43FF-B7C1-D55CC19EDC35}
+		{74201E13-CAC0-4797-8454-A4014AFC27D7} = {746B0FAB-5EF5-43FF-B7C1-D55CC19EDC35}
+		{098558FD-EA97-4D12-A503-2514FE574583} = {746B0FAB-5EF5-43FF-B7C1-D55CC19EDC35}
+		{C837FF0C-6B06-4D04-9DB6-234D39C4BBF9} = {746B0FAB-5EF5-43FF-B7C1-D55CC19EDC35}
+		{3DC00221-349C-4451-8754-E29F6871A0E0} = {746B0FAB-5EF5-43FF-B7C1-D55CC19EDC35}
+		{4972164B-512F-4064-966B-D74BE3C21B40} = {746B0FAB-5EF5-43FF-B7C1-D55CC19EDC35}
+		{4E9A595E-97FB-4F12-9F6A-B73D1B9B829E} = {746B0FAB-5EF5-43FF-B7C1-D55CC19EDC35}
+		{42411838-118E-4465-95A9-9E8E797F564D} = {746B0FAB-5EF5-43FF-B7C1-D55CC19EDC35}
+		{82A77218-476A-4872-9454-DB70770B3FC2} = {3DC00221-349C-4451-8754-E29F6871A0E0}
+		{74F5F15D-E7D4-F4F8-F539-A249D11BFEE1} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{165FD9AA-5463-47EA-9F10-A09EEC3D242B} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{C8A54D2F-019F-6C35-E3A2-24B93884F692} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{B6F969AE-9F31-1543-B430-376CB9580506} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{9181DBFE-F0AC-48F4-9095-BA57BEE4039F} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{9816F886-05D2-4436-9BE1-573B8512B738} = {D69AD743-11D0-46D7-ADAF-79A320A00916}
+		{98B4FA60-0CE4-4087-B1F1-F3FB5F44EA8B} = {FB82B12F-D800-4310-8763-C2DE41F55BC5}
+		{ADD651F1-3C27-4934-A610-8FF98FB5047B} = {FB82B12F-D800-4310-8763-C2DE41F55BC5}
+		{231BE77B-CF1B-4310-ADC5-21BB2DF10D74} = {FB82B12F-D800-4310-8763-C2DE41F55BC5}
+		{63CABCDD-852C-41F4-9587-BFB8A3DF18BC} = {FB82B12F-D800-4310-8763-C2DE41F55BC5}
+		{388A1E33-2D08-42AA-BABA-8213847A0163} = {FB82B12F-D800-4310-8763-C2DE41F55BC5}
+		{C1ED2F28-244A-408B-9410-DB107656E37B} = {8386F3D9-BDF5-44E9-B377-4C6264ADB985}
+		{7BB51D5B-156D-403E-BB6D-790EDED979BA} = {C1ED2F28-244A-408B-9410-DB107656E37B}
+		{A0C76963-EAA6-27C1-D207-A595EE5364DF} = {0F839814-4974-4B02-853E-F4CD3BC6ADE5}
+		{45D85B0D-F8F0-4D11-9508-CED71251DD79} = {C1ED2F28-244A-408B-9410-DB107656E37B}
+		{B7B472ED-AB31-4989-AE12-1D646B4C914F} = {C1ED2F28-244A-408B-9410-DB107656E37B}
+		{D3A1473E-69A3-4F57-A5B3-8C838DA49290} = {C1ED2F28-244A-408B-9410-DB107656E37B}
+		{804C6FF7-3274-43AF-8FD9-D41102AE7F59} = {A97ACF9E-CC53-4890-BFE0-A10724B9CEA9}
+		{4931BFD7-410B-46AE-B77C-84BE3D9C069B} = {6D31A519-F329-458E-8314-812A47994860}
+		{7DC827C1-08AE-4930-AB7E-CE755C4588E5} = {C1ED2F28-244A-408B-9410-DB107656E37B}
+		{AE6F63F7-2183-4C53-8269-ECF591AFE400} = {045599A7-0FD6-4CB2-A4A4-7FF98BA0CEB6}
+		{CE7F1AE3-4F7B-40F0-9F31-2A1D41C8633E} = {AE6F63F7-2183-4C53-8269-ECF591AFE400}
+		{1FE188FF-CEC9-4CC3-83ED-FA7923E01B22} = {AE6F63F7-2183-4C53-8269-ECF591AFE400}
+		{1FA19A8C-E64E-4DD1-ABA0-21B03B7A4D11} = {AE6F63F7-2183-4C53-8269-ECF591AFE400}
+		{1D509866-4FF6-45D3-BAE3-962DC45810E1} = {8764DEE1-5109-4EE3-B2D5-9355963C1A2F}
+		{8925AF8E-4E45-4F0E-94F2-2DE1F215C27C} = {8764DEE1-5109-4EE3-B2D5-9355963C1A2F}
+		{998C6463-FEF6-4B22-915B-63480A851B58} = {8764DEE1-5109-4EE3-B2D5-9355963C1A2F}
+		{BFABF8E2-75E7-4F1F-9E97-CAE192C9CCDE} = {8764DEE1-5109-4EE3-B2D5-9355963C1A2F}
+		{C2799DD3-2EAF-4DEB-8007-0ADCC4895CEF} = {8764DEE1-5109-4EE3-B2D5-9355963C1A2F}
+		{89BD969D-055B-4B98-9402-B348B0C7461D} = {8764DEE1-5109-4EE3-B2D5-9355963C1A2F}
+		{3597314F-514D-4178-8CCE-E8E29C26B4E8} = {C1ED2F28-244A-408B-9410-DB107656E37B}
+		{AD71F7A2-4FDA-4B85-B9C4-854A8177D45F} = {DB034B02-9A31-46E0-99A9-DBF3D75EA759}
+		{7C8FFA64-5EB2-4F92-A0BC-76013508BD1B} = {231BE77B-CF1B-4310-ADC5-21BB2DF10D74}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F6A3C419-B12B-473C-8EBB-F4FDFCBA1EE2}
+	EndGlobalSection
+EndGlobal

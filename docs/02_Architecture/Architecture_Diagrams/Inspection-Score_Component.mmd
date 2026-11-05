@@ -1,0 +1,145 @@
+flowchart LR
+    subgraph Client["Client Layer"]
+        InspectionClient["Inspection Client<br/>WinForms or API Consumer"]
+    end
+
+    subgraph API["API Layer"]
+        InspectionsController["InspectionsController"]
+
+        CreateEndpoint["POST /api/inspections<br/>Create inspection"]
+        GetByIdEndpoint["GET /api/inspections/{inspectionId}<br/>Get inspection"]
+        GetByAppraisalEndpoint["GET /api/appraisals/{appraisalId}/inspections<br/>Get inspections for appraisal"]
+        GetAllEndpoint["GET /api/inspections<br/>Get all inspections"]
+        UpdateEndpoint["PUT /api/inspections/{inspectionId}<br/>Update inspection"]
+        DeleteEndpoint["DELETE /api/inspections/{inspectionId}<br/>Delete inspection"]
+        SaveScoresEndpoint["PUT /api/inspections/{inspectionId}/scores<br/>Save condition scores"]
+
+        InspectionClient --> InspectionsController
+        InspectionsController --> CreateEndpoint
+        InspectionsController --> GetByIdEndpoint
+        InspectionsController --> GetByAppraisalEndpoint
+        InspectionsController --> GetAllEndpoint
+        InspectionsController --> UpdateEndpoint
+        InspectionsController --> DeleteEndpoint
+        InspectionsController --> SaveScoresEndpoint
+    end
+
+    subgraph Application["Application Layer"]
+        InspectionApiService["IInspectionApiService<br/>Inspection Application Service"]
+
+        CreateHandler["CreateInspectionHandler"]
+        GetByIdHandler["GetInspectionHandler"]
+        GetByAppraisalHandler["GetInspectionsByAppraisalHandler"]
+        GetAllHandler["GetAllInspectionsHandler"]
+        UpdateHandler["UpdateInspectionHandler"]
+        DeleteHandler["DeleteInspectionHandler"]
+        SaveScoresHandler["SaveInspectionScoresHandler"]
+
+        IInspectionRepository["IInspectionRepository<br/><br/>CreateAsync()<br/>GetByIdAsync()<br/>GetByAppraisalIdAsync()<br/>GetAllAsync()<br/>UpdateAsync()<br/>DeleteAsync()<br/>SaveScoresAsync()"]
+
+        InspectionMappings["DomainMappings"]
+        InspectionDto["InspectionDto"]
+        ConditionScoreDto["ConditionScoreDto"]
+
+        CreateEndpoint --> InspectionApiService
+        GetByIdEndpoint --> InspectionApiService
+        GetByAppraisalEndpoint --> InspectionApiService
+        GetAllEndpoint --> InspectionApiService
+        UpdateEndpoint --> InspectionApiService
+        DeleteEndpoint --> InspectionApiService
+        SaveScoresEndpoint --> InspectionApiService
+
+        InspectionApiService --> CreateHandler
+        InspectionApiService --> GetByIdHandler
+        InspectionApiService --> GetByAppraisalHandler
+        InspectionApiService --> GetAllHandler
+        InspectionApiService --> UpdateHandler
+        InspectionApiService --> DeleteHandler
+        InspectionApiService --> SaveScoresHandler
+
+        CreateHandler --> IInspectionRepository
+        GetByIdHandler --> IInspectionRepository
+        GetByAppraisalHandler --> IInspectionRepository
+        GetAllHandler --> IInspectionRepository
+        UpdateHandler --> IInspectionRepository
+        DeleteHandler --> IInspectionRepository
+        SaveScoresHandler --> IInspectionRepository
+
+        CreateHandler --> InspectionMappings
+        GetByIdHandler --> InspectionMappings
+        GetByAppraisalHandler --> InspectionMappings
+        GetAllHandler --> InspectionMappings
+        SaveScoresHandler --> InspectionMappings
+
+        InspectionMappings --> InspectionDto
+        InspectionMappings --> ConditionScoreDto
+    end
+
+    subgraph Domain["Domain Layer"]
+        Appraisal["Appraisal Entity<br/>AppraisalId"]
+
+        Inspection["Inspection Entity<br/><br/>InspectionId<br/>AppraisalId<br/>InspectionTemplateId<br/>InspectedByUserId?<br/>InspectionType<br/>Status<br/>InspectionLocation?<br/>InspectedOnUtc?<br/>CompletionPercentage?<br/>OverallConditionScore?<br/>HasRedFlags<br/>SummaryNotes?<br/>RowVersion<br/>CreatedAtUtc<br/>UpdatedAtUtc"]
+
+        InspectionBehavior["Inspection Behavior<br/><br/>Create()<br/>ApplyScoreSummary()<br/>AddConditionScore()<br/>RemoveConditionScore()<br/>Touch()"]
+
+        ConditionScoreCollection["ConditionScores<br/>IReadOnlyCollection<ConditionScore>"]
+
+        ConditionScore["ConditionScore Entity<br/><br/>ConditionScoreId<br/>InspectionId<br/>SystemNumber<br/>SystemKey<br/>Score0To5: 0..5<br/>Weight >= 0<br/>IsRedFlag<br/>Notes?"]
+
+        ConditionScoreBehavior["ConditionScore Behavior<br/><br/>Create()<br/>Update()<br/>Validate score range<br/>Normalize notes"]
+
+        InspectionTemplate["Inspection Template<br/>InspectionTemplateId"]
+        Inspector["Inspector User<br/>InspectedByUserId"]
+
+        Appraisal -->|"AppraisalId"| Inspection
+        Inspection --> InspectionBehavior
+        Inspection --> ConditionScoreCollection
+        ConditionScoreCollection -->|"One inspection contains many scores"| ConditionScore
+        ConditionScore --> ConditionScoreBehavior
+        Inspection -->|"InspectionTemplateId"| InspectionTemplate
+        Inspection -->|"InspectedByUserId"| Inspector
+    end
+
+    subgraph Infrastructure["Infrastructure Layer"]
+        InspectionRepository["InspectionRepository<br/>Dapper SQL"]
+        MySqlConnectionFactory["MySqlConnectionFactory"]
+        InspectionsTable[("inspections table")]
+        ConditionScoresTable[("condition_scores table")]
+
+        IInspectionRepository -.->|"Implemented by"| InspectionRepository
+        InspectionRepository --> MySqlConnectionFactory
+
+        InspectionRepository -->|"INSERT / SELECT / UPDATE / DELETE"| InspectionsTable
+        InspectionRepository -->|"Save and retrieve scores"| ConditionScoresTable
+    end
+
+    CreateHandler -->|"Inspection.Create()"| Inspection
+    GetByIdHandler -->|"Read"| Inspection
+    GetByAppraisalHandler -->|"Read collection"| Inspection
+    GetAllHandler -->|"Read collection"| Inspection
+    UpdateHandler -->|"Modify"| Inspection
+    DeleteHandler -->|"Remove"| Inspection
+    SaveScoresHandler -->|"Create or update"| ConditionScore
+
+    InspectionRepository -->|"Persists and retrieves"| Inspection
+    InspectionRepository -->|"Persists and retrieves"| ConditionScore
+
+    Inspection -->|"ApplyScoreSummary()"| ScoreSummary["Score Summary<br/><br/>Completion percentage<br/>Overall condition score<br/>Red-flag status"]
+    ConditionScore -->|"Contributes to"| ScoreSummary
+
+    classDef client fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef api fill:#e8eaf6,stroke:#3949ab,color:#1a237e
+    classDef application fill:#f3e5f5,stroke:#6a1b9a,color:#4a148c
+    classDef domain fill:#fff3e0,stroke:#ef6c00,color:#e65100
+    classDef infrastructure fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef database fill:#fce4ec,stroke:#ad1457,color:#880e4f
+    classDef derived fill:#fffde7,stroke:#f9a825,color:#5f4300
+
+    class InspectionClient client
+    class InspectionsController,CreateEndpoint,GetByIdEndpoint,GetByAppraisalEndpoint,GetAllEndpoint,UpdateEndpoint,DeleteEndpoint,SaveScoresEndpoint api
+    class InspectionApiService,CreateHandler,GetByIdHandler,GetByAppraisalHandler,GetAllHandler,UpdateHandler,DeleteHandler,SaveScoresHandler,IInspectionRepository,InspectionMappings,InspectionDto,ConditionScoreDto application
+    class Appraisal,Inspection,InspectionBehavior,ConditionScoreCollection,ConditionScore,ConditionScoreBehavior,InspectionTemplate,Inspector domain
+    class InspectionRepository,MySqlConnectionFactory infrastructure
+    class InspectionsTable,ConditionScoresTable database
+    class ScoreSummary derived
+```

@@ -1,0 +1,8 @@
+Work Item Type,Title,Parent Title,Area Path,Iteration Path,Priority
+Epic,Vehicle Management,,ClassicCarAppraisal,Release 1.0,1
+Feature,Vehicle Record Management,Vehicle Management,ClassicCarAppraisal,Release 1.0,2
+User Story,US-001 Create Vehicle Record,Vehicle Record Management,ClassicCarAppraisal,Release 1.0,2
+User Story,US-002 Edit Vehicle Information,Vehicle Record Management,ClassicCarAppraisal,Release 1.0,2
+Epic,Photo Management,,ClassicCarAppraisal,Release 1.0,1
+Feature,Vehicle Photos,Photo Management,ClassicCarAppraisal,Release 1.0,1
+User Story,US-020 Upload Photos,Vehicle Photos,ClassicCarAppraisal,Release 1.0,1

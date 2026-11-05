@@ -1,0 +1,4 @@
+Work Item Type,Title,Related User Story
+Test Case,TC-001 Create valid vehicle record,US-001 Create Vehicle Record
+Test Case,TC-002 Duplicate VIN warning,US-001 Create Vehicle Record
+Test Case,TC-020 Upload JPG,US-020 Upload Photos

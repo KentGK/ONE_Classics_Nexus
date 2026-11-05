@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">ONE Classics Nexus Client and Intended User Workspace Wireframe</title>
+  <desc id="desc">Desktop WinForms workspace showing the Appraisal Request header, Client, Client Contact, Proposed Intended Use, Proposed Intended Users, Guidance, and Validation regions defined in DDS section 10.1.</desc>
+  <defs>
+    <style>
+      .bg{fill:#eef2f5}.shell{fill:#0E2841}.shell2{fill:#153a5c}.surface{fill:#fff}.surface2{fill:#f7f9fb}.line{stroke:#b9c5cf;stroke-width:1.3}.line2{stroke:#d6dee5;stroke-width:1}.nav{font:600 15px 'Segoe UI',Arial,sans-serif;fill:#dce8f2}.navActive{font:700 15px 'Segoe UI',Arial,sans-serif;fill:#fff}.brand{font:700 22px 'Segoe UI',Arial,sans-serif;fill:#fff}.brandSub{font:12px 'Segoe UI',Arial,sans-serif;fill:#c4d4e2}.h1{font:700 24px 'Segoe UI',Arial,sans-serif;fill:#16324a}.h2{font:700 16px 'Segoe UI',Arial,sans-serif;fill:#17334c}.label{font:600 12px 'Segoe UI',Arial,sans-serif;fill:#526575}.text{font:14px 'Segoe UI',Arial,sans-serif;fill:#20384c}.small{font:12px 'Segoe UI',Arial,sans-serif;fill:#637684}.tiny{font:11px 'Segoe UI',Arial,sans-serif;fill:#667987}.button{fill:#0E2841}.buttonText{font:600 13px 'Segoe UI',Arial,sans-serif;fill:#fff}.ghost{fill:#fff;stroke:#8ba0b2;stroke-width:1.2}.ghostText{font:600 13px 'Segoe UI',Arial,sans-serif;fill:#24445f}.field{fill:#fff;stroke:#aebdca;stroke-width:1.2}.badge{fill:#e7f1fa;stroke:#7da7c7;stroke-width:1}.badgeText{font:700 12px 'Segoe UI',Arial,sans-serif;fill:#1c557e}.warn{fill:#fff4d6;stroke:#e2b54b;stroke-width:1}.warnText{font:700 12px 'Segoe UI',Arial,sans-serif;fill:#7f5b00}.error{fill:#fff0f0;stroke:#d96f6f;stroke-width:1}.errorText{font:700 12px 'Segoe UI',Arial,sans-serif;fill:#9a2f2f}.ok{fill:#e8f6ed;stroke:#70aa82;stroke-width:1}.okText{font:700 12px 'Segoe UI',Arial,sans-serif;fill:#2f7045}.cardHead{fill:#edf3f7}.gridHead{fill:#dfe8ef}.gridText{font:11px 'Segoe UI',Arial,sans-serif;fill:#294054}.callout{fill:#0E2841}.calloutText{font:700 12px 'Segoe UI',Arial,sans-serif;fill:#fff}.dash{stroke:#8ba0b2;stroke-width:1.3;stroke-dasharray:5 4;fill:none}
+    </style>
+  </defs>
+
+  <rect class="bg" width="1600" height="1000"/>
+
+  <!-- Nexus shell -->
+  <rect class="shell" x="0" y="0" width="1600" height="62"/>
+  <text class="brand" x="28" y="31">ONE CLASSICS NEXUS</text>
+  <text class="brandSub" x="29" y="49">APPRAISAL WORKFLOW PLATFORM</text>
+  <text class="nav" x="1260" y="36">Appraiser: Kent G. Klingler</text>
+  <circle cx="1548" cy="31" r="17" fill="#dce8f2"/>
+  <text x="1542" y="36" font-family="Segoe UI,Arial" font-size="14" font-weight="700" fill="#0E2841">KG</text>
+
+  <rect class="shell2" x="0" y="62" width="208" height="938"/>
+  <text class="nav" x="28" y="112">⌂  Dashboard</text>
+  <text class="nav" x="28" y="158">▣  Vehicles</text>
+  <rect x="0" y="181" width="208" height="48" fill="#245a84"/>
+  <rect x="0" y="181" width="5" height="48" fill="#71b6e6"/>
+  <text class="navActive" x="28" y="211">▤  Appraisal Requests</text>
+  <text class="nav" x="28" y="260">◇  Appraisals</text>
+  <text class="nav" x="28" y="306">✓  Inspections</text>
+  <text class="nav" x="28" y="352">≋  Comparables</text>
+  <text class="nav" x="28" y="398">∑  Valuation</text>
+  <text class="nav" x="28" y="444">▧  Reports</text>
+  <line x1="22" y1="475" x2="184" y2="475" stroke="#54718a"/>
+  <text class="nav" x="28" y="510">⚙  Administration</text>
+
+  <!-- Breadcrumb and page title -->
+  <text class="small" x="232" y="88">APPRAISAL REQUESTS  /  AR-2026-0047  /  CLIENT &amp; INTENDED USERS</text>
+
+  <!-- 1 Header -->
+  <rect class="surface" x="224" y="102" width="1352" height="114" rx="4"/>
+  <rect class="shell" x="224" y="102" width="6" height="114" rx="3"/>
+  <text class="h1" x="248" y="136">Appraisal Request AR-2026-0047</text>
+  <text class="text" x="248" y="162">1967 Chevrolet C10 · Collector Vehicle Appraisal</text>
+  <text class="label" x="248" y="190">REQUESTED EFFECTIVE DATE</text>
+  <text class="text" x="452" y="190">September 16, 2026 · Date only</text>
+  <rect class="badge" x="742" y="121" width="92" height="27" rx="14"/>
+  <text class="badgeText" x="768" y="139">DRAFT</text>
+  <rect class="warn" x="844" y="121" width="154" height="27" rx="14"/>
+  <text class="warnText" x="862" y="139">2 ITEMS TO REVIEW</text>
+  <rect class="ghost" x="1185" y="127" width="92" height="34" rx="3"/>
+  <text class="ghostText" x="1208" y="149">Validate</text>
+  <rect class="ghost" x="1287" y="127" width="92" height="34" rx="3"/>
+  <text class="ghostText" x="1317" y="149">Save</text>
+  <rect class="button" x="1389" y="127" width="164" height="34" rx="3"/>
+  <text class="buttonText" x="1416" y="149">Submit Request →</text>
+  <circle class="callout" cx="1549" cy="202" r="14"/><text class="calloutText" x="1545" y="207">1</text>
+
+  <!-- Main content left -->
+  <!-- 2 Client -->
+  <rect class="surface" x="224" y="232" width="441" height="210" rx="4"/>
+  <rect class="cardHead" x="224" y="232" width="441" height="42" rx="4"/>
+  <text class="h2" x="244" y="258">Client</text>
+  <rect class="ok" x="537" y="242" width="104" height="22" rx="11"/>
+  <text class="okText" x="553" y="257">SNAPSHOT READY</text>
+  <text class="label" x="244" y="297">SEARCH OR SELECT CLIENT</text>
+  <rect class="field" x="244" y="306" width="397" height="34" rx="3"/>
+  <text class="text" x="257" y="328">CL-000123  ·  Kent G. Klingler</text>
+  <text class="label" x="244" y="365">CLIENT SUMMARY</text>
+  <text class="text" x="244" y="387">Person · Active · Colorado Springs, CO</text>
+  <rect class="ghost" x="244" y="402" width="107" height="28" rx="3"/>
+  <text class="ghostText" x="261" y="421">Open client</text>
+  <rect class="ghost" x="361" y="402" width="118" height="28" rx="3"/>
+  <text class="ghostText" x="376" y="421">Change client</text>
+  <circle class="callout" cx="652" cy="429" r="14"/><text class="calloutText" x="648" y="434">2</text>
+
+  <!-- 3 Client Contact -->
+  <rect class="surface" x="680" y="232" width="441" height="210" rx="4"/>
+  <rect class="cardHead" x="680" y="232" width="441" height="42" rx="4"/>
+  <text class="h2" x="700" y="258">Client Contact</text>
+  <rect class="ok" x="993" y="242" width="104" height="22" rx="11"/>
+  <text class="okText" x="1009" y="257">SNAPSHOT READY</text>
+  <text class="label" x="700" y="297">PRIMARY CONTACT</text>
+  <rect class="field" x="700" y="306" width="397" height="34" rx="3"/>
+  <text class="text" x="713" y="328">Jordan Example  ·  Primary contact</text>
+  <text class="small" x="700" y="365">jordan@example.com  ·  (719) 555-0142</text>
+  <text class="small" x="700" y="385">Preferred method: Email</text>
+  <rect class="ghost" x="700" y="402" width="105" height="28" rx="3"/>
+  <text class="ghostText" x="718" y="421">Add contact</text>
+  <rect class="ghost" x="815" y="402" width="105" height="28" rx="3"/>
+  <text class="ghostText" x="833" y="421">Edit contact</text>
+  <circle class="callout" cx="1108" cy="429" r="14"/><text class="calloutText" x="1104" y="434">3</text>
+
+  <!-- 4 Intended Use -->
+  <rect class="surface" x="224" y="456" width="897" height="202" rx="4"/>
+  <rect class="cardHead" x="224" y="456" width="897" height="42" rx="4"/>
+  <text class="h2" x="244" y="482">Proposed Intended Use</text>
+  <text class="label" x="244" y="521">CATEGORY / DEFINITION</text>
+  <rect class="field" x="244" y="531" width="374" height="34" rx="3"/>
+  <text class="text" x="257" y="553">Insurance  ›  Insurance placement or renewal</text>
+  <text class="label" x="638" y="521">DEFINITION PREVIEW</text>
+  <rect class="surface2 line" x="638" y="531" width="459" height="58" rx="3"/>
+  <text class="small" x="651" y="551">Establish value to support insurance placement, renewal,</text>
+  <text class="small" x="651" y="569">coverage review, or claim-support planning.</text>
+  <text class="label" x="244" y="598">CUSTOM NARRATIVE</text>
+  <rect class="field" x="244" y="608" width="552" height="34" rx="3"/>
+  <text class="small" x="257" y="630">Optional unless the selected definition requires additional wording</text>
+  <rect class="warn" x="814" y="604" width="283" height="38" rx="3"/>
+  <text class="warnText" x="828" y="621">CONVERSION REVIEW REQUIRED</text>
+  <text class="tiny" x="828" y="636">Proposed use is not authoritative until reviewed.</text>
+  <circle class="callout" cx="1108" cy="645" r="14"/><text class="calloutText" x="1104" y="650">4</text>
+
+  <!-- 5 Intended Users grid -->
+  <rect class="surface" x="224" y="672" width="897" height="300" rx="4"/>
+  <rect class="cardHead" x="224" y="672" width="897" height="44" rx="4"/>
+  <text class="h2" x="244" y="700">Proposed Intended Users</text>
+  <rect class="button" x="919" y="680" width="178" height="28" rx="3"/>
+  <text class="buttonText" x="941" y="699">+ Add intended user</text>
+  <rect class="gridHead" x="244" y="731" width="853" height="34"/>
+  <text class="gridText" font-weight="700" x="257" y="752">Client</text>
+  <text class="gridText" font-weight="700" x="315" y="752">Source</text>
+  <text class="gridText" font-weight="700" x="435" y="752">Type</text>
+  <text class="gridText" font-weight="700" x="530" y="752">Name / Organization</text>
+  <text class="gridText" font-weight="700" x="725" y="752">Relationship</text>
+  <text class="gridText" font-weight="700" x="835" y="752">Restrictions</text>
+  <text class="gridText" font-weight="700" x="969" y="752">Active</text>
+  <text class="gridText" font-weight="700" x="1040" y="752">Actions</text>
+  <rect class="surface2" x="244" y="765" width="853" height="52"/>
+  <text class="gridText" x="268" y="795">✓</text><text class="gridText" x="315" y="790">Client master</text><text class="gridText" x="315" y="805">CL-000123</text>
+  <text class="gridText" x="435" y="795">CLIENT</text><text class="gridText" x="530" y="790">Kent G. Klingler</text><text class="gridText" x="530" y="805">—</text>
+  <text class="gridText" x="725" y="795">Client</text><text class="gridText" x="835" y="795">Standard</text><text class="gridText" x="980" y="795">No</text><text class="gridText" x="1040" y="795">Edit · ⋮</text>
+  <line class="line2" x1="244" y1="817" x2="1097" y2="817"/>
+  <rect class="surface" x="244" y="818" width="853" height="52"/>
+  <text class="gridText" x="268" y="848">—</text><text class="gridText" x="315" y="843">Jordan Example</text><text class="gridText" x="315" y="858">Client contact</text>
+  <text class="gridText" x="435" y="848">INSURER</text><text class="gridText" x="530" y="843">Acme Specialty Insurance</text><text class="gridText" x="530" y="858">Jordan Example</text>
+  <text class="gridText" x="725" y="848">Insurer / agent</text><text class="gridText" x="835" y="848">Policy use only</text><text class="gridText" x="980" y="848">No</text><text class="gridText" x="1040" y="848">Edit · ⋮</text>
+  <line class="line2" x1="244" y1="870" x2="1097" y2="870"/>
+  <rect class="dash" x="244" y="885" width="853" height="60" rx="3"/>
+  <text class="small" x="502" y="914">Add every person or organization expected to rely on the appraisal.</text>
+  <text class="tiny" x="536" y="933">Recipients and Nexus system users are separate concepts.</text>
+  <circle class="callout" cx="1108" cy="958" r="14"/><text class="calloutText" x="1104" y="963">5</text>
+
+  <!-- Right rail: 6 Guidance -->
+  <rect class="surface" x="1137" y="232" width="439" height="345" rx="4"/>
+  <rect class="shell" x="1137" y="232" width="439" height="44" rx="4"/>
+  <text x="1157" y="260" font-family="Segoe UI,Arial" font-size="16" font-weight="700" fill="#fff">Guidance</text>
+  <text class="label" x="1157" y="307">CLIENT</text>
+  <text class="small" x="1157" y="327">The party submitting or authorizing the request.</text>
+  <line class="line2" x1="1157" y1="342" x2="1552" y2="342"/>
+  <text class="label" x="1157" y="370">INTENDED USER</text>
+  <text class="small" x="1157" y="390">A person or organization expected to rely on the appraisal.</text>
+  <line class="line2" x1="1157" y1="405" x2="1552" y2="405"/>
+  <text class="label" x="1157" y="433">RECIPIENT</text>
+  <text class="small" x="1157" y="453">Someone authorized to receive a report; not automatically an</text>
+  <text class="small" x="1157" y="470">intended user.</text>
+  <line class="line2" x1="1157" y1="485" x2="1552" y2="485"/>
+  <text class="label" x="1157" y="513">SYSTEM USER</text>
+  <text class="small" x="1157" y="533">A Nexus login or staff account; separate from appraisal roles.</text>
+  <text class="tiny" x="1157" y="559">Press F1 on a field for contextual help.</text>
+  <circle class="callout" cx="1563" cy="564" r="14"/><text class="calloutText" x="1559" y="569">6</text>
+
+  <!-- 7 Validation -->
+  <rect class="surface" x="1137" y="592" width="439" height="380" rx="4"/>
+  <rect class="shell" x="1137" y="592" width="439" height="44" rx="4"/>
+  <text x="1157" y="620" font-family="Segoe UI,Arial" font-size="16" font-weight="700" fill="#fff">Validation</text>
+  <rect class="error" x="1157" y="654" width="395" height="92" rx="3"/>
+  <text class="errorText" x="1173" y="677">BLOCKING · CIU-005</text>
+  <text class="small" x="1173" y="699">At least one active proposed intended user is required</text>
+  <text class="small" x="1173" y="716">before acceptance or conversion.</text>
+  <text x="1173" y="736" font-family="Segoe UI,Arial" font-size="12" font-weight="700" fill="#8a2e2e">Go to Intended Users →</text>
+  <rect class="warn" x="1157" y="760" width="395" height="92" rx="3"/>
+  <text class="warnText" x="1173" y="783">WARNING · CIU-014</text>
+  <text class="small" x="1173" y="805">The client is not currently identified as an active proposed</text>
+  <text class="small" x="1173" y="822">intended user; review is required.</text>
+  <text x="1173" y="842" font-family="Segoe UI,Arial" font-size="12" font-weight="700" fill="#755600">Review client status →</text>
+  <rect class="surface2 line" x="1157" y="868" width="395" height="74" rx="3"/>
+  <text class="label" x="1173" y="892">READINESS SUMMARY</text>
+  <text class="small" x="1173" y="914">1 blocking issue · 1 warning · Draft may still be saved</text>
+  <circle class="callout" cx="1563" cy="958" r="14"/><text class="calloutText" x="1559" y="963">7</text>
+
+  <!-- Wireframe label -->
+  <rect x="1334" y="74" width="242" height="22" rx="11" fill="#dfe8ef"/>
+  <text class="tiny" x="1351" y="89">SECTION 10.1 · WIREFRAME v1.0</text>
+</svg>

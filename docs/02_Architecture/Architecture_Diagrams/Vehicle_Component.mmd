@@ -1,0 +1,138 @@
+flowchart LR
+  %% Client UI
+  subgraph ClientUI["Client UI - WinForms"]
+    MainForm["MainForm"]
+    VehicleListView["Vehicle List / Search UI"]
+    VehicleDetailsView["Vehicle Details UI"]
+    VehicleEditor["Vehicle Create / Edit UI"]
+    DeleteConfirmation["Delete Confirmation"]
+  end
+
+  subgraph ClientServices["Client Services"]
+    VehicleApiClient["VehicleApiService"]
+    HttpClient["HttpClient"]
+    VehicleContracts["Vehicle API Contracts<br/>VehicleResponse<br/>CreateVehicleRequest<br/>UpdateVehicleRequest"]
+  end
+
+  %% API layer
+  subgraph API["API Layer"]
+    VehicleController["VehiclesController<br/>Route: /api/vehicles"]
+    PostEndpoint["POST /api/vehicles"]
+    GetListEndpoint["GET /api/vehicles"]
+    GetByIdEndpoint["GET /api/vehicles/{vehicleId}"]
+    PutEndpoint["PUT /api/vehicles/{vehicleId}"]
+    DeleteEndpoint["DELETE /api/vehicles/{vehicleId}<br/>(planned)"]
+  end
+
+  %% Application layer
+  subgraph Application["Application Layer"]
+    CreateHandler["CreateVehicleHandler"]
+    ListHandler["ListVehiclesHandler"]
+    GetHandler["GetVehicleHandler"]
+    VehicleApiService["API VehicleApiService"]
+    CreateRequest["CreateVehicleRequest"]
+    UpdateRequest["ApiUpdateVehicleRequest"]
+    VehicleResponse["VehicleResponse"]
+    VehicleRepositoryPort["IVehicleRepository"]
+    VehicleMapping["Vehicle Response Mapping"]
+  end
+
+  %% Domain layer
+  subgraph Domain["Domain Layer"]
+    VehicleEntity["Vehicle Entity<br/><br/>VehicleId<br/>VehicleTypeId<br/>Vin<br/>Year / Make / Model<br/>Trim / SeriesName<br/>BodyStyle / Drivetrain<br/>Engine / Transmission<br/>Mileage / OdometerUnit<br/>ExteriorColor / InteriorColor<br/>TitleStatus<br/>AuthenticityProfile<br/>RestorationLevel<br/>DocumentationLevel<br/>OverallConditionScore<br/>HasRedFlags<br/>OwnershipNotes / Notes<br/>CreatedAtUtc / UpdatedAtUtc"]
+  end
+
+  %% Infrastructure layer
+  subgraph Infrastructure["Infrastructure Layer"]
+    VehicleRepository["VehicleRepository"]
+    DbConnectionFactory["IDbConnectionFactory"]
+    Dapper["Dapper / MySQL Connector"]
+  end
+
+  %% Database
+  subgraph Database["Database"]
+    VehiclesTable["vehicles<br/><br/>vehicle_id PK<br/>vehicle_type_id FK<br/>vin<br/>year<br/>make<br/>model<br/>trim<br/>series_name<br/>body_style<br/>drivetrain<br/>engine<br/>transmission<br/>mileage<br/>odometer_unit<br/>exterior_color<br/>interior_color<br/>title_status<br/>authenticity_profile<br/>restoration_level<br/>documentation_level<br/>overall_condition_score<br/>has_red_flags<br/>ownership_notes<br/>notes<br/>created_at_utc<br/>updated_at_utc"]
+    VehicleTypesTable["vehicle_types<br/><br/>vehicle_type_id PK"]
+  end
+
+  %% Client UI interactions
+  MainForm --> VehicleListView
+  MainForm --> VehicleDetailsView
+  MainForm --> VehicleEditor
+
+  VehicleListView -->|"List / search"| VehicleApiClient
+  VehicleDetailsView -->|"Load vehicle"| VehicleApiClient
+  VehicleEditor -->|"Create / update"| VehicleApiClient
+  DeleteConfirmation -->|"Confirm delete"| VehicleApiClient
+
+  VehicleApiClient --> HttpClient
+  VehicleApiClient --> VehicleContracts
+
+  %% Client-to-API calls
+  HttpClient -->|"POST"| PostEndpoint
+  HttpClient -->|"GET collection"| GetListEndpoint
+  HttpClient -->|"GET item"| GetByIdEndpoint
+  HttpClient -->|"PUT item"| PutEndpoint
+  HttpClient -.->|"DELETE item"| DeleteEndpoint
+
+  %% API routing
+  VehicleController --> PostEndpoint
+  VehicleController --> GetListEndpoint
+  VehicleController --> GetByIdEndpoint
+  VehicleController --> PutEndpoint
+  VehicleController -.-> DeleteEndpoint
+
+  %% API-to-application flow
+  PostEndpoint --> CreateHandler
+  PostEndpoint --> CreateRequest
+
+  GetListEndpoint --> ListHandler
+  GetByIdEndpoint --> GetHandler
+
+  PutEndpoint --> VehicleApiService
+  PutEndpoint --> UpdateRequest
+
+  DeleteEndpoint -.-> VehicleApiService
+
+  %% Application processing
+  CreateHandler -->|"Create and validate"| VehicleEntity
+  CreateHandler --> VehicleRepositoryPort
+
+  ListHandler --> VehicleRepositoryPort
+  GetHandler --> VehicleRepositoryPort
+
+  VehicleApiService -->|"Read / update"| VehicleRepositoryPort
+  VehicleApiService -.->|"Delete when endpoint is implemented"| VehicleRepositoryPort
+
+  VehicleEntity --> VehicleMapping
+  VehicleMapping --> VehicleResponse
+
+  CreateHandler --> VehicleResponse
+  ListHandler --> VehicleResponse
+  GetHandler --> VehicleResponse
+  VehicleApiService --> VehicleResponse
+
+  %% Persistence
+  VehicleRepository -.->|"Implements"| VehicleRepositoryPort
+  VehicleRepository --> DbConnectionFactory
+  DbConnectionFactory --> Dapper
+  Dapper -->|"SQL CRUD operations"| VehiclesTable
+
+  VehiclesTable -->|"vehicle_type_id"| VehicleTypesTable
+
+  %% Styling
+  classDef client fill:#f3f4f6,stroke:#6b7280,color:#111827
+  classDef api fill:#dbeafe,stroke:#2563eb,color:#111827
+  classDef application fill:#dcfce7,stroke:#16a34a,color:#111827
+  classDef domain fill:#fef3c7,stroke:#d97706,color:#111827
+  classDef infrastructure fill:#f3e8ff,stroke:#9333ea,color:#111827
+  classDef database fill:#fee2e2,stroke:#dc2626,color:#111827
+  classDef planned fill:#fff7ed,stroke:#ea580c,color:#9a3412,stroke-dasharray: 5 5
+
+  class MainForm,VehicleListView,VehicleDetailsView,VehicleEditor,DeleteConfirmation,VehicleApiClient,HttpClient,VehicleContracts client
+  class VehicleController,PostEndpoint,GetListEndpoint,GetByIdEndpoint,PutEndpoint api
+  class CreateHandler,ListHandler,GetHandler,VehicleApiService,CreateRequest,UpdateRequest,VehicleResponse,VehicleRepositoryPort,VehicleMapping application
+  class VehicleEntity domain
+  class VehicleRepository,DbConnectionFactory,Dapper infrastructure
+  class VehiclesTable,VehicleTypesTable database
+  class DeleteEndpoint planned

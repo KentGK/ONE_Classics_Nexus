@@ -1,0 +1,361 @@
+```mermaid
+flowchart LR
+    subgraph UI["UI Layer"]
+        InspectionClient["Inspection UI<br/>WinForms or API Consumer"]
+        VehicleView["Vehicle View"]
+        AppraisalView["Appraisal View"]
+        InspectionView["Inspection View"]
+        InspectionScoresView["Inspection Scores View"]
+        InspectionMediaView["Inspection Media View"]
+        InspectionFlagsView["Inspection Read Flags View"]
+
+        InspectionClient --> VehicleView
+        InspectionClient --> AppraisalView
+        InspectionClient --> InspectionView
+        InspectionClient --> InspectionScoresView
+        InspectionClient --> InspectionMediaView
+        InspectionClient --> InspectionFlagsView
+    end
+
+    subgraph API["API Layer"]
+        VehicleController["VehiclesController"]
+        AppraisalController["AppraisalsController"]
+        InspectionController["InspectionsController"]
+
+        VehicleEndpoints["Vehicle Endpoints<br/><br/>POST /api/vehicles<br/>GET /api/vehicles/{vehicleId}<br/>PUT /api/vehicles/{vehicleId}"]
+
+        AppraisalEndpoints["Appraisal Endpoints<br/><br/>POST /api/appraisals<br/>GET /api/appraisals/{appraisalId}<br/>GET /api/vehicles/{vehicleId}/appraisals<br/>PUT /api/appraisals/{appraisalId}"]
+
+        InspectionEndpoints["Inspection Endpoints<br/><br/>POST /api/inspections<br/>GET /api/inspections/{inspectionId}<br/>GET /api/appraisals/{appraisalId}/inspections<br/>PUT /api/inspections/{inspectionId}<br/>DELETE /api/inspections/{inspectionId}"]
+
+        ItemScoreEndpoints["Inspection Item Score Endpoints<br/><br/>GET /api/inspections/{inspectionId}/item-scores<br/>PUT /api/inspections/{inspectionId}/item-scores"]
+
+        SectionScoreEndpoints["Inspection Section Score Endpoints<br/><br/>GET /api/inspections/{inspectionId}/section-scores<br/>PUT /api/inspections/{inspectionId}/section-scores"]
+
+        MediaEndpoints["Inspection Media Endpoints<br/><br/>GET /api/inspections/{inspectionId}/media<br/>POST /api/inspections/{inspectionId}/media<br/>DELETE /api/inspection-media/{mediaId}"]
+
+        ReadFlagEndpoints["Inspection Read Flag Endpoints<br/><br/>GET /api/inspections/{inspectionId}/read-flags<br/>PUT /api/inspections/{inspectionId}/read-flags<br/>DELETE /api/inspection-read-flags/{flagId}"]
+
+        VehicleView --> VehicleController
+        AppraisalView --> AppraisalController
+        InspectionView --> InspectionController
+        InspectionScoresView --> InspectionController
+        InspectionMediaView --> InspectionController
+        InspectionFlagsView --> InspectionController
+
+        VehicleController --> VehicleEndpoints
+        AppraisalController --> AppraisalEndpoints
+        InspectionController --> InspectionEndpoints
+        InspectionController --> ItemScoreEndpoints
+        InspectionController --> SectionScoreEndpoints
+        InspectionController --> MediaEndpoints
+        InspectionController --> ReadFlagEndpoints
+    end
+
+    subgraph Application["Application Layer"]
+        IVehicleApiService["IVehicleApiService"]
+        IAppraisalApiService["IAppraisalApiService"]
+        IInspectionApiService["IInspectionApiService"]
+
+        VehicleService["Vehicle Application Service"]
+        AppraisalService["Appraisal Application Service"]
+        InspectionService["Inspection Application Service"]
+
+        CreateVehicleHandler["CreateVehicleHandler"]
+        GetVehicleHandler["GetVehicleHandler"]
+        UpdateVehicleHandler["UpdateVehicleHandler"]
+
+        CreateAppraisalHandler["CreateAppraisalHandler"]
+        GetAppraisalHandler["GetAppraisalHandler"]
+        GetAppraisalsByVehicleHandler["GetAppraisalsByVehicleHandler"]
+        UpdateAppraisalHandler["UpdateAppraisalHandler"]
+
+        CreateInspectionHandler["CreateInspectionHandler"]
+        GetInspectionHandler["GetInspectionHandler"]
+        GetInspectionsByAppraisalHandler["GetInspectionsByAppraisalHandler"]
+        UpdateInspectionHandler["UpdateInspectionHandler"]
+        DeleteInspectionHandler["DeleteInspectionHandler"]
+
+        SaveItemScoresHandler["SaveInspectionItemScoresHandler"]
+        GetItemScoresHandler["GetInspectionItemScoresHandler"]
+
+        SaveSectionScoresHandler["SaveInspectionSectionScoresHandler"]
+        GetSectionScoresHandler["GetInspectionSectionScoresHandler"]
+
+        AddInspectionMediaHandler["AddInspectionMediaHandler"]
+        GetInspectionMediaHandler["GetInspectionMediaHandler"]
+        DeleteInspectionMediaHandler["DeleteInspectionMediaHandler"]
+
+        SaveReadFlagsHandler["SaveInspectionReadFlagsHandler"]
+        GetReadFlagsHandler["GetInspectionReadFlagsHandler"]
+        DeleteReadFlagHandler["DeleteInspectionReadFlagHandler"]
+
+        IVehicleRepository["IVehicleRepository<br/><br/>CreateAsync()<br/>GetByIdAsync()<br/>UpdateAsync()"]
+        IAppraisalRepository["IAppraisalRepository<br/><br/>CreateAsync()<br/>GetByIdAsync()<br/>GetByVehicleIdAsync()<br/>UpdateAsync()"]
+        IInspectionRepository["IInspectionRepository<br/><br/>CreateAsync()<br/>GetByIdAsync()<br/>GetByAppraisalIdAsync()<br/>UpdateAsync()<br/>DeleteAsync()"]
+
+        IInspectionItemScoreRepository["IInspectionItemScoreRepository<br/><br/>GetByInspectionIdAsync()<br/>SaveAsync()"]
+        IInspectionSectionScoreRepository["IInspectionSectionScoreRepository<br/><br/>GetByInspectionIdAsync()<br/>SaveAsync()"]
+        IInspectionMediaRepository["IInspectionMediaRepository<br/><br/>GetByInspectionIdAsync()<br/>AddAsync()<br/>DeleteAsync()"]
+        IInspectionReadFlagRepository["IInspectionReadFlagRepository<br/><br/>GetByInspectionIdAsync()<br/>SaveAsync()<br/>DeleteAsync()"]
+
+        VehicleMappings["VehicleMappings"]
+        AppraisalMappings["AppraisalMappings"]
+        InspectionMappings["InspectionMappings"]
+
+        VehicleDto["VehicleDto"]
+        AppraisalDto["AppraisalDto"]
+        InspectionDto["InspectionDto"]
+        InspectionItemScoreDto["InspectionItemScoreDto"]
+        InspectionSectionScoreDto["InspectionSectionScoreDto"]
+        InspectionMediaDto["InspectionMediaDto"]
+        InspectionReadFlagDto["InspectionReadFlagDto"]
+
+        VehicleEndpoints --> IVehicleApiService
+        AppraisalEndpoints --> IAppraisalApiService
+        InspectionEndpoints --> IInspectionApiService
+        ItemScoreEndpoints --> IInspectionApiService
+        SectionScoreEndpoints --> IInspectionApiService
+        MediaEndpoints --> IInspectionApiService
+        ReadFlagEndpoints --> IInspectionApiService
+
+        IVehicleApiService --> VehicleService
+        IAppraisalApiService --> AppraisalService
+        IInspectionApiService --> InspectionService
+
+        VehicleService --> CreateVehicleHandler
+        VehicleService --> GetVehicleHandler
+        VehicleService --> UpdateVehicleHandler
+
+        AppraisalService --> CreateAppraisalHandler
+        AppraisalService --> GetAppraisalHandler
+        AppraisalService --> GetAppraisalsByVehicleHandler
+        AppraisalService --> UpdateAppraisalHandler
+
+        InspectionService --> CreateInspectionHandler
+        InspectionService --> GetInspectionHandler
+        InspectionService --> GetInspectionsByAppraisalHandler
+        InspectionService --> UpdateInspectionHandler
+        InspectionService --> DeleteInspectionHandler
+        InspectionService --> SaveItemScoresHandler
+        InspectionService --> GetItemScoresHandler
+        InspectionService --> SaveSectionScoresHandler
+        InspectionService --> GetSectionScoresHandler
+        InspectionService --> AddInspectionMediaHandler
+        InspectionService --> GetInspectionMediaHandler
+        InspectionService --> DeleteInspectionMediaHandler
+        InspectionService --> SaveReadFlagsHandler
+        InspectionService --> GetReadFlagsHandler
+        InspectionService --> DeleteReadFlagHandler
+
+        CreateVehicleHandler --> IVehicleRepository
+        GetVehicleHandler --> IVehicleRepository
+        UpdateVehicleHandler --> IVehicleRepository
+
+        CreateAppraisalHandler --> IAppraisalRepository
+        GetAppraisalHandler --> IAppraisalRepository
+        GetAppraisalsByVehicleHandler --> IAppraisalRepository
+        UpdateAppraisalHandler --> IAppraisalRepository
+
+        CreateInspectionHandler --> IInspectionRepository
+        GetInspectionHandler --> IInspectionRepository
+        GetInspectionsByAppraisalHandler --> IInspectionRepository
+        UpdateInspectionHandler --> IInspectionRepository
+        DeleteInspectionHandler --> IInspectionRepository
+
+        SaveItemScoresHandler --> IInspectionItemScoreRepository
+        GetItemScoresHandler --> IInspectionItemScoreRepository
+
+        SaveSectionScoresHandler --> IInspectionSectionScoreRepository
+        GetSectionScoresHandler --> IInspectionSectionScoreRepository
+
+        AddInspectionMediaHandler --> IInspectionMediaRepository
+        GetInspectionMediaHandler --> IInspectionMediaRepository
+        DeleteInspectionMediaHandler --> IInspectionMediaRepository
+
+        SaveReadFlagsHandler --> IInspectionReadFlagRepository
+        GetReadFlagsHandler --> IInspectionReadFlagRepository
+        DeleteReadFlagHandler --> IInspectionReadFlagRepository
+
+        CreateVehicleHandler --> VehicleMappings
+        GetVehicleHandler --> VehicleMappings
+        UpdateVehicleHandler --> VehicleMappings
+
+        CreateAppraisalHandler --> AppraisalMappings
+        GetAppraisalHandler --> AppraisalMappings
+        GetAppraisalsByVehicleHandler --> AppraisalMappings
+        UpdateAppraisalHandler --> AppraisalMappings
+
+        CreateInspectionHandler --> InspectionMappings
+        GetInspectionHandler --> InspectionMappings
+        GetInspectionsByAppraisalHandler --> InspectionMappings
+        SaveItemScoresHandler --> InspectionMappings
+        GetItemScoresHandler --> InspectionMappings
+        SaveSectionScoresHandler --> InspectionMappings
+        GetSectionScoresHandler --> InspectionMappings
+        AddInspectionMediaHandler --> InspectionMappings
+        GetInspectionMediaHandler --> InspectionMappings
+        SaveReadFlagsHandler --> InspectionMappings
+        GetReadFlagsHandler --> InspectionMappings
+
+        VehicleMappings --> VehicleDto
+        AppraisalMappings --> AppraisalDto
+        InspectionMappings --> InspectionDto
+        InspectionMappings --> InspectionItemScoreDto
+        InspectionMappings --> InspectionSectionScoreDto
+        InspectionMappings --> InspectionMediaDto
+        InspectionMappings --> InspectionReadFlagDto
+    end
+
+    subgraph Domain["Domain Layer"]
+        Vehicle["Vehicle Entity<br/><br/>VehicleId<br/>VehicleTypeId<br/>Vin?<br/>Year<br/>Make<br/>Model<br/>Trim?<br/>SeriesName?<br/>BodyStyle?<br/>Drivetrain?<br/>Engine?<br/>Transmission?<br/>Mileage?<br/>Colors<br/>TitleStatus?<br/>AuthenticityProfile?<br/>RestorationLevel?<br/>DocumentationLevel?<br/>OverallConditionScore?<br/>HasRedFlags<br/>Notes?<br/>CreatedAtUtc<br/>UpdatedAtUtc"]
+
+        VehicleBehavior["Vehicle Behavior<br/><br/>Create()<br/>UpdateDetails()<br/>ApplyConditionSummary()<br/>Touch()"]
+
+        Appraisal["Appraisal Entity<br/><br/>AppraisalId<br/>VehicleId<br/>AppraisalNumber?<br/>AppraisalRequestId?<br/>ClientId?<br/>AssignedAppraiserId?<br/>AssignedReviewerId?<br/>AppraisalType<br/>Status<br/>IntakeStatus?<br/>InspectionStatus?<br/>ValuationStatus?<br/>ReportStatus?<br/>EffectiveDateUtc?<br/>RowVersion<br/>CreatedAtUtc<br/>UpdatedAtUtc"]
+
+        AppraisalBehavior["Appraisal Behavior<br/><br/>Create()<br/>SetStatus()<br/>AssignAppraiser()<br/>AssignReviewer()<br/>SetEffectiveDate()<br/>Touch()"]
+
+        Inspection["Inspection Entity<br/><br/>InspectionId<br/>AppraisalId<br/>InspectionTemplateId<br/>InspectedByUserId?<br/>InspectionType<br/>Status<br/>InspectionLocation?<br/>InspectedOnUtc?<br/>CompletionPercentage?<br/>OverallConditionScore?<br/>HasRedFlags<br/>SummaryNotes?<br/>RowVersion<br/>CreatedAtUtc<br/>UpdatedAtUtc"]
+
+        InspectionBehavior["Inspection Behavior<br/><br/>Create()<br/>ApplyScoreSummary()<br/>AddMedia()<br/>AddReadFlag()<br/>Touch()"]
+
+        InspectionItemScore["Inspection Item Score Entity<br/><br/>InspectionItemScoreId<br/>InspectionId<br/>InspectionSectionId?<br/>InspectionItemId<br/>Score0To5: 0..5<br/>Weight >= 0<br/>IsRedFlag<br/>Notes?<br/>CreatedAtUtc<br/>UpdatedAtUtc"]
+
+        InspectionItemScoreBehavior["Inspection Item Score Behavior<br/><br/>Create()<br/>Update()<br/>Validate score range<br/>Normalize notes"]
+
+        InspectionSectionScore["Inspection Section Score Entity<br/><br/>InspectionSectionScoreId<br/>InspectionId<br/>SectionKey<br/>CompletionPercentage?<br/>OverallScore?<br/>HasRedFlags<br/>Notes?<br/>CreatedAtUtc<br/>UpdatedAtUtc"]
+
+        InspectionSectionScoreBehavior["Inspection Section Score Behavior<br/><br/>Create()<br/>ApplyItemScoreSummary()<br/>Validate score range<br/>Normalize notes"]
+
+        InspectionMedia["Inspection Media Entity<br/><br/>InspectionMediaId<br/>InspectionId<br/>MediaType<br/>StorageKey<br/>FileName?<br/>ContentType?<br/>Caption?<br/>SortOrder<br/>CapturedOnUtc?<br/>CreatedByUserId<br/>CreatedAtUtc"]
+
+        InspectionMediaBehavior["Inspection Media Behavior<br/><br/>Create()<br/>UpdateMetadata()<br/>SetSortOrder()<br/>Validate media type"]
+
+        InspectionReadFlag["Inspection Read Flag Entity<br/><br/>InspectionReadFlagId<br/>InspectionId<br/>FlagType<br/>Severity<br/>Message?<br/>SourceItemId?<br/>IsResolved<br/>ResolvedByUserId?<br/>ResolvedOnUtc?<br/>CreatedAtUtc"]
+
+        InspectionReadFlagBehavior["Inspection Read Flag Behavior<br/><br/>Create()<br/>Resolve()<br/>Reopen()<br/>Validate severity"]
+
+        InspectionTemplate["Inspection Template<br/>InspectionTemplateId"]
+        InspectionItem["Inspection Template Item<br/>InspectionItemId"]
+        InspectionSection["Inspection Template Section<br/>InspectionSectionId"]
+        Inspector["Inspector User<br/>InspectedByUserId"]
+
+        Vehicle --> VehicleBehavior
+        Appraisal --> AppraisalBehavior
+        Inspection --> InspectionBehavior
+
+        Vehicle -->|"VehicleId"| Appraisal
+        Appraisal -->|"AppraisalId"| Inspection
+
+        Inspection --> InspectionItemScore
+        Inspection --> InspectionSectionScore
+        Inspection --> InspectionMedia
+        Inspection --> InspectionReadFlag
+
+        InspectionItemScore --> InspectionItemScoreBehavior
+        InspectionSectionScore --> InspectionSectionScoreBehavior
+        InspectionMedia --> InspectionMediaBehavior
+        InspectionReadFlag --> InspectionReadFlagBehavior
+
+        Inspection -->|"InspectionTemplateId"| InspectionTemplate
+        InspectionItemScore -->|"InspectionItemId"| InspectionItem
+        InspectionSectionScore -->|"SectionKey / InspectionSectionId"| InspectionSection
+        Inspection -->|"InspectedByUserId"| Inspector
+
+        InspectionItemScore -->|"Aggregates into"| InspectionSectionScore
+        InspectionSectionScore -->|"Contributes to"| InspectionSummary["Inspection Score Summary<br/><br/>Completion percentage<br/>Overall condition score<br/>Red-flag status"]
+        InspectionReadFlag -->|"Contributes to"| InspectionSummary
+    end
+
+    subgraph Infrastructure["Infrastructure Layer"]
+        MySqlConnectionFactory["MySqlConnectionFactory<br/>IDbConnectionFactory"]
+
+        VehicleRepository["VehicleRepository<br/>Dapper SQL"]
+        AppraisalRepository["AppraisalRepository<br/>Dapper SQL"]
+        InspectionRepository["InspectionRepository<br/>Dapper SQL"]
+        InspectionItemScoreRepository["InspectionItemScoreRepository<br/>Dapper SQL"]
+        InspectionSectionScoreRepository["InspectionSectionScoreRepository<br/>Dapper SQL"]
+        InspectionMediaRepository["InspectionMediaRepository<br/>Dapper SQL"]
+        InspectionReadFlagRepository["InspectionReadFlagRepository<br/>Dapper SQL"]
+
+        IVehicleRepository -.->|"Implemented by"| VehicleRepository
+        IAppraisalRepository -.->|"Implemented by"| AppraisalRepository
+        IInspectionRepository -.->|"Implemented by"| InspectionRepository
+        IInspectionItemScoreRepository -.->|"Implemented by"| InspectionItemScoreRepository
+        IInspectionSectionScoreRepository -.->|"Implemented by"| InspectionSectionScoreRepository
+        IInspectionMediaRepository -.->|"Implemented by"| InspectionMediaRepository
+        IInspectionReadFlagRepository -.->|"Implemented by"| InspectionReadFlagRepository
+
+        VehicleRepository --> MySqlConnectionFactory
+        AppraisalRepository --> MySqlConnectionFactory
+        InspectionRepository --> MySqlConnectionFactory
+        InspectionItemScoreRepository --> MySqlConnectionFactory
+        InspectionSectionScoreRepository --> MySqlConnectionFactory
+        InspectionMediaRepository --> MySqlConnectionFactory
+        InspectionReadFlagRepository --> MySqlConnectionFactory
+
+        VehiclesTable[("vehicles")]
+        AppraisalsTable[("appraisals")]
+        InspectionsTable[("inspections")]
+        InspectionItemScoresTable[("inspection_item_scores")]
+        InspectionSectionScoresTable[("inspection_section_scores")]
+        InspectionMediaTable[("inspection_media")]
+        InspectionReadFlagsTable[("inspection_read_flags")]
+
+        VehicleRepository -->|"INSERT / SELECT / UPDATE"| VehiclesTable
+        AppraisalRepository -->|"INSERT / SELECT / UPDATE"| AppraisalsTable
+        InspectionRepository -->|"INSERT / SELECT / UPDATE / DELETE"| InspectionsTable
+        InspectionItemScoreRepository -->|"SELECT / INSERT / UPDATE"| InspectionItemScoresTable
+        InspectionSectionScoreRepository -->|"SELECT / INSERT / UPDATE"| InspectionSectionScoresTable
+        InspectionMediaRepository -->|"SELECT / INSERT / DELETE"| InspectionMediaTable
+        InspectionReadFlagRepository -->|"SELECT / INSERT / UPDATE / DELETE"| InspectionReadFlagsTable
+
+        InspectionTemplatesTable[("inspection_templates")]
+        InspectionItemsTable[("inspection_items")]
+        InspectionSectionsTable[("inspection_sections")]
+
+        InspectionRepository -.->|"Reads template reference"| InspectionTemplatesTable
+        InspectionItemScoreRepository -.->|"Reads item reference"| InspectionItemsTable
+        InspectionSectionScoreRepository -.->|"Reads section reference"| InspectionSectionsTable
+    end
+
+    CreateVehicleHandler -->|"Vehicle.Create()"| Vehicle
+    CreateAppraisalHandler -->|"Appraisal.Create()"| Appraisal
+    CreateInspectionHandler -->|"Inspection.Create()"| Inspection
+
+    SaveItemScoresHandler -->|"Create or update"| InspectionItemScore
+    SaveSectionScoresHandler -->|"Create or update"| InspectionSectionScore
+    AddInspectionMediaHandler -->|"Create"| InspectionMedia
+    SaveReadFlagsHandler -->|"Create or update"| InspectionReadFlag
+
+    VehicleRepository -->|"Persists and retrieves"| Vehicle
+    AppraisalRepository -->|"Persists and retrieves"| Appraisal
+    InspectionRepository -->|"Persists and retrieves"| Inspection
+    InspectionItemScoreRepository -->|"Persists and retrieves"| InspectionItemScore
+    InspectionSectionScoreRepository -->|"Persists and retrieves"| InspectionSectionScore
+    InspectionMediaRepository -->|"Persists and retrieves"| InspectionMedia
+    InspectionReadFlagRepository -->|"Persists and retrieves"| InspectionReadFlag
+
+    classDef ui fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef api fill:#e8eaf6,stroke:#3949ab,color:#1a237e
+    classDef application fill:#f3e5f5,stroke:#6a1b9a,color:#4a148c
+    classDef domain fill:#fff3e0,stroke:#ef6c00,color:#e65100
+    classDef infrastructure fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef database fill:#fce4ec,stroke:#ad1457,color:#880e4f
+    classDef derived fill:#fffde7,stroke:#f9a825,color:#5f4300
+
+    class InspectionClient,VehicleView,AppraisalView,InspectionView,InspectionScoresView,InspectionMediaView,InspectionFlagsView ui
+
+    class VehicleController,AppraisalController,InspectionController,VehicleEndpoints,AppraisalEndpoints,InspectionEndpoints,ItemScoreEndpoints,SectionScoreEndpoints,MediaEndpoints,ReadFlagEndpoints api
+
+    class IVehicleApiService,IAppraisalApiService,IInspectionApiService,VehicleService,AppraisalService,InspectionService,CreateVehicleHandler,GetVehicleHandler,UpdateVehicleHandler,CreateAppraisalHandler,GetAppraisalHandler,GetAppraisalsByVehicleHandler,UpdateAppraisalHandler,CreateInspectionHandler,GetInspectionHandler,GetInspectionsByAppraisalHandler,UpdateInspectionHandler,DeleteInspectionHandler,SaveItemScoresHandler,GetItemScoresHandler,SaveSectionScoresHandler,GetSectionScoresHandler,AddInspectionMediaHandler,GetInspectionMediaHandler,DeleteInspectionMediaHandler,SaveReadFlagsHandler,GetReadFlagsHandler,DeleteReadFlagHandler,IVehicleRepository,IAppraisalRepository,IInspectionRepository,IInspectionItemScoreRepository,IInspectionSectionScoreRepository,IInspectionMediaRepository,IInspectionReadFlagRepository,VehicleMappings,AppraisalMappings,InspectionMappings,VehicleDto,AppraisalDto,InspectionDto,InspectionItemScoreDto,InspectionSectionScoreDto,InspectionMediaDto,InspectionReadFlagDto application
+
+    class Vehicle,VehicleBehavior,Appraisal,AppraisalBehavior,Inspection,InspectionBehavior,InspectionItemScore,InspectionItemScoreBehavior,InspectionSectionScore,InspectionSectionScoreBehavior,InspectionMedia,InspectionMediaBehavior,InspectionReadFlag,InspectionReadFlagBehavior,InspectionTemplate,InspectionItem,InspectionSection,Inspector domain
+
+    class MySqlConnectionFactory,VehicleRepository,AppraisalRepository,InspectionRepository,InspectionItemScoreRepository,InspectionSectionScoreRepository,InspectionMediaRepository,InspectionReadFlagRepository infrastructure
+
+    class VehiclesTable,AppraisalsTable,InspectionsTable,InspectionItemScoresTable,InspectionSectionScoresTable,InspectionMediaTable,InspectionReadFlagsTable,InspectionTemplatesTable,InspectionItemsTable,InspectionSectionsTable database
+
+    class InspectionSummary derived
+```

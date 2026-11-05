@@ -1,0 +1,734 @@
+{
+  "metadata": {
+    "system": "ONE Classics Nexus",
+    "document": "Nexus Swagger Test Data",
+    "version": "1.0",
+    "baseUrls": [
+      "https://localhost:5001",
+      "http://localhost:5000"
+    ],
+    "swaggerUrl": "https://localhost:5001/swagger",
+    "created": "2026-06-09"
+  },
+  "variables": {
+    "vehicleId": "{{vehicleId}}",
+    "appraisalId": "{{appraisalId}}",
+    "inspectionId": "{{inspectionId}}",
+    "comparableId": "{{comparableId}}",
+    "valuationRunId": "{{valuationRunId}}"
+  },
+  "vehicles": {
+    "post_subject_k10_minimal": {
+      "vin": "CE140Z100001",
+      "year": 1970,
+      "make": "Chevrolet",
+      "model": "K10",
+      "trim": "Custom",
+      "bodyStyle": "Short Bed Pickup",
+      "engine": "6.0L LS V8",
+      "transmission": "4L80E Automatic",
+      "drivetrain": "4x4",
+      "mileage": 1250
+    },
+    "put_subject_k10_minimal": {
+      "vin": "CE140Z100001",
+      "year": 1970,
+      "make": "Chevrolet",
+      "model": "K10",
+      "trim": "Custom Deluxe",
+      "bodyStyle": "Short Bed Pickup",
+      "engine": "6.0L LS V8",
+      "transmission": "4L80E Automatic",
+      "drivetrain": "4x4",
+      "mileage": 1325
+    },
+    "post_subject_k10_extended_if_supported": {
+      "vin": "CE140Z100001",
+      "year": 1970,
+      "make": "Chevrolet",
+      "model": "K10",
+      "trim": "Custom",
+      "bodyStyle": "Short Bed Pickup",
+      "engine": "6.0L LS V8",
+      "transmission": "4L80E Automatic",
+      "drivetrain": "4x4",
+      "mileage": 1250,
+      "seriesName": "C/K 10 Series",
+      "odometerUnit": "Miles",
+      "exteriorColor": "Olive Green / White",
+      "interiorColor": "Black",
+      "titleStatus": "Clean",
+      "authenticityProfile": "Restomod",
+      "restorationLevel": "Frame-Off Restoration",
+      "documentationLevel": "High",
+      "overallConditionScore": 4.35,
+      "hasRedFlags": false,
+      "OwnershipNotes": "Owner-built restoration with modern drivetrain and documented upgrades.",
+      "notes": "Factory 4x4 short-wheelbase K-code truck with air conditioning."
+    },
+    "post_standard_vehicle": {
+      "vin": "1G1YY22G0W5123456",
+      "year": 1998,
+      "make": "Chevrolet",
+      "model": "Corvette",
+      "trim": "Base",
+      "bodyStyle": "Coupe",
+      "engine": "5.7L LS1 V8",
+      "transmission": "6-Speed Manual",
+      "drivetrain": "RWD",
+      "mileage": 48250
+    },
+    "post_custom_vehicle": {
+      "vin": "124379N500001",
+      "year": 1969,
+      "make": "Chevrolet",
+      "model": "Camaro",
+      "trim": "Pro Touring",
+      "bodyStyle": "Coupe",
+      "engine": "LS3 V8",
+      "transmission": "Tremec 6-Speed Manual",
+      "drivetrain": "RWD",
+      "mileage": 2800
+    },
+    "post_vintage_vehicle": {
+      "vin": "A1929ID00001",
+      "year": 1929,
+      "make": "Ford",
+      "model": "Model A",
+      "trim": "Tudor Sedan",
+      "bodyStyle": "Tudor Sedan",
+      "engine": "201 CID Inline-4",
+      "transmission": "3-Speed Manual",
+      "drivetrain": "RWD",
+      "mileage": 12000
+    }
+  },
+  "appraisals": {
+    "post_create_for_vehicle": {
+      "vehicleId": "{{vehicleId}}"
+    },
+    "put_update_if_supported": {
+      "vehicleId": "{{vehicleId}}",
+      "status": "InProgress",
+      "appraisalNumber": "NEX-2026-0001"
+    }
+  },
+  "inspections": {
+    "post_create_vintage_classic": {
+      "appraisalId": "{{appraisalId}}",
+      "inspectionType": "VintageClassic"
+    },
+    "post_create_standard": {
+      "appraisalId": "{{appraisalId}}",
+      "inspectionType": "Standard"
+    },
+    "post_create_custom": {
+      "appraisalId": "{{appraisalId}}",
+      "inspectionType": "Custom"
+    },
+    "put_scores_standard": {
+      "scores": [
+        {
+          "systemNumber": 1,
+          "systemKey": "body_exterior",
+          "score0To5": 3.8,
+          "weight": 0.06,
+          "isRedFlag": false,
+          "notes": "Minor paint chips; panels aligned."
+        },
+        {
+          "systemNumber": 2,
+          "systemKey": "frame_structure",
+          "score0To5": 4.1,
+          "weight": 0.1,
+          "isRedFlag": false,
+          "notes": "No structural corrosion found."
+        },
+        {
+          "systemNumber": 3,
+          "systemKey": "powertrain",
+          "score0To5": 4.0,
+          "weight": 0.18,
+          "isRedFlag": false,
+          "notes": "Starts cleanly; no major leaks."
+        },
+        {
+          "systemNumber": 4,
+          "systemKey": "transmission_driveline",
+          "score0To5": 3.9,
+          "weight": 0.14,
+          "isRedFlag": false,
+          "notes": "Shift quality acceptable."
+        },
+        {
+          "systemNumber": 5,
+          "systemKey": "suspension_steering",
+          "score0To5": 3.7,
+          "weight": 0.1,
+          "isRedFlag": false,
+          "notes": "Normal wear items present."
+        },
+        {
+          "systemNumber": 6,
+          "systemKey": "braking_system",
+          "score0To5": 4.2,
+          "weight": 0.1,
+          "isRedFlag": false,
+          "notes": "Brakes test good."
+        },
+        {
+          "systemNumber": 7,
+          "systemKey": "electrical_system",
+          "score0To5": 3.6,
+          "weight": 0.1,
+          "isRedFlag": false,
+          "notes": "All major circuits functional."
+        },
+        {
+          "systemNumber": 8,
+          "systemKey": "interior",
+          "score0To5": 3.5,
+          "weight": 0.04,
+          "isRedFlag": false,
+          "notes": "Driver seat wear visible."
+        },
+        {
+          "systemNumber": 9,
+          "systemKey": "wheels_tires",
+          "score0To5": 4.0,
+          "weight": 0.06,
+          "isRedFlag": false,
+          "notes": "Tires within date and tread range."
+        },
+        {
+          "systemNumber": 10,
+          "systemKey": "trim_glass_details",
+          "score0To5": 3.4,
+          "weight": 0.02,
+          "isRedFlag": false,
+          "notes": "Small trim blemishes."
+        },
+        {
+          "systemNumber": 11,
+          "systemKey": "documentation_provenance",
+          "score0To5": 3.0,
+          "weight": 0.04,
+          "isRedFlag": false,
+          "notes": "Partial service documentation."
+        },
+        {
+          "systemNumber": 12,
+          "systemKey": "road_test_functional",
+          "score0To5": 4.0,
+          "weight": 0.06,
+          "isRedFlag": false,
+          "notes": "Road test passed."
+        }
+      ]
+    },
+    "put_scores_custom": {
+      "scores": [
+        {
+          "systemNumber": 1,
+          "systemKey": "body_exterior",
+          "score0To5": 4.5,
+          "weight": 0.15,
+          "isRedFlag": false,
+          "notes": "High-quality paint and panel alignment."
+        },
+        {
+          "systemNumber": 2,
+          "systemKey": "frame_structure",
+          "score0To5": 4.6,
+          "weight": 0.12,
+          "isRedFlag": false,
+          "notes": "Frame refinished; no repair evidence."
+        },
+        {
+          "systemNumber": 3,
+          "systemKey": "powertrain",
+          "score0To5": 4.4,
+          "weight": 0.16,
+          "isRedFlag": false,
+          "notes": "LS swap is clean and well documented."
+        },
+        {
+          "systemNumber": 4,
+          "systemKey": "transmission_driveline",
+          "score0To5": 4.3,
+          "weight": 0.1,
+          "isRedFlag": false,
+          "notes": "4L80E conversion performs well."
+        },
+        {
+          "systemNumber": 5,
+          "systemKey": "suspension_steering",
+          "score0To5": 4.0,
+          "weight": 0.08,
+          "isRedFlag": false,
+          "notes": "Modernized steering components."
+        },
+        {
+          "systemNumber": 6,
+          "systemKey": "braking_system",
+          "score0To5": 4.2,
+          "weight": 0.06,
+          "isRedFlag": false,
+          "notes": "Disc brake conversion performs well."
+        },
+        {
+          "systemNumber": 7,
+          "systemKey": "electrical_system",
+          "score0To5": 4.0,
+          "weight": 0.08,
+          "isRedFlag": false,
+          "notes": "Harness upgrade documented."
+        },
+        {
+          "systemNumber": 8,
+          "systemKey": "interior",
+          "score0To5": 4.1,
+          "weight": 0.08,
+          "isRedFlag": false,
+          "notes": "Restored interior with comfort upgrades."
+        },
+        {
+          "systemNumber": 9,
+          "systemKey": "wheels_tires",
+          "score0To5": 4.0,
+          "weight": 0.05,
+          "isRedFlag": false,
+          "notes": "Aftermarket wheel/tire package fits build."
+        },
+        {
+          "systemNumber": 10,
+          "systemKey": "trim_glass_details",
+          "score0To5": 3.9,
+          "weight": 0.05,
+          "isRedFlag": false,
+          "notes": "Glass and trim are above driver quality."
+        },
+        {
+          "systemNumber": 11,
+          "systemKey": "documentation_provenance",
+          "score0To5": 3.7,
+          "weight": 0.03,
+          "isRedFlag": false,
+          "notes": "Build receipts and photos provided."
+        },
+        {
+          "systemNumber": 12,
+          "systemKey": "road_test_functional",
+          "score0To5": 4.3,
+          "weight": 0.04,
+          "isRedFlag": false,
+          "notes": "No drivability issues during test."
+        }
+      ]
+    },
+    "put_scores_vintage_classic": {
+      "scores": [
+        {
+          "systemNumber": 1,
+          "systemKey": "body_exterior",
+          "score0To5": 4.4,
+          "weight": 0.12,
+          "isRedFlag": false,
+          "notes": "Frame-off paint and body work; minor use marks only."
+        },
+        {
+          "systemNumber": 2,
+          "systemKey": "frame_structure",
+          "score0To5": 4.6,
+          "weight": 0.09,
+          "isRedFlag": false,
+          "notes": "Frame and mounts refinished; no rust-through."
+        },
+        {
+          "systemNumber": 3,
+          "systemKey": "powertrain",
+          "score0To5": 4.5,
+          "weight": 0.13,
+          "isRedFlag": false,
+          "notes": "6.0L LS conversion is clean, reliable, and well installed."
+        },
+        {
+          "systemNumber": 4,
+          "systemKey": "transmission_driveline",
+          "score0To5": 4.4,
+          "weight": 0.08,
+          "isRedFlag": false,
+          "notes": "4L80E and NP241 operate correctly."
+        },
+        {
+          "systemNumber": 5,
+          "systemKey": "suspension_steering",
+          "score0To5": 4.1,
+          "weight": 0.06,
+          "isRedFlag": false,
+          "notes": "Suspension refreshed and steering tracks correctly."
+        },
+        {
+          "systemNumber": 6,
+          "systemKey": "braking_system",
+          "score0To5": 4.2,
+          "weight": 0.05,
+          "isRedFlag": false,
+          "notes": "Brakes perform consistently with no pull."
+        },
+        {
+          "systemNumber": 7,
+          "systemKey": "electrical_system",
+          "score0To5": 4.0,
+          "weight": 0.05,
+          "isRedFlag": false,
+          "notes": "Modern wiring and accessories operate correctly."
+        },
+        {
+          "systemNumber": 8,
+          "systemKey": "interior",
+          "score0To5": 4.2,
+          "weight": 0.09,
+          "isRedFlag": false,
+          "notes": "Interior restored with comfort upgrades."
+        },
+        {
+          "systemNumber": 9,
+          "systemKey": "wheels_tires",
+          "score0To5": 4.0,
+          "weight": 0.04,
+          "isRedFlag": false,
+          "notes": "Wheels and tires suit vehicle usage."
+        },
+        {
+          "systemNumber": 10,
+          "systemKey": "trim_glass_details",
+          "score0To5": 3.9,
+          "weight": 0.08,
+          "isRedFlag": false,
+          "notes": "Trim and glass present well; minor detail imperfections."
+        },
+        {
+          "systemNumber": 11,
+          "systemKey": "documentation_provenance",
+          "score0To5": 4.1,
+          "weight": 0.12,
+          "isRedFlag": false,
+          "notes": "Ownership/build documentation available."
+        },
+        {
+          "systemNumber": 12,
+          "systemKey": "road_test_functional",
+          "score0To5": 4.3,
+          "weight": 0.09,
+          "isRedFlag": false,
+          "notes": "Road test confirms stable operation."
+        }
+      ]
+    }
+  },
+  "comparables": {
+    "post_comparable_1": {
+      "year": 1970,
+      "make": "Chevrolet",
+      "model": "K10",
+      "trim": "Custom",
+      "bodyStyle": "Short Bed Pickup",
+      "series": "C/K 10 Series",
+      "drivetrain": "4x4",
+      "engine": "350 V8",
+      "transmission": "Automatic",
+      "mileage": 18500,
+      "exteriorColor": "Green",
+      "interiorColor": "Black",
+      "originalityLevel": "Mostly Stock",
+      "restorationLevel": "Frame-Off Restoration",
+      "matchingNumbers": false,
+      "documentationLevel": "Medium",
+      "titleStatus": "Clean",
+      "source": "Bring a Trailer",
+      "sourceListingUrl": "https://example.com/comps/1970-k10-green",
+      "venueType": "Online Auction",
+      "saleDate": "2025-09-18",
+      "salePrice": 68500.0,
+      "askingPrice": null,
+      "locationCity": "Boise",
+      "locationState": "ID",
+      "overallConditionScore": 4.1,
+      "conditionSummary": "Restored driver-quality K10 with strong presentation.",
+      "authenticityScore": 0.72,
+      "hasRedFlags": false,
+      "notes": "Strong body and similar drivetrain profile; not LS swapped."
+    },
+    "post_comparable_2": {
+      "year": 1971,
+      "make": "Chevrolet",
+      "model": "K10",
+      "trim": "Cheyenne",
+      "bodyStyle": "Short Bed Pickup",
+      "series": "C/K 10 Series",
+      "drivetrain": "4x4",
+      "engine": "LS V8",
+      "transmission": "Automatic",
+      "mileage": 4200,
+      "exteriorColor": "Blue / White",
+      "interiorColor": "Black",
+      "originalityLevel": "Restomod",
+      "restorationLevel": "Frame-Off Restoration",
+      "matchingNumbers": false,
+      "documentationLevel": "High",
+      "titleStatus": "Clean",
+      "source": "Mecum",
+      "sourceListingUrl": "https://example.com/comps/1971-k10-ls",
+      "venueType": "Live Auction",
+      "saleDate": "2025-06-07",
+      "salePrice": 82500.0,
+      "askingPrice": null,
+      "locationCity": "Denver",
+      "locationState": "CO",
+      "overallConditionScore": 4.5,
+      "conditionSummary": "High-quality LS restomod with documentation.",
+      "authenticityScore": 0.68,
+      "hasRedFlags": false,
+      "notes": "Closest drivetrain/build comparable."
+    },
+    "post_comparable_3": {
+      "year": 1969,
+      "make": "Chevrolet",
+      "model": "K10",
+      "trim": "Custom",
+      "bodyStyle": "Long Bed Pickup",
+      "series": "C/K 10 Series",
+      "drivetrain": "4x4",
+      "engine": "350 V8",
+      "transmission": "Manual",
+      "mileage": 60200,
+      "exteriorColor": "Red",
+      "interiorColor": "Black",
+      "originalityLevel": "Mostly Stock",
+      "restorationLevel": "Older Restoration",
+      "matchingNumbers": false,
+      "documentationLevel": "Low",
+      "titleStatus": "Clean",
+      "source": "Hemmings",
+      "sourceListingUrl": "https://example.com/comps/1969-k10-longbed",
+      "venueType": "Dealer Listing",
+      "saleDate": "2024-11-12",
+      "salePrice": 46250.0,
+      "askingPrice": 48900.0,
+      "locationCity": "Spokane",
+      "locationState": "WA",
+      "overallConditionScore": 3.6,
+      "conditionSummary": "Older restoration, long bed, good driver.",
+      "authenticityScore": 0.8,
+      "hasRedFlags": false,
+      "notes": "Useful lower anchor; body configuration adjustment expected."
+    },
+    "post_comparable_4": {
+      "year": 1972,
+      "make": "Chevrolet",
+      "model": "K10",
+      "trim": "Cheyenne Super",
+      "bodyStyle": "Short Bed Pickup",
+      "series": "C/K 10 Series",
+      "drivetrain": "4x4",
+      "engine": "LS3 V8",
+      "transmission": "4L80E Automatic",
+      "mileage": 980,
+      "exteriorColor": "Orange / White",
+      "interiorColor": "Houndstooth",
+      "originalityLevel": "Restomod",
+      "restorationLevel": "Show Quality",
+      "matchingNumbers": false,
+      "documentationLevel": "High",
+      "titleStatus": "Clean",
+      "source": "Barrett-Jackson",
+      "sourceListingUrl": "https://example.com/comps/1972-k10-show",
+      "venueType": "Live Auction",
+      "saleDate": "2025-01-25",
+      "salePrice": 112000.0,
+      "askingPrice": null,
+      "locationCity": "Scottsdale",
+      "locationState": "AZ",
+      "overallConditionScore": 4.85,
+      "conditionSummary": "Show-quality restomod; premium presentation.",
+      "authenticityScore": 0.6,
+      "hasRedFlags": false,
+      "notes": "Upper market anchor; requires show-quality adjustment."
+    },
+    "post_comparable_5": {
+      "year": 1970,
+      "make": "Chevrolet",
+      "model": "C10",
+      "trim": "Custom",
+      "bodyStyle": "Short Bed Pickup",
+      "series": "C/K 10 Series",
+      "drivetrain": "2WD",
+      "engine": "LS V8",
+      "transmission": "Automatic",
+      "mileage": 5100,
+      "exteriorColor": "White",
+      "interiorColor": "Black",
+      "originalityLevel": "Restomod",
+      "restorationLevel": "Frame-Off Restoration",
+      "matchingNumbers": false,
+      "documentationLevel": "Medium",
+      "titleStatus": "Clean",
+      "source": "Cars & Bids",
+      "sourceListingUrl": "https://example.com/comps/1970-c10-ls",
+      "venueType": "Online Auction",
+      "saleDate": "2024-08-09",
+      "salePrice": 61500.0,
+      "askingPrice": null,
+      "locationCity": "Salt Lake City",
+      "locationState": "UT",
+      "overallConditionScore": 4.2,
+      "conditionSummary": "High-quality C10 restomod; 2WD adjustment required.",
+      "authenticityScore": 0.62,
+      "hasRedFlags": false,
+      "notes": "Useful restomod quality comp, but drivetrain differs."
+    }
+  },
+  "valuation": {
+    "post_run_no_body_option": {},
+    "post_run_with_versions_if_supported": {
+      "engineVersion": "nexus-avm-v1.0",
+      "rubricVersion": "condition-rubric-v1.0",
+      "rulesetVersion": "classic-restomod-ruleset-v1.0",
+      "runNotes": "Swagger test valuation run using complete K10 dataset."
+    }
+  },
+  "reports": {
+    "post_generate_report_if_supported": {
+      "templateCode": "classic-appraisal-standard-v1",
+      "outputFormat": "Pdf",
+      "includeTraceLines": true,
+      "includeComparableSales": true,
+      "includeInspectionSummary": true
+    }
+  },
+  "negative_tests": {
+    "vehicle_missing_required": {
+      "vin": "",
+      "year": 1970,
+      "make": "",
+      "model": "K10",
+      "mileage": 1250
+    },
+    "vehicle_invalid_year_mileage": {
+      "vin": "BADYEAR000001",
+      "year": 1799,
+      "make": "Chevrolet",
+      "model": "K10",
+      "mileage": -10
+    },
+    "inspection_score_out_of_range": {
+      "scores": [
+        {
+          "systemNumber": 1,
+          "systemKey": "body_exterior",
+          "score0To5": 5.5,
+          "weight": 0.12,
+          "isRedFlag": false,
+          "notes": "Invalid score above maximum."
+        }
+      ]
+    },
+    "inspection_invalid_system_number": {
+      "scores": [
+        {
+          "systemNumber": 13,
+          "systemKey": "unknown_system",
+          "score0To5": 3.0,
+          "weight": 0.01,
+          "isRedFlag": false,
+          "notes": "Invalid system number."
+        }
+      ]
+    },
+    "inspection_weights_do_not_equal_one": {
+      "scores": [
+        {
+          "systemNumber": 1,
+          "systemKey": "body_exterior",
+          "score0To5": 4.0,
+          "weight": 0.5,
+          "isRedFlag": false,
+          "notes": "Weight total intentionally invalid."
+        },
+        {
+          "systemNumber": 2,
+          "systemKey": "frame_structure",
+          "score0To5": 4.0,
+          "weight": 0.2,
+          "isRedFlag": false,
+          "notes": "Weight total intentionally invalid."
+        }
+      ]
+    },
+    "comparable_negative_sale_price": {
+      "year": 1970,
+      "make": "Chevrolet",
+      "model": "K10",
+      "trim": "Custom",
+      "bodyStyle": "Short Bed Pickup",
+      "series": "C/K 10 Series",
+      "drivetrain": "4x4",
+      "engine": "350 V8",
+      "transmission": "Automatic",
+      "mileage": 18500,
+      "exteriorColor": "Green",
+      "interiorColor": "Black",
+      "originalityLevel": "Mostly Stock",
+      "restorationLevel": "Frame-Off Restoration",
+      "matchingNumbers": false,
+      "documentationLevel": "Medium",
+      "titleStatus": "Clean",
+      "source": "Bring a Trailer",
+      "sourceListingUrl": "https://example.com/comps/1970-k10-green",
+      "venueType": "Online Auction",
+      "saleDate": "2025-09-18",
+      "salePrice": -100.0,
+      "askingPrice": null,
+      "locationCity": "Boise",
+      "locationState": "ID",
+      "overallConditionScore": 4.1,
+      "conditionSummary": "Restored driver-quality K10 with strong presentation.",
+      "authenticityScore": 0.72,
+      "hasRedFlags": false,
+      "notes": "Invalid negative sale price."
+    },
+    "comparable_future_sale_date": {
+      "year": 1970,
+      "make": "Chevrolet",
+      "model": "K10",
+      "trim": "Custom",
+      "bodyStyle": "Short Bed Pickup",
+      "series": "C/K 10 Series",
+      "drivetrain": "4x4",
+      "engine": "350 V8",
+      "transmission": "Automatic",
+      "mileage": 18500,
+      "exteriorColor": "Green",
+      "interiorColor": "Black",
+      "originalityLevel": "Mostly Stock",
+      "restorationLevel": "Frame-Off Restoration",
+      "matchingNumbers": false,
+      "documentationLevel": "Medium",
+      "titleStatus": "Clean",
+      "source": "Bring a Trailer",
+      "sourceListingUrl": "https://example.com/comps/1970-k10-green",
+      "venueType": "Online Auction",
+      "saleDate": "2035-01-01",
+      "salePrice": 68500.0,
+      "askingPrice": null,
+      "locationCity": "Boise",
+      "locationState": "ID",
+      "overallConditionScore": 4.1,
+      "conditionSummary": "Restored driver-quality K10 with strong presentation.",
+      "authenticityScore": 0.72,
+      "hasRedFlags": false,
+      "notes": "Invalid future sale date for valuation dataset."
+    }
+  }
+}

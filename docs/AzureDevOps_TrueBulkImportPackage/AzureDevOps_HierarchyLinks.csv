@@ -1,0 +1,6 @@
+Source Title,Target Title,Link Type
+Vehicle Management,Vehicle Record Management,Hierarchy
+Vehicle Record Management,US-001 Create Vehicle Record,Hierarchy
+Vehicle Record Management,US-002 Edit Vehicle Information,Hierarchy
+Photo Management,Vehicle Photos,Hierarchy
+Vehicle Photos,US-020 Upload Photos,Hierarchy

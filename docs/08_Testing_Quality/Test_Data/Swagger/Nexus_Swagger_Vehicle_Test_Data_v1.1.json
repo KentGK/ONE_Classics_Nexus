@@ -1,0 +1,393 @@
+{
+  "document": {
+    "title": "Nexus Swagger Test Data - Locked Specification",
+    "version": "1.1",
+    "corrected": "Vehicle POST and PUT payloads do not include a vehicle type field.",
+    "apiBaseUrl": "https://localhost:5001",
+    "jsonNaming": "camelCase API JSON; snake_case remains database-only."
+  },
+  "variables": {
+    "vehicleId": "{{vehicleId from POST /api/vehicles response}}",
+    "appraisalId": "{{appraisalId from POST /api/appraisals response}}",
+    "inspectionId": "{{inspectionId from POST /api/inspections response}}",
+    "comparableId": "{{comparableId from POST /api/appraisals/{id}/comparables response}}",
+    "valuationRunId": "{{valuationRunId from POST /api/appraisals/{id}/valuation/run response}}"
+  },
+  "executionOrder": [
+    "POST /api/vehicles",
+    "GET /api/vehicles/{vehicleId}",
+    "PUT /api/vehicles/{vehicleId}",
+    "POST /api/appraisals",
+    "GET /api/appraisals/{appraisalId}",
+    "POST /api/inspections",
+    "PUT /api/inspections/{inspectionId}/scores",
+    "GET /api/inspections/{inspectionId}",
+    "POST /api/appraisals/{appraisalId}/comparables",
+    "GET /api/appraisals/{appraisalId}/comparables",
+    "POST /api/appraisals/{appraisalId}/valuation/run",
+    "GET /api/appraisals/{appraisalId}/valuation/runs"
+  ],
+  "payloads": {
+    "vehicles": {
+      "postPrimaryVintageClassicK10": {
+        "vin": "CKE140Z100001",
+        "year": 1970,
+        "make": "Chevrolet",
+        "model": "K10",
+        "trim": "Custom",
+        "bodyStyle": "Short Bed Pickup",
+        "engine": "350 V8",
+        "transmission": "4-Speed Manual",
+        "drivetrain": "4x4",
+        "mileage": 84215
+      },
+      "putPrimaryVintageClassicK10": {
+        "vin": "CKE140Z100001",
+        "year": 1970,
+        "make": "Chevrolet",
+        "model": "K10",
+        "trim": "Custom Deluxe",
+        "bodyStyle": "Short Bed Pickup",
+        "engine": "350 V8",
+        "transmission": "4-Speed Manual",
+        "drivetrain": "4x4",
+        "mileage": 84287
+      },
+      "postStandardScenario": {
+        "vin": "1FTFW1EF1JFA00001",
+        "year": 2018,
+        "make": "Ford",
+        "model": "F-150",
+        "trim": "XLT",
+        "bodyStyle": "Crew Cab Pickup",
+        "engine": "5.0L V8",
+        "transmission": "10-Speed Automatic",
+        "drivetrain": "4x4",
+        "mileage": 73500
+      },
+      "postCustomScenario": {
+        "vin": "124379N600001",
+        "year": 1969,
+        "make": "Chevrolet",
+        "model": "Camaro",
+        "trim": "Restomod",
+        "bodyStyle": "Coupe",
+        "engine": "LS3 V8",
+        "transmission": "6-Speed Manual",
+        "drivetrain": "RWD",
+        "mileage": 1250
+      },
+      "negativeMissingRequiredMake": {
+        "vin": "NEGATIVE001",
+        "year": 1970,
+        "model": "K10",
+        "trim": "Custom",
+        "bodyStyle": "Short Bed Pickup",
+        "engine": "350 V8",
+        "transmission": "4-Speed Manual",
+        "drivetrain": "4x4",
+        "mileage": 84215
+      },
+      "negativeInvalidYear": {
+        "vin": "NEGATIVE002",
+        "year": 1800,
+        "make": "Chevrolet",
+        "model": "K10",
+        "trim": "Custom",
+        "bodyStyle": "Short Bed Pickup",
+        "engine": "350 V8",
+        "transmission": "4-Speed Manual",
+        "drivetrain": "4x4",
+        "mileage": 84215
+      }
+    },
+    "appraisals": {
+      "postForPrimaryVehicle": {
+        "vehicleId": "{{vehicleId}}"
+      }
+    },
+    "inspections": {
+      "postVintageClassic": {
+        "appraisalId": "{{appraisalId}}",
+        "inspectionType": "VintageClassic"
+      },
+      "postStandard": {
+        "appraisalId": "{{appraisalId}}",
+        "inspectionType": "Standard"
+      },
+      "postCustom": {
+        "appraisalId": "{{appraisalId}}",
+        "inspectionType": "Custom"
+      },
+      "putScoresVintageClassicFull12System": {
+        "scores": [
+          {
+            "systemNumber": 1,
+            "systemKey": "body_exterior",
+            "score0To5": 4.4,
+            "weight": 0.12,
+            "isRedFlag": false,
+            "notes": "Straight panels, quality paint, minor age visible under close inspection."
+          },
+          {
+            "systemNumber": 2,
+            "systemKey": "frame_structure",
+            "score0To5": 4.2,
+            "weight": 0.09,
+            "isRedFlag": false,
+            "notes": "Frame appears solid; no visible collision damage or structural rust concerns."
+          },
+          {
+            "systemNumber": 3,
+            "systemKey": "powertrain",
+            "score0To5": 4.6,
+            "weight": 0.13,
+            "isRedFlag": false,
+            "notes": "Strong-running V8 with clean idle, no observed smoke, leaks, or overheating."
+          },
+          {
+            "systemNumber": 4,
+            "systemKey": "transmission_driveline",
+            "score0To5": 4.1,
+            "weight": 0.08,
+            "isRedFlag": false,
+            "notes": "Transmission shifts correctly; transfer case and driveline operate as expected."
+          },
+          {
+            "systemNumber": 5,
+            "systemKey": "suspension_steering",
+            "score0To5": 4.0,
+            "weight": 0.06,
+            "isRedFlag": false,
+            "notes": "Steering and suspension are serviceable with normal vintage-truck road feel."
+          },
+          {
+            "systemNumber": 6,
+            "systemKey": "braking_system",
+            "score0To5": 4.2,
+            "weight": 0.05,
+            "isRedFlag": false,
+            "notes": "Brakes stop evenly; no pulling, fade, or hydraulic leaks observed."
+          },
+          {
+            "systemNumber": 7,
+            "systemKey": "electrical_system",
+            "score0To5": 3.9,
+            "weight": 0.05,
+            "isRedFlag": false,
+            "notes": "Lights, gauges, and charging system functional; minor wiring age noted."
+          },
+          {
+            "systemNumber": 8,
+            "systemKey": "interior",
+            "score0To5": 4.3,
+            "weight": 0.09,
+            "isRedFlag": false,
+            "notes": "Interior is clean and period-correct with light wear."
+          },
+          {
+            "systemNumber": 9,
+            "systemKey": "wheels_tires",
+            "score0To5": 3.8,
+            "weight": 0.04,
+            "isRedFlag": false,
+            "notes": "Wheels present well; tires have adequate tread but are older."
+          },
+          {
+            "systemNumber": 10,
+            "systemKey": "trim_glass_details",
+            "score0To5": 4.0,
+            "weight": 0.08,
+            "isRedFlag": false,
+            "notes": "Trim and glass are complete with minor polish marks and small imperfections."
+          },
+          {
+            "systemNumber": 11,
+            "systemKey": "documentation_provenance",
+            "score0To5": 4.5,
+            "weight": 0.12,
+            "isRedFlag": false,
+            "notes": "Good ownership and restoration documentation; VIN/title alignment verified."
+          },
+          {
+            "systemNumber": 12,
+            "systemKey": "road_test_functional",
+            "score0To5": 4.1,
+            "weight": 0.09,
+            "isRedFlag": false,
+            "notes": "Road test completed; vehicle tracks, accelerates, and stops appropriately."
+          }
+        ]
+      },
+      "expectedConditionIndex": 84.9
+    },
+    "comparables": {
+      "postComparable1": {
+        "year": 1970,
+        "make": "Chevrolet",
+        "model": "K10",
+        "trim": "Custom",
+        "bodyStyle": "Short Bed Pickup",
+        "series": "K-Series",
+        "drivetrain": "4x4",
+        "engine": "350 V8",
+        "transmission": "4-Speed Manual",
+        "mileage": 81200,
+        "exteriorColor": "Blue",
+        "interiorColor": "Black",
+        "originalityLevel": "Mostly Stock",
+        "restorationLevel": "Older Restoration",
+        "matchingNumbers": false,
+        "documentationLevel": "Good",
+        "titleStatus": "Clean",
+        "source": "Bring a Trailer",
+        "sourceListingUrl": "https://example.com/comps/1970-k10-bat-001",
+        "venueType": "Online Auction",
+        "saleDate": "2025-10-14",
+        "salePrice": 68500.0,
+        "askingPrice": null,
+        "locationCity": "Boise",
+        "locationState": "ID",
+        "overallConditionScore": 4.2,
+        "conditionSummary": "Restored short-bed K10 with strong presentation and similar driveline.",
+        "authenticityScore": 4.0,
+        "hasRedFlags": false,
+        "notes": "Best primary comp: same year, make, model, body style, and drivetrain."
+      },
+      "postComparable2": {
+        "year": 1971,
+        "make": "Chevrolet",
+        "model": "K10",
+        "trim": "Custom Deluxe",
+        "bodyStyle": "Short Bed Pickup",
+        "series": "K-Series",
+        "drivetrain": "4x4",
+        "engine": "350 V8",
+        "transmission": "Automatic",
+        "mileage": 90500,
+        "exteriorColor": "Orange",
+        "interiorColor": "Black",
+        "originalityLevel": "Mostly Stock",
+        "restorationLevel": "Driver Restoration",
+        "matchingNumbers": false,
+        "documentationLevel": "Moderate",
+        "titleStatus": "Clean",
+        "source": "Hemmings",
+        "sourceListingUrl": "https://example.com/comps/1971-k10-hemmings-002",
+        "venueType": "Dealer Listing",
+        "saleDate": "2025-06-22",
+        "salePrice": 61250.0,
+        "askingPrice": 64000.0,
+        "locationCity": "Denver",
+        "locationState": "CO",
+        "overallConditionScore": 3.9,
+        "conditionSummary": "Comparable short-bed 4x4, slightly weaker condition and documentation.",
+        "authenticityScore": 3.7,
+        "hasRedFlags": false,
+        "notes": "Useful market comp; adjust for condition and transmission."
+      },
+      "postComparable3": {
+        "year": 1972,
+        "make": "Chevrolet",
+        "model": "K10",
+        "trim": "Cheyenne",
+        "bodyStyle": "Short Bed Pickup",
+        "series": "K-Series",
+        "drivetrain": "4x4",
+        "engine": "350 V8",
+        "transmission": "4-Speed Manual",
+        "mileage": 54100,
+        "exteriorColor": "Green",
+        "interiorColor": "Green",
+        "originalityLevel": "Restored Stock",
+        "restorationLevel": "Frame-Off Restoration",
+        "matchingNumbers": true,
+        "documentationLevel": "Excellent",
+        "titleStatus": "Clean",
+        "source": "Mecum",
+        "sourceListingUrl": "https://example.com/comps/1972-k10-mecum-003",
+        "venueType": "Live Auction",
+        "saleDate": "2024-12-07",
+        "salePrice": 79500.0,
+        "askingPrice": null,
+        "locationCity": "Las Vegas",
+        "locationState": "NV",
+        "overallConditionScore": 4.6,
+        "conditionSummary": "Higher-grade restored example with strong documentation.",
+        "authenticityScore": 4.7,
+        "hasRedFlags": false,
+        "notes": "High-side comp; adjust downward for year/trim and condition delta."
+      },
+      "postComparable4": {
+        "year": 1969,
+        "make": "Chevrolet",
+        "model": "K10",
+        "trim": "Custom",
+        "bodyStyle": "Short Bed Pickup",
+        "series": "K-Series",
+        "drivetrain": "4x4",
+        "engine": "350 V8",
+        "transmission": "4-Speed Manual",
+        "mileage": 101200,
+        "exteriorColor": "White",
+        "interiorColor": "Black",
+        "originalityLevel": "Modified",
+        "restorationLevel": "Driver",
+        "matchingNumbers": false,
+        "documentationLevel": "Limited",
+        "titleStatus": "Clean",
+        "source": "ClassicCars.com",
+        "sourceListingUrl": "https://example.com/comps/1969-k10-classiccars-004",
+        "venueType": "Private Listing",
+        "saleDate": "2025-03-18",
+        "salePrice": 54000.0,
+        "askingPrice": 57500.0,
+        "locationCity": "Spokane",
+        "locationState": "WA",
+        "overallConditionScore": 3.5,
+        "conditionSummary": "Driver-grade modified truck with less documentation.",
+        "authenticityScore": 3.0,
+        "hasRedFlags": false,
+        "notes": "Low-side comp; useful for range floor."
+      },
+      "postComparable5": {
+        "year": 1970,
+        "make": "GMC",
+        "model": "K1500",
+        "trim": "Custom",
+        "bodyStyle": "Short Bed Pickup",
+        "series": "K-Series",
+        "drivetrain": "4x4",
+        "engine": "350 V8",
+        "transmission": "4-Speed Manual",
+        "mileage": 77000,
+        "exteriorColor": "Red",
+        "interiorColor": "Black",
+        "originalityLevel": "Mostly Stock",
+        "restorationLevel": "Older Restoration",
+        "matchingNumbers": false,
+        "documentationLevel": "Good",
+        "titleStatus": "Clean",
+        "source": "Barrett-Jackson",
+        "sourceListingUrl": "https://example.com/comps/1970-gmc-k1500-bj-005",
+        "venueType": "Live Auction",
+        "saleDate": "2025-01-25",
+        "salePrice": 66000.0,
+        "askingPrice": null,
+        "locationCity": "Scottsdale",
+        "locationState": "AZ",
+        "overallConditionScore": 4.1,
+        "conditionSummary": "Near-platform comparable; make/model adjustment required.",
+        "authenticityScore": 3.9,
+        "hasRedFlags": false,
+        "notes": "Secondary comp because make/model differ from Chevrolet K10."
+      }
+    },
+    "valuation": {
+      "postRunNoBody": null,
+      "postRunIfSwaggerRequiresBody": {
+        "appraisalId": "{{appraisalId}}"
+      }
+    }
+  }
+}

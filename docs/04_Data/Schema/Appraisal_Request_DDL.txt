@@ -1,0 +1,113 @@
+-- one_classics_nexus_test.appraisal_requests definition
+
+create table `appraisal_requests` (
+  `appraisal_request_id` char(36) not null,
+`request_number` varchar(30) not null,
+`status_code` varchar(30) not null default 'DRAFT',
+`disposition_reason` varchar(1000) default null,
+`client_id` char(36) default null,
+`primary_client_contact_id` char(36) default null,
+`intended_use_id` char(36) default null,
+`intended_use_custom_narrative` text default null,
+`requested_effective_date_utc` datetime(6) default null,
+`requested_effective_date_precision` varchar(20) default null,
+`requested_effective_date_time_zone` varchar(64) default null,
+`requested_value_definition_id` char(36) default null,
+`requested_scope_summary` text default null,
+`converted_appraisal_id` char(36) default null,
+`client_snapshot_json` longtext default null,
+`client_contact_snapshot_json` longtext default null,
+`intended_use_name_snapshot` varchar(200) default null,
+`intended_use_description_snapshot` text default null,
+`intended_use_category_snapshot` varchar(100) default null,
+`party_identification_reviewed_at_utc` datetime(6) default null,
+`party_identification_reviewed_by_user_id` char(36) default null,
+`submitted_at_utc` datetime(6) default null,
+`submitted_by_user_id` char(36) default null,
+`accepted_at_utc` datetime(6) default null,
+`accepted_by_user_id` char(36) default null,
+`converted_at_utc` datetime(6) default null,
+`converted_by_user_id` char(36) default null,
+`closed_at_utc` datetime(6) default null,
+`closed_by_user_id` char(36) default null,
+`row_version` bigint(20) unsigned not null default 1,
+`created_at_utc` datetime(6) not null default utc_timestamp(6),
+`created_by_user_id` char(36) not null,
+`updated_at_utc` datetime(6) not null default utc_timestamp(6),
+`updated_by_user_id` char(36) not null,
+primary key (`appraisal_request_id`),
+unique key `uq_appraisal_requests_number` (`request_number`),
+unique key `uq_appraisal_requests_request_number` (`request_number`),
+unique key `uq_appraisal_requests_converted_appraisal` (`converted_appraisal_id`),
+key `idx_appraisal_requests_client` (`client_id`,
+`created_at_utc`),
+key `idx_appraisal_requests_client_status` (`client_id`,
+`status_code`,
+`updated_at_utc`),
+key `idx_appraisal_requests_primary_contact` (`primary_client_contact_id`,
+`status_code`),
+key `idx_appraisal_requests_intended_use` (`intended_use_id`,
+`status_code`),
+key `idx_appraisal_requests_value_definition` (`requested_value_definition_id`),
+key `idx_appraisal_requests_status_updated` (`status_code`,
+`updated_at_utc`),
+key `idx_appraisal_requests_review_queue` (`status_code`,
+`party_identification_reviewed_at_utc`,
+`created_at_utc`),
+key `idx_appraisal_requests_requested_effective_date` (`requested_effective_date_utc`),
+constraint `fk_appraisal_requests_client` foreign key (`client_id`) references `clients` (`client_id`),
+constraint `fk_appraisal_requests_converted_appraisal` foreign key (`converted_appraisal_id`) references `appraisals` (`appraisal_id`),
+constraint `fk_appraisal_requests_intended_use` foreign key (`intended_use_id`) references `intended_uses` (`intended_use_id`),
+constraint `fk_appraisal_requests_primary_contact` foreign key (`primary_client_contact_id`) references `client_contacts` (`client_contact_id`),
+constraint `ck_appraisal_requests_id_uuid` check (cast(`appraisal_request_id` as char charset binary) = cast(lcase(`appraisal_request_id`) as char charset binary)
+and cast(`appraisal_request_id` as char charset binary) regexp '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'),
+constraint `ck_appraisal_requests_number_required` check (char_length(trim(`request_number`)) > 0),
+constraint `ck_appraisal_requests_status` check (`status_code` in ('DRAFT', 'SUBMITTED', 'UNDER_REVIEW', 'ACCEPTED', 'CONVERTED', 'DECLINED', 'CANCELLED', 'WITHDRAWN')),
+  constraint `ck_appraisal_requests_client_uuid` check (`client_id` is null
+or cast(`client_id` as char charset binary) = cast(lcase(`client_id`) as char charset binary)
+and cast(`client_id` as char charset binary) regexp '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'),
+constraint `ck_appraisal_requests_contact_uuid` check (`primary_client_contact_id` is null
+or cast(`primary_client_contact_id` as char charset binary) = cast(lcase(`primary_client_contact_id`) as char charset binary)
+and cast(`primary_client_contact_id` as char charset binary) regexp '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'),
+constraint `ck_appraisal_requests_intended_use_uuid` check (`intended_use_id` is null
+or cast(`intended_use_id` as char charset binary) = cast(lcase(`intended_use_id`) as char charset binary)
+and cast(`intended_use_id` as char charset binary) regexp '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'),
+constraint `ck_appraisal_requests_date_precision` check (`requested_effective_date_precision` is null
+or `requested_effective_date_precision` in ('DATE_ONLY', 'DATE_TIME')),
+  constraint `ck_appraisal_requests_requested_date` check (`requested_effective_date_utc` is null
+and `requested_effective_date_precision` is null
+and `requested_effective_date_time_zone` is null
+or `requested_effective_date_utc` is not null
+and `requested_effective_date_precision` is not null),
+constraint `ck_appraisal_requests_client_snapshot_json` check (`client_snapshot_json` is null
+or json_valid(`client_snapshot_json`)),
+constraint `ck_appraisal_requests_contact_snapshot_json` check (`client_contact_snapshot_json` is null
+or json_valid(`client_contact_snapshot_json`)),
+constraint `ck_appraisal_requests_party_review_pair` check (`party_identification_reviewed_at_utc` is null
+and `party_identification_reviewed_by_user_id` is null
+or `party_identification_reviewed_at_utc` is not null
+and `party_identification_reviewed_by_user_id` is not null),
+constraint `ck_appraisal_requests_conversion_pair` check (`converted_appraisal_id` is null
+and `converted_at_utc` is null
+and `converted_by_user_id` is null
+or `converted_appraisal_id` is not null
+and `converted_at_utc` is not null
+and `converted_by_user_id` is not null),
+constraint `ck_appraisal_requests_converted_status` check (`status_code` = 'CONVERTED'
+and `converted_appraisal_id` is not null
+or `status_code` <> 'CONVERTED'
+and `converted_appraisal_id` is null),
+constraint `ck_appraisal_requests_client_gate` check (`status_code` = 'DRAFT'
+or `client_id` is not null),
+constraint `ck_appraisal_requests_intended_use_gate` check (`status_code` not in ('ACCEPTED', 'CONVERTED')
+or `intended_use_id` is not null),
+constraint `ck_appraisal_requests_acceptance_audit` check (`status_code` not in ('ACCEPTED', 'CONVERTED')
+or `accepted_at_utc` is not null
+and `accepted_by_user_id` is not null),
+constraint `ck_appraisal_requests_closed_status` check (`status_code` not in ('DECLINED', 'CANCELLED', 'WITHDRAWN')
+or nullif(trim(`disposition_reason`), '') is not null
+and `closed_at_utc` is not null
+and `closed_by_user_id` is not null),
+constraint `ck_appraisal_requests_row_version` check (`row_version` >= 1),
+constraint `ck_appraisal_requests_audit_dates` check (`updated_at_utc` >= `created_at_utc`)
+) engine = InnoDB default CHARSET = utf8mb4 collate = utf8mb4_unicode_ci COMMENT = 'Pre-appraisal intake requests and proposed client/use identification';

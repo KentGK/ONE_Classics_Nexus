@@ -1,0 +1,15 @@
+Work Item Type,Title,Description,Priority,Tags
+Epic,Vehicle Management,Manage vehicle records and specifications,1,Vehicle;Epic
+Epic,Inspection Management,Vehicle inspection workflow,1,Inspection;Epic
+Epic,Photo Management,Photo capture and storage,1,Photos;Epic
+Feature,Vehicle Record Management,Create and maintain vehicle records,2,Vehicle;Feature
+Feature,Inspection Workflow,Perform and manage inspections,2,Inspection;Feature
+Feature,Vehicle Photos,Upload and manage photos,2,Photos;Feature
+User Story,Create Vehicle Record,"As an appraiser, I want to create a vehicle record so that I can begin an appraisal.",2,Vehicle;UserStory
+User Story,Edit Vehicle Information,"As an appraiser, I want to edit vehicle information so that records remain accurate.",2,Vehicle;UserStory
+User Story,Create Inspection,"As an inspector, I want to create an inspection so that I can document condition.",2,Inspection;UserStory
+User Story,Upload Photos,"As an inspector, I want to upload photos so that evidence is preserved.",1,Photos;UserStory
+Task,Validate VIN,Validate VIN prior to save.,3,Vehicle;Task
+Task,Generate Appraisal ID,Generate unique appraisal identifier.,3,Vehicle;Task
+Task,Support JPG Upload,Allow JPG image uploads.,3,Photos;Task
+Task,Support PNG Upload,Allow PNG image uploads.,3,Photos;Task
