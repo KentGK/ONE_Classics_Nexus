@@ -25,7 +25,9 @@ public sealed class ListVehiclesHandler
 
         throw new NotImplementedException("IVehicleRepository does not support listing vehicles. Implement a ListAsync method in IVehicleRepository and its implementation, or refactor this handler to use available repository methods.");
 
-        var dtos = items.Select(v => v.ToDto()).ToList();
+        // TODO: Implement fetching items from repository, e.g.:
+        // var items = await _repository.ListAsync(page, pageSize, cancellationToken);
+        // var dtos = items.Select(v => v.ToDto()).ToList();
 
         return new PagedResult<VehicleDto>(dtos, page, pageSize, totalCount);
     }
