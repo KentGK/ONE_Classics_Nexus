@@ -2,6 +2,7 @@
 using ONE_Classics_Nexus.Application.Abstractions.Repositories;
 using ONE_Classics_Nexus.Application.Abstractions.Services;
 using ONE_Classics_Nexus.Application.Contracts.Vehicles;
+using ONE_Classics_Nexus.Domain.Constants;
 using ONE_Classics_Nexus.Domain.Entities;
 
 namespace ONE_Classics_Nexus.Application.Services
@@ -107,7 +108,7 @@ namespace ONE_Classics_Nexus.Application.Services
 
             var updatedCandidate = Vehicle.Rehydrate(
                 vehicleId: existing.VehicleId,
-                // vehicleTypeId: command.VehicleTypeId ?? existing.VehicleTypeId, // VehicleTypeId does not exist on Vehicle entity.
+                vehicleTypeId: command.VehicleTypeId ?? existing.VehicleTypeId,
                 vin: Normalize(command.Vin),
                 year: command.Year,
                 make: NormalizeRequired(command.Make),
@@ -137,7 +138,7 @@ namespace ONE_Classics_Nexus.Application.Services
                 notes: NormalizeLarge(command.Notes),
                 ownershipNotes: NormalizeLarge(command.OwnershipNotes),
                 vehicleStatus: Normalize(command.VehicleStatus) ?? existing.VehicleStatus,
-                // rowVersion: existing.RowVersion, // RowVersion property does not exist on Vehicle. Please review the Vehicle entity for concurrency implementation.
+                rowVersion: existing.RowVersion,
                 createdAtUtc: existing.CreatedAtUtc,
                 updatedAtUtc: DateTime.UtcNow);
 
@@ -175,34 +176,21 @@ namespace ONE_Classics_Nexus.Application.Services
             var year = GetOptionalNullableInt(query, "Year");
             var titleStatus = GetOptionalString(query, "TitleStatus") ?? string.Empty;
 
-            // The IVehicleRepository interface does not define a ListAsync method. You need to implement this method in IVehicleRepository and its implementation class.
-// For now, you must either implement the method or use an alternative approach to retrieve the list of vehicles.
-throw new NotImplementedException("ListAsync method is not implemented in IVehicleRepository. Please implement it in the repository and its implementation class.");
-
-            // var dtoItems = items.Select(MapToListItemDto).ToList();
-            // 'items' does not exist in the current context. You need to retrieve the list of vehicles from the repository and map them to DTOs.
-            // Example (after implementing ListAsync in IVehicleRepository):
-            // var items = await _vehicleRepository.ListAsync(query, page, pageSize, cancellationToken);
-            // var dtoItems = items.Select(MapToListItemDto).ToList();
-            throw new NotImplementedException("You must implement retrieval of items from the repository. 'items' is not defined.");
-
-            // 'totalCount' does not exist in the current context. You need to retrieve the total count of vehicles from the repository.
-            // Example (after implementing ListAsync in IVehicleRepository):
-            // var (items, totalCount) = await _vehicleRepository.ListAsync(query, page, pageSize, cancellationToken);
-            // var dtoItems = items.Select(MapToListItemDto).ToList();
-            throw new NotImplementedException("You must implement retrieval of totalCount from the repository. 'totalCount' is not defined.");
+            var (items, totalCount) = await _vehicleRepository.ListAsync(
+                page, pageSize, make, model, year, titleStatus, cancellationToken);
+            return CreatePagedResult(items.Select(MapToListItemDto).ToList(), totalCount, page, pageSize);
         }
 
         private static VehicleListItemDto MapToListItemDto(Vehicle vehicle)
         {
             return new VehicleListItemDto(
                 vehicle.VehicleId,
-                vehicle.Make ?? string.Empty,
-                vehicle.Model ?? string.Empty,
+                vehicle.Make,
+                vehicle.Model,
                 vehicle.Year,
-                vehicle.TitleStatus,
-                vehicle.HasRedFlags,
-                0); // vehicle.RowVersion property does not exist. Passing default value.
+                vehicle.Vin,
+                string.Equals(vehicle.VehicleStatus, VehicleStatuses.Archived, StringComparison.OrdinalIgnoreCase),
+                vehicle.RowVersion);
         }
 
         private static PagedResult<VehicleListItemDto> CreatePagedResult(
@@ -339,7 +327,7 @@ throw new NotImplementedException("ListAsync method is not implemented in IVehic
             return new VehicleDto
             {
                 VehicleId = vehicle.VehicleId,
-                // VehicleTypeId property does not exist on Vehicle entity. You may need to map from another source or remove this mapping if not needed.
+                VehicleTypeId = vehicle.VehicleTypeId,
                 Vin = vehicle.Vin,
                 ChassisNumber = vehicle.ChassisNumber,
                 BodyNumber = vehicle.BodyNumber,
@@ -367,7 +355,7 @@ throw new NotImplementedException("ListAsync method is not implemented in IVehic
                 OverallConditionScore = vehicle.OverallConditionScore,
                 HasRedFlags = vehicle.HasRedFlags,
                 VehicleStatus = vehicle.VehicleStatus,
-                RowVersion = 0, // vehicle.RowVersion property does not exist. Assigning default value.
+                RowVersion = vehicle.RowVersion,
                 OwnershipNotes = vehicle.OwnershipNotes,
                 Notes = vehicle.Notes,
                 CreatedAtUtc = vehicle.CreatedAtUtc,

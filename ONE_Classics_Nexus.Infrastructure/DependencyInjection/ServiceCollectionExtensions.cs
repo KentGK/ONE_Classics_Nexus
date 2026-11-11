@@ -16,7 +16,8 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<MySqlConnectionFactory>();
         services.AddSingleton<MariaDbConnectionFactory>();
 
-        services.AddScoped<IVehicleRepository, VehicleRepository>();
+        services.AddSingleton<IDbConnectionFactory, MariaDbOpenConnectionFactory>();
+        services.AddScoped<IVehicleRepository, Repositories.Vehicle.VehicleRepository>();
         services.AddScoped<IAppraisalRepository, AppraisalRepository>();
         services.AddScoped<IInspectionRepository, InspectionRepository>();
 
