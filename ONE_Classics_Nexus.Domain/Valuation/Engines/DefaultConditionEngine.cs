@@ -1,6 +1,7 @@
 ﻿using ONE_Classics_Nexus.Domain.Valuation.Abstractions;
 using ONE_Classics_Nexus.Domain.Valuation.Models;
 using ONE_Classics_Nexus.Domain.Valuation.Rules;
+using System.Collections.Generic;
 
 namespace ONE_Classics_Nexus.Domain.Valuation.Engines;
 
