@@ -186,7 +186,11 @@ throw new NotImplementedException("ListAsync method is not implemented in IVehic
             // var dtoItems = items.Select(MapToListItemDto).ToList();
             throw new NotImplementedException("You must implement retrieval of items from the repository. 'items' is not defined.");
 
-            return CreatePagedResult(dtoItems, totalCount, page, pageSize);
+            // 'totalCount' does not exist in the current context. You need to retrieve the total count of vehicles from the repository.
+            // Example (after implementing ListAsync in IVehicleRepository):
+            // var (items, totalCount) = await _vehicleRepository.ListAsync(query, page, pageSize, cancellationToken);
+            // var dtoItems = items.Select(MapToListItemDto).ToList();
+            throw new NotImplementedException("You must implement retrieval of totalCount from the repository. 'totalCount' is not defined.");
         }
 
         private static VehicleListItemDto MapToListItemDto(Vehicle vehicle)
