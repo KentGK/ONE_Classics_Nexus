@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 namespace ONE_Classics_Nexus.Domain.Constants;
 
 public static class OriginalityProfiles
