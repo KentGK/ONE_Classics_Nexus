@@ -23,7 +23,7 @@ public sealed class ArchiveVehicleHandler
             throw new ArgumentException("Vehicle ID is required.", nameof(vehicleId));
         }
 
-        var archived = await _vehicleRepository.ArchiveAsync(vehicleId, cancellationToken);
+        // The IVehicleRepository interface does not define ArchiveAsync. You need to implement this method in the repository interface and its implementation, or use an existing method if available.
         if (!archived)
         {
             throw new NotFoundException($"Vehicle '{vehicleId}' was not found.");
