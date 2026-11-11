@@ -176,7 +176,7 @@ public sealed class AppraisalRequest
     private static string CleanRequired(string value, string name) => string.IsNullOrWhiteSpace(value) ? throw Error("APPRAISAL_REQUEST_INCOMPLETE", $"{name} is required.") : value.Trim();
     private static string? Clean(string? value) => string.IsNullOrWhiteSpace(value) ? null : value.Trim();
     private void Touch(DateTime utcNow) { UpdatedAtUtc = utcNow; RowVersion++; }
-    private static Exception Error(string code, string message) => new AppraisalRequestDomainException(code, message);
+    private static InvalidOperationException Error(string code, string message) => new AppraisalRequestDomainException(code, message);
 
     public static AppraisalRequest Rehydrate(AppraisalRequestState s) => new()
     {
