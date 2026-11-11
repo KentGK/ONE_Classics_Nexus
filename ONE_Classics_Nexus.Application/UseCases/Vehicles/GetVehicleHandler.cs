@@ -2,6 +2,7 @@ using ONE_Classics_Nexus.Application.Abstractions.Repositories;
 using ONE_Classics_Nexus.Application.DTOs;
 using ONE_Classics_Nexus.Application.Exceptions;
 using ONE_Classics_Nexus.Application.Mappings;
+using System;
 
 namespace ONE_Classics_Nexus.Application.UseCases.Vehicles;
 
