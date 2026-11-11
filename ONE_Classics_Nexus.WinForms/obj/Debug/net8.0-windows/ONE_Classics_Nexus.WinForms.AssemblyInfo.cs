@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ONE_Classics_Nexus.WinForms")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8a7bf85690901f09eb0fe92bdbbcfdd2d15c33bd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+99d7de27f83139c94df04816d076e103c4d59cb8")]
 [assembly: System.Reflection.AssemblyProductAttribute("ONE_Classics_Nexus.WinForms")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ONE_Classics_Nexus.WinForms")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

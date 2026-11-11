@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <OutputType>Library</OutputType>
-    <LangVersion>10.0</LangVersion>
+    <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyTitle>ONE_Classics_Nexus.Application</AssemblyTitle>
     <Product>ONE_Classics_Nexus.Application</Product>
     <Copyright>Copyright ©  2026</Copyright>
@@ -11,67 +11,9 @@
     <FileVersion>1.0.0.0</FileVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
-    <Compile Include="obj\Debug\net8.0\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" />
-    <Compile Include="obj\Debug\net8.0\ONE_Classics_Nexus.Application.AssemblyInfo.cs" />
-    <Compile Include="obj\Debug\net8.0\ONE_Classics_Nexus.Application.GlobalUsings.g.cs" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.8" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ONE_Classics_Nexus.Domain\ONE_Classics_Nexus.Domain.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="bin\Debug\net8.0\ONE_Classics_Nexus.Application-Dell_Laptop.dll" />
-    <Content Include="bin\Debug\net8.0\ONE_Classics_Nexus.Application-Dell_Laptop.pdb" />
-    <Content Include="bin\Debug\net8.0\ONE_Classics_Nexus.Application.dll" />
-    <Content Include="bin\Debug\net8.0\ONE_Classics_Nexus.Application.pdb" />
-    <Content Include="bin\Debug\net8.0\ONE_Classics_Nexus.Domain.dll" />
-    <Content Include="bin\Debug\net8.0\ONE_Classics_Nexus.Domain.pdb" />
-    <Content Include="bin\Debug\ONE_Classics_Nexus.Application.dll" />
-    <Content Include="bin\Debug\ONE_Classics_Nexus.Application.pdb" />
-    <Content Include="bin\Debug\ONE_Classics_Nexus.Domain.dll" />
-    <Content Include="bin\Debug\ONE_Classics_Nexus.Domain.pdb" />
-    <Content Include="obj\Debug\net8.0\ONE_Classics_Nexus.Application-Dell_Laptop.dll" />
-    <Content Include="obj\Debug\net8.0\ONE_Classics_Nexus.Application-Dell_Laptop.pdb" />
-    <Content Include="obj\Debug\net8.0\ONE_Classics_Nexus.Application.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\net8.0\ONE_Classics_Nexus.Application.dll" />
-    <Content Include="obj\Debug\net8.0\ONE_Classics_Nexus.Application.pdb" />
-    <Content Include="obj\Debug\net8.0\refint\ONE_Classics_Nexus.Application-Dell_Laptop.dll" />
-    <Content Include="obj\Debug\net8.0\refint\ONE_Classics_Nexus.Application.dll" />
-    <Content Include="obj\Debug\net8.0\ref\ONE_Classics_Nexus.Application-Dell_Laptop.dll" />
-    <Content Include="obj\Debug\net8.0\ref\ONE_Classics_Nexus.Application.dll" />
-    <Content Include="obj\Debug\ONE_Classics_Nexus.Application.csproj.FileListAbsolute.txt" />
-    <Content Include="obj\Debug\ONE_Classics_Nexus.Application.dll" />
-    <Content Include="obj\Debug\ONE_Classics_Nexus.Application.pdb" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\net8.0\ONE_Classics_Nexus.Application.deps.json" />
-    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
-    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="obj\Debug\net8.0\ONE_Clas.ED9A987F.Up2Date" />
-    <None Include="obj\Debug\net8.0\ONE_Classics_Nexus.Application.AssemblyInfoInputs.cache" />
-    <None Include="obj\Debug\net8.0\ONE_Classics_Nexus.Application.assets.cache" />
-    <None Include="obj\Debug\net8.0\ONE_Classics_Nexus.Application.csproj.AssemblyReference-Dell_Laptop-2.cache" />
-    <None Include="obj\Debug\net8.0\ONE_Classics_Nexus.Application.csproj.AssemblyReference-Dell_Laptop.cache" />
-    <None Include="obj\Debug\net8.0\ONE_Classics_Nexus.Application.csproj.AssemblyReference.cache" />
-    <None Include="obj\Debug\net8.0\ONE_Classics_Nexus.Application.csproj.BuildWithSkipAnalyzers" />
-    <None Include="obj\Debug\net8.0\ONE_Classics_Nexus.Application.csproj.CoreCompileInputs.cache" />
-    <None Include="obj\Debug\net8.0\ONE_Classics_Nexus.Application.GeneratedMSBuildEditorConfig.editorconfig" />
-    <None Include="obj\Debug\net8.0\ONE_Classics_Nexus.Application.sourcelink.json" />
-    <None Include="obj\Debug\ONE_Clas.ED9A987F.Up2Date" />
-    <None Include="obj\Debug\ONE_Classics_Nexus.Application.csproj.AssemblyReference.cache" />
-    <None Include="obj\Debug\ONE_Classics_Nexus.Application.csproj.CoreCompileInputs.cache" />
-    <None Include="obj\ONE_Classics_Nexus.Application.csproj.nuget.dgspec-Dell_Laptop.json" />
-    <None Include="obj\ONE_Classics_Nexus.Application.csproj.nuget.dgspec.json" />
-    <None Include="obj\ONE_Classics_Nexus.Application.csproj.nuget.g.props" />
-    <None Include="obj\ONE_Classics_Nexus.Application.csproj.nuget.g.targets" />
-    <None Include="obj\project.assets.json" />
-    <None Include="obj\project.nuget-Dell_Laptop.cache" />
-    <None Include="obj\project.nuget.cache" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="bin\Release\" />
-    <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Responses\" />
-    <Folder Include="Valuation\Models\" />
   </ItemGroup>
 </Project>
