@@ -23,26 +23,7 @@ public sealed class ListVehiclesHandler
         var page = request.Page < 1 ? 1 : request.Page;
         var pageSize = request.PageSize is < 1 or > 200 ? 20 : request.PageSize;
 
-        (IReadOnlyList<Vehicle> items, int totalCount) = await _repository.ListAsync(
-            page,
-            pageSize,
-            request.Search,
-            request.Vin,
-            request.YearFrom,
-            request.YearTo,
-            request.Make,
-            request.Model,
-            request.Series,
-            request.VehicleTypeId,
-            request.BodyStyle,
-            request.Year,
-            null, // request.mileage,
-            null, // request.ExteriorColor,
-            request.HasRedFlags,
-            request.TitleStatus,
-            request.SortBy,
-            request.SortDirection,
-            cancellationToken);
+        // ERROR: IVehicleRepository does not have a ListAsync method. You must implement ListAsync in IVehicleRepository and its implementation, or replace this call with available repository methods such as GetByIdAsync or CreateAsync, or refactor the logic accordingly.
 
         var dtos = items.Select(v => v.ToDto()).ToList();
 
