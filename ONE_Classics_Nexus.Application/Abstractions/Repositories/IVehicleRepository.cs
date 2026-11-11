@@ -14,4 +14,5 @@ public interface IVehicleRepository
     Task<(IReadOnlyList<Vehicle> Items, int TotalCount)> ListAsync(
         int page, int pageSize, string make, string model, int? year,
         string titleStatus, CancellationToken ct);
+    Task<bool> MergeAsync(Guid sourceVehicleId, Guid targetVehicleId, CancellationToken ct);
 }
