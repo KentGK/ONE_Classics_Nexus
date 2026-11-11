@@ -12,26 +12,6 @@
         "UsingMicrosoftNETSdk": false,
         "frameworks": {
           "net48": {
-            "projectReferences": {
-              "C:\\Users\\kentk\\Documents\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Domain\\ONE_Classics_Nexus.Domain.csproj": {
-                "projectPath": "C:\\Users\\kentk\\Documents\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Domain\\ONE_Classics_Nexus.Domain.csproj"
-              }
-            }
-          }
-        }
-      },
-      "frameworks": {
-        "net48": {}
-      }
-    },
-    "C:\\Users\\kentk\\Documents\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Domain\\ONE_Classics_Nexus.Domain.csproj": {
-      "restore": {
-        "projectUniqueName": "C:\\Users\\kentk\\Documents\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Domain\\ONE_Classics_Nexus.Domain.csproj",
-        "projectName": "ONE_Classics_Nexus.Domain",
-        "projectPath": "C:\\Users\\kentk\\Documents\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Domain\\ONE_Classics_Nexus.Domain.csproj",
-        "UsingMicrosoftNETSdk": false,
-        "frameworks": {
-          "net48": {
             "projectReferences": {}
           }
         }

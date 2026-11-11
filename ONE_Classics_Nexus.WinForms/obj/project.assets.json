@@ -39,23 +39,11 @@
       },
       "ONE_Classics_Nexus.Application/1.0.0": {
         "type": "project",
-        "dependencies": {
-          "ONE_Classics_Nexus.Domain": "1.0.0"
-        },
         "compile": {
           "bin/placeholder/ONE_Classics_Nexus.Application.dll": {}
         },
         "runtime": {
           "bin/placeholder/ONE_Classics_Nexus.Application.dll": {}
-        }
-      },
-      "ONE_Classics_Nexus.Domain/1.0.0": {
-        "type": "project",
-        "compile": {
-          "bin/placeholder/ONE_Classics_Nexus.Domain.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ONE_Classics_Nexus.Domain.dll": {}
         }
       }
     }
@@ -127,11 +115,6 @@
       "type": "project",
       "path": "../ONE_Classics_Nexus.Application/ONE_Classics_Nexus.Application.csproj",
       "msbuildProject": "../ONE_Classics_Nexus.Application/ONE_Classics_Nexus.Application.csproj"
-    },
-    "ONE_Classics_Nexus.Domain/1.0.0": {
-      "type": "project",
-      "path": "../ONE_Classics_Nexus.Domain/ONE_Classics_Nexus.Domain.csproj",
-      "msbuildProject": "../ONE_Classics_Nexus.Domain/ONE_Classics_Nexus.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
