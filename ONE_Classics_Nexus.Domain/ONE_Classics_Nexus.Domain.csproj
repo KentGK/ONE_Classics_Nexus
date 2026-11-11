@@ -1,44 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <OutputType>Library</OutputType>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyTitle>ONE_Classics_Nexus.Domain</AssemblyTitle>
     <Product>ONE_Classics_Nexus.Domain</Product>
     <Copyright>Copyright ©  2026</Copyright>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <FileVersion>1.0.0.0</FileVersion>
   </PropertyGroup>
-  <ItemGroup>
-    <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include=".vs\ONE_Classics_Nexus.Domain.csproj.dtbcache.json" />
-    <None Include=".vs\ONE_Classics_Nexus.Domain\CopilotIndices\17.14.1601.40145\CodeChunks.db" />
-    <None Include=".vs\ONE_Classics_Nexus.Domain\CopilotIndices\17.14.1601.40145\SemanticSymbols.db" />
-    <None Include=".vs\ONE_Classics_Nexus.Domain\DesignTimeBuild\.dtbcache.v2" />
-    <None Include=".vs\ONE_Classics_Nexus.Domain\FileContentIndex\598c5f85-84d9-432f-bc30-c4cf838ae728.vsidx" />
-    <None Include=".vs\ONE_Classics_Nexus.Domain\FileContentIndex\666f8bf4-28c4-4a5f-8d26-4815736dc1b9.vsidx" />
-    <None Include=".vs\ONE_Classics_Nexus.Domain\FileContentIndex\b768cfa2-2b4b-4fb2-bee9-7923c7aa1ae4.vsidx" />
-    <None Include=".vs\ONE_Classics_Nexus.Domain\v17\.futdcache.v2" />
-    <None Include=".vs\ONE_Classics_Nexus.Domain\v17\.suo" />
-    <None Include="bin\Debug\net8.0\ONE_Classics_Nexus.Domain.deps.json" />
-    <None Include="obj\ONE_Classics_Nexus.Domain.csproj.nuget.dgspec-Dell_Laptop.json" />
-    <None Include="obj\ONE_Classics_Nexus.Domain.csproj.nuget.dgspec.json" />
-    <None Include="obj\ONE_Classics_Nexus.Domain.csproj.nuget.g.props" />
-    <None Include="obj\ONE_Classics_Nexus.Domain.csproj.nuget.g.targets" />
-    <None Include="obj\project.assets.json" />
-    <None Include="obj\project.nuget-Dell_Laptop.cache" />
-    <None Include="obj\project.nuget.cache" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include=".vs\ONE_Classics_Nexus.Domain\copilot-chat\19810efe\sessions\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="bin\Debug\net8.0\ONE_Classics_Nexus.Domain.dll" />
-    <Content Include="bin\Debug\net8.0\ONE_Classics_Nexus.Domain.pdb" />
-    <Content Include="bin\Debug\ONE_Classics_Nexus.Domain.dll" />
-    <Content Include="bin\Debug\ONE_Classics_Nexus.Domain.pdb" />
-  </ItemGroup>
 </Project>

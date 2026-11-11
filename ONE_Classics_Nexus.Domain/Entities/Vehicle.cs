@@ -15,6 +15,20 @@ public sealed class Vehicle
     public string? Transmission { get; set; }
     public string? Drivetrain { get; set; }
     public string? TitleStatus { get; set; }
+    public string? ChassisNumber { get; set; }
+    public string? BodyNumber { get; set; }
+    public string? EngineNumber { get; set; }
+    public string? Marque { get; set; }
+    public string? SeriesName { get; set; }
+    public int? Mileage { get; set; }
+    public string? OdometerUnit { get; set; }
+    public string? ExteriorColor { get; set; }
+    public string? InteriorColor { get; set; }
+    public string? AuthenticityProfile { get; set; }
+    public string? OriginalityProfile { get; set; }
+    public string? RestorationLevel { get; set; }
+    public string? DocumentationLevel { get; set; }
+    public string? OwnershipNotes { get; set; }
     public DateTime CreatedAtUtc { get; set; }
 
     public static Vehicle Create(
