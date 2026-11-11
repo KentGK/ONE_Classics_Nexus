@@ -1,1 +1,5 @@
 C:\Users\kentk\OneDrive\ONE_Classics_Nexus_App\ONE_Classics_Nexus.WinForms\obj\Debug\net8.0-windows\ONE_Classics_Nexus.WinForms.csproj.AssemblyReference.cache
+C:\Users\kentk\Documents\ONE_Classics_Nexus_App\ONE_Classics_Nexus.WinForms\obj\Debug\net8.0-windows\ONE_Classics_Nexus.WinForms.csproj.AssemblyReference.cache
+C:\Users\kentk\Documents\ONE_Classics_Nexus_App\ONE_Classics_Nexus.WinForms\obj\Debug\net8.0-windows\ONE_Classics_Nexus.WinForms.dll
+C:\Users\kentk\Documents\ONE_Classics_Nexus_App\ONE_Classics_Nexus.WinForms\obj\Debug\net8.0-windows\refint\ONE_Classics_Nexus.WinForms.dll
+C:\Users\kentk\Documents\ONE_Classics_Nexus_App\ONE_Classics_Nexus.WinForms\obj\Debug\net8.0-windows\ONE_Classics_Nexus.WinForms.pdb

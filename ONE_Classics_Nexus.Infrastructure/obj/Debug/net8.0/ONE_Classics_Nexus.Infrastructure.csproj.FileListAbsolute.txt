@@ -2,3 +2,7 @@ C:\Users\kentk\OneDrive\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Infrastructure
 C:\Users\kentk\OneDrive\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Infrastructure\obj\Debug\net8.0\ONE_Classics_Nexus.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\kentk\OneDrive\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Infrastructure\obj\Debug\net8.0\ONE_Classics_Nexus.Infrastructure.csproj.CoreCompileInputs.cache
 C:\Users\kentk\OneDrive\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Infrastructure\obj\Debug\net8.0\ONE_Classics_Nexus.Infrastructure.sourcelink.json
+C:\Users\kentk\Documents\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Infrastructure\obj\Debug\net8.0\ONE_Classics_Nexus.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\kentk\Documents\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Infrastructure\obj\Debug\net8.0\ONE_Classics_Nexus.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kentk\Documents\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Infrastructure\obj\Debug\net8.0\ONE_Classics_Nexus.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\kentk\Documents\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Infrastructure\obj\Debug\net8.0\ONE_Classics_Nexus.Infrastructure.sourcelink.json

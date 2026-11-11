@@ -1,2 +1,4 @@
 C:\Users\kentk\OneDrive\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Domain\obj\Debug\ONE_Classics_Nexus.Domain.csproj.AssemblyReference.cache
 C:\Users\kentk\OneDrive\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Domain\obj\Debug\ONE_Classics_Nexus.Domain.csproj.CoreCompileInputs.cache
+C:\Users\kentk\Documents\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Domain\obj\Debug\ONE_Classics_Nexus.Domain.csproj.AssemblyReference.cache
+C:\Users\kentk\Documents\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Domain\obj\Debug\ONE_Classics_Nexus.Domain.csproj.CoreCompileInputs.cache

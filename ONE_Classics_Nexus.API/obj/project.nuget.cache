@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hiFJo61qJ5k=",
+  "dgSpecHash": "InnprBdNcW0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\kentk\\OneDrive\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.API\\ONE_Classics_Nexus.API.csproj",
+  "projectFilePath": "C:\\Users\\kentk\\Documents\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.API\\ONE_Classics_Nexus.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kentk\\.nuget\\packages\\dapper\\2.1.72\\dapper.2.1.72.nupkg.sha512",
     "C:\\Users\\kentk\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kentk\\OneDrive\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Infrastructure\\ONE_Classics_Nexus.Infrastructure.csproj": {}
+    "C:\\Users\\kentk\\Documents\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Infrastructure\\ONE_Classics_Nexus.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kentk\\OneDrive\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Application\\ONE_Classics_Nexus.Application.csproj": {
+    "C:\\Users\\kentk\\Documents\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Application\\ONE_Classics_Nexus.Application.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\kentk\\OneDrive\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Application\\ONE_Classics_Nexus.Application.csproj",
+        "projectUniqueName": "C:\\Users\\kentk\\Documents\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Application\\ONE_Classics_Nexus.Application.csproj",
         "projectName": "ONE_Classics_Nexus.Application",
-        "projectPath": "C:\\Users\\kentk\\OneDrive\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Application\\ONE_Classics_Nexus.Application.csproj",
+        "projectPath": "C:\\Users\\kentk\\Documents\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Application\\ONE_Classics_Nexus.Application.csproj",
         "UsingMicrosoftNETSdk": false,
         "frameworks": {
           "net48": {
             "projectReferences": {
-              "C:\\Users\\kentk\\OneDrive\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Domain\\ONE_Classics_Nexus.Domain.csproj": {
-                "projectPath": "C:\\Users\\kentk\\OneDrive\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Domain\\ONE_Classics_Nexus.Domain.csproj"
+              "C:\\Users\\kentk\\Documents\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Domain\\ONE_Classics_Nexus.Domain.csproj": {
+                "projectPath": "C:\\Users\\kentk\\Documents\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Domain\\ONE_Classics_Nexus.Domain.csproj"
               }
             }
           }
@@ -24,11 +24,11 @@
         "net48": {}
       }
     },
-    "C:\\Users\\kentk\\OneDrive\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Domain\\ONE_Classics_Nexus.Domain.csproj": {
+    "C:\\Users\\kentk\\Documents\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Domain\\ONE_Classics_Nexus.Domain.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\kentk\\OneDrive\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Domain\\ONE_Classics_Nexus.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\kentk\\Documents\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Domain\\ONE_Classics_Nexus.Domain.csproj",
         "projectName": "ONE_Classics_Nexus.Domain",
-        "projectPath": "C:\\Users\\kentk\\OneDrive\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Domain\\ONE_Classics_Nexus.Domain.csproj",
+        "projectPath": "C:\\Users\\kentk\\Documents\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Domain\\ONE_Classics_Nexus.Domain.csproj",
         "UsingMicrosoftNETSdk": false,
         "frameworks": {
           "net48": {
@@ -40,14 +40,14 @@
         "net48": {}
       }
     },
-    "C:\\Users\\kentk\\OneDrive\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Infrastructure\\ONE_Classics_Nexus.Infrastructure.csproj": {
+    "C:\\Users\\kentk\\Documents\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Infrastructure\\ONE_Classics_Nexus.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kentk\\OneDrive\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Infrastructure\\ONE_Classics_Nexus.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\kentk\\Documents\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Infrastructure\\ONE_Classics_Nexus.Infrastructure.csproj",
         "projectName": "ONE_Classics_Nexus.Infrastructure",
-        "projectPath": "C:\\Users\\kentk\\OneDrive\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Infrastructure\\ONE_Classics_Nexus.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\kentk\\Documents\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Infrastructure\\ONE_Classics_Nexus.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\kentk\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kentk\\OneDrive\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\kentk\\Documents\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -69,11 +69,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\kentk\\OneDrive\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Application\\ONE_Classics_Nexus.Application.csproj": {
-                "projectPath": "C:\\Users\\kentk\\OneDrive\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Application\\ONE_Classics_Nexus.Application.csproj"
+              "C:\\Users\\kentk\\Documents\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Application\\ONE_Classics_Nexus.Application.csproj": {
+                "projectPath": "C:\\Users\\kentk\\Documents\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Application\\ONE_Classics_Nexus.Application.csproj"
               },
-              "C:\\Users\\kentk\\OneDrive\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Domain\\ONE_Classics_Nexus.Domain.csproj": {
-                "projectPath": "C:\\Users\\kentk\\OneDrive\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Domain\\ONE_Classics_Nexus.Domain.csproj"
+              "C:\\Users\\kentk\\Documents\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Domain\\ONE_Classics_Nexus.Domain.csproj": {
+                "projectPath": "C:\\Users\\kentk\\Documents\\ONE_Classics_Nexus_App\\ONE_Classics_Nexus.Domain\\ONE_Classics_Nexus.Domain.csproj"
               }
             }
           }
@@ -127,7 +127,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.320/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.321/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

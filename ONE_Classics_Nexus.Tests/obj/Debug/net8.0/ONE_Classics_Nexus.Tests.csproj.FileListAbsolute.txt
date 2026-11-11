@@ -4,3 +4,13 @@ C:\Users\kentk\OneDrive\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Tests\obj\Debu
 C:\Users\kentk\OneDrive\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Tests\obj\Debug\net8.0\ONE_Classics_Nexus.Tests.AssemblyInfo.cs
 C:\Users\kentk\OneDrive\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Tests\obj\Debug\net8.0\ONE_Classics_Nexus.Tests.csproj.CoreCompileInputs.cache
 C:\Users\kentk\OneDrive\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Tests\obj\Debug\net8.0\ONE_Classics_Nexus.Tests.sourcelink.json
+C:\Users\kentk\Documents\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Tests\bin\Debug\net8.0\CoverletSourceRootsMapping_ONE_Classics_Nexus.Tests
+C:\Users\kentk\Documents\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Tests\obj\Debug\net8.0\ONE_Classics_Nexus.Tests.csproj.AssemblyReference.cache
+C:\Users\kentk\Documents\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Tests\obj\Debug\net8.0\ONE_Classics_Nexus.Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kentk\Documents\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Tests\obj\Debug\net8.0\ONE_Classics_Nexus.Tests.AssemblyInfoInputs.cache
+C:\Users\kentk\Documents\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Tests\obj\Debug\net8.0\ONE_Classics_Nexus.Tests.AssemblyInfo.cs
+C:\Users\kentk\Documents\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Tests\obj\Debug\net8.0\ONE_Classics_Nexus.Tests.csproj.CoreCompileInputs.cache
+C:\Users\kentk\Documents\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Tests\obj\Debug\net8.0\ONE_Classics_Nexus.Tests.sourcelink.json
+C:\Users\kentk\Documents\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Tests\obj\Debug\net8.0\ONE_Classics_Nexus.Tests.dll
+C:\Users\kentk\Documents\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Tests\obj\Debug\net8.0\refint\ONE_Classics_Nexus.Tests.dll
+C:\Users\kentk\Documents\ONE_Classics_Nexus_App\ONE_Classics_Nexus.Tests\obj\Debug\net8.0\ONE_Classics_Nexus.Tests.pdb

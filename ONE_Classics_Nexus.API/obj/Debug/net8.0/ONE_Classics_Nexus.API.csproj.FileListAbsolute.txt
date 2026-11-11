@@ -6,3 +6,11 @@ C:\Users\kentk\OneDrive\ONE_Classics_Nexus_App\ONE_Classics_Nexus.API\obj\Debug\
 C:\Users\kentk\OneDrive\ONE_Classics_Nexus_App\ONE_Classics_Nexus.API\obj\Debug\net8.0\ONE_Classics_Nexus.API.csproj.CoreCompileInputs.cache
 C:\Users\kentk\OneDrive\ONE_Classics_Nexus_App\ONE_Classics_Nexus.API\obj\Debug\net8.0\ONE_Classics_Nexus.API.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\kentk\OneDrive\ONE_Classics_Nexus_App\ONE_Classics_Nexus.API\obj\Debug\net8.0\ONE_Classics_Nexus.API.sourcelink.json
+C:\Users\kentk\Documents\ONE_Classics_Nexus_App\ONE_Classics_Nexus.API\obj\Debug\net8.0\ONE_Classics_Nexus.API.csproj.AssemblyReference.cache
+C:\Users\kentk\Documents\ONE_Classics_Nexus_App\ONE_Classics_Nexus.API\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\kentk\Documents\ONE_Classics_Nexus_App\ONE_Classics_Nexus.API\obj\Debug\net8.0\ONE_Classics_Nexus.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kentk\Documents\ONE_Classics_Nexus_App\ONE_Classics_Nexus.API\obj\Debug\net8.0\ONE_Classics_Nexus.API.AssemblyInfoInputs.cache
+C:\Users\kentk\Documents\ONE_Classics_Nexus_App\ONE_Classics_Nexus.API\obj\Debug\net8.0\ONE_Classics_Nexus.API.AssemblyInfo.cs
+C:\Users\kentk\Documents\ONE_Classics_Nexus_App\ONE_Classics_Nexus.API\obj\Debug\net8.0\ONE_Classics_Nexus.API.csproj.CoreCompileInputs.cache
+C:\Users\kentk\Documents\ONE_Classics_Nexus_App\ONE_Classics_Nexus.API\obj\Debug\net8.0\ONE_Classics_Nexus.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\kentk\Documents\ONE_Classics_Nexus_App\ONE_Classics_Nexus.API\obj\Debug\net8.0\ONE_Classics_Nexus.API.sourcelink.json
