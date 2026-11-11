@@ -179,7 +179,12 @@ namespace ONE_Classics_Nexus.Application.Services
 // For now, you must either implement the method or use an alternative approach to retrieve the list of vehicles.
 throw new NotImplementedException("ListAsync method is not implemented in IVehicleRepository. Please implement it in the repository and its implementation class.");
 
-            var dtoItems = items.Select(MapToListItemDto).ToList();
+            // var dtoItems = items.Select(MapToListItemDto).ToList();
+            // 'items' does not exist in the current context. You need to retrieve the list of vehicles from the repository and map them to DTOs.
+            // Example (after implementing ListAsync in IVehicleRepository):
+            // var items = await _vehicleRepository.ListAsync(query, page, pageSize, cancellationToken);
+            // var dtoItems = items.Select(MapToListItemDto).ToList();
+            throw new NotImplementedException("You must implement retrieval of items from the repository. 'items' is not defined.");
 
             return CreatePagedResult(dtoItems, totalCount, page, pageSize);
         }
