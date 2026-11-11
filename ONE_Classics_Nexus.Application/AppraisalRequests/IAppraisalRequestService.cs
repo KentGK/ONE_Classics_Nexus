@@ -1,4 +1,5 @@
-﻿using ONE_Classics_Nexus.Domain.AppraisalRequests;
+﻿using System;
+using ONE_Classics_Nexus.Domain.AppraisalRequests;
 
 namespace ONE_Classics_Nexus.Application.AppraisalRequests;
 
