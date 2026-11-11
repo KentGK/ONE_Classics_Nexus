@@ -29,6 +29,6 @@ public sealed class ListVehiclesHandler
         // var items = await _repository.ListAsync(page, pageSize, cancellationToken);
         // var dtos = items.Select(v => v.ToDto()).ToList();
 
-        return new PagedResult<VehicleDto>(dtos, page, pageSize, totalCount);
+        // return new PagedResult<VehicleDto>(dtos, page, pageSize, totalCount);
     }
 }
