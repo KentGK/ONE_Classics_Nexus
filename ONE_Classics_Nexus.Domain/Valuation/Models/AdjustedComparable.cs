@@ -1,4 +1,5 @@
 ﻿namespace ONE_Classics_Nexus.Domain.Valuation.Models;
+using System.Collections.Generic;
 
 /// <summary>
 /// Represents a comparable sale after similarity scoring and valuation adjustments
