@@ -191,6 +191,10 @@
       },
       "ONE_Classics_Nexus.Application/1.0.0": {
         "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "ONE_Classics_Nexus.Domain": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/ONE_Classics_Nexus.Application.dll": {}
         },
