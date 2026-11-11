@@ -175,14 +175,9 @@ namespace ONE_Classics_Nexus.Application.Services
             var year = GetOptionalNullableInt(query, "Year");
             var titleStatus = GetOptionalString(query, "TitleStatus") ?? string.Empty;
 
-            (IReadOnlyList<Vehicle> items, int totalCount) = await _vehicleRepository.ListAsync(
-                page,
-                pageSize,
-                make,
-                model,
-                year,
-                titleStatus,
-                cancellationToken);
+            // The IVehicleRepository interface does not define a ListAsync method. You need to implement this method in IVehicleRepository and its implementation class.
+// For now, you must either implement the method or use an alternative approach to retrieve the list of vehicles.
+throw new NotImplementedException("ListAsync method is not implemented in IVehicleRepository. Please implement it in the repository and its implementation class.");
 
             var dtoItems = items.Select(MapToListItemDto).ToList();
 
