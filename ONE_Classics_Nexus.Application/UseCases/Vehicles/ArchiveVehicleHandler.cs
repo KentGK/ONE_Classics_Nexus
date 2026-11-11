@@ -24,6 +24,7 @@ public sealed class ArchiveVehicleHandler
         }
 
         // The IVehicleRepository interface does not define ArchiveAsync. You need to implement this method in the repository interface and its implementation, or use an existing method if available.
+        // TODO: Implement ArchiveAsync in IVehicleRepository and its implementation, or replace with an existing method if available.
         if (!archived)
         {
             throw new NotFoundException($"Vehicle '{vehicleId}' was not found.");
