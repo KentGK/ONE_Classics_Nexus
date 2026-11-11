@@ -1,4 +1,6 @@
-﻿namespace ONE_Classics_Nexus.Application.Requests;
+﻿using System;
+
+namespace ONE_Classics_Nexus.Application.Requests;
 
 public sealed class UpdateVehicleRequest
 {
