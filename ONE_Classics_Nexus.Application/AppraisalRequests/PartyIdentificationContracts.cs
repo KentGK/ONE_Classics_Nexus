@@ -1,3 +1,5 @@
+using System;
+
 namespace ONE_Classics_Nexus.Application.AppraisalRequests;
 
 public sealed record PostalAddress(
