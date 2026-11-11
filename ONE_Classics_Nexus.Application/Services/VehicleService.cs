@@ -339,7 +339,7 @@ throw new NotImplementedException("ListAsync method is not implemented in IVehic
             return new VehicleDto
             {
                 VehicleId = vehicle.VehicleId,
-                VehicleTypeId = vehicle.VehicleTypeId,
+                // VehicleTypeId property does not exist on Vehicle entity. You may need to map from another source or remove this mapping if not needed.
                 Vin = vehicle.Vin,
                 ChassisNumber = vehicle.ChassisNumber,
                 BodyNumber = vehicle.BodyNumber,
