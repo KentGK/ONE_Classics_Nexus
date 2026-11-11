@@ -107,7 +107,7 @@ namespace ONE_Classics_Nexus.Application.Services
 
             var updatedCandidate = Vehicle.Rehydrate(
                 vehicleId: existing.VehicleId,
-                vehicleTypeId: command.VehicleTypeId ?? existing.VehicleTypeId,
+                // vehicleTypeId: command.VehicleTypeId ?? existing.VehicleTypeId, // VehicleTypeId does not exist on Vehicle entity.
                 vin: Normalize(command.Vin),
                 year: command.Year,
                 make: NormalizeRequired(command.Make),
