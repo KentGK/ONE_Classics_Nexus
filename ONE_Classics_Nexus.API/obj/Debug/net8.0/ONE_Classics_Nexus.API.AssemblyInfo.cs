@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ONE_Classics_Nexus.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+538ec7f2af3e3fc5c7f2c42b5e9bc1f9102ce59d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+908dcf13d7d534c8253649a15d07233f105d04f2")]
 [assembly: System.Reflection.AssemblyProductAttribute("ONE_Classics_Nexus.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ONE_Classics_Nexus.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

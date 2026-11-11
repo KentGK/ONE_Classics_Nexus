@@ -1,8 +1,9 @@
 ﻿using ONE_Classics_Nexus.Domain.Entities;
-using ONE_Classics_Nexus.Application.Models.Requests;
+using ONE_Classics_Nexus.Application.Requests;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using ONE_Classics_Nexus.Application.Requests;
 
 namespace ONE_Classics_Nexus.Application.Abstractions.Repositories;
 

@@ -23,10 +23,7 @@ public sealed class ArchiveVehicleHandler
             throw new ArgumentException("Vehicle ID is required.", nameof(vehicleId));
         }
 
-        // The IVehicleRepository interface does not define ArchiveAsync. You need to implement this method in the repository interface and its implementation, or use an existing method if available.
-        // Error CS1061: 'IVehicleRepository' does not contain a definition for 'ArchiveAsync'.
-        // To fix this error, you must add an ArchiveAsync method to the IVehicleRepository interface and its implementation, or replace this call with an existing method that archives a vehicle if one exists.
-        // TODO: Implement ArchiveAsync in IVehicleRepository and its implementation, or replace with an existing method if available.
+        var archived = await _vehicleRepository.ArchiveAsync(vehicleId, cancellationToken);
         if (!archived)
         {
             throw new NotFoundException($"Vehicle '{vehicleId}' was not found.");

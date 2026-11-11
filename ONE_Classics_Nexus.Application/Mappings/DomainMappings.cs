@@ -20,6 +20,16 @@ public static class DomainMappings
         vehicle.TitleStatus,
         vehicle.CreatedAtUtc);
 
+    public static VehicleSummaryDto ToSummaryDto(this Vehicle vehicle) => new(
+        vehicle.VehicleId,
+        vehicle.Vin,
+        vehicle.Year,
+        vehicle.Make,
+        vehicle.Model,
+        vehicle.Trim,
+        vehicle.BodyStyle,
+        vehicle.TitleStatus);
+
     public static AppraisalDto ToDto(this Appraisal appraisal) => new(
         appraisal.AppraisalId,
         appraisal.VehicleId,
