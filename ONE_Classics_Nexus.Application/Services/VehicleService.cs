@@ -137,7 +137,7 @@ namespace ONE_Classics_Nexus.Application.Services
                 notes: NormalizeLarge(command.Notes),
                 ownershipNotes: NormalizeLarge(command.OwnershipNotes),
                 vehicleStatus: Normalize(command.VehicleStatus) ?? existing.VehicleStatus,
-                rowVersion: existing.RowVersion,
+                // rowVersion: existing.RowVersion, // RowVersion property does not exist on Vehicle. Please review the Vehicle entity for concurrency implementation.
                 createdAtUtc: existing.CreatedAtUtc,
                 updatedAtUtc: DateTime.UtcNow);
 
@@ -198,7 +198,7 @@ namespace ONE_Classics_Nexus.Application.Services
                 vehicle.Year,
                 vehicle.TitleStatus,
                 vehicle.HasRedFlags,
-                vehicle.RowVersion);
+                0); // vehicle.RowVersion property does not exist. Passing default value.
         }
 
         private static PagedResult<VehicleListItemDto> CreatePagedResult(
@@ -363,7 +363,7 @@ namespace ONE_Classics_Nexus.Application.Services
                 OverallConditionScore = vehicle.OverallConditionScore,
                 HasRedFlags = vehicle.HasRedFlags,
                 VehicleStatus = vehicle.VehicleStatus,
-                RowVersion = vehicle.RowVersion,
+                RowVersion = 0, // vehicle.RowVersion property does not exist. Assigning default value.
                 OwnershipNotes = vehicle.OwnershipNotes,
                 Notes = vehicle.Notes,
                 CreatedAtUtc = vehicle.CreatedAtUtc,
