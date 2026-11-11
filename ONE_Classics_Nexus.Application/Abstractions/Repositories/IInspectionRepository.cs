@@ -10,5 +10,6 @@ public interface IInspectionRepository
 {
     Task<Inspection> CreateAsync(Inspection inspection, CancellationToken ct);
     Task<Inspection?> GetByIdAsync(Guid inspectionId, CancellationToken ct);
+    Task<IReadOnlyList<Inspection>> GetByAppraisalIdAsync(Guid appraisalId, CancellationToken ct);
     Task SaveScoresAsync(Guid inspectionId, IReadOnlyList<ConditionScore> scores, CancellationToken ct);
 }

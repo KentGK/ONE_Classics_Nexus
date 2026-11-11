@@ -38,6 +38,26 @@ public static class DomainMappings
         appraisal.UpdatedAtUtc,
         appraisal.RowVersion);
 
+    public static AppraisalDetailDto ToDetailDto(this Appraisal appraisal, Vehicle vehicle) => new(
+        appraisal.AppraisalId,
+        appraisal.VehicleId,
+        appraisal.AppraisalNumber,
+        appraisal.AppraisalRequestId,
+        appraisal.ClientId,
+        appraisal.AssignedAppraiserId,
+        appraisal.AssignedReviewerId,
+        appraisal.AppraisalType,
+        appraisal.Status,
+        appraisal.IntakeStatus,
+        appraisal.InspectionStatus,
+        appraisal.ValuationStatus,
+        appraisal.ReportStatus,
+        appraisal.EffectiveDateUtc,
+        appraisal.RowVersion,
+        appraisal.CreatedAtUtc,
+        appraisal.UpdatedAtUtc,
+        vehicle.ToDto());
+
     public static ConditionScoreDto ToDto(this ConditionScore score) => new(
         score.ConditionScoreId,
         score.InspectionId,

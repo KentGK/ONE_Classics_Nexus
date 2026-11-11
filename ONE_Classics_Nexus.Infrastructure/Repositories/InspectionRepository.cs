@@ -2,6 +2,7 @@
 using ONE_Classics_Nexus.Application.Abstractions.Repositories;
 using ONE_Classics_Nexus.Domain.Entities;
 using ONE_Classics_Nexus.Infrastructure.Database;
+using InspectionEntity = ONE_Classics_Nexus.Domain.Entities.Inspection;
 
 namespace ONE_Classics_Nexus.Infrastructure.Repositories;
 
@@ -14,7 +15,7 @@ public sealed class InspectionRepository : IInspectionRepository
         _factory = factory;
     }
 
-    public async Task<Inspection> CreateAsync(Inspection inspection, CancellationToken ct)
+    public async Task<InspectionEntity> CreateAsync(InspectionEntity inspection, CancellationToken ct)
     {
         const string insertInspectionSql = """
             INSERT INTO inspections
@@ -100,13 +101,14 @@ public sealed class InspectionRepository : IInspectionRepository
         return inspection;
     }
 
-    public async Task<Inspection?> GetByIdAsync(Guid inspectionId, CancellationToken ct)
+    public async Task<InspectionEntity?> GetByIdAsync(Guid inspectionId, CancellationToken ct)
     {
         const string inspectionSql = """
             SELECT
                 inspection_id     AS InspectionId,
                 appraisal_id      AS AppraisalId,
                 inspection_type   AS InspectionType,
+                status            AS Status,
                 created_at_utc    AS CreatedAtUtc,
                 updated_at_utc    AS UpdatedAtUtc
             FROM inspections
@@ -131,7 +133,7 @@ public sealed class InspectionRepository : IInspectionRepository
         await using var conn = _factory.Create();
         await conn.OpenAsync(ct);
 
-        var inspection = await conn.QuerySingleOrDefaultAsync<Inspection>(new CommandDefinition(
+        var inspection = await conn.QuerySingleOrDefaultAsync<InspectionEntity>(new CommandDefinition(
             inspectionSql,
             new { InspectionId = inspectionId.ToString() },
             cancellationToken: ct));
@@ -146,6 +148,31 @@ public sealed class InspectionRepository : IInspectionRepository
 
         inspection.ConditionScores = scores.ToList();
         return inspection;
+    }
+
+    public async Task<IReadOnlyList<InspectionEntity>> GetByAppraisalIdAsync(Guid appraisalId, CancellationToken ct)
+    {
+        const string sql = """
+            SELECT
+                inspection_id   AS InspectionId,
+                appraisal_id    AS AppraisalId,
+                inspection_type AS InspectionType,
+                status          AS Status,
+                created_at_utc  AS CreatedAtUtc,
+                updated_at_utc  AS UpdatedAtUtc
+            FROM inspections
+            WHERE appraisal_id = @AppraisalId
+            ORDER BY created_at_utc DESC, inspection_id;
+            """;
+
+        await using var conn = _factory.Create();
+        await conn.OpenAsync(ct);
+        var inspections = await conn.QueryAsync<InspectionEntity>(new CommandDefinition(
+            sql,
+            new { AppraisalId = appraisalId.ToString() },
+            cancellationToken: ct));
+
+        return inspections.ToArray();
     }
 
     public async Task SaveScoresAsync(Guid inspectionId, IReadOnlyList<ConditionScore> scores, CancellationToken ct)

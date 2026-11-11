@@ -49,12 +49,11 @@ public sealed class GetVehicleHistoryHandler
                 InspectionId: null)
         };
 
-        // 'UpdatedAtUtc' property does not exist on Vehicle. If you need to track updates, ensure the Vehicle entity has an appropriate property (e.g., 'LastModifiedAtUtc'). For now, this check is removed.
-        // if (vehicle.UpdatedAtUtc > vehicle.CreatedAtUtc)
+        if (vehicle.UpdatedAtUtc > vehicle.CreatedAtUtc)
         {
             events.Add(new VehicleHistoryEventDto(
                 EventType: "VehicleUpdated",
-                // OccurredAtUtc: vehicle.UpdatedAtUtc,
+                OccurredAtUtc: vehicle.UpdatedAtUtc,
                 Description: "Vehicle record updated.",
                 AppraisalId: null,
                 InspectionId: null));
