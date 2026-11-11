@@ -1,4 +1,5 @@
 namespace ONE_Classics_Nexus.Application.Requests;
+using System;
 
 public sealed class SearchVehiclesRequest
 {
