@@ -1,4 +1,5 @@
 ﻿using ONE_Classics_Nexus.Application.Abstractions.Repositories;
+using ONE_Classics_Nexus.Application.Abstractions.Services;
 using ONE_Classics_Nexus.Application.DTOs;
 using ONE_Classics_Nexus.Application.Exceptions;
 using ONE_Classics_Nexus.Application.Mappings;
@@ -14,13 +15,16 @@ public sealed class CreateAppraisalHandler
 {
     private readonly IVehicleRepository _vehicleRepository;
     private readonly IAppraisalRepository _appraisalRepository;
+    private readonly IAutoNumberGenerator _autoNumberGenerator;
 
     public CreateAppraisalHandler(
         IVehicleRepository vehicleRepository,
-        IAppraisalRepository appraisalRepository)
+        IAppraisalRepository appraisalRepository,
+        IAutoNumberGenerator autoNumberGenerator)
     {
-        _vehicleRepository = vehicleRepository;
-        _appraisalRepository = appraisalRepository;
+        _vehicleRepository = vehicleRepository ?? throw new ArgumentNullException(nameof(vehicleRepository));
+        _appraisalRepository = appraisalRepository ?? throw new ArgumentNullException(nameof(appraisalRepository));
+        _autoNumberGenerator = autoNumberGenerator ?? throw new ArgumentNullException(nameof(autoNumberGenerator));
     }
 
     public async Task<AppraisalDto> HandleAsync(CreateAppraisalRequest request, CancellationToken ct)
@@ -35,7 +39,25 @@ public sealed class CreateAppraisalHandler
         if (vehicle is null)
             throw new NotFoundException("Vehicle not found.");
 
+        var appraisalNumber = string.IsNullOrWhiteSpace(request.AppraisalNumber)
+            ? await _autoNumberGenerator.NextAsync("appraisal", "AN", 6, ct)
+            : request.AppraisalNumber.Trim();
+
         var appraisal = Appraisal.Create(request.VehicleId);
+        appraisal.AppraisalNumber = appraisalNumber;
+        appraisal.AppraisalRequestId = request.AppraisalRequestId;
+        appraisal.ClientId = request.ClientId;
+        appraisal.AssignedAppraiserId = request.AssignedAppraiserId;
+        appraisal.AssignedReviewerId = request.AssignedReviewerId;
+        appraisal.AppraisalType = string.IsNullOrWhiteSpace(request.AppraisalType)
+            ? "Standard"
+            : request.AppraisalType.Trim();
+        appraisal.Status = string.IsNullOrWhiteSpace(request.Status) ? "Draft" : request.Status.Trim();
+        appraisal.IntakeStatus = request.IntakeStatus;
+        appraisal.InspectionStatus = request.InspectionStatus;
+        appraisal.ValuationStatus = request.ValuationStatus;
+        appraisal.ReportStatus = request.ReportStatus;
+        appraisal.EffectiveDateUtc = request.EffectiveDateUtc;
         var created = await _appraisalRepository.CreateAsync(appraisal, ct);
 
         return created.ToDto();

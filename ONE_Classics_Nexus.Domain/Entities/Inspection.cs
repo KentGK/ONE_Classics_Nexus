@@ -7,8 +7,13 @@ namespace ONE_Classics_Nexus.Domain.Entities
     {
         public Guid InspectionId { get; set; }
         public Guid AppraisalId { get; set; }
+        public Guid InspectionTemplateId { get; set; }
+        public Guid? InspectedByUserId { get; set; }
         public string InspectionType { get; set; } = "Standard";
         public string Status { get; set; } = string.Empty;
+        public string? InspectionLocation { get; set; }
+        public DateTime? InspectedOnUtc { get; set; }
+        public decimal? CompletionPercentage { get; set; }
         public DateTime CreatedAtUtc { get; set; }
         public DateTime UpdatedAtUtc { get; set; }
         public List<ConditionScore> ConditionScores { get; set; } = new List<ConditionScore>();

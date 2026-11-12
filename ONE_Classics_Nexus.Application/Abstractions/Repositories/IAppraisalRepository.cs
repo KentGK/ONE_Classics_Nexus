@@ -11,4 +11,5 @@ public interface IAppraisalRepository
     Task<Appraisal> CreateAsync(Appraisal appraisal, CancellationToken ct);
     Task<Appraisal?> GetByIdAsync(Guid appraisalId, CancellationToken ct);
     Task<PagedResult<Appraisal>> BrowseAsync(AppraisalBrowseFilter filter, CancellationToken ct);
+    Task<bool> DeleteAsync(Guid appraisalId, CancellationToken ct);
 }

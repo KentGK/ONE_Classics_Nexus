@@ -12,6 +12,8 @@ public sealed class ConditionScore
     public decimal Weight { get; set; }
     public bool IsRedFlag { get; set; }
     public string? Notes { get; set; }
+    public DateTime CreatedAtUtc { get; set; }
+    public DateTime UpdatedAtUtc { get; set; }
 
     public static ConditionScore Create(
         Guid inspectionId,
@@ -37,6 +39,7 @@ public sealed class ConditionScore
         if (weight < 0m)
             throw new ArgumentOutOfRangeException(nameof(weight), "Weight cannot be negative.");
 
+        var nowUtc = DateTime.UtcNow;
         return new ConditionScore
         {
             ConditionScoreId = Guid.NewGuid(),
@@ -46,7 +49,9 @@ public sealed class ConditionScore
             Score0To5 = score0To5,
             Weight = weight,
             IsRedFlag = isRedFlag,
-            Notes = string.IsNullOrWhiteSpace(notes) ? null : notes.Trim()
+            Notes = string.IsNullOrWhiteSpace(notes) ? null : notes.Trim(),
+            CreatedAtUtc = nowUtc,
+            UpdatedAtUtc = nowUtc
         };
     }
 
@@ -62,5 +67,6 @@ public sealed class ConditionScore
         Weight = weight;
         IsRedFlag = isRedFlag;
         Notes = string.IsNullOrWhiteSpace(notes) ? null : notes.Trim();
+        UpdatedAtUtc = DateTime.UtcNow;
     }
 }

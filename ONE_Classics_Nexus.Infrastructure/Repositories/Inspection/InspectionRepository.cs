@@ -1,6 +1,8 @@
 ﻿using Dapper;
+using System.Data;
 using ONE_Classics_Nexus.Application.Abstractions.Repositories;
 using ONE_Classics_Nexus.Infrastructure.Database;
+using ConditionScore = ONE_Classics_Nexus.Domain.Entities.ConditionScore;
 using InspectionEntity = ONE_Classics_Nexus.Domain.Entities.Inspection;
 
 namespace ONE_Classics_Nexus.Infrastructure.Repositories.Inspection;
@@ -17,6 +19,70 @@ public sealed class InspectionRepository : IInspectionRepository
     public async Task<InspectionEntity> InsertAsync(
         InspectionEntity inspection,
         CancellationToken cancellationToken = default)
+    {
+        ArgumentNullException.ThrowIfNull(inspection);
+
+        await using var conn = _factory.Create();
+        await conn.OpenAsync(cancellationToken);
+        await InsertInspectionAsync(inspection, conn, null, cancellationToken);
+
+        return inspection;
+    }
+
+    public async Task<InspectionEntity> CreateAsync(
+        InspectionEntity inspection,
+        CancellationToken ct)
+    {
+        ArgumentNullException.ThrowIfNull(inspection);
+        ArgumentNullException.ThrowIfNull(inspection.ConditionScores);
+
+        const string scoreSql = """
+            INSERT INTO condition_scores
+            (
+                condition_score_id, inspection_id, system_number, system_key,
+                score_0_to_5, weight, is_red_flag, notes
+            )
+            VALUES
+            (
+                @ConditionScoreId, @InspectionId, @SystemNumber, @SystemKey,
+                @Score0To5, @Weight, @IsRedFlag, @Notes
+            );
+            """;
+
+        await using var conn = _factory.Create();
+        await conn.OpenAsync(ct);
+        await using var transaction = await conn.BeginTransactionAsync(ct);
+
+        await InsertInspectionAsync(inspection, conn, transaction, ct);
+
+        foreach (var score in inspection.ConditionScores)
+        {
+            await conn.ExecuteAsync(new CommandDefinition(
+                scoreSql,
+                new
+                {
+                    ConditionScoreId = score.ConditionScoreId.ToString(),
+                    InspectionId = inspection.InspectionId.ToString(),
+                    score.SystemNumber,
+                    score.SystemKey,
+                    score.Score0To5,
+                    score.Weight,
+                    score.IsRedFlag,
+                    score.Notes
+                },
+                transaction: transaction,
+                cancellationToken: ct));
+        }
+
+        await transaction.CommitAsync(ct);
+        return inspection;
+    }
+
+    private static async Task InsertInspectionAsync(
+        InspectionEntity inspection,
+        IDbConnection conn,
+        IDbTransaction? transaction,
+        CancellationToken cancellationToken)
     {
         const string sql = """
             INSERT INTO inspections
@@ -57,15 +123,11 @@ public sealed class InspectionRepository : IInspectionRepository
             );
             """;
 
-        await using var conn = _factory.Create();
-        await conn.OpenAsync(cancellationToken);
-
         await conn.ExecuteAsync(new CommandDefinition(
             sql,
             ToParameters(inspection),
+            transaction: transaction,
             cancellationToken: cancellationToken));
-
-        return inspection;
     }
 
     public async Task<InspectionEntity?> GetByIdAsync(
@@ -266,6 +328,13 @@ public sealed class InspectionRepository : IInspectionRepository
 
         return await GetByIdAsync(inspectionId, cancellationToken);
     }
+
+    public Task SaveScoresAsync(
+        Guid inspectionId,
+        IReadOnlyList<ConditionScore> scores,
+        CancellationToken ct) =>
+        new global::ONE_Classics_Nexus.Infrastructure.Repositories.InspectionRepository(_factory)
+            .SaveScoresAsync(inspectionId, scores, ct);
 
     private static object ToParameters(InspectionEntity inspection)
     {

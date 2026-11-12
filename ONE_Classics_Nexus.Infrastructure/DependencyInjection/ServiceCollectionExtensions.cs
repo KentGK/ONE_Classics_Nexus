@@ -1,9 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using ONE_Classics_Nexus.Application.Abstractions.Repositories;
+using ONE_Classics_Nexus.Application.Abstractions.Services;
 using ONE_Classics_Nexus.Application.UseCases.Appraisals;
 using ONE_Classics_Nexus.Application.UseCases.Inspections;
 using ONE_Classics_Nexus.Application.UseCases.Vehicles;
 using ONE_Classics_Nexus.Infrastructure.Database;
+using ONE_Classics_Nexus.Infrastructure.Numbering;
 using ONE_Classics_Nexus.Infrastructure.Repositories;
 
 namespace ONE_Classics_Nexus.Infrastructure.DependencyInjection;
@@ -15,6 +18,7 @@ public static class ServiceCollectionExtensions
         // Register both factory types so existing repositories continue to resolve.
         services.AddSingleton<MySqlConnectionFactory>();
         services.AddSingleton<MariaDbConnectionFactory>();
+        services.TryAddScoped<IAutoNumberGenerator, AutoNumberGenerator>();
 
         services.AddSingleton<IDbConnectionFactory, MariaDbOpenConnectionFactory>();
         services.AddScoped<IVehicleRepository, Repositories.Vehicle.VehicleRepository>();

@@ -15,39 +15,8 @@ public sealed class AppraisalRepository : IAppraisalRepository
         _factory = factory;
     }
 
-    public async Task<AppraisalEntity> CreateAsync(AppraisalEntity appraisal, CancellationToken ct)
-    {
-        const string sql = """
-            INSERT INTO appraisals
-            (
-                appraisal_id,
-                vehicle_id,
-                status,
-                created_at_utc,
-                updated_at_utc,
-                row_version
-            )
-            VALUES
-            (
-                @AppraisalId,
-                @VehicleId,
-                @Status,
-                @CreatedAtUtc,
-                @UpdatedAtUtc,
-                @RowVersion
-            );
-            """;
-
-        await using var conn = _factory.Create();
-        await conn.OpenAsync(ct);
-
-        await conn.ExecuteAsync(new CommandDefinition(
-            sql,
-            appraisal,
-            cancellationToken: ct));
-
-        return appraisal;
-    }
+    public Task<AppraisalEntity> CreateAsync(AppraisalEntity appraisal, CancellationToken ct) =>
+        new Appraisal.AppraisalRepository(_factory).CreateAsync(appraisal, ct);
 
     public async Task<AppraisalEntity?> GetByIdAsync(Guid appraisalId, CancellationToken ct)
     {
@@ -89,4 +58,7 @@ public sealed class AppraisalRepository : IAppraisalRepository
         var repository = new Appraisal.AppraisalRepository(_factory);
         return repository.BrowseAsync(filter, ct);
     }
+
+    public Task<bool> DeleteAsync(Guid appraisalId, CancellationToken ct) =>
+        new Appraisal.AppraisalRepository(_factory).DeleteAsync(appraisalId, ct);
 }

@@ -416,7 +416,7 @@ namespace ONE_Classics_Nexus.Infrastructure.Repositories.Vehicle
             return (items, totalCount);
         }
 
-        public Task<(IReadOnlyList<VehicleEntity> items, int totalCount)> ListAsync(
+        public Task<(IReadOnlyList<VehicleEntity> Items, int TotalCount)> ListAsync(
             int page,
             int pageSize,
             string make,

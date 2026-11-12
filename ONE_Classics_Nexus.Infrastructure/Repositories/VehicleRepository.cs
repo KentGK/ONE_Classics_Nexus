@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using MySqlConnector;
 using ONE_Classics_Nexus.Application.Abstractions.Repositories;
+using ONE_Classics_Nexus.Application.Requests;
 using ONE_Classics_Nexus.Domain.Entities;
 using ONE_Classics_Nexus.Infrastructure.Database;
 using VehicleEntity = ONE_Classics_Nexus.Domain.Entities.Vehicle;
@@ -10,11 +11,20 @@ namespace ONE_Classics_Nexus.Infrastructure.Repositories;
 public sealed class VehicleRepository : IVehicleRepository
 {
     private readonly MariaDbConnectionFactory _factory;
+    private readonly Vehicle.VehicleRepository _fullRepository;
 
     public VehicleRepository(MariaDbConnectionFactory factory)
     {
         _factory = factory;
+        _fullRepository = new Vehicle.VehicleRepository(new MariaDbOpenConnectionFactory(factory));
     }
+
+    public Task<bool> MergeAsync(Guid source, Guid target, CancellationToken ct) =>
+        _fullRepository.MergeAsync(source, target, ct);
+
+    public Task<(IReadOnlyList<VehicleEntity> Items, int TotalCount)> SearchAsync(
+        SearchVehiclesRequest request, CancellationToken ct) =>
+        _fullRepository.SearchAsync(request, ct);
 
     public async Task<VehicleEntity> CreateAsync(VehicleEntity vehicle, CancellationToken ct)
     {

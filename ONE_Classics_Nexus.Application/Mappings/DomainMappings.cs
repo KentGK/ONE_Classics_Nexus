@@ -36,7 +36,10 @@ public static class DomainMappings
         appraisal.Status,
         appraisal.CreatedAtUtc,
         appraisal.UpdatedAtUtc,
-        appraisal.RowVersion);
+        appraisal.RowVersion)
+    {
+        AppraisalNumber = appraisal.AppraisalNumber
+    };
 
     public static AppraisalDetailDto ToDetailDto(this Appraisal appraisal, Vehicle vehicle) => new(
         appraisal.AppraisalId,

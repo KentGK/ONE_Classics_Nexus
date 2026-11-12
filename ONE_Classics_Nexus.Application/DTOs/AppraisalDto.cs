@@ -8,4 +8,7 @@ public sealed record AppraisalDto(
     string Status,
     DateTime CreatedAtUtc,
     DateTime UpdatedAtUtc,
-    long RowVersion);
+    long RowVersion)
+{
+    public string? AppraisalNumber { get; init; }
+}
