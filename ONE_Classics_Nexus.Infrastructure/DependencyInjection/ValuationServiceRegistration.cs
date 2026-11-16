@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using ONE_Classics_Nexus.Application.Valuation.Interfaces;
 using ONE_Classics_Nexus.Application.Valuation.Services;
 using ONE_Classics_Nexus.Domain.Valuation.Abstractions;

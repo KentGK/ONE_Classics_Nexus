@@ -1,4 +1,4 @@
-﻿using System.Text.Json;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace ONE_Classics_Nexus.Tests.Integration.Infrastructure;

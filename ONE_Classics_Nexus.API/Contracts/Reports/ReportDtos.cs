@@ -1,4 +1,4 @@
-﻿namespace ONE_Classics_Nexus.API.Contracts.Reports;
+namespace ONE_Classics_Nexus.API.Contracts.Reports;
 
 public sealed record CreateReportRequest(
     string TemplateKey,

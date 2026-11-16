@@ -1,4 +1,4 @@
-﻿namespace ONE_Classics_Nexus.Domain.Valuation.Rules;
+namespace ONE_Classics_Nexus.Domain.Valuation.Rules;
 
 public static class ValuationRuleConstants
 {

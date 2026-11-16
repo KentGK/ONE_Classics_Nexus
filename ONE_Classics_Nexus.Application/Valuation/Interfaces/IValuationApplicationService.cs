@@ -1,4 +1,4 @@
-﻿using ONE_Classics_Nexus.Application.Valuation.DTOs;
+using ONE_Classics_Nexus.Application.Valuation.DTOs;
 
 namespace ONE_Classics_Nexus.Application.Valuation.Interfaces;
 

@@ -1,4 +1,4 @@
-﻿namespace ONE_Classics_Nexus.WinForms.Extensions
+namespace ONE_Classics_Nexus.WinForms.Extensions
 {
     internal class ControlExtensions
     {

@@ -133,7 +133,7 @@ public sealed class ClientApiService(
         _currentUser.UserId
         ?? throw new UnauthorizedAccessException(
             "An authenticated user id is required to write client records.");
-    
+
 
     public Task<bool> DeleteAsync(
         Guid clientId,

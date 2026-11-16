@@ -1,4 +1,4 @@
-﻿using ONE_Classics_Nexus.Domain.Entities;
+using ONE_Classics_Nexus.Domain.Entities;
 using ONE_Classics_Nexus.Application.Requests;
 using System;
 using System.Threading;
@@ -16,6 +16,12 @@ public interface IVehicleRepository
     Task<(IReadOnlyList<Vehicle> Items, int TotalCount)> ListAsync(
         int page, int pageSize, string make, string model, int? year,
         string titleStatus, CancellationToken ct);
+    /// <summary>Lists vehicles using the supplied filters and sorting options.</summary>
+    Task<(IReadOnlyList<Vehicle> Items, int TotalCount)> ListAsync(
+        int page, int pageSize, string? search, string? vin, int? yearFrom, int? yearTo,
+        string? make, string? model, string? series, Guid? vehicleTypeId, string? bodyStyle,
+        int? year, int? mileage, string? exteriorColor, bool? hasRedFlags, string? titleStatus,
+        string? sortBy, string? sortDirection, CancellationToken cancellationToken);
     Task<bool> MergeAsync(Guid sourceVehicleId, Guid targetVehicleId, CancellationToken ct);
     Task<(IReadOnlyList<Vehicle> Items, int TotalCount)> SearchAsync(
         SearchVehiclesRequest request, CancellationToken cancellationToken);

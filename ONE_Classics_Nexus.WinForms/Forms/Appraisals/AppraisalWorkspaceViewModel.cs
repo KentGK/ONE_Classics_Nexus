@@ -17,7 +17,7 @@ public sealed class AppraisalWorkspaceViewModel
     public event EventHandler? StateChanged;
 
     public async Task LoadAsync(
-        Guid appraisalId, 
+        Guid appraisalId,
         CancellationToken cancellationToken = default)
     {
         if (appraisalId == Guid.Empty)

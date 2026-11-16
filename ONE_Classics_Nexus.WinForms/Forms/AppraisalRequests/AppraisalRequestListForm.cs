@@ -1,4 +1,4 @@
-﻿using ONE_Classics_Nexus.Application.AppraisalRequests;
+using ONE_Classics_Nexus.Application.AppraisalRequests;
 using ONE_Classics_Nexus.WinForms.Services.Api;
 using ONE_Classics_Nexus.WinForms.Theming;
 

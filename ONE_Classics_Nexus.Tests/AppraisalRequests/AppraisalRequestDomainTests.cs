@@ -1,6 +1,7 @@
-﻿using ONE_Classics_Nexus.Domain.AppraisalRequests;
+using ONE_Classics_Nexus.Domain.AppraisalRequests;
 using Xunit;
 namespace ONE_Classics_Nexus.Tests.AppraisalRequests;
+
 public sealed class AppraisalRequestDomainTests
 {
     private static readonly DateTime Now = new(2026, 8, 31, 18, 0, 0, DateTimeKind.Utc);

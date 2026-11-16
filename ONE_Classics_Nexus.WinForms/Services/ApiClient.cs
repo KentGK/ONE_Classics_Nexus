@@ -1,4 +1,4 @@
-﻿using System.Net.Http.Json;
+using System.Net.Http.Json;
 using ONE_Classics_Nexus.Application.DTOs;
 using ONE_Classics_Nexus.Application.Requests;
 

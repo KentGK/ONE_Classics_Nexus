@@ -1,17 +1,17 @@
-﻿using ONE_Classics_Nexus.Application.Contracts.Vehicles;
+using ONE_Classics_Nexus.Application.Contracts.Vehicles;
 using ONE_Classics_Nexus.Application.Abstractions.Paging;
 namespace ONE_Classics_Nexus.Application.Abstractions.Services
 {
     public interface IVehicleService
     {
         Task<VehicleDto> CreateAsync(
-            CreateVehicleCommand command, 
+            CreateVehicleCommand command,
             CancellationToken cancellationToken = default);
         Task<VehicleDto?> GetByIdAsync(
-            Guid vehicleId, 
+            Guid vehicleId,
             CancellationToken cancellationToken = default);
         Task<VehicleDto?> UpdateAsync(
-            UpdateVehicleCommand command, 
+            UpdateVehicleCommand command,
             CancellationToken cancellationToken = default);
         Task ArchiveAsync(
             Guid vehicleId,

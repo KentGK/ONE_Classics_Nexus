@@ -498,7 +498,7 @@ public partial class InspectionWorkspaceForm : Form
                     SystemNumber = score.SystemNumber,
                     SectionName = score.SystemName,
                     Score0To5 = score.Score0To5,
-                    ItemsScoredDisplay = "—",
+                    ItemsScoredDisplay = "â€”",
                     RedFlagCount = score.IsRedFlag ? 1 : 0
                 });
             }
@@ -1091,7 +1091,7 @@ public partial class InspectionWorkspaceForm : Form
     }
 
     private static string Display(string? value) =>
-        string.IsNullOrWhiteSpace(value) ? "—" : value;
+        string.IsNullOrWhiteSpace(value) ? "â€”" : value;
 
     private static string? NullIfWhiteSpace(string? value) =>
         string.IsNullOrWhiteSpace(value) ? null : value.Trim();
@@ -1130,7 +1130,7 @@ internal sealed class SectionSummaryRowViewModel
     public string SectionName { get; set; } = string.Empty;
     public string SectionDisplay => $"{SystemNumber}. {SectionName}";
     public decimal Score0To5 { get; set; }
-    public string ItemsScoredDisplay { get; set; } = "—";
+    public string ItemsScoredDisplay { get; set; } = "â€”";
     public int RedFlagCount { get; set; }
 }
 

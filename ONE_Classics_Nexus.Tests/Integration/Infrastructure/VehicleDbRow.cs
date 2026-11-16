@@ -1,4 +1,4 @@
-﻿namespace ONE_Classics_Nexus.Tests.Integration.Infrastructure;
+namespace ONE_Classics_Nexus.Tests.Integration.Infrastructure;
 
 public sealed class VehicleDbRow
 {

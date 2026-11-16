@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.37027.9
@@ -189,20 +189,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Swagger", "Swagger", "{82A7
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ONE_Classics_Nexus.API", "ONE_Classics_Nexus.API\ONE_Classics_Nexus.API.csproj", "{74F5F15D-E7D4-F4F8-F539-A249D11BFEE1}"
-	ProjectSection(ProjectDependencies) = postProject
-		{9181DBFE-F0AC-48F4-9095-BA57BEE4039F} = {9181DBFE-F0AC-48F4-9095-BA57BEE4039F}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ONE_Classics_Nexus.Application", "ONE_Classics_Nexus.Application\ONE_Classics_Nexus.Application.csproj", "{165FD9AA-5463-47EA-9F10-A09EEC3D242B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ONE_Classics_Nexus.Infrastructure", "ONE_Classics_Nexus.Infrastructure\ONE_Classics_Nexus.Infrastructure.csproj", "{C8A54D2F-019F-6C35-E3A2-24B93884F692}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ONE_Classics_Nexus.WinForms", "ONE_Classics_Nexus.WinForms\ONE_Classics_Nexus.WinForms.csproj", "{B6F969AE-9F31-1543-B430-376CB9580506}"
-	ProjectSection(ProjectDependencies) = postProject
-		{A0C76963-EAA6-27C1-D207-A595EE5364DF} = {A0C76963-EAA6-27C1-D207-A595EE5364DF}
-		{C8A54D2F-019F-6C35-E3A2-24B93884F692} = {C8A54D2F-019F-6C35-E3A2-24B93884F692}
-		{9181DBFE-F0AC-48F4-9095-BA57BEE4039F} = {9181DBFE-F0AC-48F4-9095-BA57BEE4039F}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ONE_Classics_Nexus.Domain", "ONE_Classics_Nexus.Domain\ONE_Classics_Nexus.Domain.csproj", "{9181DBFE-F0AC-48F4-9095-BA57BEE4039F}"
 EndProject

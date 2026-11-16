@@ -1,6 +1,7 @@
-﻿using Dapper;
+using Dapper;
 using ONE_Classics_Nexus.Application.AppraisalRequests;
 namespace ONE_Classics_Nexus.Infrastructure.AppraisalRequests;
+
 public sealed class AppraisalRequestAuditWriter(IAppraisalRequestConnectionFactory factory) : IAppraisalRequestAuditWriter
 {
     public async Task WriteAsync(Guid requestId, Guid? actor, string action, string? prior, string next, string? reason, Guid? appraisalId, CancellationToken ct)

@@ -19,11 +19,17 @@ public sealed class UsersController : ControllerBase
         var now = DateTime.UtcNow;
         var user = new User
         {
-            UserId = Guid.NewGuid(), Email = request.Email.Trim(), Username = request.Username.Trim(),
-            DisplayName = request.DisplayName.Trim(), FirstName = Normalize(request.FirstName),
-            LastName = Normalize(request.LastName), AuthProvider = Normalize(request.AuthProvider),
-            ExternalSubject = Normalize(request.ExternalSubject), IsActive = request.IsActive,
-            CreatedAtUtc = now, UpdatedAtUtc = now
+            UserId = Guid.NewGuid(),
+            Email = request.Email.Trim(),
+            Username = request.Username.Trim(),
+            DisplayName = request.DisplayName.Trim(),
+            FirstName = Normalize(request.FirstName),
+            LastName = Normalize(request.LastName),
+            AuthProvider = Normalize(request.AuthProvider),
+            ExternalSubject = Normalize(request.ExternalSubject),
+            IsActive = request.IsActive,
+            CreatedAtUtc = now,
+            UpdatedAtUtc = now
         };
 
         var result = await _repository.CreateAsync(user, cancellationToken);
@@ -71,9 +77,16 @@ public sealed class UsersController : ControllerBase
 
     private static UserResponse ToResponse(User user) => new()
     {
-        UserId = user.UserId, Email = user.Email, Username = user.Username, DisplayName = user.DisplayName,
-        FirstName = user.FirstName, LastName = user.LastName, AuthProvider = user.AuthProvider,
-        ExternalSubject = user.ExternalSubject, IsActive = user.IsActive,
-        CreatedAtUtc = user.CreatedAtUtc, UpdatedAtUtc = user.UpdatedAtUtc
+        UserId = user.UserId,
+        Email = user.Email,
+        Username = user.Username,
+        DisplayName = user.DisplayName,
+        FirstName = user.FirstName,
+        LastName = user.LastName,
+        AuthProvider = user.AuthProvider,
+        ExternalSubject = user.ExternalSubject,
+        IsActive = user.IsActive,
+        CreatedAtUtc = user.CreatedAtUtc,
+        UpdatedAtUtc = user.UpdatedAtUtc
     };
 }

@@ -1,4 +1,4 @@
-﻿namespace ONE_Classics_Nexus.Domain.Valuation.Models;
+namespace ONE_Classics_Nexus.Domain.Valuation.Models;
 
 /// <summary>
 /// Represents a single adjustment applied to a comparable sale.

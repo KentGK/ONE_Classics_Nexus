@@ -67,7 +67,7 @@ public sealed class ClientsController : ControllerBase
         CancellationToken cancellationToken)
     {
         var result = await service.CreateAsync(
-            request, 
+            request,
             cancellationToken);
 
         return CreatedAtAction(

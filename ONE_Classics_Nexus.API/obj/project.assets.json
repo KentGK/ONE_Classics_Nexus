@@ -15,6 +15,19 @@
           }
         }
       },
+      "FluentValidation/11.11.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/FluentValidation.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
         "type": "package",
         "build": {
@@ -109,7 +122,6 @@
           }
         }
       },
-      "MySqlConnector/2.6.2": {
       "MySqlConnector/2.6.2": {
         "type": "package",
         "dependencies": {
@@ -222,7 +234,6 @@
           "Microsoft.Extensions.Configuration.Abstractions": "9.0.8",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.8",
           "MySqlConnector": "2.6.2",
-          "MySqlConnector": "2.6.2",
           "ONE_Classics_Nexus.Application": "1.0.0",
           "ONE_Classics_Nexus.Domain": "1.0.0"
         },
@@ -255,6 +266,31 @@
         "lib/netstandard2.0/Dapper.dll",
         "lib/netstandard2.0/Dapper.xml",
         "readme.md"
+      ]
+    },
+    "FluentValidation/11.11.0": {
+      "sha512": "cyIVdQBwSipxWG8MA3Rqox7iNbUNUTK5bfJi9tIdm4CAfH71Oo5ABLP4/QyrUwuakqpUEPGtE43BDddvEehuYw==",
+      "type": "package",
+      "path": "fluentvalidation/11.11.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fluent-validation-icon.png",
+        "fluentvalidation.11.11.0.nupkg.sha512",
+        "fluentvalidation.nuspec",
+        "lib/net5.0/FluentValidation.dll",
+        "lib/net5.0/FluentValidation.xml",
+        "lib/net6.0/FluentValidation.dll",
+        "lib/net6.0/FluentValidation.xml",
+        "lib/net7.0/FluentValidation.dll",
+        "lib/net7.0/FluentValidation.xml",
+        "lib/net8.0/FluentValidation.dll",
+        "lib/net8.0/FluentValidation.xml",
+        "lib/netstandard2.0/FluentValidation.dll",
+        "lib/netstandard2.0/FluentValidation.xml",
+        "lib/netstandard2.1/FluentValidation.dll",
+        "lib/netstandard2.1/FluentValidation.xml"
       ]
     },
     "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
@@ -664,10 +700,7 @@
     },
     "MySqlConnector/2.6.2": {
       "sha512": "dlTc/tsBa42szdvpj4nrHvQVUb0gsMwR9HT6J0Zz2OSqfP0CdYlGw+qQPqCpbnO97idfvclSjKYtM6y5QaBQaQ==",
-    "MySqlConnector/2.6.2": {
-      "sha512": "dlTc/tsBa42szdvpj4nrHvQVUb0gsMwR9HT6J0Zz2OSqfP0CdYlGw+qQPqCpbnO97idfvclSjKYtM6y5QaBQaQ==",
       "type": "package",
-      "path": "mysqlconnector/2.6.2",
       "path": "mysqlconnector/2.6.2",
       "files": [
         ".nupkg.metadata",
@@ -692,7 +725,6 @@
         "lib/netstandard2.1/MySqlConnector.dll",
         "lib/netstandard2.1/MySqlConnector.xml",
         "logo.png",
-        "mysqlconnector.2.6.2.nupkg.sha512",
         "mysqlconnector.2.6.2.nupkg.sha512",
         "mysqlconnector.nuspec"
       ]
@@ -817,7 +849,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "MySqlConnector >= 2.6.2",
+      "FluentValidation >= 11.11.0",
       "MySqlConnector >= 2.6.2",
       "ONE_Classics_Nexus.Application >= 1.0.0",
       "ONE_Classics_Nexus.Infrastructure >= 1.0.0",
@@ -882,9 +914,9 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
-          "MySqlConnector": {
+          "FluentValidation": {
             "target": "Package",
-            "version": "[2.6.2, )"
+            "version": "[11.11.0, )"
           },
           "MySqlConnector": {
             "target": "Package",

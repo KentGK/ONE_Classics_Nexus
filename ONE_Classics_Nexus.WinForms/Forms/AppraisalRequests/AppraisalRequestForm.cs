@@ -1,4 +1,4 @@
-﻿using ONE_Classics_Nexus.WinForms.Theming;
+using ONE_Classics_Nexus.WinForms.Theming;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

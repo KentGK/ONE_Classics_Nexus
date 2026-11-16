@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using ONE_Classics_Nexus.Application.Requests;
 using ONE_Classics_Nexus.Application.UseCases.Inspections;
 

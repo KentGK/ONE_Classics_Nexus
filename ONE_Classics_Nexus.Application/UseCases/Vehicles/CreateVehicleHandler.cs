@@ -1,4 +1,4 @@
-﻿using ONE_Classics_Nexus.Application.Abstractions.Repositories;
+using ONE_Classics_Nexus.Application.Abstractions.Repositories;
 using ONE_Classics_Nexus.Application.DTOs;
 using ONE_Classics_Nexus.Application.Exceptions;
 using ONE_Classics_Nexus.Application.Mappings;
@@ -13,10 +13,12 @@ namespace ONE_Classics_Nexus.Application.UseCases.Vehicles;
 public sealed class CreateVehicleHandler
 {
     private readonly IVehicleRepository _vehicleRepository;
+    private readonly IVehicleTypeRepository _vehicleTypeRepository;
 
-    public CreateVehicleHandler(IVehicleRepository vehicleRepository)
+    public CreateVehicleHandler(IVehicleRepository vehicleRepository, IVehicleTypeRepository vehicleTypeRepository)
     {
         _vehicleRepository = vehicleRepository;
+        _vehicleTypeRepository = vehicleTypeRepository;
     }
 
     public async Task<VehicleDto> HandleAsync(CreateVehicleRequest request, CancellationToken ct)

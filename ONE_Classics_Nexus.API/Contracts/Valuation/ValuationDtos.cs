@@ -1,4 +1,4 @@
-﻿namespace ONE_Classics_Nexus.API.Contracts.Valuation;
+namespace ONE_Classics_Nexus.API.Contracts.Valuation;
 
 public sealed record RunValuationRequest(
     string? EngineVersion,

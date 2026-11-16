@@ -18,12 +18,23 @@ public sealed class AppraisalHistoryMappingTests
         var vehicle = new Vehicle { VehicleId = Guid.NewGuid(), Vin = "TEST-VIN", Make = "Ford", Model = "Mustang", Year = 1967 };
         var appraisal = new Appraisal
         {
-            AppraisalId = Guid.NewGuid(), VehicleId = vehicle.VehicleId,
-            AppraisalNumber = "A-42", AppraisalRequestId = Guid.NewGuid(), ClientId = Guid.NewGuid(),
-            AssignedAppraiserId = Guid.NewGuid(), AssignedReviewerId = Guid.NewGuid(),
-            AppraisalType = "Insurance", Status = "Draft", IntakeStatus = "Complete",
-            InspectionStatus = "Pending", ValuationStatus = "Pending", ReportStatus = "Draft",
-            EffectiveDateUtc = Created, CreatedAtUtc = Created, UpdatedAtUtc = Created.AddDays(1), RowVersion = 7
+            AppraisalId = Guid.NewGuid(),
+            VehicleId = vehicle.VehicleId,
+            AppraisalNumber = "A-42",
+            AppraisalRequestId = Guid.NewGuid(),
+            ClientId = Guid.NewGuid(),
+            AssignedAppraiserId = Guid.NewGuid(),
+            AssignedReviewerId = Guid.NewGuid(),
+            AppraisalType = "Insurance",
+            Status = "Draft",
+            IntakeStatus = "Complete",
+            InspectionStatus = "Pending",
+            ValuationStatus = "Pending",
+            ReportStatus = "Draft",
+            EffectiveDateUtc = Created,
+            CreatedAtUtc = Created,
+            UpdatedAtUtc = Created.AddDays(1),
+            RowVersion = 7
         };
 
         var dto = appraisal.ToDetailDto(vehicle);
@@ -102,6 +113,11 @@ public sealed class AppraisalHistoryMappingTests
         public Task<bool> ArchiveAsync(Guid id, CancellationToken ct) => throw new NotSupportedException();
         public Task<bool> MergeAsync(Guid source, Guid target, CancellationToken ct) => throw new NotSupportedException();
         public Task<(IReadOnlyList<Vehicle> Items, int TotalCount)> ListAsync(int page, int pageSize, string make, string model, int? year, string titleStatus, CancellationToken ct) => throw new NotSupportedException();
+        public Task<(IReadOnlyList<Vehicle> Items, int TotalCount)> ListAsync(
+            int page, int pageSize, string? search, string? vin, int? yearFrom, int? yearTo,
+            string? make, string? model, string? series, Guid? vehicleTypeId, string? bodyStyle,
+            int? year, int? mileage, string? exteriorColor, bool? hasRedFlags, string? titleStatus,
+            string? sortBy, string? sortDirection, CancellationToken cancellationToken) => throw new NotSupportedException();
         public Task<(IReadOnlyList<Vehicle> Items, int TotalCount)> SearchAsync(SearchVehiclesRequest request, CancellationToken ct) => throw new NotSupportedException();
     }
 
@@ -109,27 +125,49 @@ public sealed class AppraisalHistoryMappingTests
     {
         public List<AppraisalBrowseFilter> Filters { get; } = new();
         public List<CancellationToken> Tokens { get; } = new();
+        private readonly List<Appraisal> _items = items.ToList();
+
         public Task<PagedResult<Appraisal>> BrowseAsync(AppraisalBrowseFilter filter, CancellationToken ct)
-        {
-            Filters.Add(filter);
-            Tokens.Add(ct);
-            IReadOnlyList<Appraisal> page = items.Skip(filter.Page - 1).Take(1).ToArray();
-            return Task.FromResult(new PagedResult<Appraisal>(page, filter.Page, filter.PageSize, items.Length == 0 ? 0 : 201));
-        }
-        public Task<Appraisal> CreateAsync(Appraisal appraisal, CancellationToken ct) => throw new NotSupportedException();
-        public Task<Appraisal?> GetByIdAsync(Guid id, CancellationToken ct) => throw new NotSupportedException();
+            => throw new NotSupportedException();
+
+        public Task<Appraisal> CreateAsync(Appraisal appraisal, CancellationToken ct)
+            => throw new NotSupportedException();
+
+        public Task<Appraisal?> GetByIdAsync(Guid id, CancellationToken ct)
+            => throw new NotSupportedException();
+
+        public Task<Appraisal> InsertAsync(Appraisal appraisal, CancellationToken ct)
+            => throw new NotSupportedException();
+
+        public Task<Appraisal?> UpdateAsync(Appraisal appraisal, CancellationToken ct)
+            => throw new NotSupportedException();
+
+        public Task<bool> DeleteAsync(Guid id, CancellationToken ct)
+            => throw new NotSupportedException();
     }
 
-    private sealed class Inspections(params Inspection[] items) : IInspectionRepository
+    private sealed class Inspections : IInspectionRepository
     {
         public List<Guid> RequestedIds { get; } = new();
+        private readonly List<Inspection> _items;
+
+        public Inspections(params Inspection[] items)
+        {
+            _items = items.ToList();
+        }
+
         public Task<IReadOnlyList<Inspection>> GetByAppraisalIdAsync(Guid id, CancellationToken ct)
         {
             RequestedIds.Add(id);
-            return Task.FromResult<IReadOnlyList<Inspection>>(items.Where(x => x.AppraisalId == id).ToArray());
+            return Task.FromResult<IReadOnlyList<Inspection>>(_items.Where(x => x.AppraisalId == id).ToList());
         }
+
         public Task<Inspection> CreateAsync(Inspection inspection, CancellationToken ct) => throw new NotSupportedException();
         public Task<Inspection?> GetByIdAsync(Guid id, CancellationToken ct) => throw new NotSupportedException();
         public Task SaveScoresAsync(Guid id, IReadOnlyList<ConditionScore> scores, CancellationToken ct) => throw new NotSupportedException();
+        public Task<Inspection?> UpdateAsync(Inspection inspection, CancellationToken cancellationToken) => throw new NotSupportedException();
+        public Task<IReadOnlyList<Inspection>> GetAllAsync(CancellationToken cancellationToken) => throw new NotSupportedException();
+        public Task<bool> DeleteAsync(Guid inspectionId, CancellationToken cancellationToken) => throw new NotSupportedException();
+        public Task<Inspection?> UpdateScoreSummaryAsync(Guid inspectionId, decimal completionPercentage, decimal overallConditionScore, bool hasRedFlags, CancellationToken cancellationToken) => throw new NotSupportedException();
     }
 }

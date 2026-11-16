@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ONE_Classics_Nexus.Application.AppraisalRequests;
 using ONE_Classics_Nexus.Domain.AppraisalRequests;

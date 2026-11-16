@@ -1,4 +1,4 @@
-﻿using ONE_Classics_Nexus.Domain.Valuation.Models;
+using ONE_Classics_Nexus.Domain.Valuation.Models;
 
 namespace ONE_Classics_Nexus.Application.Valuation.Interfaces;
 

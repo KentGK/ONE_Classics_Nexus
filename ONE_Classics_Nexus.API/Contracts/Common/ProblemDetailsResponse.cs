@@ -1,4 +1,4 @@
-﻿namespace ONE_Classics_Nexus.API.Contracts.Common;
+namespace ONE_Classics_Nexus.API.Contracts.Common;
 
 /// <summary>
 /// Standard API error response shape.

@@ -1,4 +1,4 @@
-﻿namespace ONE_Classics_Nexus.WinForms.Helpers
+namespace ONE_Classics_Nexus.WinForms.Helpers
 {
     internal class WinFormsThreadHelper
     {

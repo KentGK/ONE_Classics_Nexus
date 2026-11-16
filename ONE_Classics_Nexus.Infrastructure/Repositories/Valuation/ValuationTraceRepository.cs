@@ -1,4 +1,4 @@
-﻿namespace ONE_Classics_Nexus.Infrastructure.Repositories.Valuation
+namespace ONE_Classics_Nexus.Infrastructure.Repositories.Valuation
 {
     internal class ValuationTraceRepository
     {

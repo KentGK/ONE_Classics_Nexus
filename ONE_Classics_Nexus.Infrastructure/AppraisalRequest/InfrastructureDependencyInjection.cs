@@ -1,9 +1,10 @@
-﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ONE_Classics_Nexus.Application.AppraisalRequests;
 using ONE_Classics_Nexus.Application.Abstractions.Services;
 using ONE_Classics_Nexus.Infrastructure.Numbering;
 namespace ONE_Classics_Nexus.Infrastructure.AppraisalRequests;
+
 public static class InfrastructureDependencyInjection
 {
     public static IServiceCollection AddAppraisalRequestsInfrastructure(this IServiceCollection services, IConfiguration config)

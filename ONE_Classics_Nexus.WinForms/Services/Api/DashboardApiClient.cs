@@ -1,4 +1,4 @@
-﻿using ONE_Classics_Nexus.WinForms.Models.Ui;
+using ONE_Classics_Nexus.WinForms.Models.Ui;
 using System.Net.Http.Json;
 
 namespace ONE_Classics_Nexus.WinForms.Services.Api

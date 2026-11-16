@@ -1,4 +1,4 @@
-﻿using Dapper;
+using Dapper;
 using MySqlConnector;
 using ONE_Classics_Nexus.Application.Abstractions.Repositories;
 using ONE_Classics_Nexus.Application.Requests;
@@ -25,6 +25,16 @@ public sealed class VehicleRepository : IVehicleRepository
     public Task<(IReadOnlyList<VehicleEntity> Items, int TotalCount)> SearchAsync(
         SearchVehiclesRequest request, CancellationToken ct) =>
         _fullRepository.SearchAsync(request, ct);
+
+    /// <summary>Lists vehicles using the supplied filters and sorting options.</summary>
+    public Task<(IReadOnlyList<VehicleEntity> Items, int TotalCount)> ListAsync(
+        int page, int pageSize, string? search, string? vin, int? yearFrom, int? yearTo,
+        string? make, string? model, string? series, Guid? vehicleTypeId, string? bodyStyle,
+        int? year, int? mileage, string? exteriorColor, bool? hasRedFlags, string? titleStatus,
+        string? sortBy, string? sortDirection, CancellationToken cancellationToken) =>
+        _fullRepository.ListAsync(page, pageSize, search, vin, yearFrom, yearTo, make, model,
+            series, vehicleTypeId, bodyStyle, year, mileage, exteriorColor, hasRedFlags,
+            titleStatus, sortBy, sortDirection, cancellationToken);
 
     public async Task<VehicleEntity> CreateAsync(VehicleEntity vehicle, CancellationToken ct)
     {
@@ -137,9 +147,16 @@ public sealed class VehicleRepository : IVehicleRepository
         await conn.OpenAsync(ct);
         var affected = await conn.ExecuteAsync(new CommandDefinition(sql, new
         {
-            VehicleId = vehicle.VehicleId.ToString(), vehicle.Vin, vehicle.Year,
-            vehicle.Make, vehicle.Model, vehicle.Trim, vehicle.BodyStyle,
-            vehicle.Engine, vehicle.Transmission, vehicle.Drivetrain,
+            VehicleId = vehicle.VehicleId.ToString(),
+            vehicle.Vin,
+            vehicle.Year,
+            vehicle.Make,
+            vehicle.Model,
+            vehicle.Trim,
+            vehicle.BodyStyle,
+            vehicle.Engine,
+            vehicle.Transmission,
+            vehicle.Drivetrain,
             vehicle.TitleStatus
         }, cancellationToken: ct));
 
@@ -156,7 +173,8 @@ public sealed class VehicleRepository : IVehicleRepository
         await conn.OpenAsync(ct);
         return await conn.ExecuteAsync(new CommandDefinition(sql, new
         {
-            VehicleId = vehicleId.ToString(), Status = ONE_Classics_Nexus.Domain.Constants.VehicleStatuses.Archived
+            VehicleId = vehicleId.ToString(),
+            Status = ONE_Classics_Nexus.Domain.Constants.VehicleStatuses.Archived
         }, cancellationToken: ct)) > 0;
     }
 
@@ -172,8 +190,12 @@ public sealed class VehicleRepository : IVehicleRepository
             """;
         var args = new
         {
-            Make = make, Model = model, Year = year, TitleStatus = titleStatus,
-            Limit = pageSize, Offset = (page - 1) * pageSize
+            Make = make,
+            Model = model,
+            Year = year,
+            TitleStatus = titleStatus,
+            Limit = pageSize,
+            Offset = (page - 1) * pageSize
         };
         await using var conn = _factory.Create();
         await conn.OpenAsync(ct);

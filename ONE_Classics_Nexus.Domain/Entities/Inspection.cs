@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace ONE_Classics_Nexus.Domain.Entities
@@ -13,11 +13,14 @@ namespace ONE_Classics_Nexus.Domain.Entities
         public string Status { get; set; } = string.Empty;
         public string? InspectionLocation { get; set; }
         public DateTime? InspectedOnUtc { get; set; }
-        public decimal? CompletionPercentage { get; set; }
+        public string? SummaryNotes { get; set; }
         public DateTime CreatedAtUtc { get; set; }
         public DateTime UpdatedAtUtc { get; set; }
+        public decimal? CompletionPercentage { get; set; }
+        public decimal? OverallConditionScore { get; set; }
+        public bool HasRedFlags { get; set; }
+        public long RowVersion { get; set; } = 1;
         public List<ConditionScore> ConditionScores { get; set; } = new List<ConditionScore>();
-
         public static Inspection Create(Guid appraisalId, string inspectionType = null)
         {
             if (appraisalId == Guid.Empty)
@@ -30,12 +33,12 @@ namespace ONE_Classics_Nexus.Domain.Entities
                 InspectionId = Guid.NewGuid(),
                 AppraisalId = appraisalId,
                 InspectionType = string.IsNullOrWhiteSpace(inspectionType) ? "Standard" : inspectionType.Trim(),
+                RowVersion = 1,
                 CreatedAtUtc = now,
                 UpdatedAtUtc = now,
                 ConditionScores = new List<ConditionScore>()
             };
         }
-
         public void ReplaceScores(IEnumerable<ConditionScore> scores)
         {
             if (scores is null)

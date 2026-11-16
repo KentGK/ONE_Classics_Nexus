@@ -1,4 +1,4 @@
-﻿using Dapper;
+using Dapper;
 using ONE_Classics_Nexus.Application.AppraisalRequests;
 using ONE_Classics_Nexus.Domain.AppraisalRequests;
 

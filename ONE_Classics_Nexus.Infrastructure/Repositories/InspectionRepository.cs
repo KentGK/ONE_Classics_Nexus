@@ -1,12 +1,11 @@
-﻿using Dapper;
-using ONE_Classics_Nexus.Application.Abstractions.Repositories;
+using Dapper;
 using ONE_Classics_Nexus.Domain.Entities;
 using ONE_Classics_Nexus.Infrastructure.Database;
 using InspectionEntity = ONE_Classics_Nexus.Domain.Entities.Inspection;
 
 namespace ONE_Classics_Nexus.Infrastructure.Repositories;
 
-public sealed class InspectionRepository : IInspectionRepository
+public sealed class InspectionRepository
 {
     private readonly MySqlConnectionFactory _factory;
 

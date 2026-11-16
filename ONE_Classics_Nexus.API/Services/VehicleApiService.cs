@@ -1,4 +1,4 @@
-﻿using ONE_Classics_Nexus.API.ApplicationPorts;
+using ONE_Classics_Nexus.API.ApplicationPorts;
 using ONE_Classics_Nexus.API.Contracts.Vehicles;
 using ONE_Classics_Nexus.Application.Abstractions.Repositories;
 using ONE_Classics_Nexus.Application.Exceptions;
@@ -169,7 +169,7 @@ public sealed class VehicleApiService(
                 model: string.Empty,
                 year: null,
                 titleStatus: string.Empty,
-                cancellationToken: cancellationToken);
+                ct: cancellationToken);
 
             var exists = items.Any(v => v.Vin != null && v.Vin.Equals(normalizedVin, StringComparison.OrdinalIgnoreCase));
             if (exists)

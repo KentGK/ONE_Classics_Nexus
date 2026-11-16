@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using ONE_Classics_Nexus.Domain.Constants;
 
 namespace ONE_Classics_Nexus.Domain.Entities;
@@ -107,26 +107,40 @@ public sealed class Vehicle
         var now = nowUtc ?? DateTime.UtcNow;
         return new Vehicle
         {
-            VehicleId = Guid.NewGuid(), VehicleTypeId = vehicleTypeId,
-            Vin = Normalize(vin) ?? string.Empty, Year = year, Make = make.Trim(),
-            Marque = Normalize(marque), Model = model.Trim(), Trim = Normalize(trim),
-            SeriesName = Normalize(seriesName), BodyStyle = Normalize(bodyStyle),
-            ChassisNumber = Normalize(chassisNumber), BodyNumber = Normalize(bodyNumber),
-            EngineNumber = Normalize(engineNumber), Engine = Normalize(engine),
-            Transmission = Normalize(transmission), Drivetrain = Normalize(drivetrain),
+            VehicleId = Guid.NewGuid(),
+            VehicleTypeId = vehicleTypeId,
+            Vin = Normalize(vin) ?? string.Empty,
+            Year = year,
+            Make = make.Trim(),
+            Marque = Normalize(marque),
+            Model = model.Trim(),
+            Trim = Normalize(trim),
+            SeriesName = Normalize(seriesName),
+            BodyStyle = Normalize(bodyStyle),
+            ChassisNumber = Normalize(chassisNumber),
+            BodyNumber = Normalize(bodyNumber),
+            EngineNumber = Normalize(engineNumber),
+            Engine = Normalize(engine),
+            Transmission = Normalize(transmission),
+            Drivetrain = Normalize(drivetrain),
             Mileage = mileage,
             OdometerUnit = Required(odometerUnit, OdometerUnits.Normalize, nameof(odometerUnit)),
             OdometerStatus = Optional(odometerStatus, OdometerStatuses.Normalize, nameof(odometerStatus)),
-            ExteriorColor = Normalize(exteriorColor), InteriorColor = Normalize(interiorColor),
+            ExteriorColor = Normalize(exteriorColor),
+            InteriorColor = Normalize(interiorColor),
             TitleStatus = Optional(titleStatus, TitleStatuses.Normalize, nameof(titleStatus)),
             AuthenticityProfile = Optional(authenticityProfile, AuthenticityProfiles.Normalize, nameof(authenticityProfile)),
             OriginalityProfile = Optional(originalityProfile, OriginalityProfiles.Normalize, nameof(originalityProfile)),
             RestorationLevel = Optional(restorationLevel, RestorationLevels.Normalize, nameof(restorationLevel)),
             DocumentationLevel = Optional(documentationLevel, DocumentationLevels.Normalize, nameof(documentationLevel)),
-            OverallConditionScore = overallConditionScore, HasRedFlags = hasRedFlags,
-            Notes = Normalize(notes), OwnershipNotes = Normalize(ownershipNotes),
-            VehicleStatus = DefaultVehicleStatus, RowVersion = 1,
-            CreatedAtUtc = now, UpdatedAtUtc = now
+            OverallConditionScore = overallConditionScore,
+            HasRedFlags = hasRedFlags,
+            Notes = Normalize(notes),
+            OwnershipNotes = Normalize(ownershipNotes),
+            VehicleStatus = DefaultVehicleStatus,
+            RowVersion = 1,
+            CreatedAtUtc = now,
+            UpdatedAtUtc = now
         };
     }
 
@@ -145,25 +159,40 @@ public sealed class Vehicle
     {
         return new Vehicle
         {
-            VehicleId = vehicleId, VehicleTypeId = vehicleTypeId, Vin = Normalize(vin) ?? string.Empty,
-            Year = year, Make = make, Marque = Normalize(marque), Model = model,
-            Trim = Normalize(trim), SeriesName = Normalize(seriesName), BodyStyle = Normalize(bodyStyle),
-            ChassisNumber = Normalize(chassisNumber), BodyNumber = Normalize(bodyNumber),
-            EngineNumber = Normalize(engineNumber), Engine = Normalize(engine),
-            Transmission = Normalize(transmission), Drivetrain = Normalize(drivetrain),
+            VehicleId = vehicleId,
+            VehicleTypeId = vehicleTypeId,
+            Vin = Normalize(vin) ?? string.Empty,
+            Year = year,
+            Make = make,
+            Marque = Normalize(marque),
+            Model = model,
+            Trim = Normalize(trim),
+            SeriesName = Normalize(seriesName),
+            BodyStyle = Normalize(bodyStyle),
+            ChassisNumber = Normalize(chassisNumber),
+            BodyNumber = Normalize(bodyNumber),
+            EngineNumber = Normalize(engineNumber),
+            Engine = Normalize(engine),
+            Transmission = Normalize(transmission),
+            Drivetrain = Normalize(drivetrain),
             Mileage = mileage,
             OdometerUnit = Optional(odometerUnit, OdometerUnits.Normalize, nameof(odometerUnit)),
             OdometerStatus = Optional(odometerStatus, OdometerStatuses.Normalize, nameof(odometerStatus)),
-            ExteriorColor = Normalize(exteriorColor), InteriorColor = Normalize(interiorColor),
+            ExteriorColor = Normalize(exteriorColor),
+            InteriorColor = Normalize(interiorColor),
             TitleStatus = Optional(titleStatus, TitleStatuses.Normalize, nameof(titleStatus)),
             AuthenticityProfile = Optional(authenticityProfile, AuthenticityProfiles.Normalize, nameof(authenticityProfile)),
             OriginalityProfile = Optional(originalityProfile, OriginalityProfiles.Normalize, nameof(originalityProfile)),
             RestorationLevel = Optional(restorationLevel, RestorationLevels.Normalize, nameof(restorationLevel)),
             DocumentationLevel = Optional(documentationLevel, DocumentationLevels.Normalize, nameof(documentationLevel)),
-            OverallConditionScore = overallConditionScore, HasRedFlags = hasRedFlags,
-            Notes = Normalize(notes), OwnershipNotes = Normalize(ownershipNotes),
+            OverallConditionScore = overallConditionScore,
+            HasRedFlags = hasRedFlags,
+            Notes = Normalize(notes),
+            OwnershipNotes = Normalize(ownershipNotes),
             VehicleStatus = Optional(vehicleStatus, VehicleStatuses.Normalize, nameof(vehicleStatus)) ?? DefaultVehicleStatus,
-            RowVersion = rowVersion, CreatedAtUtc = createdAtUtc, UpdatedAtUtc = updatedAtUtc
+            RowVersion = rowVersion,
+            CreatedAtUtc = createdAtUtc,
+            UpdatedAtUtc = updatedAtUtc
         };
     }
 

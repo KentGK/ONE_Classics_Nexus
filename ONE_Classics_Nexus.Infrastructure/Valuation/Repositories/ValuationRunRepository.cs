@@ -1,4 +1,4 @@
-﻿using Dapper;
+using Dapper;
 using ONE_Classics_Nexus.Application.Valuation.Interfaces;
 using ONE_Classics_Nexus.Domain.Valuation.Models;
 using ONE_Classics_Nexus.Infrastructure.Database;

@@ -1,4 +1,4 @@
-﻿using ONE_Classics_Nexus.WinForms.Models.Ui;
+using ONE_Classics_Nexus.WinForms.Models.Ui;
 using ONE_Classics_Nexus.WinForms.Services.Api;
 
 namespace ONE_Classics_Nexus.WinForms.Forms.Dashboard

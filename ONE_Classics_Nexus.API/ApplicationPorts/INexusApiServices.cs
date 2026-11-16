@@ -1,4 +1,4 @@
-﻿using ONE_Classics_Nexus.API.Contracts.Appraisals;
+using ONE_Classics_Nexus.API.Contracts.Appraisals;
 using ONE_Classics_Nexus.API.Contracts.Vehicles;
 
 namespace ONE_Classics_Nexus.API.ApplicationPorts;

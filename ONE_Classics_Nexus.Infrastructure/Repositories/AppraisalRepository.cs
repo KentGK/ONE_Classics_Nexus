@@ -1,4 +1,4 @@
-﻿using Dapper;
+using Dapper;
 using ONE_Classics_Nexus.Application.Abstractions.Paging;
 using ONE_Classics_Nexus.Application.Abstractions.Repositories;
 using ONE_Classics_Nexus.Infrastructure.Database;
@@ -17,6 +17,12 @@ public sealed class AppraisalRepository : IAppraisalRepository
 
     public Task<AppraisalEntity> CreateAsync(AppraisalEntity appraisal, CancellationToken ct) =>
         new Appraisal.AppraisalRepository(_factory).CreateAsync(appraisal, ct);
+
+    public Task<AppraisalEntity> InsertAsync(AppraisalEntity appraisal, CancellationToken cancellationToken) =>
+        new Appraisal.AppraisalRepository(_factory).InsertAsync(appraisal, cancellationToken);
+
+    public Task<AppraisalEntity?> UpdateAsync(AppraisalEntity appraisal, CancellationToken cancellationToken) =>
+        new Appraisal.AppraisalRepository(_factory).UpdateAsync(appraisal, cancellationToken);
 
     public async Task<AppraisalEntity?> GetByIdAsync(Guid appraisalId, CancellationToken ct)
     {

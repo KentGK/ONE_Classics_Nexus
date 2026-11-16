@@ -1,4 +1,4 @@
-﻿namespace ONE_Classics_Nexus.API.Contracts.Inspections;
+namespace ONE_Classics_Nexus.API.Contracts.Inspections;
 
 public sealed record CreateInspectionRequest(
     Guid AppraisalId,

@@ -1,4 +1,4 @@
-﻿namespace ONE_Classics_Nexus.WinForms.ViewModels.Shell
+namespace ONE_Classics_Nexus.WinForms.ViewModels.Shell
 {
     internal class MainShellViewModel
     {

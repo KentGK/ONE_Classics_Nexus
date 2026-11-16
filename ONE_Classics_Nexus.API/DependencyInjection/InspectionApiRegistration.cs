@@ -1,4 +1,4 @@
-﻿using ONE_Classics_Nexus.API.ApplicationPorts;
+using ONE_Classics_Nexus.API.ApplicationPorts;
 using ONE_Classics_Nexus.API.Services;
 
 namespace ONE_Classics_Nexus.API.DependencyInjection;

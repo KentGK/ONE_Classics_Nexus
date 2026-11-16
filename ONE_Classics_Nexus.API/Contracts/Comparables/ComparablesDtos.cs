@@ -1,4 +1,4 @@
-﻿namespace ONE_Classics_Nexus.API.Contracts.Comparables;
+namespace ONE_Classics_Nexus.API.Contracts.Comparables;
 
 public sealed record CreateComparableRequest(
     int? Year,

@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+using FluentAssertions;
 using Microsoft.Extensions.Configuration;
 using ONE_Classics_Nexus.API.Contracts.Appraisals;
 using ONE_Classics_Nexus.API.Contracts.Inspections;
@@ -812,18 +812,18 @@ public sealed class VehicleCrudIntegrationTests : IClassFixture<NexusApiFactory>
     [Fact(DisplayName = "VC-I-001 POST then GET returns same persisted vehicle")]
     public async Task VC_I_001_PostThenGet_ShouldRoundTripSuccessfully()
     {
-    var vehicleTypeId = Guid.NewGuid();
-    var request = VehicleTestData.CreateValidRequest(vehicleTypeId);
-    var vin = request.Vin
-        ?? throw new InvalidOperationException("The generated vehicle test request must contain a VIN.");
+        var vehicleTypeId = Guid.NewGuid();
+        var request = VehicleTestData.CreateValidRequest(vehicleTypeId);
+        var vin = request.Vin
+            ?? throw new InvalidOperationException("The generated vehicle test request must contain a VIN.");
 
-    Guid vehicleId = Guid.Empty;
+        Guid vehicleId = Guid.Empty;
 
-    try
-    {
-        var created = await CreateVehicleAsync(request);
-        vehicleId = created.VehicleId;
-        var fetched = await GetVehicleAsync(vehicleId);
+        try
+        {
+            var created = await CreateVehicleAsync(request);
+            vehicleId = created.VehicleId;
+            var fetched = await GetVehicleAsync(vehicleId);
 
             fetched.VehicleId.Should().Be(created.VehicleId);
             fetched.Vin.Should().Be(created.Vin);

@@ -1,4 +1,4 @@
-﻿namespace ONE_Classics_Nexus.Application.Contracts.Vehicles
+namespace ONE_Classics_Nexus.Application.Contracts.Vehicles
 {
     public sealed class CreateVehicleCommand
     {

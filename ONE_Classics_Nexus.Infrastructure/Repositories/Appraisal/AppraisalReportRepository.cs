@@ -1,4 +1,4 @@
-﻿namespace ONE_Classics_Nexus.Infrastructure.Repositories.Appraisal
+namespace ONE_Classics_Nexus.Infrastructure.Repositories.Appraisal
 {
     internal class AppraisalReportRepository
     {

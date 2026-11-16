@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration;
 using MySqlConnector;
 
 namespace ONE_Classics_Nexus.Infrastructure.Database;

@@ -1,6 +1,7 @@
-﻿using System.Data.Common;
+using System.Data.Common;
 using MySqlConnector;
 namespace ONE_Classics_Nexus.Infrastructure.AppraisalRequests;
+
 public interface IAppraisalRequestConnectionFactory { Task<DbConnection> OpenAsync(CancellationToken ct); }
 public sealed class AppraisalRequestConnectionFactory(string connectionString) : IAppraisalRequestConnectionFactory
 {

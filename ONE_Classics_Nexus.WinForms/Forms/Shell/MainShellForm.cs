@@ -1,4 +1,4 @@
-﻿using ONE_Classics_Nexus.WinForms.Forms.Dashboard;
+using ONE_Classics_Nexus.WinForms.Forms.Dashboard;
 using ONE_Classics_Nexus.WinForms.Forms.AppraisalRequests;
 using ONE_Classics_Nexus.WinForms.Forms.Clients;
 using ONE_Classics_Nexus.WinForms.Forms.Vehicles;

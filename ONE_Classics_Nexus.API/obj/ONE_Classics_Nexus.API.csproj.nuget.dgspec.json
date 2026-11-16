@@ -58,9 +58,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "MySqlConnector": {
+            "FluentValidation": {
               "target": "Package",
-              "version": "[2.6.2, )"
+              "version": "[11.11.0, )"
             },
             "MySqlConnector": {
               "target": "Package",
@@ -304,7 +304,6 @@
             },
             "MySqlConnector": {
               "target": "Package",
-              "version": "[2.6.2, )"
               "version": "[2.6.2, )"
             }
           },

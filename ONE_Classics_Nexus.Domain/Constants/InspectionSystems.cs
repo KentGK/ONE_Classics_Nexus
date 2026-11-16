@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace ONE_Classics_Nexus.Domain.Constants
 {

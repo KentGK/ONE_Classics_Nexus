@@ -1,4 +1,4 @@
-﻿namespace ONE_Classics_Nexus.WinForms.Services.Navigation
+namespace ONE_Classics_Nexus.WinForms.Services.Navigation
 {
     internal class NavigationService
     {

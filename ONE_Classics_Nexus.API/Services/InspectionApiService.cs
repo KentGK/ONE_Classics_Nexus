@@ -41,16 +41,21 @@ public sealed class InspectionApiService : IInspectionApiService
     {
         ValidateCreate(request);
 
-        var inspection = Inspection.Create(
-            request.AppraisalId,
-            request.InspectionTemplateId,
-            request.InspectionType,
-            request.InspectedByUserId,
-            request.Status,
-            request.InspectionLocation,
-            request.SummaryNotes);
+        var inspection = Inspection.Create(request.AppraisalId, request.InspectionType);
+        inspection.InspectionTemplateId = request.InspectionTemplateId;
+        inspection.InspectedByUserId = request.InspectedByUserId;
+        inspection.Status = request.Status.Trim();
+        inspection.InspectionLocation = Normalize(request.InspectionLocation);
+        inspection.InspectedOnUtc = request.InspectedOnUtc;
+        inspection.CompletionPercentage = request.CompletionPercentage;
+        inspection.OverallConditionScore = request.OverallConditionScore;
+        inspection.HasRedFlags = request.HasRedFlags;
+        inspection.SummaryNotes = Normalize(request.SummaryNotes);
+        inspection.RowVersion = request.RowVersion > 0 ? request.RowVersion : 1;
+        inspection.CreatedAtUtc = request.CreatedAtUtc == default ? DateTime.UtcNow : request.CreatedAtUtc;
+        inspection.UpdatedAtUtc = request.UpdatedAtUtc == default ? inspection.CreatedAtUtc : request.UpdatedAtUtc;
 
-        var inserted = await _inspectionRepository.InsertAsync(inspection, cancellationToken);
+        var inserted = await _inspectionRepository.CreateAsync(inspection, cancellationToken);
 
         return await MapToResponseAsync(inserted, cancellationToken);
     }

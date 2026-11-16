@@ -1,4 +1,4 @@
-﻿namespace ONE_Classics_Nexus.Application.Valuation.DTOs;
+namespace ONE_Classics_Nexus.Application.Valuation.DTOs;
 
 public sealed record ValuationTraceLineDto(
     int SortOrder,

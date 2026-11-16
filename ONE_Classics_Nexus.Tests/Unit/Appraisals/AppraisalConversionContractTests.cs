@@ -54,9 +54,15 @@ public sealed class AppraisalConversionContractTests
 
         var result = await handler.HandleAsync(new CreateAppraisalRequest
         {
-            VehicleId = vehicleId, AppraisalNumber = "A-42", AssignedReviewerId = reviewerId,
-            AppraisalType = "Insurance", Status = "Draft", IntakeStatus = "Open",
-            InspectionStatus = "Pending", ValuationStatus = "Pending", ReportStatus = "Draft"
+            VehicleId = vehicleId,
+            AppraisalNumber = "A-42",
+            AssignedReviewerId = reviewerId,
+            AppraisalType = "Insurance",
+            Status = "Draft",
+            IntakeStatus = "Open",
+            InspectionStatus = "Pending",
+            ValuationStatus = "Pending",
+            ReportStatus = "Draft"
         }, CancellationToken.None);
 
         Assert.Equal("A-42", result.AppraisalNumber);
@@ -121,6 +127,14 @@ public sealed class AppraisalConversionContractTests
         public Task<Appraisal?> GetByIdAsync(Guid id, CancellationToken ct) => throw new NotSupportedException();
         public Task<ONE_Classics_Nexus.Application.Abstractions.Paging.PagedResult<Appraisal>> BrowseAsync(
             AppraisalBrowseFilter filter, CancellationToken ct) => throw new NotSupportedException();
+
+        // Added to satisfy IAppraisalRepository
+        public Task<Appraisal> InsertAsync(Appraisal appraisal, CancellationToken ct)
+        {
+            Created = appraisal;
+            return Task.FromResult(appraisal);
+        }
+        public Task<Appraisal?> UpdateAsync(Appraisal appraisal, CancellationToken ct) => throw new NotSupportedException();
     }
 
     private sealed class Vehicles(Guid vehicleId) : IVehicleRepository
@@ -132,6 +146,11 @@ public sealed class AppraisalConversionContractTests
         public Task<bool> ArchiveAsync(Guid id, CancellationToken ct) => throw new NotSupportedException();
         public Task<bool> MergeAsync(Guid source, Guid target, CancellationToken ct) => throw new NotSupportedException();
         public Task<(IReadOnlyList<Vehicle> Items, int TotalCount)> ListAsync(int page, int pageSize, string make, string model, int? year, string status, CancellationToken ct) => throw new NotSupportedException();
+        public Task<(IReadOnlyList<Vehicle> Items, int TotalCount)> ListAsync(
+            int page, int pageSize, string? search, string? vin, int? yearFrom, int? yearTo,
+            string? make, string? model, string? series, Guid? vehicleTypeId, string? bodyStyle,
+            int? year, int? mileage, string? exteriorColor, bool? hasRedFlags, string? titleStatus,
+            string? sortBy, string? sortDirection, CancellationToken cancellationToken) => throw new NotSupportedException();
         public Task<(IReadOnlyList<Vehicle> Items, int TotalCount)> SearchAsync(SearchVehiclesRequest request, CancellationToken ct) => throw new NotSupportedException();
     }
 

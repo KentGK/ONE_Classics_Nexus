@@ -7,7 +7,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using ONE_Classics_Nexus.Application.AppraisalRequests;
 using ONE_Classics_Nexus.Tests.Integration.Infrastructure;
-using System.Collections.Generic;
 using System.Net;
 using System.Net.Http.Json;
 
@@ -96,9 +95,9 @@ public sealed class AppraisalRequestPartyIdentificationIntegrationTests
         body.Issues.Should().Contain(x => x.Code == "CIU-005");
     }
 
-    private static WebApplicationFactory<Program> CreateFactory(StubPartyService stub)
+    private static WebApplicationFactory<global::Program> CreateFactory(StubPartyService stub)
     {
-        return new WebApplicationFactory<Program>().WithWebHostBuilder(builder =>
+        return new WebApplicationFactory<global::Program>().WithWebHostBuilder(builder =>
         {
             builder.UseEnvironment("Testing");
             builder.ConfigureAppConfiguration((_, cb) =>

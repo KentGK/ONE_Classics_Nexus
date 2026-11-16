@@ -100,22 +100,7 @@
     <Compile Update="Forms\Dashboard\DashboardForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\Inspections\2BDelInspectionWorkspaceForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\Inspections\2BDelInspectionWorkspaceForm.Design.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Forms\Inspections\InspectionWorkspaceForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\Inspections\InspectionWorkspaceForm.Design2BDel.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\Inspections\InspectionWorkspaceForm2BDel.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Forms\Inspections\InspectionWorkspaceFormV1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Forms\MainForm.cs">

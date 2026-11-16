@@ -1,4 +1,4 @@
-﻿namespace ONE_Classics_Nexus.API.Contracts.Appraisals;
+namespace ONE_Classics_Nexus.API.Contracts.Appraisals;
 
 public sealed class AppraisalResponse
 {

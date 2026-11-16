@@ -1,4 +1,4 @@
-﻿namespace ONE_Classics_Nexus.Application.AppraisalRequests;
+namespace ONE_Classics_Nexus.Application.AppraisalRequests;
 
 public sealed class AppraisalRequestApplicationException : Exception
 {

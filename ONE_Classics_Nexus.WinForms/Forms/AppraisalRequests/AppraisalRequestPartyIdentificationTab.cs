@@ -152,7 +152,7 @@ public sealed class AppraisalRequestPartyIdentificationTab : UserControl
 
             _lblContactDetails.Text = workspace.PrimaryClientContact is null
                 ? "No primary contact selected."
-                : $"{workspace.PrimaryClientContact.ContactName} • {workspace.PrimaryClientContact.Email ?? "No email"} • {workspace.PrimaryClientContact.Phone ?? "No phone"}";
+                : $"{workspace.PrimaryClientContact.ContactName} â€¢ {workspace.PrimaryClientContact.Email ?? "No email"} â€¢ {workspace.PrimaryClientContact.Phone ?? "No phone"}";
 
             SelectedPrimaryContactId = workspace.PrimaryClientContactId;
             SelectedIntendedUseId = workspace.IntendedUseId;

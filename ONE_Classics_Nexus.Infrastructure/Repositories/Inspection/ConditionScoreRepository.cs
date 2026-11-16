@@ -1,4 +1,4 @@
-﻿using Dapper;
+using Dapper;
 using ONE_Classics_Nexus.Application.Abstractions.Repositories;
 using ONE_Classics_Nexus.Infrastructure.Database;
 using ConditionScoreEntity = ONE_Classics_Nexus.Domain.Entities.ConditionScore;

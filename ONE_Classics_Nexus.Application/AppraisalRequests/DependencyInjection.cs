@@ -1,5 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 namespace ONE_Classics_Nexus.Application.AppraisalRequests;
+
 public static class DependencyInjection
 {
     public static IServiceCollection AddAppraisalRequestsApplication(this IServiceCollection services)

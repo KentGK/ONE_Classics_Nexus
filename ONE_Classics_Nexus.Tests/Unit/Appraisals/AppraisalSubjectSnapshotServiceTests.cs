@@ -1,5 +1,6 @@
 using ONE_Classics_Nexus.Application.Abstractions.Paging;
 using ONE_Classics_Nexus.Application.Abstractions.Repositories;
+using ONE_Classics_Nexus.Application.Requests;
 using ONE_Classics_Nexus.Application.Services;
 using ONE_Classics_Nexus.Domain.Entities;
 using FluentAssertions;
@@ -222,42 +223,22 @@ public sealed class AppraisalSubjectSnapshotServiceTests
         }
 
         public Task<(IReadOnlyList<Vehicle> Items, int TotalCount)> ListAsync(
-            int page,
-            int pageSize,
-            string? search = null,
-            string? vin = null,
-            int? yearFrom = null,
-            int? yearTo = null,
-            string? make = null,
-            string? model = null,
-            string? series = null,
-            Guid? vehicleTypeId = null,
-            string? bodyStyle = null,
-            int? year = null,
-            int? mileage = null,
-            string? exteriorColor = null,
-            bool? hasRedFlags = null,
-            string? titleStatus = null,
-            string? sortBy = null,
-            string? sortDirection = null,
-            CancellationToken cancellationToken = default)
+            int page, int pageSize, string make, string model, int? year, string titleStatus, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<(IReadOnlyList<Vehicle> items, int totalCount)> ListAsync(
-            int page,
-            int pageSize,
-            string make,
-            string model,
-            int? year,
-            string titleStatus,
-            CancellationToken cancellationToken)
+        public Task<(IReadOnlyList<Vehicle> Items, int TotalCount)> ListAsync(
+            int page, int pageSize, string? search = null, string? vin = null, int? yearFrom = null, int? yearTo = null,
+            string? make = null, string? model = null, string? series = null, Guid? vehicleTypeId = null, string? bodyStyle = null,
+            int? year = null, int? mileage = null, string? exteriorColor = null, bool? hasRedFlags = null, string? titleStatus = null,
+            string? sortBy = null, string? sortDirection = null, CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException();
         }
 
-        public Task<(IReadOnlyList<Vehicle> Items, int TotalCount)> SearchAsync(ONE_Classics_Nexus.Application.Requests.SearchVehiclesRequest request, CancellationToken cancellationToken = default)
+        public Task<(IReadOnlyList<Vehicle> Items, int TotalCount)> SearchAsync(
+            SearchVehiclesRequest request, CancellationToken cancellationToken = default)
         {
             throw new NotImplementedException();
         }

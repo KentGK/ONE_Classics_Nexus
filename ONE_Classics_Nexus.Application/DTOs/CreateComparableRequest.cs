@@ -1,4 +1,4 @@
-﻿namespace ONE_Classics_Nexus.Application.DTOs;
+namespace ONE_Classics_Nexus.Application.DTOs;
 
 public sealed record CreateComparableRequest(
     int Year,

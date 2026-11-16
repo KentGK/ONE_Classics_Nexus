@@ -1,4 +1,4 @@
-﻿using Dapper;
+using Dapper;
 using ONE_Classics_Nexus.Application.Abstractions.Repositories;
 using UserEntity = ONE_Classics_Nexus.Domain.Entities.User;
 using ONE_Classics_Nexus.Infrastructure.Database;
@@ -13,7 +13,7 @@ public sealed class UserRepository : IUserRepository
         _connectionFactory = connectionFactory ?? throw new ArgumentNullException(nameof(connectionFactory));
 
     public async Task<UserEntity> CreateAsync(
-        UserEntity user, 
+        UserEntity user,
         CancellationToken cancellationToken)
     {
         const string sql = """
@@ -29,7 +29,7 @@ public sealed class UserRepository : IUserRepository
     }
 
     public async Task<UserEntity?> GetByIdAsync(
-        Guid userId, 
+        Guid userId,
         CancellationToken cancellationToken)
     {
         const string sql = """
@@ -62,7 +62,7 @@ public sealed class UserRepository : IUserRepository
     }
 
     public async Task<UserEntity?> UpdateAsync(
-        UserEntity user, 
+        UserEntity user,
         CancellationToken cancellationToken)
     {
         const string sql = """

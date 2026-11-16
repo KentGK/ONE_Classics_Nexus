@@ -1,4 +1,4 @@
-﻿using Dapper;
+using Dapper;
 using MySqlConnector;
 
 namespace ONE_Classics_Nexus.Tests.Integration.Infrastructure;

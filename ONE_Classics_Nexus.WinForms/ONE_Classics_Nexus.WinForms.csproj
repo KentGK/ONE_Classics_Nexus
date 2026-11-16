@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -9,11 +9,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="8.11.0" />
+    <PackageReference Include="FluentValidation" Version="12.2.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.5" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ONE_Classics_Nexus.Application\ONE_Classics_Nexus.Application.csproj" />
+    <ProjectReference Include="..\ONE_Classics_Nexus.API\ONE_Classics_Nexus.API.csproj" />
   </ItemGroup>
 
 </Project>

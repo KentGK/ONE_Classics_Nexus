@@ -1,4 +1,4 @@
-﻿namespace ONE_Classics_Nexus.Domain.Valuation.Versioning;
+namespace ONE_Classics_Nexus.Domain.Valuation.Versioning;
 
 public static class ValuationVersions
 {

@@ -1,4 +1,4 @@
-﻿namespace ONE_Classics_Nexus.WinForms.Theming
+namespace ONE_Classics_Nexus.WinForms.Theming
 {
     /// <summary>
     /// Nexus theme tokens. Primary theme color is locked to ONE Classics brand blue.

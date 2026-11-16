@@ -1,4 +1,4 @@
-﻿using ONE_Classics_Nexus.API.ApplicationPorts;
+using ONE_Classics_Nexus.API.ApplicationPorts;
 using ONE_Classics_Nexus.API.Contracts.Appraisals;
 using ONE_Classics_Nexus.Application.Abstractions.Repositories;
 using ONE_Classics_Nexus.Application.Abstractions.Services;

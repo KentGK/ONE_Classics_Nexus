@@ -86,6 +86,48 @@ public sealed class VehicleHandlersTests
         result.TotalCount.Should().Be(3);
     }
 
+    [Fact]
+    public async Task ListVehiclesHandler_ForwardsListingFilters()
+    {
+        var repository = new InMemoryVehicleRepository();
+        var handler = new ListVehiclesHandler(repository);
+        var request = new ListVehiclesRequest
+        {
+            Page = 2,
+            PageSize = 10,
+            Search = "classic",
+            Vin = "VIN",
+            YearFrom = 1960,
+            YearTo = 1980,
+            Make = "Ford",
+            Model = "Mustang",
+            Series = "GT",
+            VehicleTypeId = Guid.NewGuid(),
+            BodyStyle = "Coupe",
+            Year = 1967,
+            TitleStatus = "Clean",
+            HasRedFlags = true,
+            SortBy = "year",
+            SortDirection = "asc"
+        };
+
+        await handler.HandleAsync(request, CancellationToken.None);
+
+        repository.LastListRequest.Should().BeEquivalentTo(request);
+    }
+
+    [Fact]
+    public async Task ListVehiclesHandler_ForwardsCancellationToken()
+    {
+        var repository = new InMemoryVehicleRepository();
+        var handler = new ListVehiclesHandler(repository);
+        using var cancellation = new CancellationTokenSource();
+
+        await handler.HandleAsync(new ListVehiclesRequest(), cancellation.Token);
+
+        repository.LastListCancellationToken.Should().Be(cancellation.Token);
+    }
+
     private static Vehicle BuildVehicle(string make, string model, int year)
     {
         return Vehicle.Create(
@@ -159,6 +201,9 @@ public sealed class VehicleHandlersTests
     {
         private readonly List<Vehicle> _vehicles = new();
 
+        public ListVehiclesRequest? LastListRequest { get; private set; }
+        public CancellationToken LastListCancellationToken { get; private set; }
+
         public void Seed(IEnumerable<Vehicle> vehicles)
         {
             _vehicles.Clear();
@@ -209,6 +254,27 @@ public sealed class VehicleHandlersTests
             string? sortDirection = null,
             CancellationToken cancellationToken = default)
         {
+            LastListRequest = new ListVehiclesRequest
+            {
+                Page = page,
+                PageSize = pageSize,
+                Search = search,
+                Vin = vin,
+                YearFrom = yearFrom,
+                YearTo = yearTo,
+                Make = make,
+                Model = model,
+                Series = series,
+                VehicleTypeId = vehicleTypeId,
+                BodyStyle = bodyStyle,
+                Year = year,
+                HasRedFlags = hasRedFlags,
+                TitleStatus = titleStatus,
+                SortBy = sortBy,
+                SortDirection = sortDirection
+            };
+            LastListCancellationToken = cancellationToken;
+
             IEnumerable<Vehicle> query = _vehicles;
 
             if (!string.IsNullOrWhiteSpace(make))
@@ -251,38 +317,37 @@ public sealed class VehicleHandlersTests
             throw new NotImplementedException();
         }
 
-        public Task<(IReadOnlyList<Vehicle> items, int totalCount)> ListAsync(int page, int pageSize, string make, string model, int? year, string titleStatus, CancellationToken cancellationToken)
+        public Task<(IReadOnlyList<Vehicle> Items, int TotalCount)> ListAsync(
+            int page,
+            int pageSize,
+            string make,
+            string model,
+            int? year,
+            string titleStatus,
+            CancellationToken cancellationToken)
         {
-            IEnumerable<Vehicle> query = _vehicles;
-
-            if (!string.IsNullOrWhiteSpace(make))
+            LastListRequest = new ListVehiclesRequest
             {
-                query = query.Where(v => string.Equals(v.Make, make, StringComparison.OrdinalIgnoreCase));
-            }
+                Page = page,
+                PageSize = pageSize,
+                Make = make,
+                Model = model,
+                Year = year,
+                TitleStatus = titleStatus
+            };
+            LastListCancellationToken = cancellationToken;
 
-            if (!string.IsNullOrWhiteSpace(model))
-            {
-                query = query.Where(v => string.Equals(v.Model, model, StringComparison.OrdinalIgnoreCase));
-            }
-
-            if (year.HasValue)
-            {
-                query = query.Where(v => v.Year == year.Value);
-            }
-
-            if (!string.IsNullOrWhiteSpace(titleStatus))
-            {
-                query = query.Where(v => string.Equals(v.TitleStatus, titleStatus, StringComparison.OrdinalIgnoreCase));
-            }
-
-            var filtered = query.ToList();
-            var totalCount = filtered.Count;
-            var pageItems = filtered
-                .Skip((Math.Max(page, 1) - 1) * Math.Max(pageSize, 1))
-                .Take(Math.Max(pageSize, 1))
+            var filtered = _vehicles
+                .Where(v =>
+                    (string.IsNullOrEmpty(make) || v.Make == make) &&
+                    (string.IsNullOrEmpty(model) || v.Model == model) &&
+                    (!year.HasValue || v.Year == year.Value) &&
+                    (string.IsNullOrEmpty(titleStatus) || v.TitleStatus == titleStatus))
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
                 .ToList();
 
-            return Task.FromResult(((IReadOnlyList<Vehicle>)pageItems, totalCount));
+            return Task.FromResult(((IReadOnlyList<Vehicle>)filtered, filtered.Count));
         }
     }
 }

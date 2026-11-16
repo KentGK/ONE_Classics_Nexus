@@ -72,11 +72,10 @@ public sealed class ConditionScoreApiService : IConditionScoreApiService
             request.IsRedFlag,
             request.Notes);
 
-        inspection.AddConditionScore(score);
-
-        // Save scores through repository
-        await _inspectionRepository.UpdateAsync(
-            inspection,
+        inspection.ConditionScores.Add(score);
+        await _inspectionRepository.SaveScoresAsync(
+            inspectionId,
+            inspection.ConditionScores,
             cancellationToken);
 
         return MapToResponse(score);
@@ -107,8 +106,9 @@ public sealed class ConditionScoreApiService : IConditionScoreApiService
             request.IsRedFlag,
             request.Notes);
 
-        await _inspectionRepository.UpdateAsync(
-            inspection,
+        await _inspectionRepository.SaveScoresAsync(
+            inspectionId,
+            inspection.ConditionScores,
             cancellationToken);
 
         return true;
@@ -132,19 +132,10 @@ public sealed class ConditionScoreApiService : IConditionScoreApiService
         if (score is null)
             return false;
 
-        // Remove score and save
-        var scoreToRemove = inspection.ConditionScores.FirstOrDefault(s => s.ConditionScoreId == scoreId);
-        if (scoreToRemove != null)
-        {
-            // Use the existing AddConditionScore pattern, but for removal, access the private list via reflection or, preferably, add a Remove method to Inspection.
-            // Since you cannot access the private list directly, you should add a RemoveConditionScore method to the Inspection class.
-            // For now, you can remove the score from the collection if you have access, or request to add such a method to the domain model.
-            // Here is a placeholder for the correct domain-driven approach:
-            inspection.RemoveConditionScore(scoreToRemove);
-        }
-
-        await _inspectionRepository.UpdateAsync(
-            inspection,
+        inspection.ConditionScores.Remove(score);
+        await _inspectionRepository.SaveScoresAsync(
+            inspectionId,
+            inspection.ConditionScores,
             cancellationToken);
 
         return true;

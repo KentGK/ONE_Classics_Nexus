@@ -1,4 +1,4 @@
-﻿using ONE_Classics_Nexus.Application.DTOs;
+using ONE_Classics_Nexus.Application.DTOs;
 using ONE_Classics_Nexus.Domain.Entities;
 using System.Linq;
 

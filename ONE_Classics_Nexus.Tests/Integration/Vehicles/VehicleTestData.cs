@@ -1,4 +1,4 @@
-﻿using ONE_Classics_Nexus.Domain.Entities;
+using ONE_Classics_Nexus.Domain.Entities;
 
 namespace ONE_Classics_Nexus.Tests.Integration.Vehicles
 {

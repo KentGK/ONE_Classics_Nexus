@@ -1,4 +1,4 @@
-﻿using ONE_Classics_Nexus.WinForms.Models.AppraisalRequests;
+using ONE_Classics_Nexus.WinForms.Models.AppraisalRequests;
 using System;
 using System.Collections.Generic;
 using System.Globalization;

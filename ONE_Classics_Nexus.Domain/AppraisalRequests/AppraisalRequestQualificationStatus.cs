@@ -1,4 +1,4 @@
-﻿namespace ONE_Classics_Nexus.Domain.AppraisalRequests;
+namespace ONE_Classics_Nexus.Domain.AppraisalRequests;
 
 public enum AppraisalRequestQualificationStatus
 {

@@ -1,4 +1,4 @@
-﻿// Import custom middleware for centralized error handling
+// Import custom middleware for centralized error handling
 using ONE_Classics_Nexus.API.Middleware;
 
 // Import Infrastructure DI extension (registers DB, repositories, handlers)
@@ -69,3 +69,5 @@ app.MapControllers();
 
 // Starts the web server (Kestrel) and begins listening for HTTP requests
 app.Run();
+
+public partial class Program { }

@@ -1,4 +1,4 @@
-﻿namespace ONE_Classics_Nexus.WinForms.Controls.Navigation
+namespace ONE_Classics_Nexus.WinForms.Controls.Navigation
 {
     public partial class SideNavItemControl : UserControl
     {

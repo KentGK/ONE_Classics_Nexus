@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using ONE_Classics_Nexus.Application.Abstractions.Repositories;
 using ONE_Classics_Nexus.Application.Abstractions.Services;
@@ -23,7 +23,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IDbConnectionFactory, MariaDbOpenConnectionFactory>();
         services.AddScoped<IVehicleRepository, Repositories.Vehicle.VehicleRepository>();
         services.AddScoped<IAppraisalRepository, AppraisalRepository>();
-        services.AddScoped<IInspectionRepository, InspectionRepository>();
+        services.AddInspectionRepositories();
 
         services.AddScoped<CreateVehicleHandler>();
         services.AddScoped<CreateAppraisalHandler>();

@@ -1,4 +1,4 @@
-﻿using Dapper;
+using Dapper;
 using System.Data;
 using ONE_Classics_Nexus.Application.Abstractions.Repositories;
 using ONE_Classics_Nexus.Infrastructure.Database;
@@ -155,14 +155,41 @@ public sealed class InspectionRepository : IInspectionRepository
             WHERE inspection_id = @InspectionId;
             """;
 
+        const string scoresSql = """
+            SELECT
+                condition_score_id AS ConditionScoreId,
+                inspection_id AS InspectionId,
+                system_number AS SystemNumber,
+                system_key AS SystemKey,
+                score_0_to_5 AS Score0To5,
+                weight AS Weight,
+                is_red_flag AS IsRedFlag,
+                notes AS Notes
+            FROM condition_scores
+            WHERE inspection_id = @InspectionId
+            ORDER BY system_number;
+            """;
+
         await using var conn = _factory.Create();
         await conn.OpenAsync(cancellationToken);
 
-        return await conn.QuerySingleOrDefaultAsync<InspectionEntity>(
+        var inspection = await conn.QuerySingleOrDefaultAsync<InspectionEntity>(
             new CommandDefinition(
                 sql,
                 new { InspectionId = inspectionId.ToString() },
                 cancellationToken: cancellationToken));
+
+        if (inspection is null)
+            return null;
+
+        var scores = await conn.QueryAsync<ConditionScore>(
+            new CommandDefinition(
+                scoresSql,
+                new { InspectionId = inspectionId.ToString() },
+                cancellationToken: cancellationToken));
+
+        inspection.ConditionScores = scores.ToList();
+        return inspection;
     }
 
     public async Task<IReadOnlyList<InspectionEntity>> GetByAppraisalIdAsync(

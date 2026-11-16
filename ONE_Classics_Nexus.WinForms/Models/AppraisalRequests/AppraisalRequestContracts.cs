@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace ONE_Classics_Nexus.WinForms.Models.AppraisalRequests;

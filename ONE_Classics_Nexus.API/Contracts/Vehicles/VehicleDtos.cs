@@ -1,4 +1,4 @@
-﻿namespace ONE_Classics_Nexus.API.Contracts.Vehicles;
+namespace ONE_Classics_Nexus.API.Contracts.Vehicles;
 
 public sealed class CreateVehicleRequest
 {
@@ -209,7 +209,7 @@ public sealed class VehicleHistoryResponse
     public Guid VehicleId { get; set; }
     public IReadOnlyList<VehicleHistoryEventResponse> Events { get; set; } = Array.Empty<VehicleHistoryEventResponse>();
 }
-   
+
 public sealed class VehicleHistoryEventResponse
 {
     public string EventType { get; set; } = string.Empty;

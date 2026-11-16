@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using ONE_Classics_Nexus.API.ApplicationPorts;
 using ONE_Classics_Nexus.API.Contracts.Valuation;
 
